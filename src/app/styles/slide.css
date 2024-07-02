@@ -1,0 +1,15 @@
+.swiper-pagination {
+  width: 50% !important;
+  padding: 4px !important;
+  border-radius: 10px !important;
+  bottom: 0px !important;
+  top: auto !important;
+  position: relative;
+  margin-top: 40px;
+  left: 23.4vw !important;
+  background-color: transparent;
+}
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background: #fbce12;
+  border-radius: 10px !important;
+}

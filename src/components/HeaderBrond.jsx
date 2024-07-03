@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import * as React from "react";
-
 import {
   Select,
   SelectContent,
@@ -22,15 +21,13 @@ const HeaderBrond = () => {
         alt="LogoSite"
       />
       <Select>
-        <SelectTrigger className="w-[170px]">
-          <SelectValue placeholder="Select a Language" />
+        <SelectTrigger className="w-[130px] bg-inherit text-white	">
+          <SelectValue placeholder="language" />
         </SelectTrigger>
-        <SelectContent>
-          <SelectGroup>
-            <SelectItem value="english">English</SelectItem>
-            <SelectItem value="kurdish">Kurdish</SelectItem>
-            <SelectItem value="arabic">Arabic</SelectItem>
-          </SelectGroup>
+        <SelectContent className="bg-inherit text-white">
+          <SelectItem value="english">English</SelectItem>
+          <SelectItem value="kurdish">Kurdish</SelectItem>
+          <SelectItem value="arabic">Arabic</SelectItem>
         </SelectContent>
       </Select>
     </div>

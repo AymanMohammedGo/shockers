@@ -13,3 +13,6 @@
   background: #fbce12;
   border-radius: 10px !important;
 }
+.height_40px {
+  height: calc(100vh - 104px);
+}

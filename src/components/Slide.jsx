@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import Image from "next/image";
 import { Pagination } from "swiper/modules";
-import "@/app/styles/slide.css";
+import "@/styles/slide.css";
 const MySwiper = () => {
   const swiperRef = useRef(null);
   const isDelay = useRef(false);
@@ -38,7 +38,7 @@ const MySwiper = () => {
   }, []);
 
   return (
-    <div className="w-screen h-screen flex justify-items-center	 items-center bg-slate-950		">
+    <div className="w-screen height_40px flex justify-items-center	 items-center 		">
       <Swiper
         modules={[Pagination]}
         ref={swiperRef}

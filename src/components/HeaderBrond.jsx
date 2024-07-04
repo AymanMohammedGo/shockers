@@ -1,17 +1,13 @@
 "use client";
 import Image from "next/image";
 import * as React from "react";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+
+import { useTranslation } from "react-i18next";
+import LanguageChanger from "./ui/LanguageChanger";
 
 const HeaderBrond = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex items-center justify-between my-8 mx-6">
       <Image
@@ -20,16 +16,7 @@ const HeaderBrond = () => {
         src="/assets/LogoSite.svg"
         alt="LogoSite"
       />
-      <Select>
-        <SelectTrigger className="w-[130px] bg-inherit text-white	">
-          <SelectValue placeholder="language" />
-        </SelectTrigger>
-        <SelectContent className="bg-inherit text-white">
-          <SelectItem value="english">English</SelectItem>
-          <SelectItem value="kurdish">Kurdish</SelectItem>
-          <SelectItem value="arabic">Arabic</SelectItem>
-        </SelectContent>
-      </Select>
+      <LanguageChanger />
     </div>
   );
 };

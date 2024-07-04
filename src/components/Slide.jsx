@@ -12,13 +12,23 @@ const MySwiper = () => {
   useEffect(() => {
     const handleMouseMove = (event) => {
       const { clientX } = event;
+      const isRTL = document.documentElement.dir === "rtl";
 
       if (!isDelay.current) {
         if (clientX >= window.innerWidth - 10) {
-          swiperRef.current.swiper.slideNext();
+          if (isRTL) {
+            swiperRef.current.swiper.slidePrev();
+          } else {
+            swiperRef.current.swiper.slideNext();
+          }
+
           startThrottle();
         } else if (clientX <= 10) {
-          swiperRef.current.swiper.slidePrev();
+          if (isRTL) {
+            swiperRef.current.swiper.slideNext();
+          } else {
+            swiperRef.current.swiper.slidePrev();
+          }
           startThrottle();
         }
       }
@@ -40,6 +50,7 @@ const MySwiper = () => {
   return (
     <div className="w-screen height_40px flex justify-items-center	 items-center 		">
       <Swiper
+        className="cursor-pointer	"
         modules={[Pagination]}
         ref={swiperRef}
         spaceBetween={30}

@@ -1,6 +1,6 @@
 import TranslationsProvider from "@/components/TranslationsProvider";
-import HeaderBrond from "../../components/HeaderBrond";
-import MySwiper from "../../components/Slide";
+import HeaderBrond from "../../components/BrondHome/HeaderBrond";
+import MySwiper from "../../components/BrondHome/SlideBrond";
 import initTranslations from "../i18n";
 
 const i18nNamespaces = ["Home"];

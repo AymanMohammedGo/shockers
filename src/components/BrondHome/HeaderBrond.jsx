@@ -3,7 +3,7 @@ import Image from "next/image";
 import * as React from "react";
 
 import { useTranslation } from "react-i18next";
-import LanguageChanger from "./ui/LanguageChanger";
+import LanguageChanger from "./LanguageChanger";
 
 const HeaderBrond = () => {
   const { t } = useTranslation();

@@ -21,7 +21,7 @@ const Home = () => {
       {/* {isVideoEnded ? (
         <LoadingVideo URL="/video.mp4" setIsVideoEnded={setIsVideoEnded} />
       ) : ( */}
-      <main className="min-h-screen  bg-slate-950 ">
+      <main className="min-h-screen  bg-primary ">
         {/* <HeaderBrond /> */}
         {/* <MySwiper /> */}
         {/* <div className="flex items-center justify-center flex-wrap gap-2 py-8"> */}
@@ -46,20 +46,20 @@ const Home = () => {
                     width={350}
                     height={350}
                     onLoad={() => setIsLoaded(true)}
-                    src="/assets/logo.jpg"
+                    src="/assets/shockers.jpg"
                     alt=""
                   />
                   <div className="absolute  top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                     <Image
                       className="w-full h-full object-cover"
-                      src="/assets/hover.jpg"
+                      src="/assets/logo.jpg"
                       alt="hovered image"
                       width={350}
                       height={350}
                     />
-                    <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
+                    {/* <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
                       Architectural
-                    </div>
+                    </div> */}
                   </div>
                 </Link>
               </div>
@@ -83,20 +83,20 @@ const Home = () => {
                     width={350}
                     height={350}
                     onLoad={() => setIsLoaded(true)}
-                    src="/assets/logo.jpg"
+                    src="/assets/BAYTUNA.jpg"
                     alt=""
                   />
                   <div className="absolute  top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                     <Image
                       className="w-full h-full object-cover"
-                      src="/assets/hover.jpg"
+                      src="/assets/BAYTUNA1.jpg"
                       alt="hovered image"
                       width={350}
                       height={350}
                     />
-                    <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
+                    {/* <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
                       Architectural
-                    </div>
+                    </div> */}
                   </div>
                 </Link>
               </div>
@@ -120,20 +120,20 @@ const Home = () => {
                     width={350}
                     height={350}
                     onLoad={() => setIsLoaded(true)}
-                    src="/assets/logo.jpg"
+                    src="/assets/YARD.jpg"
                     alt=""
                   />
                   <div className="absolute  top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                     <Image
                       className="w-full h-full object-cover"
-                      src="/assets/hover.jpg"
+                      src="/assets/YARD1.jpg"
                       alt="hovered image"
                       width={350}
                       height={350}
                     />
-                    <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
+                    {/* <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
                       Architectural
-                    </div>
+                    </div> */}
                   </div>
                 </Link>
               </div>
@@ -157,20 +157,20 @@ const Home = () => {
                     width={350}
                     height={350}
                     onLoad={() => setIsLoaded(true)}
-                    src="/assets/logo.jpg"
+                    src="/assets/ECA.jpg"
                     alt=""
                   />
                   <div className="absolute  top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                     <Image
                       className="w-full h-full object-cover"
-                      src="/assets/hover.jpg"
+                      src="/assets/ECA1.jpg"
                       alt="hovered image"
                       width={350}
                       height={350}
                     />
-                    <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
+                    {/* <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
                       Architectural
-                    </div>
+                    </div> */}
                   </div>
                 </Link>
               </div>
@@ -194,20 +194,20 @@ const Home = () => {
                     width={350}
                     height={350}
                     onLoad={() => setIsLoaded(true)}
-                    src="/assets/logo.jpg"
+                    src="/assets/YMARKETING.jpg"
                     alt=""
                   />
                   <div className="absolute  top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                     <Image
                       className="w-full h-full object-cover"
-                      src="/assets/hover.jpg"
+                      src="/assets/YMARKETING1.png"
                       alt="hovered image"
                       width={350}
                       height={350}
                     />
-                    <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
+                    {/* <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
                       Architectural
-                    </div>
+                    </div> */}
                   </div>
                 </Link>
               </div>
@@ -231,20 +231,20 @@ const Home = () => {
                     width={350}
                     height={350}
                     onLoad={() => setIsLoaded(true)}
-                    src="/assets/logo.jpg"
+                    src="/assets/SHOCKY.jpg"
                     alt=""
                   />
                   <div className="absolute  top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                     <Image
                       className="w-full h-full object-cover"
-                      src="/assets/hover.jpg"
+                      src="/assets/Shocky1.png"
                       alt="hovered image"
                       width={350}
                       height={350}
                     />
-                    <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
+                    {/* <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
                       Architectural
-                    </div>
+                    </div> */}
                   </div>
                 </Link>
               </div>

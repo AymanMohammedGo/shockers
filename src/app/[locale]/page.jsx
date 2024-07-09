@@ -6,7 +6,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import LoadingVideo from "../../components/LoadingVideo";
-import SelectLanguage from "@/components/selectLanguage";
+import SelectLanguage from "@/components/SelectLanguage";
 const hiddenMask = `repeating-linear-gradient(to top  , rgba(0,0,0,0) 0px, rgba(0,0,0,0) 20px, rgba(0,0,0,1) 20px, rgba(0,0,0,1) 20px)`;
 const visibleMask = `repeating-linear-gradient(to top  , rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 20px)`;
 
@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <>
-      <SelectLanguage />
+      {/* <SelectLanguage /> */}
       {/* {isVideoEnded ? (
         <LoadingVideo URL="/video.mp4" setIsVideoEnded={setIsVideoEnded} />
       ) : ( */}

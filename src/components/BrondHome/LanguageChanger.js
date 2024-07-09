@@ -56,7 +56,7 @@ export default function LanguageChanger() {
         <option value="ar">{t("Arabic")}</option>
       </select> */}
       <Select onValueChange={handleChange} defaultValue={currentLocale}>
-        <SelectTrigger className="w-[130px]">
+        <SelectTrigger className="w-[140px]">
           <SelectValue placeholder="Select" />
         </SelectTrigger>
         <SelectContent>
@@ -129,7 +129,7 @@ export default function LanguageChanger() {
                     opacity=".2"
                   ></path>
                 </svg>
-                <span className="mx-2">{t("English")}</span>
+                <span className="mx-2 text-center">{t("English")}</span>
               </div>
             </SelectItem>
             <SelectItem value="kr">
@@ -224,7 +224,7 @@ export default function LanguageChanger() {
                     opacity=".2"
                   ></path>
                 </svg>
-                <span className="mx-2"> {t("Kurdish")}</span>
+                <span className="mx-2 text-center"> {t("Kurdish")}</span>
               </div>
             </SelectItem>
             <SelectItem value="ar">
@@ -270,7 +270,7 @@ export default function LanguageChanger() {
                     opacity=".2"
                   ></path>
                 </svg>
-                <span className="mx-2"> {t("Arabic")}</span>
+                <span className="mx-2 text-center"> {t("Arabic")}</span>
               </div>
             </SelectItem>
           </SelectGroup>

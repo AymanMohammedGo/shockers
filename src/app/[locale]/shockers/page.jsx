@@ -10,7 +10,7 @@ const ShockersHome = () => {
       {isVideoEnded ? (
         <LoadingVideo URL="/video.mp4" setIsVideoEnded={setIsVideoEnded} />
       ) : (
-        <Header />
+        <Header  />
       )}
     </>
   );

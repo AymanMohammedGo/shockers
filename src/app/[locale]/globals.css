@@ -74,3 +74,11 @@
     @apply bg-background text-foreground;
   }
 }
+::-webkit-scrollbar {
+  width: 10px;
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  background: #fbce12;
+  border-radius: 15px;
+}

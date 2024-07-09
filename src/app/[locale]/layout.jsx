@@ -19,14 +19,16 @@ export default async function RootLayout({ children, params: { locale } }) {
   const { t, resources } = await initTranslations(locale, i18nNamespaces);
 
   return (
-    <TranslationsProvider
-      resources={resources}
-      locale={locale}
-      namespaces={i18nNamespaces}
-    >
-      <html lang={locale} dir={dir(locale)}>
-        <body className={inter.className}>{children}</body>
-      </html>
-    </TranslationsProvider>
+    <html lang={locale} dir={dir(locale)}>
+      <body className={inter.className}>
+        <TranslationsProvider
+          resources={resources}
+          locale={locale}
+          namespaces={i18nNamespaces}
+        >
+          {children}
+        </TranslationsProvider>
+      </body>
+    </html>
   );
 }

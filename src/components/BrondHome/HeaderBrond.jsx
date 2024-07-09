@@ -9,7 +9,7 @@ const HeaderBrond = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex items-center justify-between my-8 mx-6">
+    <div className="flex  items-center justify-between py-8 px-6">
       <Image
         width={150}
         height={60}

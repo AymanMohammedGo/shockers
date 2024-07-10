@@ -26,7 +26,7 @@ const Home = () => {
         {/* <MySwiper /> */}
         {/* <div className="flex items-center justify-center flex-wrap gap-2 py-8"> */}
         <div class="flex items-center justify-center min-h-screen">
-          <div className="grid  items-center justify-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:mx-40  gap-2 ">
+          <div className="grid  items-center justify-center grid-cols-2  md:grid-cols-3   gap-2 ">
             <motion.div
               className="flex items-center justify-center"
               initial={false}
@@ -40,19 +40,19 @@ const Home = () => {
               onViewportEnter={() => setIsInView(true)}
             >
               <div className="relative w-full h-full">
-                <Link href="./shockers">
+                <Link href="#">
                   <Image
                     className="w-full h-full object-cover"
                     width={350}
                     height={350}
                     onLoad={() => setIsLoaded(true)}
-                    src="/assets/shockers.jpg"
+                    src="/assets/SHOCKERS.jpg"
                     alt=""
                   />
                   <div className="absolute  top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                     <Image
                       className="w-full h-full object-cover"
-                      src="/assets/logo.jpg"
+                      src="/assets/SHOCKERS1.jpg"
                       alt="hovered image"
                       width={350}
                       height={350}
@@ -77,7 +77,7 @@ const Home = () => {
               onViewportEnter={() => setIsInView(true)}
             >
               <div className="relative w-full h-full">
-                <Link href="./shockers">
+                <Link href="#">
                   <Image
                     className="w-full h-full object-cover"
                     width={350}
@@ -114,7 +114,7 @@ const Home = () => {
               onViewportEnter={() => setIsInView(true)}
             >
               <div className="relative w-full h-full">
-                <Link href="./shockers">
+                <Link href="#">
                   <Image
                     className="w-full h-full object-cover"
                     width={350}
@@ -151,7 +151,7 @@ const Home = () => {
               onViewportEnter={() => setIsInView(true)}
             >
               <div className="relative w-full h-full">
-                <Link href="./shockers">
+                <Link href="#">
                   <Image
                     className="w-full h-full object-cover"
                     width={350}
@@ -188,7 +188,7 @@ const Home = () => {
               onViewportEnter={() => setIsInView(true)}
             >
               <div className="relative w-full h-full">
-                <Link href="./shockers">
+                <Link href="#">
                   <Image
                     className="w-full h-full object-cover"
                     width={350}
@@ -225,7 +225,7 @@ const Home = () => {
               onViewportEnter={() => setIsInView(true)}
             >
               <div className="relative w-full h-full">
-                <Link href="./shockers">
+                <Link href="#">
                   <Image
                     className="w-full h-full object-cover"
                     width={350}

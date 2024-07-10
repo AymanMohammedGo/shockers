@@ -25,8 +25,8 @@ const Home = () => {
           <div className="grid relative  items-center justify-center grid-cols-2  md:grid-cols-3  ">
             <div className="flex items-center justify-center overflow-hidden">
               <motion.div
-                initial={{ x: "-100%" }} // يجعل العنصر خارج الشاشة من البداية
-                animate={{ x: "0%" }} // حركة العنصر من اليسار إلى اليمين
+                initial={{ opacity: 0, scale: 0 }} // يجعل العنصر صغيراً وغير مرئي من البداية
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{
                   duration: 1,
                   delay: 2,
@@ -58,8 +58,8 @@ const Home = () => {
             </div>
             <div className="flex items-center justify-center overflow-hidden">
               <motion.div
-                initial={{ x: "-100%" }} // يجعل العنصر خارج الشاشة من البداية
-                animate={{ x: "0%" }} // حركة العنصر من اليسار إلى اليمين
+                initial={{ opacity: 0, scale: 0 }} // يجعل العنصر صغيراً وغير مرئي من البداية
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{
                   duration: 1,
                   delay: 2,
@@ -91,8 +91,8 @@ const Home = () => {
             </div>
             <div className="flex items-center justify-center overflow-hidden">
               <motion.div
-                initial={{ x: "-100%" }} // يجعل العنصر خارج الشاشة من البداية
-                animate={{ x: "0%" }} // حركة العنصر من اليسار إلى اليمين
+                initial={{ opacity: 0, scale: 0 }} // يجعل العنصر صغيراً وغير مرئي من البداية
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{
                   duration: 1,
                   delay: 2,
@@ -124,8 +124,8 @@ const Home = () => {
             </div>
             <div className="flex items-center justify-center overflow-hidden">
               <motion.div
-                initial={{ x: "-100%" }} // يجعل العنصر خارج الشاشة من البداية
-                animate={{ x: "0%" }} // حركة العنصر من اليسار إلى اليمين
+                initial={{ opacity: 0, scale: 0 }} // يجعل العنصر صغيراً وغير مرئي من البداية
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{
                   duration: 1,
                   delay: 2,
@@ -158,8 +158,8 @@ const Home = () => {
             <div className="flex items-center justify-center h-full overflow-hidden">
               <motion.div
                 className="relative w-full h-full"
-                initial={{ x: "-100%" }} // يجعل العنصر خارج الشاشة من البداية
-                animate={{ x: "0%" }} // حركة العنصر من اليسار إلى اليمين
+                initial={{ opacity: 0, scale: 0 }} // يجعل العنصر صغيراً وغير مرئي من البداية
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{
                   duration: 1,
                   delay: 2,
@@ -190,8 +190,8 @@ const Home = () => {
             </div>
             <div className="flex items-center justify-center h-full overflow-hidden">
               <motion.div
-                initial={{ x: "-100%" }} // يجعل العنصر خارج الشاشة من البداية
-                animate={{ x: "0%" }} // حركة العنصر من اليسار إلى اليمين
+                initial={{ opacity: 0, scale: 0 }} // يجعل العنصر صغيراً وغير مرئي من البداية
+                animate={{ opacity: 1, scale: 1 }} // يكبر العنصر ويجعله مرئيًا
                 transition={{
                   duration: 1,
                   delay: 2,

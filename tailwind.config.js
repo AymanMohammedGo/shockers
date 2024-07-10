@@ -16,12 +16,14 @@ module.exports = {
       md: "768px",
       lg: "960px",
       xl: "1200px",
+      xxl: "1600px",
+      xxxl: "2000px",
     },
 
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#231f20",
+          DEFAULT: "#e4e4e4",
         },
       },
     },

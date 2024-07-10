@@ -12,7 +12,7 @@ const Header = () => {
               <Image
                 width={150}
                 height={60}
-                src="/assets/LogoSite.svg"
+                src="/assets/LogoShocker.png"
                 alt="LogoSite"
               />
             </a>

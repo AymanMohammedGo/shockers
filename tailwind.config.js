@@ -25,6 +25,12 @@ module.exports = {
         primary: {
           DEFAULT: "#e4e4e4",
         },
+        seconds: {
+          DEFAULT: "#2c2926",
+        },
+        shockerYellow: {
+          DEFAULT: "#fdcf00",
+        },
       },
     },
   },

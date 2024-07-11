@@ -25,15 +25,15 @@ const Home = () => {
           <div className="grid relative  items-center justify-center grid-cols-2  md:grid-cols-3  ">
             <div className="flex items-center justify-center overflow-hidden">
               <motion.div
-                initial={{ opacity: 0, scale: 0 }} // يجعل العنصر صغيراً وغير مرئي من البداية
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{
                   duration: 1,
-                  delay: 2,
+                  delay: 0.5,
                 }}
                 className="relative w-full h-full"
               >
-                <Link href="#">
+                <Link href="./shockers">
                   <Image
                     className="w-full h-full object-cover"
                     width={350}
@@ -58,11 +58,11 @@ const Home = () => {
             </div>
             <div className="flex items-center justify-center overflow-hidden">
               <motion.div
-                initial={{ opacity: 0, scale: 0 }} // يجعل العنصر صغيراً وغير مرئي من البداية
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{
-                  duration: 1,
-                  delay: 2,
+                  duration: 2,
+                  delay: 1,
                 }}
                 className="relative w-full h-full"
               >
@@ -91,11 +91,11 @@ const Home = () => {
             </div>
             <div className="flex items-center justify-center overflow-hidden">
               <motion.div
-                initial={{ opacity: 0, scale: 0 }} // يجعل العنصر صغيراً وغير مرئي من البداية
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{
-                  duration: 1,
-                  delay: 2,
+                  duration: 2,
+                  delay: 1.5,
                 }}
                 className="relative w-full h-full"
               >
@@ -124,10 +124,10 @@ const Home = () => {
             </div>
             <div className="flex items-center justify-center overflow-hidden">
               <motion.div
-                initial={{ opacity: 0, scale: 0 }} // يجعل العنصر صغيراً وغير مرئي من البداية
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{
-                  duration: 1,
+                  duration: 2,
                   delay: 2,
                 }}
                 className="relative w-full h-full"
@@ -158,11 +158,11 @@ const Home = () => {
             <div className="flex items-center justify-center h-full overflow-hidden">
               <motion.div
                 className="relative w-full h-full"
-                initial={{ opacity: 0, scale: 0 }} // يجعل العنصر صغيراً وغير مرئي من البداية
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{
-                  duration: 1,
-                  delay: 2,
+                  duration: 2,
+                  delay: 2.5,
                 }}
               >
                 <Link href="#">
@@ -190,11 +190,11 @@ const Home = () => {
             </div>
             <div className="flex items-center justify-center h-full overflow-hidden">
               <motion.div
-                initial={{ opacity: 0, scale: 0 }} // يجعل العنصر صغيراً وغير مرئي من البداية
-                animate={{ opacity: 1, scale: 1 }} // يكبر العنصر ويجعله مرئيًا
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{
-                  duration: 1,
-                  delay: 2,
+                  duration: 2,
+                  delay: 3,
                 }}
                 className="relative w-full h-full"
               >
@@ -223,9 +223,20 @@ const Home = () => {
             </div>
             {/* gap */}
             <motion.div
-              className="gap-animation  hidden md:flex bg-black h-[6px] absolute z-10 left-1/2"
+              className="gap-animation  hidden md:flex bg-black h-[5px] absolute z-10 left-0"
               animate={{
-                width: ["0%", "50%"], // حركة الـ gap من اليسار إلى اليمين
+                width: ["0%", "100%"],
+              }}
+              transition={{
+                duration: 1.5,
+                delay: 0.5,
+              }}
+            />
+
+            <motion.div
+              className="gap-animation hidden md:flex bg-black w-[5px] absolute top-0 left-1/3 z-10"
+              animate={{
+                height: ["0%", "100%"],
               }}
               transition={{
                 duration: 1,
@@ -233,64 +244,44 @@ const Home = () => {
               }}
             />
             <motion.div
-              className="gap-animation hidden md:flex bg-black h-[6px] absolute z-10 right-1/2"
+              className="gap-animation hidden md:flex bg-black w-[5px] absolute top-0 right-1/3 z-10"
               animate={{
-                width: ["0%", "50%"], // حركة الـ gap من اليسار إلى اليمين
+                height: ["0%", "100%"],
               }}
               transition={{
                 duration: 1,
-                delay: 1,
-              }}
-            />
-            <motion.div
-              className="gap-animation hidden md:flex bg-black w-[6px] absolute left-1/3 z-10"
-              animate={{
-                height: ["0%", "100%"], // حركة الـ gap من اليسار إلى اليمين
-              }}
-              transition={{
-                duration: 1,
-                delay: 1,
-              }}
-            />
-            <motion.div
-              className="gap-animation hidden md:flex bg-black w-[6px] absolute right-1/3 z-10"
-              animate={{
-                height: ["0%", "100%"], // حركة الـ gap من اليسار إلى اليمين
-              }}
-              transition={{
-                duration: 1,
-                delay: 1,
+                delay: 1.5,
               }}
             />
             {/* gap Mobile*/}
             <motion.div
               className="gap-animation  flex md:hidden bg-black h-[4px] absolute z-10 top-1/3"
               animate={{
-                width: ["0%", "100%"], // حركة الـ gap من اليسار إلى اليمين
+                width: ["0%", "100%"], // حرك الـ gap من اليسار إلى اليمين
               }}
               transition={{
                 duration: 1,
-                delay: 1,
+                delay: 0.5,
               }}
             />
             <motion.div
               className="gap-animation  flex md:hidden bg-black h-[4px] absolute z-10 bottom-1/3"
               animate={{
-                width: ["0%", "100%"], // حركة الـ gap من اليسار إلى اليمين
+                width: ["0%", "100%"], // حرك الـ gap من اليسار إلى اليمين
               }}
               transition={{
                 duration: 1,
-                delay: 1,
+                delay: 1.5,
               }}
             />
             <motion.div
-              className="gap-animation ro  flex md:hidden bg-black w-[4px] absolute z-10 left-1/2"
+              className="gap-animation ro  flex md:hidden bg-black w-[4px] absolute z-10 left-1/2 top-0"
               animate={{
-                height: ["0%", "100%"], // حركة الـ gap من اليسار إلى اليمين
+                height: ["0%", "100%"], // حرك الـ gap من اليسار إلى اليمين
               }}
               transition={{
-                duration: 1,
-                delay: 1,
+                duration: 3,
+                delay: 0.5,
               }}
             />
           </div>

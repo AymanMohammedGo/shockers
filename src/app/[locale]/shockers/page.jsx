@@ -7,11 +7,12 @@ const ShockersHome = () => {
 
   return (
     <>
-      {isVideoEnded ? (
+      {/* {isVideoEnded ? (
         <LoadingVideo URL="/video.mp4" setIsVideoEnded={setIsVideoEnded} />
-      ) : (
-        <Header  />
-      )}
+      ) : ( */}
+      <Header />
+      <h1>sfdf</h1>
+      {/* )} */}
     </>
   );
 };

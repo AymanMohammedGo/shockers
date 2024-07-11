@@ -56,12 +56,12 @@ export default function LanguageChanger() {
         <option value="ar">{t("Arabic")}</option>
       </select> */}
       <Select onValueChange={handleChange} defaultValue={currentLocale}>
-        <SelectTrigger className="w-[140px]">
+        <SelectTrigger style={{ boxShadow: "none" }} className="  w-[140px]">
           <SelectValue placeholder="Select" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            <SelectItem value="en">
+            <SelectItem value="en" className="cursor-pointer">
               <div class="flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +132,7 @@ export default function LanguageChanger() {
                 <span className="mx-2 text-center">{t("English")}</span>
               </div>
             </SelectItem>
-            <SelectItem value="kr">
+            <SelectItem value="kr" className="cursor-pointer">
               <div class="flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -227,7 +227,7 @@ export default function LanguageChanger() {
                 <span className="mx-2 text-center"> {t("Kurdish")}</span>
               </div>
             </SelectItem>
-            <SelectItem value="ar">
+            <SelectItem value="ar" className="cursor-pointer">
               <div class="flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

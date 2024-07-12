@@ -33,7 +33,7 @@ const Home = () => {
                 }}
                 className="relative w-full h-full"
               >
-                <Link href="./shockers">
+                <Link href="#">
                   <Image
                     className="w-full h-full object-cover"
                     width={350}

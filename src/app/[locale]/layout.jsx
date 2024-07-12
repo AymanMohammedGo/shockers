@@ -1,4 +1,3 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import i18nConfig from "../../../i18nConfig";
 import { dir } from "i18next";
@@ -19,7 +18,7 @@ export default async function RootLayout({ children, params: { locale } }) {
 
   return (
     <html lang={locale} dir={dir(locale)}>
-      <body className="Shockers">
+      <body>
         <TranslationsProvider
           resources={resources}
           locale={locale}

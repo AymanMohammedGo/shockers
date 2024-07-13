@@ -55,7 +55,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="mt-20 text-center   md:text-start grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
+        <div className="mt-20 text-center   lg:text-start grid grid-cols-1 gap-8 lg:gap-x-[480px] md:grid-cols-2 lg:grid-cols-2">
           <div>
             <p className=" text-white text-xl font-semibold">Office</p>
 

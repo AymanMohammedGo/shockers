@@ -11,7 +11,7 @@ export default function SlideProject() {
   return (
     <>
       <Swiper
-        className="w-full h-full my-6 !p-2 max-w-screen-xxl"
+        className="w-full h-full mb-6 !p-2 max-w-screen-xxl"
         slidesPerView={2}
         spaceBetween={8}
         navigation={true}
@@ -136,7 +136,6 @@ export default function SlideProject() {
           </span>
         </SwiperSlide>
       </Swiper>
-      
     </>
   );
 }

@@ -9,6 +9,7 @@ import LoadingVideo from "../../components/LoadingVideo";
 
 const Home = () => {
   const [isVideoEnded, setIsVideoEnded] = useState(true);
+  const [hoveredIndex, setHoveredIndex] = useState(0);
 
   return (
     <>
@@ -22,8 +23,8 @@ const Home = () => {
         {/* <div className="flex items-center justify-center flex-wrap gap-2 py-8"> */}
 
         <div class="flex items-center justify-center min-h-screen">
-          <div className="grid relative  items-center justify-center grid-cols-2  md:grid-cols-3  ">
-            <div className="flex items-center justify-center overflow-hidden">
+          <div className="grid relative  items-center justify-center grid-cols-2  sm:grid-cols-3  ">
+            <div className="flex items-center justify-center ">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -33,15 +34,19 @@ const Home = () => {
                 }}
                 className="relative w-full h-full"
               >
-                <Link href="#">
+                <Link href="/shockersAEC">
                   <Image
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover "
                     width={350}
                     height={350}
                     src="/assets/SHOCKERS.jpg"
                     alt=""
                   />
-                  <div className="absolute  top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <div
+                    onMouseEnter={() => setHoveredIndex(1)}
+                    onMouseLeave={() => setHoveredIndex(0)}
+                    className="absolute top-0 overflow-hidden left-0 w-full h-full flex items-center justify-center opacity-0   hover:opacity-100 transition-opacity duration-300"
+                  >
                     <Image
                       className="w-full h-full object-cover"
                       src="/assets/SHOCKERS1.jpg"
@@ -49,14 +54,24 @@ const Home = () => {
                       width={350}
                       height={350}
                     />
-                    {/* <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
-                      Architectural
-                    </div> */}
+                    <motion.div
+                      initial={{ bottom: -30 }}
+                      animate={
+                        hoveredIndex === 1 ? { bottom: 0 } : { bottom: -30 }
+                      }
+                      transition={{
+                        duration: 1,
+                        delay: 0,
+                      }}
+                      className="absolute mb-3  text-center text-seconds text-sm sm:text-base md:text-xl overflow-hidden"
+                    >
+                      Dared to be shocked
+                    </motion.div>
                   </div>
                 </Link>
               </motion.div>
             </div>
-            <div className="flex items-center justify-center overflow-hidden">
+            <div className="flex items-center justify-center ">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -74,7 +89,11 @@ const Home = () => {
                     src="/assets/BAYTUNA.jpg"
                     alt=""
                   />
-                  <div className="absolute  top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <div
+                    onMouseEnter={() => setHoveredIndex(2)}
+                    onMouseLeave={() => setHoveredIndex(0)}
+                    className="absolute top-0 overflow-hidden left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+                  >
                     <Image
                       className="w-full h-full object-cover"
                       src="/assets/BAYTUNA1.jpg"
@@ -82,14 +101,24 @@ const Home = () => {
                       width={350}
                       height={350}
                     />
-                    {/* <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
-                      Architectural
-                    </div> */}
+                    <motion.div
+                      initial={{ bottom: -30 }}
+                      animate={
+                        hoveredIndex === 2 ? { bottom: -7 } : { bottom: -30 }
+                      }
+                      transition={{
+                        duration: 1,
+                        delay: 0,
+                      }}
+                      className="absolute mb-3  text-center text-white text-sm sm:text-base md:text-xl overflow-hidden"
+                    >
+                      When your house becomes <div>your home</div>
+                    </motion.div>
                   </div>
                 </Link>
               </motion.div>
             </div>
-            <div className="flex items-center justify-center overflow-hidden">
+            <div className="flex items-center justify-center ">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -107,7 +136,11 @@ const Home = () => {
                     src="/assets/YARD.jpg"
                     alt=""
                   />
-                  <div className="absolute  top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <div
+                    onMouseEnter={() => setHoveredIndex(3)}
+                    onMouseLeave={() => setHoveredIndex(0)}
+                    className="absolute top-0 overflow-hidden left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+                  >
                     <Image
                       className="w-full h-full object-cover"
                       src="/assets/YARD1.jpg"
@@ -115,14 +148,24 @@ const Home = () => {
                       width={350}
                       height={350}
                     />
-                    {/* <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
-                      Architectural
-                    </div> */}
+                    <motion.div
+                      initial={{ bottom: -30 }}
+                      animate={
+                        hoveredIndex === 3 ? { bottom: 0 } : { bottom: -30 }
+                      }
+                      transition={{
+                        duration: 1,
+                        delay: 0,
+                      }}
+                      className="absolute mb-3  text-center text-seconds text-sm sm:text-base md:text-xl overflow-hidden"
+                    >
+                      Ever green
+                    </motion.div>
                   </div>
                 </Link>
               </motion.div>
             </div>
-            <div className="flex items-center justify-center overflow-hidden">
+            <div className="flex items-center justify-center ">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -140,7 +183,11 @@ const Home = () => {
                     src="/assets/ECA.jpg"
                     alt=""
                   />
-                  <div className="absolute  top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <div
+                    onMouseEnter={() => setHoveredIndex(4)}
+                    onMouseLeave={() => setHoveredIndex(0)}
+                    className="absolute top-0 overflow-hidden left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+                  >
                     <Image
                       className="w-full h-full object-cover"
                       src="/assets/ECA1.jpg"
@@ -148,14 +195,24 @@ const Home = () => {
                       width={350}
                       height={350}
                     />
-                    {/* <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
-                      Architectural
-                    </div> */}
+                    <motion.div
+                      initial={{ bottom: -30 }}
+                      animate={
+                        hoveredIndex === 4 ? { bottom: 0 } : { bottom: -30 }
+                      }
+                      transition={{
+                        duration: 1,
+                        delay: 0,
+                      }}
+                      className="absolute mb-3  text-center text-white text-sm sm:text-base md:text-xl overflow-hidden"
+                    >
+                      where details matter
+                    </motion.div>
                   </div>
                 </Link>
               </motion.div>
             </div>
-            <div className="flex items-center justify-center h-full overflow-hidden">
+            <div className="flex items-center justify-center ">
               <motion.div
                 className="relative w-full h-full"
                 initial={{ opacity: 0 }}
@@ -173,7 +230,11 @@ const Home = () => {
                     src="/assets/YMARKETING.jpg"
                     alt=""
                   />
-                  <div className="absolute  top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <div
+                    onMouseEnter={() => setHoveredIndex(5)}
+                    onMouseLeave={() => setHoveredIndex(0)}
+                    className="absolute top-0 overflow-hidden left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+                  >
                     <Image
                       className="w-full h-full object-cover"
                       src="/assets/YMARKETING1.png"
@@ -181,14 +242,24 @@ const Home = () => {
                       width={350}
                       height={350}
                     />
-                    {/* <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
-                      Architectural
-                    </div> */}
+                    <motion.div
+                      initial={{ bottom: -30 }}
+                      animate={
+                        hoveredIndex === 5 ? { bottom: 0 } : { bottom: -30 }
+                      }
+                      transition={{
+                        duration: 1,
+                        delay: 0,
+                      }}
+                      className="absolute mb-3  text-center text-[#FECE00] text-sm sm:text-base md:text-xl overflow-hidden"
+                    >
+                      because you need it
+                    </motion.div>
                   </div>
                 </Link>
               </motion.div>
             </div>
-            <div className="flex items-center justify-center h-full overflow-hidden">
+            <div className="flex items-center justify-center ">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -206,7 +277,11 @@ const Home = () => {
                     src="/assets/SHOCKY.jpg"
                     alt=""
                   />
-                  <div className="absolute  top-0 left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <div
+                    onMouseEnter={() => setHoveredIndex(6)}
+                    onMouseLeave={() => setHoveredIndex(0)}
+                    className="absolute top-0 overflow-hidden left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+                  >
                     <Image
                       className="w-full h-full object-cover"
                       src="/assets/Shocky1.png"
@@ -214,16 +289,26 @@ const Home = () => {
                       width={350}
                       height={350}
                     />
-                    {/* <div className=" py-3 px-4 absolute bottom-0 left-0 text-black text-lg font-bold">
-                      Architectural
-                    </div> */}
+                    <motion.div
+                      initial={{ bottom: -30 }}
+                      animate={
+                        hoveredIndex === 6 ? { bottom: 0 } : { bottom: -30 }
+                      }
+                      transition={{
+                        duration: 1,
+                        delay: 0,
+                      }}
+                      className="absolute mb-3  text-center text-white text-sm sm:text-base md:text-xl overflow-hidden"
+                    >
+                      be the shock
+                    </motion.div>
                   </div>
                 </Link>
               </motion.div>
             </div>
             {/* gap */}
             <motion.div
-              className="gap-animation  hidden md:flex bg-black h-[5px] absolute z-10 left-0"
+              className="gap-animation  hidden sm:flex bg-black h-[5px] absolute z-10 left-0"
               animate={{
                 width: ["0%", "100%"],
               }}
@@ -234,7 +319,7 @@ const Home = () => {
             />
 
             <motion.div
-              className="gap-animation hidden md:flex bg-black w-[5px] absolute top-0 left-1/3 z-10"
+              className="gap-animation hidden sm:flex bg-black w-[5px] absolute top-0 left-1/3 z-10"
               animate={{
                 height: ["0%", "100%"],
               }}
@@ -244,7 +329,7 @@ const Home = () => {
               }}
             />
             <motion.div
-              className="gap-animation hidden md:flex bg-black w-[5px] absolute top-0 right-1/3 z-10"
+              className="gap-animation hidden sm:flex bg-black w-[5px] absolute top-0 right-1/3 z-10"
               animate={{
                 height: ["0%", "100%"],
               }}
@@ -255,7 +340,7 @@ const Home = () => {
             />
             {/* gap Mobile*/}
             <motion.div
-              className="gap-animation  flex md:hidden bg-black h-[4px] absolute z-10 top-1/3"
+              className="gap-animation  flex sm:hidden bg-black h-[4px] absolute z-10 top-1/3"
               animate={{
                 width: ["0%", "100%"], // حرك الـ gap من اليسار إلى اليمين
               }}
@@ -265,7 +350,7 @@ const Home = () => {
               }}
             />
             <motion.div
-              className="gap-animation  flex md:hidden bg-black h-[4px] absolute z-10 bottom-1/3"
+              className="gap-animation  flex sm:hidden bg-black h-[4px] absolute z-10 bottom-1/3"
               animate={{
                 width: ["0%", "100%"], // حرك الـ gap من اليسار إلى اليمين
               }}
@@ -275,7 +360,7 @@ const Home = () => {
               }}
             />
             <motion.div
-              className="gap-animation ro  flex md:hidden bg-black w-[4px] absolute z-10 left-1/2 top-0"
+              className="gap-animation ro  flex sm:hidden bg-black w-[4px] absolute z-10 left-1/2 top-0"
               animate={{
                 height: ["0%", "100%"], // حرك الـ gap من اليسار إلى اليمين
               }}

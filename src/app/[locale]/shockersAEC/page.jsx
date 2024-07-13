@@ -45,8 +45,8 @@ const ShockersHome = () => {
       </section>
       <section className="bg-seconds">
         <div className="flex flex-col xl:flex-row justify-center xl:justify-between items-center  max-w-screen-xxl m-auto lg:px-2">
-          <div className="content text-white  flex flex-col items-center xl:items-start">
-            <h1 className="text-6xl lg:text-8xl font-bold my-8">Services</h1>
+          <div className="content text-white flex-1  flex flex-col items-center xl:items-start">
+            <h1 className="text-6xl lg:text-8xl font-bold my-8 ">Services</h1>
             <ul>
               <li className="flex items-center text-xl xl:text-3xl mb-3">
                 <CircleCheckBig />

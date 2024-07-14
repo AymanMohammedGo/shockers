@@ -17,6 +17,7 @@ const Home = () => {
       {/* {isVideoEnded ? (
         <LoadingVideo URL="/video.mp4" setIsVideoEnded={setIsVideoEnded} />
       ) : ( */}
+
       <main className="min-h-screen  bg-primary ">
         {/* <HeaderBrond /> */}
         {/* <MySwiper /> */}
@@ -39,17 +40,17 @@ const Home = () => {
                     className="w-full h-full object-cover "
                     width={350}
                     height={350}
-                    src="/assets/SHOCKERS.jpg"
+                    src="/assets/SHOCKERS.png"
                     alt=""
                   />
                   <div
                     onMouseEnter={() => setHoveredIndex(1)}
                     onMouseLeave={() => setHoveredIndex(0)}
-                    className="absolute top-0 overflow-hidden left-0 w-full h-full flex items-center justify-center opacity-0   hover:opacity-100 transition-opacity duration-300"
+                    className="absolute top-0  overflow-hidden left-0 w-full h-full flex items-center justify-center opacity-0   hover:opacity-100 transition-opacity duration-300"
                   >
                     <Image
                       className="w-full h-full object-cover"
-                      src="/assets/SHOCKERS1.jpg"
+                      src="/assets/SHOCKERS1.png"
                       alt="hovered image"
                       width={350}
                       height={350}
@@ -60,12 +61,12 @@ const Home = () => {
                         hoveredIndex === 1 ? { bottom: 0 } : { bottom: -30 }
                       }
                       transition={{
-                        duration: 1,
+                        duration: 0.5,
                         delay: 0,
                       }}
-                      className="absolute mb-3  text-center text-seconds text-sm sm:text-base md:text-xl overflow-hidden"
+                      className="absolute mb-3 font-medium  text-center text-seconds text-sm sm:text-base md:text-xl overflow-hidden"
                     >
-                      Dared to be shocked
+                      Dared To Be Shocked
                     </motion.div>
                   </div>
                 </Link>
@@ -86,7 +87,7 @@ const Home = () => {
                     className="w-full h-full object-cover"
                     width={350}
                     height={350}
-                    src="/assets/BAYTUNA.jpg"
+                    src="/assets/BAYTUNA.png"
                     alt=""
                   />
                   <div
@@ -96,7 +97,7 @@ const Home = () => {
                   >
                     <Image
                       className="w-full h-full object-cover"
-                      src="/assets/BAYTUNA1.jpg"
+                      src="/assets/BAYTUNA1.png"
                       alt="hovered image"
                       width={350}
                       height={350}
@@ -107,12 +108,12 @@ const Home = () => {
                         hoveredIndex === 2 ? { bottom: -7 } : { bottom: -30 }
                       }
                       transition={{
-                        duration: 1,
+                        duration: 0.5,
                         delay: 0,
                       }}
-                      className="absolute mb-3  text-center text-white text-sm sm:text-base md:text-xl overflow-hidden"
+                      className="absolute mb-3 font-medium  text-center text-white text-sm sm:text-base md:text-xl overflow-hidden"
                     >
-                      When your house becomes <div>your home</div>
+                      When Your House <div>Becomes Your Home</div>
                     </motion.div>
                   </div>
                 </Link>
@@ -133,7 +134,7 @@ const Home = () => {
                     className="w-full h-full object-cover"
                     width={350}
                     height={350}
-                    src="/assets/YARD.jpg"
+                    src="/assets/YARD.png"
                     alt=""
                   />
                   <div
@@ -143,7 +144,7 @@ const Home = () => {
                   >
                     <Image
                       className="w-full h-full object-cover"
-                      src="/assets/YARD1.jpg"
+                      src="/assets/YARD1.png"
                       alt="hovered image"
                       width={350}
                       height={350}
@@ -154,12 +155,12 @@ const Home = () => {
                         hoveredIndex === 3 ? { bottom: 0 } : { bottom: -30 }
                       }
                       transition={{
-                        duration: 1,
+                        duration: 0.5,
                         delay: 0,
                       }}
-                      className="absolute mb-3  text-center text-seconds text-sm sm:text-base md:text-xl overflow-hidden"
+                      className="absolute mb-3 font-medium  text-center text-seconds text-sm sm:text-base md:text-xl overflow-hidden"
                     >
-                      Ever green
+                      Ever Green
                     </motion.div>
                   </div>
                 </Link>
@@ -180,7 +181,7 @@ const Home = () => {
                     className="w-full h-full object-cover"
                     width={350}
                     height={350}
-                    src="/assets/ECA.jpg"
+                    src="/assets/ECA.png"
                     alt=""
                   />
                   <div
@@ -190,7 +191,7 @@ const Home = () => {
                   >
                     <Image
                       className="w-full h-full object-cover"
-                      src="/assets/ECA1.jpg"
+                      src="/assets/ECA1.png"
                       alt="hovered image"
                       width={350}
                       height={350}
@@ -201,12 +202,12 @@ const Home = () => {
                         hoveredIndex === 4 ? { bottom: 0 } : { bottom: -30 }
                       }
                       transition={{
-                        duration: 1,
+                        duration: 0.5,
                         delay: 0,
                       }}
-                      className="absolute mb-3  text-center text-white text-sm sm:text-base md:text-xl overflow-hidden"
+                      className="absolute mb-3 font-medium  text-center text-white text-sm sm:text-base md:text-xl overflow-hidden"
                     >
-                      where details matter
+                      Where Details Matter
                     </motion.div>
                   </div>
                 </Link>
@@ -227,7 +228,7 @@ const Home = () => {
                     className="w-full h-full object-cover"
                     width={350}
                     height={350}
-                    src="/assets/YMARKETING.jpg"
+                    src="/assets/YMARKETING.png"
                     alt=""
                   />
                   <div
@@ -248,12 +249,12 @@ const Home = () => {
                         hoveredIndex === 5 ? { bottom: 0 } : { bottom: -30 }
                       }
                       transition={{
-                        duration: 1,
+                        duration: 0.5,
                         delay: 0,
                       }}
-                      className="absolute mb-3  text-center text-[#FECE00] text-sm sm:text-base md:text-xl overflow-hidden"
+                      className="absolute mb-3 font-medium  text-center text-[#FECE00] text-sm sm:text-base md:text-xl overflow-hidden"
                     >
-                      because you need it
+                      Because You Need It
                     </motion.div>
                   </div>
                 </Link>
@@ -274,7 +275,7 @@ const Home = () => {
                     className="w-full h-full object-cover"
                     width={350}
                     height={350}
-                    src="/assets/SHOCKY.jpg"
+                    src="/assets/SHOCKY.png"
                     alt=""
                   />
                   <div
@@ -295,12 +296,12 @@ const Home = () => {
                         hoveredIndex === 6 ? { bottom: 0 } : { bottom: -30 }
                       }
                       transition={{
-                        duration: 1,
+                        duration: 0.5,
                         delay: 0,
                       }}
-                      className="absolute mb-3  text-center text-white text-sm sm:text-base md:text-xl overflow-hidden"
+                      className="absolute mb-3 font-medium   text-center text-white text-sm sm:text-base md:text-xl overflow-hidden"
                     >
-                      be the shock
+                      Be The Shock
                     </motion.div>
                   </div>
                 </Link>

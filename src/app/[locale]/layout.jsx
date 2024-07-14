@@ -15,9 +15,8 @@ export function generateStaticParams() {
 }
 export default async function RootLayout({ children, params: { locale } }) {
   const { t, resources } = await initTranslations(locale, i18nNamespaces);
-
   return (
-    <html lang={locale} dir={dir(locale)}>
+    <html lang={locale} dir={locale === "kr" ? "rtl" : dir(locale)}>
       <body>
         <TranslationsProvider
           resources={resources}

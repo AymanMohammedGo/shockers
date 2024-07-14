@@ -58,17 +58,17 @@ export default function LanguageChanger() {
       <Select onValueChange={handleChange} defaultValue={currentLocale}>
         <SelectTrigger
           style={{ boxShadow: "none" }}
-          className="border-borderColor  w-[140px] "
+          className="border-borderColor hover:bg-seconds hover:text-white  w-[115px] "
         >
           <SelectValue placeholder="Select" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="bg-primary">
           <SelectItem
             value="en"
-            className="cursor-pointer hover:bg-seconds hover:text-white hover:rounded-md"
+            className="cursor-pointer   hover:bg-seconds hover:text-white hover:rounded-md"
           >
             <div class="flex items-center">
-              <svg
+              {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
                 height="25"
@@ -127,7 +127,7 @@ export default function LanguageChanger() {
                   fill="#fff"
                   opacity=".2"
                 ></path>
-              </svg>
+              </svg> */}
               <span className="mx-2 text-center">{t("English")}</span>
             </div>
           </SelectItem>
@@ -136,7 +136,7 @@ export default function LanguageChanger() {
             className="cursor-pointer hover:bg-seconds hover:text-white hover:rounded-md"
           >
             <div class="flex items-center">
-              <svg
+              {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
                 height="25"
@@ -225,7 +225,7 @@ export default function LanguageChanger() {
                   fill="#fff"
                   opacity=".2"
                 ></path>
-              </svg>
+              </svg> */}
               <span className="mx-2 text-center"> {t("Kurdish")}</span>
             </div>
           </SelectItem>
@@ -234,7 +234,7 @@ export default function LanguageChanger() {
             className="cursor-pointer hover:bg-seconds hover:text-white hover:rounded-md "
           >
             <div class="flex items-center">
-              <svg
+              {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="25"
                 height="25"
@@ -274,7 +274,7 @@ export default function LanguageChanger() {
                   fill="#fff"
                   opacity=".2"
                 ></path>
-              </svg>
+              </svg> */}
               <span className="mx-2 text-center"> {t("Arabic")}</span>
             </div>
           </SelectItem>

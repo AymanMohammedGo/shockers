@@ -3,11 +3,19 @@ import React, { useState } from "react";
 import LanguageChanger from "./LanguageChanger";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header>
+    <motion.header
+      initial={{ y: "-100%" }}
+      whileInView={{ y: 0 }}
+      transition={{
+        duration: 1,
+        delay: 0,
+      }}
+    >
       <div className="max-w-screen-xxl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           href="/shockersAEC"
@@ -90,7 +98,7 @@ const Header = () => {
           <LanguageChanger />
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

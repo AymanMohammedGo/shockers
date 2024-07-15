@@ -15,8 +15,25 @@ const Projects = () => {
   return (
     <div>
       <ImageOverlaysTop namePage="PROJECTS" title="Shockers AEC" />
-      {/* <section className=" w-full h-full"></section> */}
-      <Swiper
+      <section className=" w-full h-full ">
+        <div className="sticky top-0">
+          <ImageOverlaysCenter title=" PROJECTS 1 " />
+        </div>
+        <div className="sticky top-0">
+          <ImageOverlaysCenter title=" PROJECTS 2 " />
+        </div>
+        <div className="sticky top-0">
+          <ImageOverlaysCenter title=" PROJECTS 3 " />
+        </div>
+        <div className="sticky top-0">
+          <ImageOverlaysCenter title=" PROJECTS 4 " />
+        </div>
+        <div className="sticky top-0">
+          <ImageOverlaysCenter title=" PROJECTS 5 " />
+        </div>
+      </section>
+
+      {/* <Swiper
         direction={"vertical"}
         pagination={{
           clickable: true,
@@ -24,6 +41,7 @@ const Projects = () => {
         modules={[Pagination]}
         className="w-full  h-[600px] "
       >
+
         <SwiperSlide>
           <ImageOverlaysCenter title=" PROJECTS 1 " />
         </SwiperSlide>
@@ -36,7 +54,7 @@ const Projects = () => {
         <SwiperSlide>
           <ImageOverlaysCenter title=" PROJECTS 4" />
         </SwiperSlide>
-      </Swiper>
+      </Swiper> */}
       <h2 className="font-bold  text-seconds  text-3xl text-center my-12">
         PROJECTS
       </h2>

@@ -85,6 +85,9 @@ const Header = () => {
             <li>
               <Link
                 href="/shockersAEC"
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
                 className="block font-normal py-2 px-3 text-seconds hover:bg-seconds hover:text-white rounded-lg transition-all  "
               >
                 HOME
@@ -93,6 +96,9 @@ const Header = () => {
             <li>
               <Link
                 href="/shockersAEC/about"
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
                 className="block font-normal py-2 px-3 text-seconds  hover:bg-seconds hover:text-white rounded-lg transition-all  "
               >
                 ABOUT US
@@ -101,6 +107,9 @@ const Header = () => {
             <li>
               <Link
                 href="/shockersAEC/services"
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
                 className="block font-normal py-2 px-3 text-seconds hover:bg-seconds hover:text-white rounded-lg transition-all  "
               >
                 SERVICES
@@ -109,6 +118,9 @@ const Header = () => {
             <li>
               <Link
                 href="/shockersAEC/projects"
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
                 className="block font-normal py-2 px-3 text-seconds hover:bg-seconds hover:text-white rounded-lg transition-all  "
               >
                 PROJECTS

@@ -4,7 +4,7 @@ const ImageOverlaysCenter = ({ title }) => {
   return (
     <div className="relative w-full h-full">
       <Image
-        className="w-full h-[600px] object-cover"
+        className="w-full h-full object-cover"
         src="/assets/imageOverlays.jpg"
         width={1000}
         height={500}

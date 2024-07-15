@@ -68,8 +68,8 @@ const About = () => {
             alt="project"
           />
         </div>
-        <ImageOverlaysCenter title="VIEW OUR PROJECTS" />
       </section>
+      <ImageOverlaysCenter title="VIEW OUR PROJECTS" />
     </div>
   );
 };

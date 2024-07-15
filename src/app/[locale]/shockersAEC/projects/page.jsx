@@ -7,7 +7,7 @@ const Projects = () => {
   return (
     <div>
       <ImageOverlaysTop namePage="PROJECTS" title="Shockers AEC" />
-      <section className="lg:my-5 max-w-screen-xxl m-auto lg:px-2">
+      <section className=" w-full ">
         <ImageOverlaysCenter title=" PROJECTS 1 " />
         <ImageOverlaysCenter title=" PROJECTS 2" />
         <ImageOverlaysCenter title=" PROJECTS 3" />

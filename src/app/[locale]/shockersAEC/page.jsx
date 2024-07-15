@@ -9,9 +9,9 @@ import AnimatedText from "@/components/Motion/AnimatedText";
 const ShockersHome = () => {
   return (
     <>
-      <section className=" w-full h-[700px] ">
+      <section className=" w-full h-lvh ">
         <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
-          <div className="absolute bottom-0 text-6xl lg:text-8xl font-extrabold mb-3 m-auto lg:mb-12 text-seconds">
+          <div className="absolute bottom-0 text-6xl md:text-8xl font-extrabold mb-3 m-auto lg:mb-12 text-seconds">
             <AnimatedText text="DARED" delay={1}></AnimatedText>
             <AnimatedText text="TO BE" delay={1.5}></AnimatedText>
             <AnimatedText text="SHOCKED" delay={2}></AnimatedText>
@@ -19,7 +19,7 @@ const ShockersHome = () => {
         </div>
       </section>
       <section>
-        <div className="relative w-full h-[700px] ">
+        <div className="relative w-full h-lvh ">
           <video
             className="absolute top-0 left-0 w-full h-full object-cover"
             autoPlay
@@ -55,8 +55,8 @@ const ShockersHome = () => {
           </div>
         </div>
       </section>
-      <section className="bg-seconds">
-        <div className="flex flex-col xl:flex-row justify-center xl:justify-between items-center  max-w-screen-xxl m-auto lg:px-2">
+      <section className="bg-seconds h-lvh flex items-center justify-center">
+        <div className="flex w-full flex-col xl:flex-row justify-center xl:justify-between items-center  max-w-screen-xxl m-auto lg:px-2">
           <div className="content text-white flex-1  flex flex-col items-center xl:items-start overflow-hidden">
             <motion.h1
               initial={{ x: "-100%" }}

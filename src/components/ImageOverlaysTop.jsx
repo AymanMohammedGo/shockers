@@ -6,8 +6,7 @@ const ImageOverlaysTop = ({ namePage, title }) => {
       <Image
         className="w-full h-full object-cover"
         src="/assets/imageOverlays.jpg"
-        width={1000}
-        height={500}
+        layout="fill"
         alt="imageOverlays"
       />
       <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />

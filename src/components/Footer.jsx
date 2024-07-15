@@ -59,21 +59,22 @@ const Footer = () => {
         </div>
         <div className="mt-20 text-center   lg:text-start grid grid-cols-1 gap-8 lg:gap-x-[480px] md:grid-cols-2 lg:grid-cols-2">
           <div>
-            <p className=" text-white text-xl font-semibold">Office</p>
-
-            <ul className="mt-3 text-sm text-white">
-              <li>
-                <span className="text-base">Iraq, Sulaymaniyah</span>
-              </li>
-              <li>
-                <span className="text-base">
-                  Aqary-Behind CityStar-3rd Floor Pashanet Building.
-                </span>
-              </li>
-            </ul>
+            <Link href="#">
+              <p className=" text-white text-xl font-semibold">Address</p>
+              <ul className="mt-3 text-sm text-white">
+                <li>
+                  <span className="text-base">Iraq, Sulaymaniyah</span>
+                </li>
+                <li>
+                  <span className="text-base">
+                    Aqary-Behind CityStar-3rd Floor Pashanet Building.
+                  </span>
+                </li>
+              </ul>
+            </Link>
           </div>
           <div>
-            <p className=" text-white text-xl font-semibold">Phone</p>
+            <p className=" text-white text-xl font-semibold">Phone Number</p>
 
             <ul className="mt-3 text-sm text-white">
               <li>
@@ -82,26 +83,33 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <p className="text-xl font-semibold text-white">Email</p>
-
-            <ul className="mt-3 text-sm text-white">
-              <li>
-                <span className="text-base">info@shockersgroup.com</span>
-              </li>
-            </ul>
+            <Link href="#">
+              <p className=" text-white text-xl font-semibold">Email Address</p>
+              <ul className="mt-3 text-sm text-white">
+                <li>
+                  <span className="text-base">info@shockersgroup.com</span>
+                </li>
+              </ul>
+            </Link>
           </div>
           <div>
             <p className="text-xl font-semibold text-white">Social Media</p>
 
             <ul className="mt-3 text-sm text-white">
               <li>
-                <span className="text-base">Instagram</span>
+                <Link href="https://www.instagram.com/shockersaec/">
+                  <span className="text-base">Instagram</span>
+                </Link>
               </li>
               <li>
-                <span className="text-base">Facebook</span>
+                <Link href="https://www.facebook.com/Shockersaec/">
+                  <span className="text-base">Facebook</span>
+                </Link>
               </li>
               <li>
-                <span className="text-base">Linkedin</span>
+                <Link href="https://www.linkedin.com/company/shockers-advertising/">
+                  <span className="text-base">Linkedin</span>
+                </Link>
               </li>
             </ul>
           </div>

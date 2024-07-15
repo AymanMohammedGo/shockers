@@ -18,6 +18,7 @@ module.exports = {
       xl: "1200px",
       xxl: "1400px",
       xxxl: "1600px",
+      xlgl: "2000px",
     },
 
     extend: {
@@ -26,15 +27,14 @@ module.exports = {
           DEFAULT: "#e4e4e4",
         },
         seconds: {
-          DEFAULT: "#2c2926",
+          DEFAULT: "#252424",
         },
         borderColor: {
           DEFAULT: "#aeaeae",
         },
         shockerYellow: {
-          DEFAULT: "#fdcf00",
+          DEFAULT: "#ffcf01",
         },
-       
       },
     },
   },

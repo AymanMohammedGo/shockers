@@ -13,18 +13,26 @@ const Home = () => {
 
   return (
     <>
+      {/* <object
+        type="text/html"
+        data="/assets/S.html"
+        width="100%"
+        height="100%"
+        className="w-lvw h-lvh block z-0"
+      /> */}
+
       {/* <SelectLanguage /> */}
       {/* {isVideoEnded ? (
         <LoadingVideo URL="/video.mp4" setIsVideoEnded={setIsVideoEnded} />
       ) : ( */}
 
-      <main className="min-h-screen  bg-primary ">
+      <main className="  bg-primary ">
         {/* <HeaderBrond /> */}
         {/* <MySwiper /> */}
         {/* <div className="flex items-center justify-center flex-wrap gap-2 py-8"> */}
 
         <div class="flex items-center justify-center min-h-screen">
-          <div className="grid relative  items-center justify-center grid-cols-2  sm:grid-cols-3  ">
+          <div className=" grid relative  items-center justify-center grid-cols-2  sm:grid-cols-3  ">
             <div className="flex items-center justify-center ">
               <motion.div
                 initial={{ opacity: 0 }}
@@ -33,27 +41,27 @@ const Home = () => {
                   duration: 1,
                   delay: 0.5,
                 }}
-                className="relative w-full h-full"
+                className="relative "
               >
                 <Link href="/shockersAEC">
                   <Image
-                    className="w-full h-full object-cover "
-                    width={350}
-                    height={350}
-                    src="/assets/SHOCKERS.png"
+                    className=" xlgl:w-[600px] xlgl:h-[600px] object "
+                    src="/assets/SHOCKERS.svg"
                     alt=""
+                    width={400}
+                    height={400}
                   />
                   <div
                     onMouseEnter={() => setHoveredIndex(1)}
                     onMouseLeave={() => setHoveredIndex(0)}
-                    className="absolute top-0  overflow-hidden left-0 w-full h-full flex items-center justify-center opacity-0   hover:opacity-100 transition-opacity duration-300"
+                    className="absolute top-0  overflow-hidden left-0  flex items-center justify-center opacity-0   hover:opacity-100 transition-opacity duration-300"
                   >
                     <Image
-                      className="w-full h-full object-cover"
-                      src="/assets/SHOCKERS1.png"
+                      className=" xlgl:w-[600px] xlgl:h-[600px] object"
+                      src="/assets/SHOCKERS1.svg"
                       alt="hovered image"
-                      width={350}
-                      height={350}
+                      width={400}
+                      height={400}
                     />
                     <motion.div
                       initial={{ bottom: -30 }}
@@ -80,27 +88,27 @@ const Home = () => {
                   duration: 2,
                   delay: 1,
                 }}
-                className="relative w-full h-full"
+                className="relative "
               >
                 <Link href="#">
                   <Image
-                    className="w-full h-full object-cover"
-                    width={350}
-                    height={350}
-                    src="/assets/BAYTUNA.png"
+                    className=" xlgl:w-[600px] xlgl:h-[600px] object"
+                    width={400}
+                    height={400}
+                    src="/assets/BAYTUNA.svg"
                     alt=""
                   />
                   <div
                     onMouseEnter={() => setHoveredIndex(2)}
                     onMouseLeave={() => setHoveredIndex(0)}
-                    className="absolute top-0 overflow-hidden left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+                    className="absolute top-0 overflow-hidden left-0  flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
                   >
                     <Image
-                      className="w-full h-full object-cover"
-                      src="/assets/BAYTUNA1.png"
+                      className=" xlgl:w-[600px] xlgl:h-[600px] object"
+                      src="/assets/BAYTUNA1.svg"
                       alt="hovered image"
-                      width={350}
-                      height={350}
+                      width={400}
+                      height={400}
                     />
                     <motion.div
                       initial={{ bottom: -30 }}
@@ -127,27 +135,27 @@ const Home = () => {
                   duration: 2,
                   delay: 1.5,
                 }}
-                className="relative w-full h-full"
+                className="relative "
               >
                 <Link href="#">
                   <Image
-                    className="w-full h-full object-cover"
-                    width={350}
-                    height={350}
-                    src="/assets/YARD.png"
+                    className=" xlgl:w-[600px] xlgl:h-[600px] object"
+                    width={400}
+                    height={400}
+                    src="/assets/YARD.svg"
                     alt=""
                   />
                   <div
                     onMouseEnter={() => setHoveredIndex(3)}
                     onMouseLeave={() => setHoveredIndex(0)}
-                    className="absolute top-0 overflow-hidden left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+                    className="absolute top-0 overflow-hidden left-0  flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
                   >
                     <Image
-                      className="w-full h-full object-cover"
-                      src="/assets/YARD1.png"
+                      className=" xlgl:w-[600px] xlgl:h-[600px] object"
+                      src="/assets/YARD1.svg"
                       alt="hovered image"
-                      width={350}
-                      height={350}
+                      width={400}
+                      height={400}
                     />
                     <motion.div
                       initial={{ bottom: -30 }}
@@ -174,27 +182,27 @@ const Home = () => {
                   duration: 2,
                   delay: 2,
                 }}
-                className="relative w-full h-full"
+                className="relative "
               >
                 <Link href="#">
                   <Image
-                    className="w-full h-full object-cover"
-                    width={350}
-                    height={350}
-                    src="/assets/ECA.png"
+                    className=" xlgl:w-[600px] xlgl:h-[600px] object"
+                    width={400}
+                    height={400}
+                    src="/assets/ECA.svg"
                     alt=""
                   />
                   <div
                     onMouseEnter={() => setHoveredIndex(4)}
                     onMouseLeave={() => setHoveredIndex(0)}
-                    className="absolute top-0 overflow-hidden left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+                    className="absolute top-0 overflow-hidden left-0  flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
                   >
                     <Image
-                      className="w-full h-full object-cover"
-                      src="/assets/ECA1.png"
+                      className=" xlgl:w-[600px] xlgl:h-[600px] object"
+                      src="/assets/ECA1.svg"
                       alt="hovered image"
-                      width={350}
-                      height={350}
+                      width={400}
+                      height={400}
                     />
                     <motion.div
                       initial={{ bottom: -30 }}
@@ -215,7 +223,7 @@ const Home = () => {
             </div>
             <div className="flex items-center justify-center ">
               <motion.div
-                className="relative w-full h-full"
+                className="relative "
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{
@@ -225,23 +233,23 @@ const Home = () => {
               >
                 <Link href="#">
                   <Image
-                    className="w-full h-full object-cover"
-                    width={350}
-                    height={350}
-                    src="/assets/YMARKETING.png"
+                    className=" xlgl:w-[600px] xlgl:h-[600px] object"
+                    width={400}
+                    height={400}
+                    src="/assets/YMARKETING.svg"
                     alt=""
                   />
                   <div
                     onMouseEnter={() => setHoveredIndex(5)}
                     onMouseLeave={() => setHoveredIndex(0)}
-                    className="absolute top-0 overflow-hidden left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+                    className="absolute top-0 overflow-hidden left-0  flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
                   >
                     <Image
-                      className="w-full h-full object-cover"
-                      src="/assets/YMARKETING1.png"
+                      className=" xlgl:w-[600px] xlgl:h-[600px] object"
+                      src="/assets/YMARKETING1.svg"
                       alt="hovered image"
-                      width={350}
-                      height={350}
+                      width={400}
+                      height={400}
                     />
                     <motion.div
                       initial={{ bottom: -30 }}
@@ -268,27 +276,27 @@ const Home = () => {
                   duration: 2,
                   delay: 3,
                 }}
-                className="relative w-full h-full"
+                className="relative "
               >
                 <Link href="#">
                   <Image
-                    className="w-full h-full object-cover"
-                    width={350}
-                    height={350}
-                    src="/assets/SHOCKY.png"
+                    className=" xlgl:w-[600px] xlgl:h-[600px] object"
+                    width={400}
+                    height={400}
+                    src="/assets/SHOCKY.svg"
                     alt=""
                   />
                   <div
                     onMouseEnter={() => setHoveredIndex(6)}
                     onMouseLeave={() => setHoveredIndex(0)}
-                    className="absolute top-0 overflow-hidden left-0 w-full h-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+                    className="absolute top-0 overflow-hidden left-0  flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
                   >
                     <Image
-                      className="w-full h-full object-cover"
-                      src="/assets/Shocky1.png"
+                      className=" xlgl:w-[600px] xlgl:h-[600px] object"
+                      src="/assets/Shocky1.svg"
                       alt="hovered image"
-                      width={350}
-                      height={350}
+                      width={400}
+                      height={400}
                     />
                     <motion.div
                       initial={{ bottom: -30 }}

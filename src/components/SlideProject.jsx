@@ -13,7 +13,7 @@ export default function SlideProject() {
   return (
     <>
       <Swiper
-        className="w-full h-full mb-6 !p-2 "
+        className="w-full h-full  !p-2 "
         slidesPerView={2}
         spaceBetween={8}
         freeMode={true}

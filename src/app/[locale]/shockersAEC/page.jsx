@@ -18,8 +18,8 @@ const ShockersHome = () => {
           <LottieAnimation animationData={animationData} />
         </div>
       </div> */}
-
       {/* <LineText /> */}
+
       <LottieAnimation animationData={animationData} />
 
       <section className=" w-full h-lvh ">
@@ -73,12 +73,12 @@ const ShockersHome = () => {
       <section className="bg-seconds h-lvh flex items-center justify-center z-10">
         <div className="flex w-full flex-col xl:flex-row justify-center xl:justify-between items-center  max-w-screen-xxl m-auto lg:px-2">
           <motion.div
-            initial={{ x: "-100%" }}
-            whileInView={{ x: 0 }}
-            transition={{
-              duration: 1,
-              delay: 0.5,
-            }}
+            // initial={{ x: "-100%" }}
+            // whileInView={{ x: 0 }}
+            // transition={{
+            //   duration: 1,
+            //   delay: 0.5,
+            // }}
             className="content text-white flex-1  flex flex-col items-center xl:items-start overflow-hidden"
           >
             <h1 className="text-6xl lg:text-8xl font-bold my-8 ">Services</h1>

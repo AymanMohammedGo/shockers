@@ -4,29 +4,44 @@ import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/free-mode";
+
 import Image from "next/image";
-import { Navigation } from "swiper/modules";
+import { FreeMode, Navigation } from "swiper/modules";
 
 export default function SlideProject() {
   return (
     <>
       <Swiper
-        className="w-full h-full mb-6 !p-2 max-w-screen-xxl"
+        className="w-full h-full mb-6 !p-2 "
         slidesPerView={2}
         spaceBetween={8}
+        freeMode={true}
         navigation={true}
-        modules={[Navigation]}
+        modules={[FreeMode, Navigation]}
         breakpoints={{
           600: {
-            slidesPerView: 3,
+            slidesPerView: 2.5,
             spaceBetween: 8,
           },
           768: {
-            slidesPerView: 4,
+            slidesPerView: 3.5,
             spaceBetween: 8,
           },
           1024: {
-            slidesPerView: 5,
+            slidesPerView: 4.5,
+            spaceBetween: 8,
+          },
+          1400: {
+            slidesPerView: 5.5,
+            spaceBetween: 8,
+          },
+          1705: {
+            slidesPerView: 6.5,
+            spaceBetween: 8,
+          },
+          2000: {
+            slidesPerView: 7.5,
             spaceBetween: 8,
           },
         }}
@@ -35,7 +50,7 @@ export default function SlideProject() {
           <Image
             className="rounded-lg "
             src="/assets/project.jpg"
-            width={300}
+            width={400}
             height={500}
             alt="project"
           />
@@ -48,7 +63,7 @@ export default function SlideProject() {
           <Image
             className="rounded-lg "
             src="/assets/project.jpg"
-            width={300}
+            width={400}
             height={500}
             alt="project"
           />
@@ -61,7 +76,7 @@ export default function SlideProject() {
           <Image
             className="rounded-lg "
             src="/assets/project.jpg"
-            width={300}
+            width={400}
             height={500}
             alt="project"
           />
@@ -74,7 +89,7 @@ export default function SlideProject() {
           <Image
             className="rounded-lg "
             src="/assets/project.jpg"
-            width={300}
+            width={400}
             height={500}
             alt="project"
           />
@@ -87,7 +102,7 @@ export default function SlideProject() {
           <Image
             className="rounded-lg "
             src="/assets/project.jpg"
-            width={300}
+            width={400}
             height={500}
             alt="project"
           />
@@ -100,7 +115,7 @@ export default function SlideProject() {
           <Image
             className="rounded-lg "
             src="/assets/project.jpg"
-            width={300}
+            width={400}
             height={500}
             alt="project"
           />
@@ -113,7 +128,7 @@ export default function SlideProject() {
           <Image
             className="rounded-lg "
             src="/assets/project.jpg"
-            width={300}
+            width={400}
             height={500}
             alt="project"
           />
@@ -126,7 +141,7 @@ export default function SlideProject() {
           <Image
             className="rounded-lg "
             src="/assets/project.jpg"
-            width={300}
+            width={400}
             height={500}
             alt="project"
           />
@@ -135,6 +150,58 @@ export default function SlideProject() {
             Urban & Infrastructures
           </span>
         </SwiperSlide>
+        <SwiperSlide className="relative">
+          <Image
+            className="rounded-lg "
+            src="/assets/project.jpg"
+            width={400}
+            height={500}
+            alt="project"
+          />
+          <div className="absolute rounded-lg inset-0 image-gradient" />
+          <span className="absolute  bottom-0 p-4 text-white text-xl">
+            Urban & Infrastructures
+          </span>
+        </SwiperSlide>
+        <SwiperSlide className="relative">
+          <Image
+            className="rounded-lg "
+            src="/assets/project.jpg"
+            width={400}
+            height={500}
+            alt="project"
+          />
+          <div className="absolute rounded-lg inset-0 image-gradient" />
+          <span className="absolute  bottom-0 p-4 text-white text-xl">
+            Urban & Infrastructures
+          </span>
+        </SwiperSlide>{" "}
+        <SwiperSlide className="relative">
+          <Image
+            className="rounded-lg "
+            src="/assets/project.jpg"
+            width={400}
+            height={500}
+            alt="project"
+          />
+          <div className="absolute rounded-lg inset-0 image-gradient" />
+          <span className="absolute  bottom-0 p-4 text-white text-xl">
+            Urban & Infrastructures
+          </span>
+        </SwiperSlide>{" "}
+        <SwiperSlide className="relative">
+          <Image
+            className="rounded-lg "
+            src="/assets/project.jpg"
+            width={400}
+            height={500}
+            alt="project"
+          />
+          <div className="absolute rounded-lg inset-0 image-gradient" />
+          <span className="absolute  bottom-0 p-4 text-white text-xl">
+            Urban & Infrastructures
+          </span>
+        </SwiperSlide>{" "}
       </Swiper>
     </>
   );

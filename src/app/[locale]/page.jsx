@@ -6,20 +6,13 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import LoadingVideo from "../../components/LoadingVideo";
-
 const Home = () => {
   const [isVideoEnded, setIsVideoEnded] = useState(true);
   const [hoveredIndex, setHoveredIndex] = useState(0);
 
   return (
     <>
-      {/* <object
-        type="text/html"
-        data="/assets/S.html"
-        width="100%"
-        height="100%"
-        className="w-lvw h-lvh block z-0"
-      /> */}
+     
 
       {/* <SelectLanguage /> */}
       {/* {isVideoEnded ? (
@@ -30,7 +23,7 @@ const Home = () => {
         {/* <HeaderBrond /> */}
         {/* <MySwiper /> */}
         {/* <div className="flex items-center justify-center flex-wrap gap-2 py-8"> */}
-
+       
         <div class="flex items-center justify-center min-h-screen">
           <div className=" grid relative  items-center justify-center grid-cols-2  sm:grid-cols-3  ">
             <div className="flex items-center justify-center ">
@@ -48,8 +41,8 @@ const Home = () => {
                     className=" xlgl:w-[600px] xlgl:h-[600px] object "
                     src="/assets/SHOCKERS.svg"
                     alt=""
-                    width={400}
-                    height={400}
+                    width={420}
+                    height={420}
                   />
                   <div
                     onMouseEnter={() => setHoveredIndex(1)}
@@ -60,8 +53,8 @@ const Home = () => {
                       className=" xlgl:w-[600px] xlgl:h-[600px] object"
                       src="/assets/SHOCKERS1.svg"
                       alt="hovered image"
-                      width={400}
-                      height={400}
+                      width={420}
+                      height={420}
                     />
                     <motion.div
                       initial={{ bottom: -30 }}
@@ -72,7 +65,7 @@ const Home = () => {
                         duration: 0.5,
                         delay: 0,
                       }}
-                      className="absolute mb-3 font-medium  text-center text-seconds text-sm sm:text-base md:text-xl overflow-hidden"
+                      className="absolute mb-3 font-medium  text-center text-seconds text-sm sm:text-base md:text-xl xlgl:text-2xl   overflow-hidden"
                     >
                       Dared To Be Shocked
                     </motion.div>
@@ -93,8 +86,8 @@ const Home = () => {
                 <Link href="#">
                   <Image
                     className=" xlgl:w-[600px] xlgl:h-[600px] object"
-                    width={400}
-                    height={400}
+                    width={420}
+                    height={420}
                     src="/assets/BAYTUNA.svg"
                     alt=""
                   />
@@ -107,8 +100,8 @@ const Home = () => {
                       className=" xlgl:w-[600px] xlgl:h-[600px] object"
                       src="/assets/BAYTUNA1.svg"
                       alt="hovered image"
-                      width={400}
-                      height={400}
+                      width={420}
+                      height={420}
                     />
                     <motion.div
                       initial={{ bottom: -30 }}
@@ -119,7 +112,7 @@ const Home = () => {
                         duration: 0.5,
                         delay: 0,
                       }}
-                      className="absolute mb-3 font-medium  text-center text-white text-sm sm:text-base md:text-xl overflow-hidden"
+                      className="absolute mb-3 font-medium  text-center text-white text-sm sm:text-base md:text-xl xlgl:text-2xl  overflow-hidden"
                     >
                       When Your House <div>Becomes Your Home</div>
                     </motion.div>
@@ -140,8 +133,8 @@ const Home = () => {
                 <Link href="#">
                   <Image
                     className=" xlgl:w-[600px] xlgl:h-[600px] object"
-                    width={400}
-                    height={400}
+                    width={420}
+                    height={420}
                     src="/assets/YARD.svg"
                     alt=""
                   />
@@ -154,8 +147,8 @@ const Home = () => {
                       className=" xlgl:w-[600px] xlgl:h-[600px] object"
                       src="/assets/YARD1.svg"
                       alt="hovered image"
-                      width={400}
-                      height={400}
+                      width={420}
+                      height={420}
                     />
                     <motion.div
                       initial={{ bottom: -30 }}
@@ -166,7 +159,7 @@ const Home = () => {
                         duration: 0.5,
                         delay: 0,
                       }}
-                      className="absolute mb-3 font-medium  text-center text-seconds text-sm sm:text-base md:text-xl overflow-hidden"
+                      className="absolute mb-3 font-medium  text-center text-seconds text-sm sm:text-base md:text-xl xlgl:text-2xl  overflow-hidden"
                     >
                       Ever Green
                     </motion.div>
@@ -187,8 +180,8 @@ const Home = () => {
                 <Link href="#">
                   <Image
                     className=" xlgl:w-[600px] xlgl:h-[600px] object"
-                    width={400}
-                    height={400}
+                    width={420}
+                    height={420}
                     src="/assets/ECA.svg"
                     alt=""
                   />
@@ -201,8 +194,8 @@ const Home = () => {
                       className=" xlgl:w-[600px] xlgl:h-[600px] object"
                       src="/assets/ECA1.svg"
                       alt="hovered image"
-                      width={400}
-                      height={400}
+                      width={420}
+                      height={420}
                     />
                     <motion.div
                       initial={{ bottom: -30 }}
@@ -213,7 +206,7 @@ const Home = () => {
                         duration: 0.5,
                         delay: 0,
                       }}
-                      className="absolute mb-3 font-medium  text-center text-white text-sm sm:text-base md:text-xl overflow-hidden"
+                      className="absolute mb-3 font-medium  text-center text-white text-sm sm:text-base md:text-xl xlgl:text-2xl  overflow-hidden"
                     >
                       Where Details Matter
                     </motion.div>
@@ -234,8 +227,8 @@ const Home = () => {
                 <Link href="#">
                   <Image
                     className=" xlgl:w-[600px] xlgl:h-[600px] object"
-                    width={400}
-                    height={400}
+                    width={420}
+                    height={420}
                     src="/assets/YMARKETING.svg"
                     alt=""
                   />
@@ -248,8 +241,8 @@ const Home = () => {
                       className=" xlgl:w-[600px] xlgl:h-[600px] object"
                       src="/assets/YMARKETING1.svg"
                       alt="hovered image"
-                      width={400}
-                      height={400}
+                      width={420}
+                      height={420}
                     />
                     <motion.div
                       initial={{ bottom: -30 }}
@@ -260,7 +253,7 @@ const Home = () => {
                         duration: 0.5,
                         delay: 0,
                       }}
-                      className="absolute mb-3 font-medium  text-center text-[#FECE00] text-sm sm:text-base md:text-xl overflow-hidden"
+                      className="absolute mb-3 font-medium  text-center text-[#FECE00] text-sm sm:text-base md:text-xl xlgl:text-2xl  overflow-hidden"
                     >
                       Because You Need It
                     </motion.div>
@@ -281,8 +274,8 @@ const Home = () => {
                 <Link href="#">
                   <Image
                     className=" xlgl:w-[600px] xlgl:h-[600px] object"
-                    width={400}
-                    height={400}
+                    width={420}
+                    height={420}
                     src="/assets/SHOCKY.svg"
                     alt=""
                   />
@@ -295,8 +288,8 @@ const Home = () => {
                       className=" xlgl:w-[600px] xlgl:h-[600px] object"
                       src="/assets/Shocky1.svg"
                       alt="hovered image"
-                      width={400}
-                      height={400}
+                      width={420}
+                      height={420}
                     />
                     <motion.div
                       initial={{ bottom: -30 }}
@@ -307,7 +300,7 @@ const Home = () => {
                         duration: 0.5,
                         delay: 0,
                       }}
-                      className="absolute mb-3 font-medium   text-center text-white text-sm sm:text-base md:text-xl overflow-hidden"
+                      className="absolute mb-3 font-medium   text-center text-white text-sm sm:text-base md:text-xl xlgl:text-2xl  overflow-hidden"
                     >
                       Be The Shock
                     </motion.div>

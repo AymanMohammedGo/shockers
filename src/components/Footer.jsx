@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="bg-seconds">
+    <footer className="bg-seconds z-10">
       <div className="relative mx-auto max-w-screen-xxl px-4 py-16 sm:px-6 lg:p-8 ">
         <div className="mt-2 lg:flex lg:items-center lg:justify-between">
           <div className="flex justify-center  lg:justify-start">
@@ -23,7 +23,7 @@ const Footer = () => {
             </Link>
           </div>
           <ul className="mt-16 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
-            <li className="  hover:border-b-2  ">
+            <li>
               <Link
                 className="text-white transition text-xl"
                 href="/shockersAEC"
@@ -31,7 +31,7 @@ const Footer = () => {
                 Home
               </Link>
             </li>
-            <li className="  hover:border-b-2 ">
+            <li>
               <Link
                 className="text-white transition text-xl"
                 href="/shockersAEC/projects"
@@ -39,7 +39,7 @@ const Footer = () => {
                 Projects
               </Link>
             </li>
-            <li className="  hover:border-b-2 ">
+            <li>
               <Link
                 className="text-white transition text-xl"
                 href="/shockersAEC/services"
@@ -47,7 +47,7 @@ const Footer = () => {
                 Services
               </Link>
             </li>
-            <li className="  hover:border-b-2 ">
+            <li>
               <Link
                 className="text-white transition text-xl  "
                 href="/shockersAEC/about"
@@ -59,7 +59,7 @@ const Footer = () => {
         </div>
         <div className="mt-20 text-center   lg:text-start grid grid-cols-1 gap-8 lg:gap-x-[480px] md:grid-cols-2 lg:grid-cols-2">
           <div>
-            <Link href="#">
+            <Link href="https://maps.app.goo.gl/2ByQ52ayynrUF9sA8">
               <p className=" text-white text-xl font-semibold">Address</p>
               <ul className="mt-3 text-sm text-white">
                 <li>
@@ -83,7 +83,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <Link href="#">
+            <Link href="mailto:info@shockersgroup.com">
               <p className=" text-white text-xl font-semibold">Email Address</p>
               <ul className="mt-3 text-sm text-white">
                 <li>

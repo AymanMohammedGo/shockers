@@ -8,6 +8,7 @@ import "swiper/css/free-mode";
 
 import Image from "next/image";
 import { FreeMode, Navigation } from "swiper/modules";
+import Link from "next/link";
 
 export default function SlideProject() {
   return (
@@ -47,161 +48,185 @@ export default function SlideProject() {
         }}
       >
         <SwiperSlide className="relative">
-          <Image
-            className="rounded-lg "
-            src="/assets/project.jpg"
-            width={400}
-            height={500}
-            alt="project"
-          />
-          <div className="absolute rounded-lg inset-0 image-gradient" />
-          <span className="absolute  bottom-0 p-4 text-white text-xl">
-            Urban & Infrastructures
-          </span>
+          <Link href="/shockersAEC/projects/projects1">
+            <Image
+              className="rounded-lg "
+              src="/assets/project.jpg"
+              width={400}
+              height={500}
+              alt="project"
+            />
+            <div className="absolute rounded-lg inset-0 image-gradient" />
+            <span className="absolute  bottom-0 p-4 text-white text-xl">
+              Urban & Infrastructures
+            </span>
+          </Link>
         </SwiperSlide>
         <SwiperSlide className="relative">
-          <Image
-            className="rounded-lg "
-            src="/assets/project.jpg"
-            width={400}
-            height={500}
-            alt="project"
-          />
-          <div className="absolute rounded-lg inset-0 image-gradient" />
-          <span className="absolute  bottom-0 p-4 text-white text-xl">
-            Urban & Infrastructures
-          </span>
-        </SwiperSlide>{" "}
-        <SwiperSlide className="relative">
-          <Image
-            className="rounded-lg "
-            src="/assets/project.jpg"
-            width={400}
-            height={500}
-            alt="project"
-          />
-          <div className="absolute rounded-lg inset-0 image-gradient" />
-          <span className="absolute  bottom-0 p-4 text-white text-xl">
-            Urban & Infrastructures
-          </span>
-        </SwiperSlide>{" "}
-        <SwiperSlide className="relative">
-          <Image
-            className="rounded-lg "
-            src="/assets/project.jpg"
-            width={400}
-            height={500}
-            alt="project"
-          />
-          <div className="absolute rounded-lg inset-0 image-gradient" />
-          <span className="absolute  bottom-0 p-4 text-white text-xl">
-            Urban & Infrastructures
-          </span>
-        </SwiperSlide>{" "}
-        <SwiperSlide className="relative">
-          <Image
-            className="rounded-lg "
-            src="/assets/project.jpg"
-            width={400}
-            height={500}
-            alt="project"
-          />
-          <div className="absolute rounded-lg inset-0 image-gradient" />
-          <span className="absolute  bottom-0 p-4 text-white text-xl">
-            Urban & Infrastructures
-          </span>
-        </SwiperSlide>{" "}
-        <SwiperSlide className="relative">
-          <Image
-            className="rounded-lg "
-            src="/assets/project.jpg"
-            width={400}
-            height={500}
-            alt="project"
-          />
-          <div className="absolute rounded-lg inset-0 image-gradient" />
-          <span className="absolute  bottom-0 p-4 text-white text-xl">
-            Urban & Infrastructures
-          </span>
-        </SwiperSlide>{" "}
-        <SwiperSlide className="relative">
-          <Image
-            className="rounded-lg "
-            src="/assets/project.jpg"
-            width={400}
-            height={500}
-            alt="project"
-          />
-          <div className="absolute rounded-lg inset-0 image-gradient" />
-          <span className="absolute  bottom-0 p-4 text-white text-xl">
-            Urban & Infrastructures
-          </span>
-        </SwiperSlide>{" "}
-        <SwiperSlide className="relative">
-          <Image
-            className="rounded-lg "
-            src="/assets/project.jpg"
-            width={400}
-            height={500}
-            alt="project"
-          />
-          <div className="absolute rounded-lg inset-0 image-gradient" />
-          <span className="absolute  bottom-0 p-4 text-white text-xl">
-            Urban & Infrastructures
-          </span>
+          <Link href="/shockersAEC/projects/projects2">
+            <Image
+              className="rounded-lg "
+              src="/assets/project.jpg"
+              width={400}
+              height={500}
+              alt="project"
+            />
+            <div className="absolute rounded-lg inset-0 image-gradient" />
+            <span className="absolute  bottom-0 p-4 text-white text-xl">
+              Urban & Infrastructures
+            </span>
+          </Link>
         </SwiperSlide>
         <SwiperSlide className="relative">
-          <Image
-            className="rounded-lg "
-            src="/assets/project.jpg"
-            width={400}
-            height={500}
-            alt="project"
-          />
-          <div className="absolute rounded-lg inset-0 image-gradient" />
-          <span className="absolute  bottom-0 p-4 text-white text-xl">
-            Urban & Infrastructures
-          </span>
+          <Link href="/shockersAEC/projects/projects3">
+            <Image
+              className="rounded-lg "
+              src="/assets/project.jpg"
+              width={400}
+              height={500}
+              alt="project"
+            />
+            <div className="absolute rounded-lg inset-0 image-gradient" />
+            <span className="absolute  bottom-0 p-4 text-white text-xl">
+              Urban & Infrastructures
+            </span>
+          </Link>
         </SwiperSlide>
         <SwiperSlide className="relative">
-          <Image
-            className="rounded-lg "
-            src="/assets/project.jpg"
-            width={400}
-            height={500}
-            alt="project"
-          />
-          <div className="absolute rounded-lg inset-0 image-gradient" />
-          <span className="absolute  bottom-0 p-4 text-white text-xl">
-            Urban & Infrastructures
-          </span>
-        </SwiperSlide>{" "}
+          <Link href="/shockersAEC/projects/projects4">
+            <Image
+              className="rounded-lg "
+              src="/assets/project.jpg"
+              width={400}
+              height={500}
+              alt="project"
+            />
+            <div className="absolute rounded-lg inset-0 image-gradient" />
+            <span className="absolute  bottom-0 p-4 text-white text-xl">
+              Urban & Infrastructures
+            </span>
+          </Link>
+        </SwiperSlide>
         <SwiperSlide className="relative">
-          <Image
-            className="rounded-lg "
-            src="/assets/project.jpg"
-            width={400}
-            height={500}
-            alt="project"
-          />
-          <div className="absolute rounded-lg inset-0 image-gradient" />
-          <span className="absolute  bottom-0 p-4 text-white text-xl">
-            Urban & Infrastructures
-          </span>
-        </SwiperSlide>{" "}
+          <Link href="/shockersAEC/projects/projects5">
+            <Image
+              className="rounded-lg "
+              src="/assets/project.jpg"
+              width={400}
+              height={500}
+              alt="project"
+            />
+            <div className="absolute rounded-lg inset-0 image-gradient" />
+            <span className="absolute  bottom-0 p-4 text-white text-xl">
+              Urban & Infrastructures
+            </span>
+          </Link>
+        </SwiperSlide>
         <SwiperSlide className="relative">
-          <Image
-            className="rounded-lg "
-            src="/assets/project.jpg"
-            width={400}
-            height={500}
-            alt="project"
-          />
-          <div className="absolute rounded-lg inset-0 image-gradient" />
-          <span className="absolute  bottom-0 p-4 text-white text-xl">
-            Urban & Infrastructures
-          </span>
-        </SwiperSlide>{" "}
+          <Link href="/shockersAEC/projects/projects6">
+            <Image
+              className="rounded-lg "
+              src="/assets/project.jpg"
+              width={400}
+              height={500}
+              alt="project"
+            />
+            <div className="absolute rounded-lg inset-0 image-gradient" />
+            <span className="absolute  bottom-0 p-4 text-white text-xl">
+              Urban & Infrastructures
+            </span>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide className="relative">
+          <Link href="/shockersAEC/projects/projects7">
+            <Image
+              className="rounded-lg "
+              src="/assets/project.jpg"
+              width={400}
+              height={500}
+              alt="project"
+            />
+            <div className="absolute rounded-lg inset-0 image-gradient" />
+            <span className="absolute  bottom-0 p-4 text-white text-xl">
+              Urban & Infrastructures
+            </span>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide className="relative">
+          <Link href="/shockersAEC/projects/projects8">
+            <Image
+              className="rounded-lg "
+              src="/assets/project.jpg"
+              width={400}
+              height={500}
+              alt="project"
+            />
+            <div className="absolute rounded-lg inset-0 image-gradient" />
+            <span className="absolute  bottom-0 p-4 text-white text-xl">
+              Urban & Infrastructures
+            </span>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide className="relative">
+          <Link href="/shockersAEC/projects/projects9">
+            <Image
+              className="rounded-lg "
+              src="/assets/project.jpg"
+              width={400}
+              height={500}
+              alt="project"
+            />
+            <div className="absolute rounded-lg inset-0 image-gradient" />
+            <span className="absolute  bottom-0 p-4 text-white text-xl">
+              Urban & Infrastructures
+            </span>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide className="relative">
+          <Link href="/shockersAEC/projects/projects10">
+            <Image
+              className="rounded-lg "
+              src="/assets/project.jpg"
+              width={400}
+              height={500}
+              alt="project"
+            />
+            <div className="absolute rounded-lg inset-0 image-gradient" />
+            <span className="absolute  bottom-0 p-4 text-white text-xl">
+              Urban & Infrastructures
+            </span>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide className="relative">
+          <Link href="/shockersAEC/projects/projects11">
+            <Image
+              className="rounded-lg "
+              src="/assets/project.jpg"
+              width={400}
+              height={500}
+              alt="project"
+            />
+            <div className="absolute rounded-lg inset-0 image-gradient" />
+            <span className="absolute  bottom-0 p-4 text-white text-xl">
+              Urban & Infrastructures
+            </span>
+          </Link>
+        </SwiperSlide>
+        <SwiperSlide className="relative">
+          <Link href="/shockersAEC/projects/projects12">
+            <Image
+              className="rounded-lg "
+              src="/assets/project.jpg"
+              width={400}
+              height={500}
+              alt="project"
+            />
+            <div className="absolute rounded-lg inset-0 image-gradient" />
+            <span className="absolute  bottom-0 p-4 text-white text-xl">
+              Urban & Infrastructures
+            </span>
+          </Link>
+        </SwiperSlide>
       </Swiper>
     </>
   );

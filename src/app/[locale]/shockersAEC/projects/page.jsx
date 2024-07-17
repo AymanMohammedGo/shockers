@@ -25,9 +25,7 @@ const Projects = () => {
         <div className="h-lvh sticky top-0">
           <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
             <div className="absolute bottom-0 text-6xl md:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12 text-seconds">
-              <AnimatedText text="DARED" delay={1}></AnimatedText>
-              <AnimatedText text="TO BE" delay={1.5}></AnimatedText>
-              <AnimatedText text="SHOCKED" delay={2}></AnimatedText>
+              <AnimatedText text="PROJECTS" delay={1}></AnimatedText>
             </div>
           </div>
         </div>

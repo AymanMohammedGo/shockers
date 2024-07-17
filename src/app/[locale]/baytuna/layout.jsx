@@ -8,19 +8,19 @@ export default function RootLayout({ children }) {
   const links = [
     {
       name: "HOME",
-      link: "/shockersAEC",
+      link: "/baytuna",
     },
     {
       name: "ABOUT US",
-      link: "/shockersAEC/about",
+      link: "/baytuna/about",
     },
     {
       name: "SERVICES",
-      link: "/shockersAEC/services",
+      link: "/baytuna/services",
     },
     {
       name: "PROJECTS",
-      link: "/shockersAEC/projects",
+      link: "/baytuna/projects",
     },
   ];
   return (
@@ -30,11 +30,11 @@ export default function RootLayout({ children }) {
       ) : ( */}
       <>
         <Header
-          logo="/assets/logoShocker.png"
-          width="140"
-          alt="ShockerLogo"
-          bg="bg-shockersAEC"
-          hover="hover:bg-shockersAEC"
+          logo="/assets/logoBaytuna.png"
+          width="70"
+          alt="BaytunaLogo "
+          bg="bg-baytuna"
+          hover="hover:bg-baytuna"
           text="text-shockersAEC"
           links={links}
         />

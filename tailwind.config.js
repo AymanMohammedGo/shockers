@@ -24,6 +24,12 @@ module.exports = {
 
     extend: {
       colors: {
+        shockersAEC: {
+          DEFAULT: "#252424",
+        },
+        baytuna: {
+          DEFAULT: "#c01f4a",
+        },
         primary: {
           DEFAULT: "#e4e4e4",
         },

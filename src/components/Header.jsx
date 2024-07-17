@@ -5,8 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const Header = () => {
+const Header = ({ logo, alt, width, bg, hover,text, links }) => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <motion.header
       initial={{ y: "-100%" }}
@@ -18,7 +19,9 @@ const Header = () => {
       className="absolute w-full z-10 bg-primary"
     >
       <Link href="/" className=" text-center">
-        <div className="bg-seconds p-2 text-white flex items-center justify-center">
+        <div
+          className={`${bg}    p-2 text-white flex items-center justify-center`}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -42,15 +45,10 @@ const Header = () => {
           href="/shockersAEC"
           className=" flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <Image
-            src="/assets/logoShocker.png"
-            width={140}
-            height={140}
-            alt="Shocker Logo"
-          />
+          <Image src={logo} width={width} height={width} alt={alt} />
         </Link>
         <div className="flex md:hidden ">
-          <LanguageChanger />
+          <LanguageChanger hover={hover} />
           <button
             onClick={() => {
               setIsOpen(!isOpen);
@@ -81,54 +79,23 @@ const Header = () => {
           <ul
             className={`font-medium flex flex-col py-4 md:p-0   md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 `}
           >
-            <li>
-              <Link
-                href="/shockersAEC"
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                }}
-                className="block font-normal py-2 px-3 text-seconds hover:bg-seconds hover:text-white rounded-lg transition-all  "
-              >
-                HOME
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/shockersAEC/about"
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                }}
-                className="block font-normal py-2 px-3 text-seconds  hover:bg-seconds hover:text-white rounded-lg transition-all  "
-              >
-                ABOUT US
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/shockersAEC/services"
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                }}
-                className="block font-normal py-2 px-3 text-seconds hover:bg-seconds hover:text-white rounded-lg transition-all  "
-              >
-                SERVICES
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/shockersAEC/projects"
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                }}
-                className="block font-normal py-2 px-3 text-seconds hover:bg-seconds hover:text-white rounded-lg transition-all  "
-              >
-                PROJECTS
-              </Link>
-            </li>
+            {links.map((item, index) => (
+              <li key={index}>
+                <Link
+                  href={item.link}
+                  onClick={() => {
+                    setIsOpen(!isOpen);
+                  }}
+                  className={`block font-normal py-2 px-3 ${text} ${hover}  hover:text-white rounded-lg transition-all`}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="hidden md:flex ">
-          <LanguageChanger />
+          <LanguageChanger  hover={hover} />
         </div>
       </div>
     </motion.header>

@@ -49,7 +49,7 @@ const ShockersHome = () => {
       {/* <motion.div animate={{ x: [0, 100, 0] }} className="mt-96">
         dfdfdfdfdfdfdfdfdfdf
       </motion.div> */}
-      <section className=" w-full h-lvh ">
+      <section className=" w-screen h-screen ">
         <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
           <div className="absolute bottom-0 text-6xl md:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12 text-seconds">
             {["DARED", "TO BE", "SHOCKED"].map((textContent, index) => (
@@ -160,7 +160,7 @@ const ShockersHome = () => {
         </div>
       </section>
       <section>
-        <div className="relative w-full h-lvh ">
+        <div className="relative w-screen h-screen ">
           <video
             className="absolute top-0 left-0 w-full h-full object-cover"
             autoPlay
@@ -196,7 +196,6 @@ const ShockersHome = () => {
                 >
                   Shockers AEC (Architecture, Engineering, and Construction)
                 </motion.span>
-
                 <Link href="/shockersAEC/about">
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -217,15 +216,15 @@ const ShockersHome = () => {
           </div>
         </div>
       </section>
-      <section className="bg-seconds h-lvh flex items-center justify-center z-10">
-        <div className="flex w-full flex-col xl:flex-row justify-center xl:justify-between items-center   m-auto lg:px-2">
+      <section className="bg-seconds w-screen h-screen flex items-center justify-center z-10">
+        <div className="flex w-full h-full flex-col xl:flex-row justify-center items-center    lg:px-2 overflow-hidden">
           <motion.div
             initial={{ x: "-100%" }}
             whileInView={{ x: 0 }}
             transition={{
               duration: 1,
             }}
-            className="content text-white flex-1  flex flex-col items-center overflow-hidden"
+            className="content text-white flex-1  flex flex-col items-center justify-center overflow-hidden"
           >
             <h1 className="text-6xl lg:text-8xl font-bold my-8 ">Services</h1>
             <ul>
@@ -253,9 +252,9 @@ const ShockersHome = () => {
           <Image
             src="/assets/services.jpg"
             width={700}
-            height={700}
+            height={500}
             alt="services"
-            className=" w-full h-full xl:h-screen xl:w-1/2"
+            className="w-screen h-[50vh] xl:h-screen xl:w-[50vw] object-cover "
           />
         </div>
       </section>

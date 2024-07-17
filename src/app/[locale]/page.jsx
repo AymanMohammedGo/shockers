@@ -1,7 +1,5 @@
 "use client";
 import Image from "next/image";
-import HeaderBrond from "../../components/BrondHome/HeaderBrond";
-import MySwiper from "../../components/BrondHome/SlideBrond";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -12,15 +10,10 @@ const Home = () => {
 
   return (
     <>
-      {/* <SelectLanguage /> */}
       {isVideoEnded ? (
         <LoadingVideo URL="/done8_2.mp4" setIsVideoEnded={setIsVideoEnded} />
       ) : (
         <main className="  bg-primary ">
-          {/* <HeaderBrond /> */}
-          {/* <MySwiper /> */}
-          {/* <div className="flex items-center justify-center flex-wrap gap-2 py-8"> */}
-
           <div class="flex items-center justify-center min-h-screen">
             <div className=" grid relative  items-center justify-center grid-cols-2  sm:grid-cols-3  ">
               <div className="flex items-center justify-center ">

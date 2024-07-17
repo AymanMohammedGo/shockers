@@ -13,11 +13,12 @@ import animationData from "/public/assets/S.json"; // تأكد من مسار ا�
 
 import { Pagination } from "swiper/modules";
 import AnimatedText from "@/components/Motion/AnimatedText";
+import Link from "next/link";
 
 const Projects = () => {
   return (
     <div>
-      {/* <ImageOverlaysTop namePage="PROJECTS" title="Shockers AEC" /> */}
+      {/* <ImageOverlaysTop namePage="projects" title="Shockers AEC" /> */}
       <LottieAnimation animationData={animationData} />
 
       <section className=" w-full h-full ">
@@ -31,20 +32,26 @@ const Projects = () => {
           </div>
         </div>
         <div className="sticky top-0">
-          <ImageOverlaysCenter title=" PROJECTS 1 " />
+          <Link href="/shockersAEC/projects/projects1">
+            <ImageOverlaysCenter title=" PROJECTS 1 " />
+          </Link>
         </div>
         <div className="sticky top-0">
-          <ImageOverlaysCenter title=" PROJECTS 2 " />
+          <Link href="/shockersAEC/projects/projects2">
+            <ImageOverlaysCenter title=" PROJECTS 2 " />
+          </Link>
         </div>
         <div className="sticky top-0">
-          <ImageOverlaysCenter title=" PROJECTS 3 " />
+          <Link href="/shockersAEC/projects/projects3">
+            <ImageOverlaysCenter title=" PROJECTS 3 " />
+          </Link>
         </div>
         <div className="sticky top-0">
-          <ImageOverlaysCenter title=" PROJECTS 4 " />
+          <Link href="/shockersAEC/projects/projects4">
+            <ImageOverlaysCenter title=" PROJECTS 4 " />
+          </Link>
         </div>
-        <div className="sticky top-0">
-          <ImageOverlaysCenter title=" PROJECTS 5 " />
-        </div>
+
         <div className="sticky top-0 bg-primary ">
           <h2 className="font-bold  text-seconds  text-3xl text-center py-8">
             PROJECTS

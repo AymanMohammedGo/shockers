@@ -5,8 +5,8 @@ import Image from "next/image";
 import { CircleCheckBig } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedText from "@/components/Motion/AnimatedText";
-import LottieAnimation from "@/components/litte";
-import animationData from "/public/assets/S.json"; // تأكد من مسار الملف
+import Draw_S from "@/components/Lottie/Draw_S";
+import S_json from "/public/assets/S.json"; // تأكد من مسار الملف
 import "../globals.css";
 import Link from "next/link";
 import { useAnimation } from "framer-motion";
@@ -122,7 +122,7 @@ const ShockersHome = () => {
   }, [controls1, inView1]);
   return (
     <>
-      <LottieAnimation animationData={animationData} />
+      <Draw_S animationData={S_json} />
       <section className=" w-screen h-screen ">
         <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
           <div className="absolute bottom-0 text-[70px] leading-none md:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12 text-seconds">

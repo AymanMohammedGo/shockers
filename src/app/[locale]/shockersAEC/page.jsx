@@ -247,8 +247,8 @@ const ShockersHome = () => {
           </div>
           <Image
             src="/assets/services.jpg"
-            width={700}
-            height={500}
+            width={4900}
+            height={3200}
             alt="services"
             className="w-screen h-[50vh] xl:h-screen xl:w-[50vw] object-cover "
           />

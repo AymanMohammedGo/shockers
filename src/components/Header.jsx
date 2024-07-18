@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const Header = ({ logo, alt, width, bg, hover,text, links }) => {
+const Header = ({ logo, name, width, bg, hover, text, links }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -42,10 +42,10 @@ const Header = ({ logo, alt, width, bg, hover,text, links }) => {
       </Link>
       <div className=" max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
-          href="/shockersAEC"
+          href={`/${name}`}
           className=" flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <Image src={logo} width={width} height={width} alt={alt} />
+          <Image src={logo} width={width} height={width} alt={`${name}Logo`} />
         </Link>
         <div className="flex md:hidden ">
           <LanguageChanger hover={hover} />
@@ -95,7 +95,7 @@ const Header = ({ logo, alt, width, bg, hover,text, links }) => {
           </ul>
         </div>
         <div className="hidden md:flex ">
-          <LanguageChanger  hover={hover} />
+          <LanguageChanger hover={hover} />
         </div>
       </div>
     </motion.header>

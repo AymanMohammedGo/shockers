@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
         <Header
           logo="/assets/logoBaytuna.png"
           width="70"
-          alt="BaytunaLogo "
+          name="baytuna"
           bg="bg-baytuna"
           hover="hover:bg-baytuna"
           text="text-shockersAEC"

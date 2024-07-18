@@ -6,8 +6,8 @@ const ImageOverlaysCenter = ({ title }) => {
       <Image
         className="w-full h-full object-cover"
         src="/assets/imageOverlays.jpg"
-        width={1000}
-        height={500}
+        width={5000}
+        height={2500}
         alt="imageOverlays"
       />
       <div className="bg-black bg-opacity-80 w-full h-full absolute top-0" />

@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
         <Header
           logo="/assets/logoShocker.png"
           width="140"
-          alt="ShockerLogo"
+          name="shockersAEC"
           bg="bg-shockersAEC"
           hover="hover:bg-shockersAEC"
           text="text-shockersAEC"

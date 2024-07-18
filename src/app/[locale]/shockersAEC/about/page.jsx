@@ -30,9 +30,9 @@ const About = () => {
             </p>
           </div>
           <Image
-            className="w-full lg:w-fit"
+            className="lg:w-1/3"
             src="/assets/services.jpg"
-            width={350}
+            width={1500}
             height={500}
             alt="project"
           />
@@ -57,9 +57,9 @@ const About = () => {
             </p>
           </div>
           <Image
-            className="w-full lg:w-fit"
+            className="lg:w-1/3"
             src="/assets/services.jpg"
-            width={350}
+            width={1500}
             height={500}
             alt="project"
           />
@@ -84,9 +84,9 @@ const About = () => {
             </p>
           </div>
           <Image
-            className="w-full lg:w-fit"
+            className="lg:w-1/3"
             src="/assets/services.jpg"
-            width={350}
+            width={1500}
             height={500}
             alt="project"
           />

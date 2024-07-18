@@ -1,8 +1,16 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const ImageOverlaysTop = ({ namePage, title }) => {
   return (
-    <div className="relative w-full h-lvh">
+    <motion.div
+      initial={{ y: "-100%", opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        duration: 1,
+      }}
+      className="relative w-full h-screen"
+    >
       <Image
         className="w-full h-full object-cover"
         src="/assets/imageOverlays.jpg"
@@ -18,7 +26,7 @@ const ImageOverlaysTop = ({ namePage, title }) => {
           </h1>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

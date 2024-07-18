@@ -112,7 +112,6 @@ const ShockersHome = () => {
     } else {
       controls.start("hidden");
     }
-    1;
   }, [controls, inView]);
   useEffect(() => {
     if (inView1) {
@@ -123,10 +122,12 @@ const ShockersHome = () => {
   }, [controls1, inView1]);
   return (
     <>
-      <LottieAnimation animationData={animationData} />
+      <div className="lottie">
+        <LottieAnimation animationData={animationData} />
+      </div>
       <section className=" w-screen h-screen ">
         <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
-          <div className="absolute bottom-0 text-6xl md:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12 text-seconds">
+          <div className="absolute bottom-0 text-[70px] leading-none md:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12 text-seconds">
             <AnimatedText text="DARED" delay={1.5}></AnimatedText>
             <AnimatedText text="TO BE" delay={2}></AnimatedText>
             <AnimatedText text="SHOCKED" delay={2.5}></AnimatedText>
@@ -259,7 +260,7 @@ const ShockersHome = () => {
         transition={{
           duration: 1,
         }}
-        className="font-bold overflow-hidden  text-white bg-seconds rounded-lg w-fit px-4 py-3 z-0  text-3xl mx-auto mt-6 mb-[16px]"
+        className="font-bold overflow-hidden  text-white bg-seconds rounded-lg w-fit px-4 py-3 z-0 text-xl  lg:text-3xl mx-auto mt-6 mb-[16px]"
       >
         PROJECTS
       </motion.h2>

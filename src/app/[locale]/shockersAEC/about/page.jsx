@@ -5,11 +5,15 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import LottieAnimation from "@/components/litte";
+import animationData from "/public/assets/S.json"; // تأكد من مسار الملف
 
 const About = () => {
   return (
     <div>
       <ImageOverlaysTop namePage="ABOUT" title="Shockers AEC" />
+      <LottieAnimation animationData={animationData} />
+
       <section className="lg:my-5 max-w-screen-xxl m-auto lg:px-2">
         <motion.div
           initial={{ x: "-100%", opacity: 0 }}

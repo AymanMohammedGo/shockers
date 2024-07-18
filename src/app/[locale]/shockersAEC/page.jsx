@@ -122,9 +122,7 @@ const ShockersHome = () => {
   }, [controls1, inView1]);
   return (
     <>
-      <div className="lottie">
-        <LottieAnimation animationData={animationData} />
-      </div>
+      <LottieAnimation animationData={animationData} />
       <section className=" w-screen h-screen ">
         <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
           <div className="absolute bottom-0 text-[70px] leading-none md:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12 text-seconds">

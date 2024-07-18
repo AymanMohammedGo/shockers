@@ -16,7 +16,7 @@ const Header = ({ logo, name, width, bg, hover, text, links }) => {
         duration: 1,
         delay: 0,
       }}
-      className="absolute w-full z-10 bg-primary"
+      className="absolute w-full z-20 bg-primary"
     >
       <Link href="/" className=" text-center">
         <div

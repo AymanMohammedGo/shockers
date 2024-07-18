@@ -23,6 +23,20 @@ export default function RootLayout({ children }) {
       link: "/baytuna/projects",
     },
   ];
+  const socialMedia = [
+    {
+      name: "Instagram",
+      link: "",
+    },
+    {
+      name: "Facebook",
+      link: "",
+    },
+    {
+      name: "Linkedin",
+      link: "",
+    },
+  ];
   return (
     <div className="bg-primary min-h-screen flex flex-col justify-between ">
       {/* {isVideoEnded ? (
@@ -30,8 +44,8 @@ export default function RootLayout({ children }) {
       ) : ( */}
       <>
         <Header
-          logo="/assets/logoBaytuna.png"
-          width="70"
+          logo="/assets/logoBaytuna.svg"
+          width="80"
           name="baytuna"
           bg="bg-baytuna"
           hover="hover:bg-baytuna"
@@ -40,7 +54,14 @@ export default function RootLayout({ children }) {
         />
 
         {children}
-        <Footer />
+        <Footer
+          width="140"
+          name="baytuna"
+          logo="/assets/logoBaytunaWhite.svg"
+          nameFooter="BAYTUNA"
+          links={links}
+          socialMedia={socialMedia}
+        />
       </>
       {/* )} */}
     </div>

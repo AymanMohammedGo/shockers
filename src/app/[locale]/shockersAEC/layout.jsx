@@ -23,6 +23,20 @@ export default function RootLayout({ children }) {
       link: "/shockersAEC/projects",
     },
   ];
+  const socialMedia = [
+    {
+      name: "Instagram",
+      link: "https://www.instagram.com/shockersaec/",
+    },
+    {
+      name: "Facebook",
+      link: "https://www.facebook.com/Shockersaec/",
+    },
+    {
+      name: "Linkedin",
+      link: "https://www.linkedin.com/company/shockers-advertising/",
+    },
+  ];
   return (
     <div className="bg-primary min-h-screen flex flex-col justify-between ">
       {/* {isVideoEnded ? (
@@ -30,7 +44,7 @@ export default function RootLayout({ children }) {
       ) : ( */}
       <>
         <Header
-          logo="/assets/logoShocker.png"
+          logo="/assets/logoShocker.svg"
           width="140"
           name="shockersAEC"
           bg="bg-shockersAEC"
@@ -40,7 +54,14 @@ export default function RootLayout({ children }) {
         />
 
         {children}
-        <Footer />
+        <Footer
+          width="240"
+          name="shockersAEC"
+          logo="/assets/logoShockerWhite.svg"
+          nameFooter="SHOCKERSAEC"
+          links={links}
+          socialMedia={socialMedia}
+        />
       </>
       {/* )} */}
     </div>

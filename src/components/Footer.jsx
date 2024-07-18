@@ -1,63 +1,35 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { motion } from "framer-motion";
 
-const Footer = () => {
+const Footer = ({ width, name, logo, links, nameFooter, socialMedia }) => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-seconds z-10">
       <div className="relative mx-auto max-w-screen-xxl px-4 py-16 sm:px-6 lg:p-8 ">
         <div className="mt-2 lg:flex lg:items-center lg:justify-between">
           <div className="flex justify-center  lg:justify-start">
             <Link
-              href="/shockersAEC"
+              href={`/${name}`}
               className=" flex items-center space-x-3 rtl:space-x-reverse"
             >
-              <Image
-                src="/assets/logoShockers2.png"
-                width={240}
-                height={240}
-                alt="Shocker Logo"
-              />
+              <Image src={logo} width={width} height={width} alt={name} />
             </Link>
           </div>
           <ul className="mt-16 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
-            <li>
-              <Link
-                className="text-white transition text-xl"
-                href="/shockersAEC"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-white transition text-xl"
-                href="/shockersAEC/projects"
-              >
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-white transition text-xl"
-                href="/shockersAEC/services"
-              >
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="text-white transition text-xl  "
-                href="/shockersAEC/about"
-              >
-                About Us
-              </Link>
-            </li>
+            {links.map((item, index) => (
+              <li key={index}>
+                <Link
+                  href={item.link}
+                  className="text-white transition text-xl"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
-        <div className="mt-20 text-center   lg:text-start grid grid-cols-1 gap-8 lg:gap-x-[480px] md:grid-cols-2 lg:grid-cols-2">
+        <div className="mt-20 text-center   lg:text-start grid grid-cols-1 gap-8 lg:gap-x-[330px] md:grid-cols-2 lg:grid-cols-2">
           <div>
             <Link href="https://maps.app.goo.gl/2ByQ52ayynrUF9sA8">
               <p className=" text-white text-xl font-semibold">Address</p>
@@ -96,26 +68,18 @@ const Footer = () => {
             <p className="text-xl font-semibold text-white">Social Media</p>
 
             <ul className="mt-3 text-sm text-white">
-              <li>
-                <Link href="https://www.instagram.com/shockersaec/">
-                  <span className="text-base">Instagram</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="https://www.facebook.com/Shockersaec/">
-                  <span className="text-base">Facebook</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="https://www.linkedin.com/company/shockers-advertising/">
-                  <span className="text-base">Linkedin</span>
-                </Link>
-              </li>
+              {socialMedia.map((item, index) => (
+                <li key={index}>
+                  <Link href={item.link}>
+                    <span className="text-base">{item.name}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
         <p className="mt-12 text-center  text-white ">
-          privacy policy &copy; SHOCKERRSAEC 2024
+          privacy policy &copy; {nameFooter} {currentYear}
         </p>
       </div>
     </footer>

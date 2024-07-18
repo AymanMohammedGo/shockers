@@ -1,25 +1,16 @@
 "use client";
-import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import ImageOverlaysCenter from "@/components/ImageOverlaysCenter";
 import SlideProject from "@/components/SlideProject";
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import LottieAnimation from "@/components/litte";
-import animationData from "/public/assets/S.json"; // تأكد من مسار الملف
-
-import { Pagination } from "swiper/modules";
+import Draw_S from "@/components/Lottie/Draw_S";
+import S_json from "/public/assets/S.json";
 import AnimatedText from "@/components/Motion/AnimatedText";
 import Link from "next/link";
 
 const Projects = () => {
   return (
     <div>
-      {/* <ImageOverlaysTop namePage="projects" title="Shockers AEC" /> */}
-      <LottieAnimation animationData={animationData} />
+      <Draw_S animationData={S_json} />
 
       <section className=" w-full h-full ">
         <div className="h-lvh sticky top-0">

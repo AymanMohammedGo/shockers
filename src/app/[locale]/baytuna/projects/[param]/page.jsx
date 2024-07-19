@@ -18,47 +18,51 @@ const SubProject = () => {
       <ImageOverlaysTop namePage="Sub Project" title={param} />
       <ImageTitleProject />
       <div className="sticky top-0">
-        <div className=" h-screen w-screen">
+        <div className="relative h-screen w-screen">
           <Image
             className="w-full h-full object-cover"
             src="/assets/projects1.jpg"
-            width={1000}
-            height={500}
+            width={5600}
+            height={3200}
             alt=""
           />
+          <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
         </div>
       </div>
       <div className="sticky top-0">
-        <div className=" h-screen w-screen">
+        <div className="relative h-screen w-screen">
           <Image
             className="w-full h-full object-cover"
             src="/assets/projects2.jpg"
-            width={1000}
-            height={500}
+            width={5600}
+            height={3200}
             alt=""
           />
+          <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
         </div>
       </div>
       <div className="sticky top-0">
-        <div className=" h-screen w-screen">
+        <div className="relative h-screen w-screen">
           <Image
             className="w-full h-full object-cover"
             src="/assets/projects1.jpg"
-            width={1000}
-            height={500}
+            width={5600}
+            height={3200}
             alt=""
           />
+          <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
         </div>
       </div>
       <div className="sticky top-0">
-        <div className=" h-screen w-screen">
+        <div className="relative h-screen w-screen">
           <Image
             className="w-full h-full object-cover"
             src="/assets/projects2.jpg"
-            width={1000}
-            height={500}
+            width={5600}
+            height={3200}
             alt=""
           />
+          <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
         </div>
       </div>
     </div>

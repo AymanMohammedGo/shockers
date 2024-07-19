@@ -1,3 +1,4 @@
+
 import { delay, motion } from "framer-motion";
 
 const AnimatedText = ({ text, delay }) => {

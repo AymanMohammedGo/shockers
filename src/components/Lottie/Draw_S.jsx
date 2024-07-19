@@ -1,5 +1,5 @@
-// components/LottieAnimation.js
-import React, { useEffect, useRef } from "react";
+"use client";
+import { useEffect, useRef } from "react";
 import lottie from "lottie-web";
 
 const LottieAnimation = ({ animationData, speed = 0.8 }) => {

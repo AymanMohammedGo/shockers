@@ -8,6 +8,68 @@ import AnimatedText from "@/components/Motion/AnimatedText";
 import Link from "next/link";
 
 const Projects = () => {
+  const projects = [
+    {
+      id: "projects1",
+      name: "Urban & Infrastructures",
+      image: "/assets/project.jpg",
+    },
+    {
+      id: "projects1",
+      name: "Urban & Infrastructures",
+      image: "/assets/project.jpg",
+    },
+    {
+      id: "projects1",
+      name: "Urban & Infrastructures",
+      image: "/assets/project.jpg",
+    },
+    {
+      id: "projects1",
+      name: "Urban & Infrastructures",
+      image: "/assets/project.jpg",
+    },
+    {
+      id: "projects1",
+      name: "Urban & Infrastructures",
+      image: "/assets/project.jpg",
+    },
+    {
+      id: "projects1",
+      name: "Urban & Infrastructures",
+      image: "/assets/project.jpg",
+    },
+    {
+      id: "projects1",
+      name: "Urban & Infrastructures",
+      image: "/assets/project.jpg",
+    },
+    {
+      id: "projects1",
+      name: "Urban & Infrastructures",
+      image: "/assets/project.jpg",
+    },
+    {
+      id: "projects1",
+      name: "Urban & Infrastructures",
+      image: "/assets/project.jpg",
+    },
+    {
+      id: "projects1",
+      name: "Urban & Infrastructures",
+      image: "/assets/project.jpg",
+    },
+    {
+      id: "projects1",
+      name: "Urban & Infrastructures",
+      image: "/assets/project.jpg",
+    },
+    {
+      id: "projects1",
+      name: "Urban & Infrastructures",
+      image: "/assets/project.jpg",
+    },
+  ];
   return (
     <div>
       <Draw_S animationData={S_json} />
@@ -45,7 +107,7 @@ const Projects = () => {
           <h2 className="font-bold  text-seconds  text-3xl text-center py-8">
             PROJECTS
           </h2>
-          <SlideProject />
+          <SlideProject projects={projects} link="shockersAEC" />
         </div>
       </section>
 

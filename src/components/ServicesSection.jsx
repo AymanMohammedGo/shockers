@@ -74,7 +74,7 @@ const ServicesSection = ({ services, link, image, bg, tc }) => {
             animate={controls1}
             variants={var5}
           >
-            <Link href={`/${link}/projects`}>
+            <Link href={`/${link}/services`}>
               <Button
                 className={`${bg} w-fit ${tc} hover:bg-shockersAEC hover:text-white hover:outline text-base my-8`}
               >

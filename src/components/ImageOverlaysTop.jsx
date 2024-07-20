@@ -9,13 +9,14 @@ const ImageOverlaysTop = ({ namePage, title }) => {
       transition={{
         duration: 1,
       }}
-      className="relative w-full h-screen z-10"
+      className="relative w-screen h-screen z-10"
     >
       <Image
-        className="w-full h-full object-cover"
+        className=" object-cover"
         src="/assets/imageOverlays.jpg"
-        layout="fill"
+        fill={true}
         alt="imageOverlays"
+        quality={100}
       />
       <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
       <div className="absolute top-2/3  w-full ">

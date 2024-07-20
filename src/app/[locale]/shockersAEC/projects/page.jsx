@@ -107,7 +107,9 @@ const Projects = () => {
           <h2 className="font-bold  text-seconds  text-3xl text-center py-8">
             PROJECTS
           </h2>
-          <SlideProject projects={projects} link="shockersAEC" />
+          <div className="w-screen h-screen mb-2">
+            <SlideProject projects={projects} link="shockersAEC" />
+          </div>
         </div>
       </section>
 

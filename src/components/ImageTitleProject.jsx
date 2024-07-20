@@ -5,11 +5,11 @@ const ImageTitleProject = () => {
   return (
     <div className="relative h-screen w-screen">
       <Image
-        className="w-full h-full object-cover"
+        className=" object-cover"
         src="/assets/projects.jpg"
-        width={1000}
-        height={500}
-        alt=""
+        fill={true}
+        alt="ImageTitleProject"
+        quality={100}
       />
       <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
 

@@ -62,9 +62,10 @@
 .swiper-rtl .swiper-button-next:after,
 .swiper-button-next:after,
 .swiper-rtl .swiper-button-prev:after {
-  background-color: white;
-  color: #2c2926;
-  border-radius: 8px;
+  /* background-color: white; */
+  color: #ffcf01;
+  font-weight: 900;
+  /* border-radius: 8px; */
   padding: 12px;
 }
 .swiper-button-next,

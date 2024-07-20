@@ -5,9 +5,9 @@ import { useParams } from "next/navigation";
 import ImageTitleProject from "@/components/ImageTitleProject";
 import Image from "next/image";
 
-const SubProject = () => {
-  const params = useParams();
-  const param = params.param;
+const SubProject = ({ params }) => {
+  // const params = useParams();
+  // const param = params.param;
 
   //   if (!param) {
   //     return <div>Loading...</div>;
@@ -15,7 +15,7 @@ const SubProject = () => {
 
   return (
     <div>
-      <ImageOverlaysTop namePage="Sub Project" title={param} />
+      <ImageOverlaysTop namePage="Sub Project" title={params.id} />
       <ImageTitleProject />
       <div className="sticky top-0">
         <div className="relative h-screen w-screen">

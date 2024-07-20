@@ -4,11 +4,11 @@ const ImageOverlaysCenter = ({ title }) => {
   return (
     <div className="relative w-screen h-screen">
       <Image
-        className="w-full h-full object-cover"
+        className="object-cover"
         src="/assets/imageOverlays.jpg"
-        width={5000}
-        height={2500}
+        fill={true}
         alt="imageOverlays"
+        quality={100}
       />
       <div className="bg-black bg-opacity-80 w-full h-full absolute top-0" />
       <div className="absolute flex items-center justify-center  inset-0 m-auto   ">

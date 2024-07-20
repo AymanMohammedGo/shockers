@@ -24,7 +24,7 @@ const AboutSection = ({ video, text, bg, tc, link }) => {
       opacity: 1,
       transition: {
         duration: 1,
-        delay: 0.5,
+        delay: 0.8,
       },
     },
   };
@@ -34,7 +34,7 @@ const AboutSection = ({ video, text, bg, tc, link }) => {
       opacity: 1,
       transition: {
         duration: 1,
-        delay: 0.7,
+        delay: 1.5,
       },
     },
   };

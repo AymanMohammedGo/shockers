@@ -170,7 +170,9 @@ const ShockersHome = () => {
       >
         PROJECTS
       </motion.h2>
-      <SlideProject projects={projects} link="shockersAEC" />
+      <div className="w-screen h-screen mb-2">
+        <SlideProject projects={projects} link="baytuna" />
+      </div>
     </>
   );
 };

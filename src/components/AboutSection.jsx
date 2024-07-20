@@ -62,7 +62,7 @@ const AboutSection = ({ video, text, bg, tc, link }) => {
       </video>
       <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
         <div className="max-w-screen-xxl w-full h-full relative overflow-hidden">
-          <div className="flex  flex-col items-center lg:items-start justify-center absolute bottom-0 p-2">
+          <div className="flex w-full flex-col items-center lg:items-start justify-center absolute bottom-0 p-2">
             <motion.h1
               ref={ref}
               initial="hidden"

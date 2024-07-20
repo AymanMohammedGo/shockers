@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import LanguageChanger from "./LanguageChanger";
 import Image from "next/image";
 import Link from "next/link";
@@ -77,7 +77,7 @@ const Header = ({ logo, name, width, bg, hover, text, links }) => {
           className={`${isOpen ? "block" : "hidden"} w-full md:block md:w-auto`}
         >
           <ul
-            className={`font-medium flex flex-col py-4 md:p-0   md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 `}
+            className={`font-medium flex flex-col py-4 md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 `}
           >
             {links.map((item, index) => (
               <li key={index}>

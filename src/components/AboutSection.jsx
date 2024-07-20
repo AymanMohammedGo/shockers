@@ -18,13 +18,13 @@ const AboutSection = ({ video, text, bg, tc, link }) => {
     },
   };
   const variant2 = {
-    hidden: { y: "100%", opacity: 0 },
+    hidden: { y: "160%", opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
         duration: 1,
-        delay: 0.8,
+        delay: 0.6,
       },
     },
   };

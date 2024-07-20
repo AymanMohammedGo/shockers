@@ -65,19 +65,19 @@ const ShockersHome = () => {
     },
     {
       text: "YOUR",
-      delay: 2,
+      delay: 1.8,
     },
     {
       text: "HOUSE",
-      delay: 2.5,
+      delay: 2.1,
     },
     {
       text: "BECOMES",
-      delay: 3,
+      delay: 2.4,
     },
     {
       text: "YOUR HOME",
-      delay: 3.5,
+      delay: 2.7,
     },
   ];
   const projects = [
@@ -144,7 +144,7 @@ const ShockersHome = () => {
   ];
   return (
     <>
-      <Draw_S animationData={S_json} />
+      {/* <Draw_S animationData={S_json} /> */}
       <SalgonSection titleText={titleText} />
       <AboutSection
         link="baytuna"
@@ -160,19 +160,8 @@ const ShockersHome = () => {
         bg="bg-baytuna"
         tc="text-white"
       />
-      <motion.h2
-        initial={{ y: "-150%" }}
-        whileInView={{ y: 0 }}
-        transition={{
-          duration: 1,
-        }}
-        className="font-bold overflow-hidden  text-white bg-baytuna rounded-lg w-fit px-4 py-3 z-0 text-xl  lg:text-3xl mx-auto mt-6 mb-[16px]"
-      >
-        PROJECTS
-      </motion.h2>
-      <div className="w-screen h-screen mb-2">
-        <SlideProject projects={projects} link="baytuna" />
-      </div>
+
+      <SlideProject projects={projects} link="baytuna" bgText="bg-baytuna" />
     </>
   );
 };

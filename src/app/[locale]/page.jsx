@@ -22,8 +22,7 @@ const Home = () => {
     },
     {
       name: "BAYTUNA",
-      link: "#",
-      // "/baytuna"
+      link: "/baytuna",
       imageLogo: "/assets/BAYTUNA.svg",
       imageHoverLogo: "/assets/BAYTUNA1.svg",
       textHover: " When Your House ",

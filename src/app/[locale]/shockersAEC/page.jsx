@@ -3,7 +3,6 @@
 import SlideProject from "@/components/SlideProject";
 import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/assets/S.json";
-import { motion } from "framer-motion";
 
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
@@ -152,19 +151,11 @@ const ShockersHome = () => {
         bg="bg-white"
         tc="text-shockersAEC"
       />
-      <motion.h2
-        initial={{ y: "-150%" }}
-        whileInView={{ y: 0 }}
-        transition={{
-          duration: 1,
-        }}
-        className="font-bold overflow-hidden  text-white bg-seconds rounded-lg w-fit px-4 py-3 z-0 text-xl  lg:text-3xl mx-auto mt-6 mb-[16px]"
-      >
-        PROJECTS
-      </motion.h2>
-      <div className="w-screen h-screen mb-2">
-        <SlideProject projects={projects} link="shockersAEC" />
-      </div>
+      <SlideProject
+        projects={projects}
+        link="shockersAEC"
+        bgText="bg-shockersAEC"
+      />
     </>
   );
 };

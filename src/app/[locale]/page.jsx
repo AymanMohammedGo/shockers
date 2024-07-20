@@ -77,7 +77,7 @@ const Home = () => {
       link: "#",
       // "/shocky"
       imageLogo: "/assets/SHOCKY.svg",
-      imageHoverLogo: "/assets/SHOCKY1.svg",
+      imageHoverLogo: "/assets/SHOCKY0.svg",
       textHover: "Be The Shock",
       bottomText: 0,
       duration: 2,
@@ -92,7 +92,7 @@ const Home = () => {
         <LoadingVideo URL="/done8_2.mp4" setIsVideoEnded={setIsVideoEnded} />
       ) : ( */}
       <main className="bg-primary ">
-        <div class="flex items-center justify-center w-screen h-screen">
+        <div class="flex items-center justify-center h-screen ">
           <div className=" grid relative  items-center justify-center grid-cols-2  sm:grid-cols-3  ">
             {brond.map((item, index) => (
               <div key={index} className="flex items-center justify-center ">

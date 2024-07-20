@@ -3,12 +3,13 @@
 import SlideProject from "@/components/SlideProject";
 import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/assets/S.json";
-import { motion } from "framer-motion";
+import Link from "next/link";
 
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import SalgonSection from "@/components/SalgonSection";
 import "../globals.css";
+import ImageOverlaysCenter from "@/components/ImageOverlaysCenter";
 
 const ShockersHome = () => {
   const var2 = {
@@ -160,8 +161,10 @@ const ShockersHome = () => {
         bg="bg-baytuna"
         tc="text-white"
       />
-
-      <SlideProject projects={projects} link="baytuna" bgText="bg-baytuna" />
+      <Link href="/baytuna/projects">
+        <ImageOverlaysCenter title="VIEW OUR PROJECTS" />
+      </Link>
+      {/* <SlideProject projects={projects} link="baytuna" bgText="bg-baytuna" /> */}
     </>
   );
 };

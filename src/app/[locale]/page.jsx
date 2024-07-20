@@ -91,8 +91,8 @@ const Home = () => {
       {/* {isVideoEnded ? (
         <LoadingVideo URL="/done8_2.mp4" setIsVideoEnded={setIsVideoEnded} />
       ) : ( */}
-      <main className="  bg-primary ">
-        <div class="flex items-center justify-center min-h-screen">
+      <main className="bg-primary ">
+        <div class="flex items-center justify-center w-screen h-screen">
           <div className=" grid relative  items-center justify-center grid-cols-2  sm:grid-cols-3  ">
             {brond.map((item, index) => (
               <div key={index} className="flex items-center justify-center ">

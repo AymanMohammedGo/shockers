@@ -83,7 +83,7 @@ const Projects = () => {
         </div>
         {projects.map((item, index) => (
           <div key={index} className="sticky top-0">
-            <Link href={`/shockersAEC/projects/${item.id}`}>
+            <Link href={`/baytuna/projects/${item.id}`}>
               <ImageOverlaysCenter title={item.name} />
             </Link>
           </div>

@@ -2,8 +2,12 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import LoadingVideo from "@/components/LoadingVideo";
-import { useState } from "react";
-export default function RootLayout({ children }) {
+import { useEffect, useState } from "react";
+export default function RootLayout({ children, params: { locale } }) {
+  const lan = locale;
+  if (locale === "af") {
+    lan === "kr";
+  }
   const [isVideoEnded, setIsVideoEnded] = useState(true);
   const links = [
     {
@@ -37,6 +41,20 @@ export default function RootLayout({ children }) {
       link: "https://www.linkedin.com/company/shockers-advertising/",
     },
   ];
+  // const fetchHeaderLinks = async () => {
+  //   const response = await fetch(
+  //     `http://localhost:1337/api/shockers-header-links?locale=${locale}`
+  //   );
+
+  //   const data = await response.json();
+  //   return data;
+  // };
+
+  // const [links, setLinks] = useState([]);
+
+  // useEffect(() => {
+  //   fetchHeaderLinks().then(setLinks);
+  // }, []);
   return (
     <div className="bg-primary min-h-screen flex flex-col justify-between ">
       {/* {isVideoEnded ? (

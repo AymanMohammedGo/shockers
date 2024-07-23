@@ -17,13 +17,13 @@ const Footer = ({ width, name, logo, links, nameFooter, socialMedia }) => {
             </Link>
           </div>
           <ul className="mt-16 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
-            {links.map((item, index) => (
-              <li key={index}>
+            {links.map((item) => (
+              <li key={item?.id}>
                 <Link
-                  href={item.link}
+                  href={item?.attributes?.URL}
                   className="text-white transition text-xl"
                 >
-                  {item.name}
+                  {item?.attributes?.NameLink}
                 </Link>
               </li>
             ))}

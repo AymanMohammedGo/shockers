@@ -79,16 +79,16 @@ const Header = ({ logo, name, width, bg, hover, text, links }) => {
           <ul
             className={`font-medium flex flex-col py-4 md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 `}
           >
-            {links.map((item, index) => (
-              <li key={index}>
+            {links.map((item) => (
+              <li key={item?.id}>
                 <Link
-                  href={item.link}
+                  href={item?.attributes?.URL}
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
                   className={`block font-normal py-2 px-3 ${text} ${hover}  hover:text-white rounded-lg transition-all`}
                 >
-                  {item.name}
+                  {item?.attributes?.NameLink}
                 </Link>
               </li>
             ))}

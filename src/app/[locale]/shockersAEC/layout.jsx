@@ -2,31 +2,99 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import LoadingVideo from "@/components/LoadingVideo";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import getHeaderLinks from "../../../../utils/ShockersApi";
 export default function RootLayout({ children, params: { locale } }) {
-  const lan = locale;
-  if (locale === "af") {
-    lan === "kr";
+  let lan = locale;
+  if (locale === "kr") {
+    lan = "af";
   }
+  const [links, setLinks] = useState([
+    {
+      id: 1,
+
+      attributes: {
+        NameLink: "HOME",
+
+        URL: "/shockersAEC",
+
+        createdAt: "2024-07-21T12:19:54.909Z",
+
+        updatedAt: "2024-07-21T12:29:07.629Z",
+
+        publishedAt: "2024-07-21T12:29:07.626Z",
+
+        locale: "en",
+      },
+    },
+
+    {
+      id: 4,
+
+      attributes: {
+        NameLink: "ABOUT US",
+
+        URL: "/shockersAEC/about",
+
+        createdAt: "2024-07-21T12:24:40.544Z",
+
+        updatedAt: "2024-07-21T12:29:03.525Z",
+
+        publishedAt: "2024-07-21T12:29:03.522Z",
+
+        locale: "en",
+      },
+    },
+
+    {
+      id: 7,
+
+      attributes: {
+        NameLink: "SERVICES",
+
+        URL: "/shockersAEC/services",
+
+        createdAt: "2024-07-21T12:26:16.095Z",
+
+        updatedAt: "2024-07-21T12:29:14.885Z",
+
+        publishedAt: "2024-07-21T12:29:14.882Z",
+
+        locale: "en",
+      },
+    },
+
+    {
+      id: 10,
+
+      attributes: {
+        NameLink: "PROJECTS",
+
+        URL: "/shockersAEC/projects",
+
+        createdAt: "2024-07-21T12:27:24.651Z",
+
+        updatedAt: "2024-07-21T12:29:11.388Z",
+
+        publishedAt: "2024-07-21T12:29:11.386Z",
+
+        locale: "en",
+      },
+    },
+  ]);
+  // const [links, setLinks] = useState([]);
+  // const getHeaderLink_ = useCallback(() => {
+  //   getHeaderLinks(lan).then((res) => {
+  //     console.log(res.data.data);
+  //     setLinks(res.data.data);
+  //   });
+  // }, [lan]);
+  // useEffect(() => {
+  //   getHeaderLink_();
+  // }, [getHeaderLink_]);
+
   const [isVideoEnded, setIsVideoEnded] = useState(true);
-  const links = [
-    {
-      name: "HOME",
-      link: "/shockersAEC",
-    },
-    {
-      name: "ABOUT US",
-      link: "/shockersAEC/about",
-    },
-    {
-      name: "SERVICES",
-      link: "/shockersAEC/services",
-    },
-    {
-      name: "PROJECTS",
-      link: "/shockersAEC/projects",
-    },
-  ];
+
   const socialMedia = [
     {
       name: "Instagram",
@@ -41,20 +109,7 @@ export default function RootLayout({ children, params: { locale } }) {
       link: "https://www.linkedin.com/company/shockers-advertising/",
     },
   ];
-  // const fetchHeaderLinks = async () => {
-  //   const response = await fetch(
-  //     `http://localhost:1337/api/shockers-header-links?locale=${locale}`
-  //   );
 
-  //   const data = await response.json();
-  //   return data;
-  // };
-
-  // const [links, setLinks] = useState([]);
-
-  // useEffect(() => {
-  //   fetchHeaderLinks().then(setLinks);
-  // }, []);
   return (
     <div className="bg-primary min-h-screen flex flex-col justify-between ">
       {/* {isVideoEnded ? (

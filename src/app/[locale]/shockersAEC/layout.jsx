@@ -3,95 +3,29 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import LoadingVideo from "@/components/LoadingVideo";
 import { useEffect, useState, useCallback } from "react";
-import getHeaderLinks from "../../../../utils/ShockersApi";
+import getName_HeaderLinks from "../../../../utils/GlobleApi";
 export default function RootLayout({ children, params: { locale } }) {
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
   }
-  const [links, setLinks] = useState([
-    {
-      id: 1,
 
-      attributes: {
-        NameLink: "HOME",
-
-        URL: "/shockersAEC",
-
-        createdAt: "2024-07-21T12:19:54.909Z",
-
-        updatedAt: "2024-07-21T12:29:07.629Z",
-
-        publishedAt: "2024-07-21T12:29:07.626Z",
-
-        locale: "en",
-      },
-    },
-
-    {
-      id: 4,
-
-      attributes: {
-        NameLink: "ABOUT US",
-
-        URL: "/shockersAEC/about",
-
-        createdAt: "2024-07-21T12:24:40.544Z",
-
-        updatedAt: "2024-07-21T12:29:03.525Z",
-
-        publishedAt: "2024-07-21T12:29:03.522Z",
-
-        locale: "en",
-      },
-    },
-
-    {
-      id: 7,
-
-      attributes: {
-        NameLink: "SERVICES",
-
-        URL: "/shockersAEC/services",
-
-        createdAt: "2024-07-21T12:26:16.095Z",
-
-        updatedAt: "2024-07-21T12:29:14.885Z",
-
-        publishedAt: "2024-07-21T12:29:14.882Z",
-
-        locale: "en",
-      },
-    },
-
-    {
-      id: 10,
-
-      attributes: {
-        NameLink: "PROJECTS",
-
-        URL: "/shockersAEC/projects",
-
-        createdAt: "2024-07-21T12:27:24.651Z",
-
-        updatedAt: "2024-07-21T12:29:11.388Z",
-
-        publishedAt: "2024-07-21T12:29:11.386Z",
-
-        locale: "en",
-      },
-    },
-  ]);
-  // const [links, setLinks] = useState([]);
-  // const getHeaderLink_ = useCallback(() => {
-  //   getHeaderLinks(lan).then((res) => {
-  //     console.log(res.data.data);
-  //     setLinks(res.data.data);
+  const [linksNames, setLinksNames] = useState({
+    NamePageHome: "HOME",
+    NamePageAbout: "ABOUT US",
+    NamePageServices: "SERVICES",
+    NamePageProjects: "PROJECTS",
+  });
+  // const [linksNames, setLinksNames] = useState([]);
+  // const getName_HeaderLinks_ = useCallback(() => {
+  //   getName_HeaderLinks(lan).then((res) => {
+  //     console.log(res.data.data.attributes);
+  //     setLinksNames(res.data.data.attributes);
   //   });
   // }, [lan]);
   // useEffect(() => {
-  //   getHeaderLink_();
-  // }, [getHeaderLink_]);
+  //   getName_HeaderLinks_();
+  // }, [getName_HeaderLinks_]);
 
   const [isVideoEnded, setIsVideoEnded] = useState(true);
 
@@ -123,7 +57,7 @@ export default function RootLayout({ children, params: { locale } }) {
           bg="bg-shockersAEC"
           hover="hover:bg-shockersAEC"
           text="text-shockersAEC"
-          links={links}
+          linksNames={linksNames}
         />
         {children}
         <Footer
@@ -131,7 +65,7 @@ export default function RootLayout({ children, params: { locale } }) {
           name="shockersAEC"
           logo="/assets/logoShockerWhite.svg"
           nameFooter="SHOCKERSAEC"
-          links={links}
+          linksNames={linksNames}
           socialMedia={socialMedia}
         />
       </>

@@ -16,6 +16,7 @@ export default function SlideProject({ projects, link, bgText }) {
     <div className="w-screen h-screen flex flex-col">
       <motion.h2
         initial={{ y: "-150%" }}
+        id="projects"
         whileInView={{ y: 0 }}
         transition={{
           duration: 1,

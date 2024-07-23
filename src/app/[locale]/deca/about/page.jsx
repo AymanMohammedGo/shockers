@@ -11,7 +11,7 @@ const About = () => {
   return (
     <div>
       <ImageOverlaysTop namePage="ABOUT" title="Shockers AEC" />
-      <Draw_S animationData={S_json} />
+      {/* <Draw_S animationData={S_json} /> */}
 
       <section className="lg:my-5 max-w-screen-xxl m-auto lg:px-2 overflow-hidden">
         <motion.div
@@ -24,13 +24,14 @@ const About = () => {
         >
           <div className="content text-seconds flex-1 flex flex-col items-center xl:items-start">
             <span className="font-bold block text-3xl  py-2  px-4 ">
-              About ShockersAEC
+              About Deca{" "}
             </span>
             <p className=" text-2xl p-4  mb-6">
-              Shockers AEC is a full-service firm encompassing architecture,
-              engineering, and construction. Through collaborative practices and
-              a dedication to innovation, they serve as a leading force in
-              shaping the built environment
+              In 2022, Deca emerged as a leader in comprehensive interior and
+              exterior designs. The name” Deca” symbolizes perfection which
+              reflects our unwavering commitment to the industry. We prioritize
+              clear communication, transparency, and professionalism throughout
+              the design process.
             </p>
           </div>
           <Image
@@ -54,11 +55,11 @@ const About = () => {
               Years of experience and performance
             </span>
             <p className=" text-2xl px-4   mb-6">
-              Since 2017, our architects, engineers, and managers teams have
-              grown through dedication and continuous learning. We combine
-              experience and creativity, transforming your vision into a
-              remarkable reality. Every project reflects our commitment to top
-              quality and designs that impress and inspire every client.
+              Launched in 2022, Deca leverages the extensive experience (since
+              2017) of Shockers Company is designs and manufacturing teams. This
+              experience creates a unique synergy, allowing us to translate
+              client visions into reality through custom furniture, design, and
+              décor
             </p>
           </div>
           <Image
@@ -82,13 +83,11 @@ const About = () => {
               Mission{" "}
             </span>
             <p className=" text-2xl  px-4  mb-6">
-              Our mission is to enhance society through the application of
-              innovative architectural designs that embody imaginative and
-              creative thinking. Our team of skilled architects is dedicated to
-              unlocking the full potential of your projects, offering solutions
-              even for the most intricate design challenges. By providing
-              creative and effective solutions, we strive to enhance the lives
-              and businesses of our clients.
+              Transforming spaces into personalized sanctuaries that elevate
+              everyday living, our mission at Deca is to redefine the art of
+              interior and exterior design and décor and to collaborate with
+              clients to unlock the full potential of their environments,
+              creating bespoke interiors that inspire, comfort, and delight.
             </p>
           </div>
           <Image
@@ -110,11 +109,13 @@ const About = () => {
           <div className="content text-seconds flex-1 flex flex-col items-center xl:items-start">
             <span className="font-bold block text-3xl px-4 py-2 ">Vision </span>
             <p className=" text-2xl  px-4  mb-6">
-              Our vision is to deliver exceptional design solutions of the
-              highest quality by leveraging our imaginative visualization skills
-              and transforming them into tangible reality. We aim to create
-              captivating and innovative designs that inspire and surpass
-              expectations, leaving a lasting impact on the built environment.
+              Embracing the boundless possibilities of design, our vision at
+              Deca is to set the standard for transformative interior and
+              exterior experiences worldwide. We envision a future where every
+              space tells a story, senses emotion, and sparks creativity. By
+              extending the boundaries of design and embracing new technologies,
+              we aim to set new standards for excellence in the interior and
+              exterior design, décor, and furnishing industry.
             </p>
           </div>
           <Image
@@ -138,10 +139,10 @@ const About = () => {
               Value and quality{" "}
             </span>
             <p className=" text-2xl  px-4  mb-6">
-              At Shockers AEC, integrity guides everything. Honesty, trust, and
-              commitment to excellence fuel our passion for continuous learning
-              and innovation. We value diversity and teamwork, striving for
-              constant improvement to deliver superior results for every client.
+              Deca prioritizes honesty, attention to detail, trust, and
+              innovation. We value uniqueness, integrity, and sustainability and
+              offer a range of supervision services to ensure impeccable
+              execution and exceed your expectations.
             </p>
           </div>
           <Image
@@ -163,9 +164,11 @@ const About = () => {
           <div className="content text-seconds flex-1 flex flex-col items-center xl:items-start">
             <span className="font-bold block text-3xl px-4 py-2 ">Staff </span>
             <p className=" text-2xl  px-4  mb-6">
-              Our team is led by highly skilled architectural, engineering, and
-              construction design teams. we are constantly expanding across all
-              the departments to meet our targets.
+              Deca leverages the combined expertise of its team of architects,
+              designers, engineers, and construction to deliver exceptional
+              results for its clients. We continuously improve our team based on
+              market needs, ensuring that you are working with the most skilled
+              and artistic professionals available.
             </p>
           </div>
           <Image

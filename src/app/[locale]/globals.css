@@ -86,3 +86,6 @@
 body {
   font-family: "Shockers", "sans-serif";
 }
+html {
+  scroll-behavior: smooth;
+}

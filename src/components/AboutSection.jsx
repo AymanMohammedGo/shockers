@@ -89,7 +89,7 @@ const AboutSection = ({ video, text, bg, tc, link }) => {
                 variants={variant3}
               >
                 <Button
-                  className={`${bg} w-fit ${tc} hover:bg-shockersAEC hover:text-white hover:outline text-base my-8`}
+                  className={`${bg} w-fit ${tc} hover:bg-shockersAEC hover:text-white text-base my-8`}
                 >
                   Read More..
                 </Button>

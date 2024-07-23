@@ -5,9 +5,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const Header = ({ logo, name, width, bg, hover, text, links }) => {
+const Header = ({ logo, name, width, bg, hover, text, linksNames }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const Url = [
+    {
+      name: linksNames?.NamePageHome,
+      link: `/${name}`,
+    },
+    {
+      name: linksNames?.NamePageAbout,
+      link: `/${name}/about`,
+    },
+    {
+      name: linksNames?.NamePageServices,
+      link: `/${name}/services`,
+    },
+    {
+      name: linksNames?.NamePageProjects,
+      link: `#projects`,
+    },
+  ];
   return (
     <motion.header
       initial={{ y: "-100%" }}
@@ -79,16 +96,16 @@ const Header = ({ logo, name, width, bg, hover, text, links }) => {
           <ul
             className={`font-medium flex flex-col py-4 md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 `}
           >
-            {links.map((item) => (
-              <li key={item?.id}>
+            {Url.map((item, index) => (
+              <li key={index}>
                 <Link
-                  href={item?.attributes?.URL}
+                  href={item?.link}
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
                   className={`block font-normal py-2 px-3 ${text} ${hover}  hover:text-white rounded-lg transition-all`}
                 >
-                  {item?.attributes?.NameLink}
+                  {item?.name}
                 </Link>
               </li>
             ))}

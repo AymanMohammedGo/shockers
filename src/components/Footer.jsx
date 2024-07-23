@@ -1,9 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Footer = ({ width, name, logo, links, nameFooter, socialMedia }) => {
+const Footer = ({ width, name, logo, linksNames, nameFooter, socialMedia }) => {
   const currentYear = new Date().getFullYear();
-
+  const Url = [
+    {
+      name: linksNames?.NamePageHome,
+      link: `/${name}`,
+    },
+    {
+      name: linksNames?.NamePageAbout,
+      link: `/${name}/about`,
+    },
+    {
+      name: linksNames?.NamePageServices,
+      link: `/${name}/services`,
+    },
+    {
+      name: linksNames?.NamePageProjects,
+      link: `/${name}/projects`,
+    },
+  ];
   return (
     <footer className="bg-seconds z-10">
       <div className="relative mx-auto max-w-screen-xxl px-4 py-16 sm:px-6 lg:p-8 ">
@@ -17,13 +34,13 @@ const Footer = ({ width, name, logo, links, nameFooter, socialMedia }) => {
             </Link>
           </div>
           <ul className="mt-16 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
-            {links.map((item) => (
-              <li key={item?.id}>
+            {Url.map((item, index) => (
+              <li key={index}>
                 <Link
-                  href={item?.attributes?.URL}
+                  href={item?.link}
                   className="text-white transition text-xl"
                 >
-                  {item?.attributes?.NameLink}
+                  {item?.name}
                 </Link>
               </li>
             ))}

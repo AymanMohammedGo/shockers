@@ -79,14 +79,14 @@ const ShockersHome = () => {
         video="/video2.mp4"
         text="In 2022,Deca emerged as a leader in comprehensive interior and exterior designs"
         bg="bg-deca"
-        tc="text-shockersAEC"
+        tc="text-white"
       />
       <ServicesSection
         services={services}
         link="deca"
         image="/assets/services.jpg"
         bg="bg-deca"
-        tc="text-shockersAEC"
+        tc="text-white"
       />
       <Link href="/deca/projects">
         <ImageOverlaysCenter title="VIEW OUR PROJECTS" />

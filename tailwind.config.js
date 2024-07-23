@@ -30,6 +30,9 @@ module.exports = {
         baytuna: {
           DEFAULT: "#c01f4a",
         },
+        deca: {
+          DEFAULT: "#17b9b5",
+        },
         primary: {
           DEFAULT: "#e4e4e4",
         },

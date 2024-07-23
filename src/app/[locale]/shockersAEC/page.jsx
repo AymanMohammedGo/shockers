@@ -60,76 +60,64 @@ const ShockersHome = () => {
   const titleText = [
     {
       text: "DARED",
-      delay: 1.5,
+      delay: 2.5,
     },
     {
       text: "TO BE",
-      delay: 2,
+      delay: 3,
     },
     {
       text: "SHOCKED",
-      delay: 2.5,
+      delay: 3.5,
     },
   ];
   const projects = [
     {
-      id: "projects1",
-      name: "Urban & Infrastructures",
+      name: "Urban_Design",
       image: "/assets/project.jpg",
     },
     {
-      id: "projects1",
-      name: "Urban & Infrastructures",
+      name: "Residential_Design",
       image: "/assets/project.jpg",
     },
     {
-      id: "projects1",
-      name: "Urban & Infrastructures",
+      name: "Commercial_Design",
       image: "/assets/project.jpg",
     },
     {
-      id: "projects1",
-      name: "Urban & Infrastructures",
+      name: "Industrial_Design",
       image: "/assets/project.jpg",
     },
     {
-      id: "projects1",
-      name: "Urban & Infrastructures",
+      name: "Institutional_Design",
       image: "/assets/project.jpg",
     },
     {
-      id: "projects1",
-      name: "Urban & Infrastructures",
+      name: "Recreational_Design",
       image: "/assets/project.jpg",
     },
     {
-      id: "projects1",
-      name: "Urban & Infrastructures",
+      name: "Building_Restoration",
       image: "/assets/project.jpg",
     },
     {
-      id: "projects1",
-      name: "Urban & Infrastructures",
+      name: "Interior_Design",
       image: "/assets/project.jpg",
     },
     {
-      id: "projects1",
-      name: "Urban & Infrastructures",
+      name: "Sustainability_and_Energy",
       image: "/assets/project.jpg",
     },
     {
-      id: "projects1",
-      name: "Urban & Infrastructures",
+      name: "Environmental_Design",
       image: "/assets/project.jpg",
     },
     {
-      id: "projects1",
-      name: "Urban & Infrastructures",
+      name: "Electrical_Engineering",
       image: "/assets/project.jpg",
     },
     {
-      id: "projects1",
-      name: "Urban & Infrastructures",
+      name: "Civil_Engineering",
       image: "/assets/project.jpg",
     },
   ];
@@ -154,7 +142,7 @@ const ShockersHome = () => {
       <SlideProject
         projects={projects}
         link="shockersAEC"
-        bgText="bg-shockersAEC"
+        ColorText="text-shockersAEC"
       />
     </>
   );

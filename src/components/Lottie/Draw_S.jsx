@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import lottie from "lottie-web";
 
-const LottieAnimation = ({ animationData, speed = 0.8 }) => {
+const LottieAnimation = ({ animationData, speed = 0.4 }) => {
   const animationContainer = useRef(null);
 
   useEffect(() => {

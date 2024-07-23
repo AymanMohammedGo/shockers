@@ -22,7 +22,7 @@ const Header = ({ logo, name, width, bg, hover, text, linksNames }) => {
     },
     {
       name: linksNames?.NamePageProjects,
-      link: `#projects`,
+      link: `/${name}/#projects`,
     },
   ];
   return (
@@ -65,7 +65,6 @@ const Header = ({ logo, name, width, bg, hover, text, linksNames }) => {
           <Image src={logo} width={width} height={width} alt={`${name}Logo`} />
         </Link>
         <div className="flex md:hidden ">
-          <LanguageChanger hover={hover} />
           <button
             onClick={() => {
               setIsOpen(!isOpen);
@@ -94,7 +93,7 @@ const Header = ({ logo, name, width, bg, hover, text, linksNames }) => {
           className={`${isOpen ? "block" : "hidden"} w-full md:block md:w-auto`}
         >
           <ul
-            className={`font-medium flex flex-col py-4 md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 `}
+            className={`font-medium flex flex-col pt-4 md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 `}
           >
             {Url.map((item, index) => (
               <li key={index}>
@@ -110,6 +109,9 @@ const Header = ({ logo, name, width, bg, hover, text, linksNames }) => {
               </li>
             ))}
           </ul>
+          <div className="flex md:hidden ">
+            <LanguageChanger hover={hover} />
+          </div>
         </div>
         <div className="hidden md:flex ">
           <LanguageChanger hover={hover} />

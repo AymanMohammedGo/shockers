@@ -27,11 +27,23 @@ module.exports = {
         shockersAEC: {
           DEFAULT: "#252424",
         },
+        shockersAECYellow: {
+          DEFAULT: "#fdcf00",
+        },
         baytuna: {
           DEFAULT: "#c01f4a",
         },
+        yard: {
+          DEFAULT: "#B9D988",
+        },
         deca: {
           DEFAULT: "#17b9b5",
+        },
+        yMarketing: {
+          DEFAULT: "#052460",
+        },
+        shocky: {
+          DEFAULT: "#25325C",
         },
         primary: {
           DEFAULT: "#e4e4e4",

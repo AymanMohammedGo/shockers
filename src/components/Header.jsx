@@ -22,7 +22,7 @@ const Header = ({ logo, name, width, bg, hover, text, linksNames }) => {
     },
     {
       name: linksNames?.NamePageProjects,
-      link: `/${name}/#projects`,
+      link: `/${name}/projects`,
     },
   ];
   return (

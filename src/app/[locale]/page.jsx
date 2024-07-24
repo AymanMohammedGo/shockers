@@ -108,9 +108,9 @@ const Home = () => {
                 className="relative flex items-center w-full h-full justify-center overflow-hidden"
               >
                 <Image
-                  className={`xlgl:w-[600px] xlgl:h-[600px]  opacity-1 transition-opacity duration-300 ${
+                  className={`xlgl:w-[600px] xlgl:h-[600px]  opacity-1 transition-opacity duration-100 ${
                     hoveredIndex === item.hoverIndex &&
-                    "opacity-0  transition-opacity duration-300"
+                    "opacity-0  transition-opacity duration-100"
                   }`}
                   src={`${item.imageLogo}`}
                   alt={`${item.name}`}
@@ -125,7 +125,7 @@ const Home = () => {
                   }}
                   onMouseEnter={() => setHoveredIndex(item.hoverIndex)}
                   onMouseLeave={() => setHoveredIndex(0)}
-                  className={`absolute top-0 w-full h-full  overflow-hidden left-0  flex items-center justify-center  opacity-0   hover:opacity-100 transition-opacity duration-700`}
+                  className={`absolute top-0 w-full h-full  overflow-hidden left-0  flex items-center justify-center  opacity-0   hover:opacity-100 transition-opacity duration-100`}
                 >
                   <Image
                     className=" xlgl:w-[600px] xlgl:h-[600px] "

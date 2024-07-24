@@ -83,7 +83,14 @@ const ServicesSection = ({ services, link, image, bg, tc }) => {
             </Link>
           </motion.div>
         </div>
-        <div className="relative w-screen h-[50vh] xl:h-screen xl:w-[50vw] ">
+        <motion.div
+          initial={{ x: "100%" }}
+          whileInView={{ x: 0 }}
+          transition={{
+            duration: 2,
+          }}
+          className="relative w-screen h-[50vh] xl:h-screen xl:w-[50vw] "
+        >
           <Image
             src={`${image}`}
             fill={true}
@@ -91,7 +98,7 @@ const ServicesSection = ({ services, link, image, bg, tc }) => {
             quality={100}
             className="object-cover"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

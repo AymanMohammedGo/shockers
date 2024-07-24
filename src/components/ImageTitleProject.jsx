@@ -9,7 +9,7 @@ const ImageTitleProject = () => {
         src="/assets/projects.jpg"
         fill={true}
         alt="ImageTitleProject"
-        quality={100}
+        quality={75}
       />
       <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
 

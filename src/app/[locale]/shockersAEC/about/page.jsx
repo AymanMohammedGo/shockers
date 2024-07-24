@@ -53,7 +53,10 @@ const About = () => {
     },
   ];
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { delay: 1 } }}
+    >
       <ImageOverlaysTop namePage="ABOUT" title="Shockers AEC" />
       <Draw_S animationData={S_json} />
       <section className="overflow-hidden">
@@ -88,7 +91,7 @@ const About = () => {
       <Link href="/shockersAEC/projects">
         <ImageOverlaysCenter title="VIEW OUR PROJECTS" />
       </Link>
-    </div>
+    </motion.div>
   );
 };
 

@@ -7,6 +7,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { motion } from "framer-motion";
+
 import Image from "next/image";
 const Services = () => {
   const service = [
@@ -30,7 +32,10 @@ const Services = () => {
     },
   ];
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { delay: 1 } }}
+    >
       <ImageOverlaysTop namePage="SERVICES" title="Shockers AEC" />
       <div className="max-w-screen-xxl m-auto w-full  p-2">
         <Accordion type="single" collapsible className="w-full">
@@ -52,7 +57,7 @@ const Services = () => {
           ))}
         </Accordion>
       </div>
-    </>
+    </motion.div>
   );
 };
 

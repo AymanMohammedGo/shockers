@@ -1,4 +1,3 @@
-
 import { delay, motion } from "framer-motion";
 
 const AnimatedText = ({ text, delay }) => {
@@ -9,7 +8,7 @@ const AnimatedText = ({ text, delay }) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05,
+        staggerChildren: 0.1,
         delayChildren: delay,
       },
     },
@@ -21,7 +20,12 @@ const AnimatedText = ({ text, delay }) => {
   };
 
   return (
-    <motion.div className="break-words" variants={container} initial="hidden" animate="visible">
+    <motion.div
+      className="break-words"
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
       {letters.map((letter, index) => (
         <motion.span key={index} variants={child}>
           {letter}

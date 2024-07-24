@@ -1,4 +1,7 @@
+"use client";
 import SlideProject from "@/components/SlideProject";
+import {  motion } from "framer-motion";
+
 const Projects = () => {
   const projects = [
     {
@@ -51,11 +54,16 @@ const Projects = () => {
     },
   ];
   return (
-    <SlideProject
-      projects={projects}
-      link="shockersAEC"
-      ColorText="text-shockersAEC"
-    />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { delay: 1 } }}
+    >
+      <SlideProject
+        projects={projects}
+        link="shockersAEC"
+        ColorText="text-shockersAEC"
+      />
+    </motion.div>
   );
 };
 

@@ -9,7 +9,7 @@ const ImageOverlaysTop = ({ namePage, title }) => {
         src="/assets/imageOverlays.jpg"
         fill={true}
         alt="imageOverlays"
-        quality={100}
+        quality={75}
       />
       <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
       <div className="absolute top-2/3  w-full ">

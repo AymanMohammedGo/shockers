@@ -6,6 +6,7 @@ import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/assets/S.json";
 import AnimatedText from "@/components/Motion/AnimatedText";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Projects = ({ params }) => {
   const projects1 = [
@@ -81,7 +82,7 @@ const Projects = ({ params }) => {
     },
   ];
   return (
-    <div>
+    <>
       <Draw_S animationData={S_json} />
       <section className=" w-full h-full ">
         <div className="h-screen sticky top-0">
@@ -109,7 +110,7 @@ const Projects = ({ params }) => {
           />
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

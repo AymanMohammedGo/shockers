@@ -91,7 +91,8 @@ export default function SlideProject({ projects, link, ColorText }) {
                   src={item.image}
                   fill={true}
                   alt={item.id}
-                  quality={100}
+                  quality={75}
+                  loading="lazy"
                 />
                 <div className="absolute  inset-0 image-gradient" />
                 <span className="absolute  bottom-0 p-4 text-white text-2xl">

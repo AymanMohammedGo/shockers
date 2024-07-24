@@ -3,6 +3,7 @@
 import SlideProject from "@/components/SlideProject";
 import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/assets/S.json";
+import { motion } from "framer-motion";
 
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
@@ -60,15 +61,15 @@ const ShockersHome = () => {
   const titleText = [
     {
       text: "DARED",
-      delay: 2.5,
+      delay: 2.3,
     },
     {
       text: "TO BE",
-      delay: 3,
+      delay: 2.8,
     },
     {
       text: "SHOCKED",
-      delay: 3.5,
+      delay: 3.3,
     },
   ];
   const projects = [
@@ -123,6 +124,10 @@ const ShockersHome = () => {
   ];
   return (
     <>
+      {/* <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { delay: 1 } }}
+    > */}
       <Draw_S animationData={S_json} />
       <SalgonSection titleText={titleText} />
       <AboutSection
@@ -144,6 +149,7 @@ const ShockersHome = () => {
         link="shockersAEC"
         ColorText="text-shockersAEC"
       />
+      {/* </motion.div> */}
     </>
   );
 };

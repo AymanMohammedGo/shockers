@@ -86,7 +86,7 @@ const Projects = ({ params }) => {
       <section className=" w-full h-full ">
         <div className="h-screen sticky top-0">
           <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
-            <div className="absolute bottom-14 text-6xl md:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12 text-seconds">
+            <div className="w-[96%] absolute bottom-14 text-6xl md:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12 text-seconds">
               <AnimatedText text={params.projects} delay={2.5}></AnimatedText>
             </div>
           </div>

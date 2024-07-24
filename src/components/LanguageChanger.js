@@ -53,7 +53,7 @@ export default function LanguageChanger({ hover }) {
       <Select onValueChange={handleChange} defaultValue={currentLocale}>
         <SelectTrigger
           style={{ boxShadow: "none" }}
-          className={`border-borderColor ${hover} hover:text-white  w-[115px]`}
+          className={`text-base  border-borderColor ${hover} hover:text-white  w-[125px]`}
         >
           <SelectValue placeholder="Select" />
         </SelectTrigger>

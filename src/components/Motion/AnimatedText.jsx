@@ -21,7 +21,7 @@ const AnimatedText = ({ text, delay }) => {
   };
 
   return (
-    <motion.div variants={container} initial="hidden" animate="visible">
+    <motion.div className="break-words" variants={container} initial="hidden" animate="visible">
       {letters.map((letter, index) => (
         <motion.span key={index} variants={child}>
           {letter}

@@ -109,7 +109,8 @@ const Header = ({ logo, name, width, bg, hover, text, linksNames }) => {
               </li>
             ))}
           </ul>
-          <div className="flex md:hidden ">
+          {/* <hr className="w-full bg-shockersAEC"></hr> */}
+          <div className="flex md:hidden mt-3 ">
             <LanguageChanger hover={hover} />
           </div>
         </div>

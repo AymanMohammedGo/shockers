@@ -43,7 +43,7 @@ export default function SlideProject({ projects, link, ColorText }) {
     <div className="w-screen h-screen flex flex-col">
       <h2
         id="projects"
-        className={`font-bold overflow-hidden   ${ColorText}  w-fit px-4 py-3 z-0 text-2xl  lg:text-3xl mx-auto mt-6 mb-[16px]`}
+        className={`font-extrabold overflow-hidden   ${ColorText}  w-fit px-4 py-3 z-0 text-2xl  lg:text-3xl xl:text-4xl mx-auto mt-6 mb-[16px]`}
       >
         PROJECTS
       </h2>

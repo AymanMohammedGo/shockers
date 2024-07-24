@@ -3,14 +3,7 @@ import { motion } from "framer-motion";
 
 const ImageOverlaysTop = ({ namePage, title }) => {
   return (
-    <motion.div
-      initial={{ y: "-100%", opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{
-        duration: 1,
-      }}
-      className="relative w-screen h-screen z-10"
-    >
+    <div className="relative w-screen h-screen z-10">
       <Image
         className=" object-cover"
         src="/assets/imageOverlays.jpg"
@@ -27,7 +20,7 @@ const ImageOverlaysTop = ({ namePage, title }) => {
           </h1>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

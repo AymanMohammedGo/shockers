@@ -2,16 +2,43 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import Image from "next/image";
+import React, { useEffect, useRef } from "react";
 
 import "swiper/css/navigation";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
-import { motion } from "framer-motion";
 
 import { FreeMode, Navigation } from "swiper/modules";
 
 export default function SlideProject({ projects, link, ColorText }) {
+  const swiperRef = useRef(null);
+  const isDelay = useRef(false);
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      const { clientX } = event;
+      if (!isDelay.current) {
+        if (clientX >= window.innerWidth - 10) {
+          swiperRef.current.swiper.slideNext();
+          startThrottle();
+        } else if (clientX <= 10) {
+          swiperRef.current.swiper.slidePrev();
+          startThrottle();
+        }
+      }
+    };
+    const startThrottle = () => {
+      isDelay.current = true;
+      setTimeout(() => {
+        isDelay.current = false;
+      }, 100);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
     <div className="w-screen h-screen flex flex-col">
       <h2
@@ -23,6 +50,7 @@ export default function SlideProject({ projects, link, ColorText }) {
       <div className="flex-grow">
         <Swiper
           className="w-full h-full  "
+          ref={swiperRef}
           slidesPerView={1.1}
           spaceBetween={0}
           freeMode={true}

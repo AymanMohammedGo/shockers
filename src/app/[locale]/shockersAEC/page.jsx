@@ -60,7 +60,7 @@ const ShockersHome = () => {
   ];
   const titleText = [
     {
-      text: "DARED",
+      text: "DARE",
       delay: 3,
     },
     {

@@ -5,7 +5,7 @@ const ImageOverlaysCenter = ({ title }) => {
     <div className="relative w-screen h-screen">
       <Image
         className="object-cover"
-        src="/assets/imageOverlays.jpg"
+        src="/img/imageOverlays.jpg"
         fill={true}
         alt="imageOverlays"
         quality={75}

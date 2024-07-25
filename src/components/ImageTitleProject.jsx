@@ -6,7 +6,7 @@ const ImageTitleProject = () => {
     <div className="relative h-screen w-screen">
       <Image
         className=" object-cover"
-        src="/assets/projects.jpg"
+        src="/img/projects.jpg"
         fill={true}
         alt="ImageTitleProject"
         quality={75}

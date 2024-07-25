@@ -1,4 +1,4 @@
 import axiosClient from "./axiosClient";
-const getHeaderLinks = (locale) =>
-  axiosClient.get(`/shockers-header-links?locale=${locale}`);
-export default getHeaderLinks;
+const getAboutUS = (locale) =>
+  axiosClient.get(`/shockers-about-uses?populate=*&locale=${locale}`);
+export default getAboutUS;

@@ -32,7 +32,7 @@ const LottieAnimation = ({ animationData, speed = 0.4, delay = 0 }) => {
   return (
     <div
       ref={animationContainer}
-      className="fixed top-[54%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 w-[1350px] md:w-[1472px] lg:w-[1756px] xxxl:w-[2000px] xlgl:w-[2200px] xlxl:w-[2500px]"
+      className="fixed top-[54%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 w-[1350px] md:w-[1472px] lg:w-[1756px] xxxl:w-[2000px] xlgl:w-[2200px] xlxl:w-[2600px]"
     ></div>
   );
 };

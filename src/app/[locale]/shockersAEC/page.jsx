@@ -123,34 +123,32 @@ const ShockersHome = () => {
     },
   ];
   return (
-    <>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { delay: 1 } }}
-      >
-        <Draw_S animationData={S_json} delay={800} />
-        <SalgonSection titleText={titleText} />
-        <AboutSection
-          link="shockersAEC"
-          video="/video2.mp4"
-          text="Shockers AEC (Architecture, Engineering, and Construction)"
-          bg="bg-white"
-          tc="text-shockersAEC"
-        />
-        <ServicesSection
-          services={services}
-          link="shockersAEC"
-          image="/assets/services.jpg"
-          bg="bg-white"
-          tc="text-shockersAEC"
-        />
-        <SlideProject
-          projects={projects}
-          link="shockersAEC"
-          ColorText="text-shockersAEC"
-        />
-      </motion.div>
-    </>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { delay: 1 } }}
+    >
+      <Draw_S animationData={S_json} delay={800} />
+      <SalgonSection titleText={titleText} />
+      <AboutSection
+        link="shockersAEC"
+        video="/video2.mp4"
+        text="Shockers AEC (Architecture, Engineering, and Construction)"
+        bg="bg-white"
+        tc="text-shockersAEC"
+      />
+      <ServicesSection
+        services={services}
+        link="shockersAEC"
+        image="/assets/services.jpg"
+        bg="bg-white"
+        tc="text-shockersAEC"
+      />
+      <SlideProject
+        projects={projects}
+        link="shockersAEC"
+        ColorText="text-shockersAEC"
+      />
+    </motion.div>
   );
 };
 

@@ -50,6 +50,32 @@
   font-weight: 100;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "ShockersAR+KR";
+  src: url("/fonts/Shockers-KurdiBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ShockersAR+KR";
+  src: url("/fonts/Shockers-KurdiThin.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  font-family: "Shockers", "sans-serif";
+}
+:lang(ar) body {
+  font-family: "ShockersAR+KR", "sans-serif";
+}
+:lang(kr) body {
+  font-family: "ShockersAR+KR", "sans-serif";
+}
+html {
+  scroll-behavior: smooth;
+}
 ::-webkit-scrollbar {
   width: 10px;
   display: none;
@@ -82,10 +108,4 @@
     rgba(0, 0, 0, 1) 0%,
     rgba(252, 252, 252, 0) 50%
   );
-}
-body {
-  font-family: "Shockers", "sans-serif";
-}
-html {
-  scroll-behavior: smooth;
 }

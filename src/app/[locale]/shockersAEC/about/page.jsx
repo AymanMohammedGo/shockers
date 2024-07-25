@@ -2,12 +2,29 @@
 import ImageOverlaysCenter from "@/components/ImageOverlaysCenter";
 import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import Image from "next/image";
-import React from "react";
+import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/assets/S.json";
-const About = () => {
+import getAboutUS from "../../../../../utils/ShockersApi";
+const About = ({ params: { locale } }) => {
+  let lan = locale;
+  if (locale === "kr") {
+    lan = "af";
+  }
+  const linkData = "http://localhost:1337";
+  const [data, setData] = useState([]);
+  const getAboutUS_ = useCallback(() => {
+    getAboutUS(lan).then((res) => {
+      console.log(res.data.data);
+      setData(res.data.data);
+    });
+  }, [lan]);
+  useEffect(() => {
+    getAboutUS_();
+  }, [getAboutUS_]);
+
   const aboutus = [
     {
       title: "About ShockersAEC",
@@ -59,6 +76,39 @@ const About = () => {
     >
       <ImageOverlaysTop namePage="ABOUT" title="Shockers AEC" />
       <Draw_S animationData={S_json} />
+      <section className="overflow-hidden relative z-10">
+        {data.map((item, index) => (
+          <motion.div
+            initial={{ x: index % 2 === 0 ? "100%" : "-100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              duration: 1,
+            }}
+            key={index}
+            className={`w-screen h-screen  flex flex-col items-center ${
+              index % 2 === 0 ? "xl:flex-row" : "xl:flex-row-reverse"
+            }   justify-center lg:justify-between`}
+          >
+            <div className="p-2 lg:p-24 xl:p-32  text-shockersAEC flex-1 flex flex-col items-start">
+              <span className="font-extrabold text-4xl lg:text-6xl my-3  lg:mb-6">
+                {item?.attributes.title}
+              </span>
+              <p className="text-2xl lg:text-3xl mb-3 lg:mb-0">
+                {item?.attributes.description}
+              </p>
+            </div>
+            <div className="relative w-screen h-full xl:h-screen xl:w-[50vw] ">
+              <Image
+                src={`${linkData}${item?.attributes.imgURL.data?.attributes.url}`}
+                fill={true}
+                alt="aboutus"
+                quality={100}
+                className="object-cover"
+              />
+            </div>
+          </motion.div>
+        ))}
+      </section>
       <section className="overflow-hidden">
         {aboutus.map((item, index) => (
           <motion.div

@@ -6,7 +6,7 @@ import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Draw_S from "@/components/Lottie/Draw_S";
-import S_json from "/public/assets/S.json";
+import S_json from "/public/Motion/S.json";
 import getAboutUS from "../../../../../utils/ShockersApi";
 const About = ({ params: { locale } }) => {
   // let lan = locale;
@@ -29,42 +29,42 @@ const About = ({ params: { locale } }) => {
     {
       title: "About ShockersAEC",
       des: "Shockers AEC is a full-service firm encompassing architecture, engineering, and construction. Through collaborative practices and a dedication to innovation, they serve as a leading force in shaping the built environment",
-      image: "/assets/services.jpg",
+      image: "/img/services.jpg",
       x: "-100%",
       left: "xl:flex-row",
     },
     {
       title: "Years of experience and performance",
       des: "Since 2017, our architects, engineers, and managers teams have grown through dedication and continuous learning. We combine experience and creativity, transforming your vision into a remarkable reality. Every project reflects our commitment to top quality and designs that impress and inspire every client.",
-      image: "/assets/services.jpg",
+      image: "/img/services.jpg",
       x: "100%",
       left: "xl:flex-row-reverse",
     },
     {
       title: "Mission",
       des: "Our mission is to enhance society through the application of innovative architectural designs that embody imaginative and creative thinking. Our team of skilled architects is dedicated to unlocking the full potential of your projects, offering solutions even for the most intricate design challenges. By providing creative and effective solutions, we strive to enhance the lives and businesses of our clients.",
-      image: "/assets/services.jpg",
+      image: "/img/services.jpg",
       x: "-100%",
       left: "xl:flex-row",
     },
     {
       title: "Vision",
       des: "Our vision is to deliver exceptional design solutions of the highest quality by leveraging our imaginative visualization skills and transforming them into tangible reality. We aim to create captivating and innovative designs that inspire and surpass expectations, leaving a lasting impact on the built environment.",
-      image: "/assets/services.jpg",
+      image: "/img/services.jpg",
       x: "100%",
       left: "xl:flex-row-reverse",
     },
     {
       title: "Value and quality",
       des: "At Shockers AEC, integrity guides everything. Honesty, trust, and commitment to excellence fuel our passion for continuous learning and innovation. We value diversity and teamwork, striving for constant improvement to deliver superior results for every client.",
-      image: "/assets/services.jpg",
+      image: "/img/services.jpg",
       x: "-100%",
       left: "xl:flex-row",
     },
     {
       title: "Staff",
       des: "Our team is led by highly skilled architectural, engineering, and construction design teams. we are constantly expanding across all the departments to meet our targets. ",
-      image: "/assets/services.jpg",
+      image: "/img/services.jpg",
       x: "100%",
       left: "xl:flex-row-reverse",
     },

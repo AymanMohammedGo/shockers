@@ -2,7 +2,7 @@
 
 import SlideProject from "@/components/SlideProject";
 import Draw_S from "@/components/Lottie/Draw_S";
-import S_json from "/public/assets/S.json";
+import S_json from "/public/Motion/S.json";
 import { motion } from "framer-motion";
 
 import ServicesSection from "@/components/ServicesSection";
@@ -75,51 +75,51 @@ const ShockersHome = () => {
   const projects = [
     {
       name: "Urban_Design",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       name: "Residential_Design",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       name: "Commercial_Design",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       name: "Industrial_Design",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       name: "Institutional_Design",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       name: "Recreational_Design",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       name: "Building_Restoration",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       name: "Interior_Design",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       name: "Sustainability_and_Energy",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       name: "Environmental_Design",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       name: "Electrical_Engineering",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       name: "Civil_Engineering",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
   ];
   return (
@@ -139,7 +139,7 @@ const ShockersHome = () => {
       <ServicesSection
         services={services}
         link="shockersAEC"
-        image="/assets/services.jpg"
+        image="/img/services.jpg"
         bg="bg-white"
         tc="text-shockersAEC"
       />

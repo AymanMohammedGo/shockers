@@ -33,15 +33,15 @@ export default function RootLayout({ children, params: { locale } }) {
   const socialMedia = [
     {
       name: "Instagram",
-      link: "https://www.instagram.com/shockersaec/",
+      link: "#",
     },
     {
       name: "Facebook",
-      link: "https://www.facebook.com/Shockersaec/",
+      link: "#",
     },
     {
       name: "Linkedin",
-      link: "https://www.linkedin.com/company/shockers-advertising/",
+      link: "#",
     },
   ];
 
@@ -52,7 +52,7 @@ export default function RootLayout({ children, params: { locale } }) {
       ) : ( */}
       <>
         <Header
-          logo="/assets/logoDeca.svg"
+          logo="/img/LogosHeader/logoDeca.svg"
           width="100"
           name="deca"
           bg="bg-deca"
@@ -64,7 +64,7 @@ export default function RootLayout({ children, params: { locale } }) {
         <Footer
           width="200"
           name="deca"
-          logo="/assets/logoDecaWhite.svg"
+          logo="/img/LogosFooter/logoDecaWhite.svg"
           nameFooter="DECA"
           linksNames={linksNames}
           socialMedia={socialMedia}

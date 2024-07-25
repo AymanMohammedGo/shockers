@@ -2,7 +2,7 @@
 
 import SlideProject from "@/components/SlideProject";
 import Draw_S from "@/components/Lottie/Draw_S";
-import S_json from "/public/assets/S.json";
+import S_json from "/public/Motion/S.json";
 import Link from "next/link";
 
 import ServicesSection from "@/components/ServicesSection";
@@ -85,62 +85,62 @@ const ShockersHome = () => {
     {
       id: "projects1",
       name: "Urban & Infrastructures",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       id: "projects1",
       name: "Urban & Infrastructures",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       id: "projects1",
       name: "Urban & Infrastructures",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       id: "projects1",
       name: "Urban & Infrastructures",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       id: "projects1",
       name: "Urban & Infrastructures",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       id: "projects1",
       name: "Urban & Infrastructures",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       id: "projects1",
       name: "Urban & Infrastructures",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       id: "projects1",
       name: "Urban & Infrastructures",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       id: "projects1",
       name: "Urban & Infrastructures",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       id: "projects1",
       name: "Urban & Infrastructures",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       id: "projects1",
       name: "Urban & Infrastructures",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
     {
       id: "projects1",
       name: "Urban & Infrastructures",
-      image: "/assets/project.jpg",
+      image: "/img/project.jpg",
     },
   ];
   return (
@@ -157,7 +157,7 @@ const ShockersHome = () => {
       <ServicesSection
         services={services}
         link="baytuna"
-        image="/assets/services.jpg"
+        image="/img/services.jpg"
         bg="bg-baytuna"
         tc="text-white"
       />

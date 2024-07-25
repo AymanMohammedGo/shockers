@@ -2,193 +2,146 @@
 import ImageOverlaysCenter from "@/components/ImageOverlaysCenter";
 import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import Image from "next/image";
-import React from "react";
+import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Draw_S from "@/components/Lottie/Draw_S";
-import S_json from "/public/assets/S.json";
-const About = () => {
+import S_json from "/public/Motion/S.json";
+import getAboutUS from "../../../../../utils/ShockersApi";
+const About = ({ params: { locale } }) => {
+  // let lan = locale;
+  // if (locale === "kr") {
+  //   lan = "af";
+  // }
+  // const linkData = "http://localhost:1337";
+  // const [data, setData] = useState([]);
+  // const getAboutUS_ = useCallback(() => {
+  //   getAboutUS(lan).then((res) => {
+  //     console.log(res.data.data);
+  //     setData(res.data.data);
+  //   });
+  // }, [lan]);
+  // useEffect(() => {
+  //   getAboutUS_();
+  // }, [getAboutUS_]);
+
+  const aboutus = [
+    {
+      title: "About ShockersAEC",
+      des: "Shockers AEC is a full-service firm encompassing architecture, engineering, and construction. Through collaborative practices and a dedication to innovation, they serve as a leading force in shaping the built environment",
+      image: "/img/services.jpg",
+      x: "-100%",
+      left: "xl:flex-row",
+    },
+    {
+      title: "Years of experience and performance",
+      des: "Since 2017, our architects, engineers, and managers teams have grown through dedication and continuous learning. We combine experience and creativity, transforming your vision into a remarkable reality. Every project reflects our commitment to top quality and designs that impress and inspire every client.",
+      image: "/img/services.jpg",
+      x: "100%",
+      left: "xl:flex-row-reverse",
+    },
+    {
+      title: "Mission",
+      des: "Our mission is to enhance society through the application of innovative architectural designs that embody imaginative and creative thinking. Our team of skilled architects is dedicated to unlocking the full potential of your projects, offering solutions even for the most intricate design challenges. By providing creative and effective solutions, we strive to enhance the lives and businesses of our clients.",
+      image: "/img/services.jpg",
+      x: "-100%",
+      left: "xl:flex-row",
+    },
+    {
+      title: "Vision",
+      des: "Our vision is to deliver exceptional design solutions of the highest quality by leveraging our imaginative visualization skills and transforming them into tangible reality. We aim to create captivating and innovative designs that inspire and surpass expectations, leaving a lasting impact on the built environment.",
+      image: "/img/services.jpg",
+      x: "100%",
+      left: "xl:flex-row-reverse",
+    },
+    {
+      title: "Value and quality",
+      des: "At Shockers AEC, integrity guides everything. Honesty, trust, and commitment to excellence fuel our passion for continuous learning and innovation. We value diversity and teamwork, striving for constant improvement to deliver superior results for every client.",
+      image: "/img/services.jpg",
+      x: "-100%",
+      left: "xl:flex-row",
+    },
+    {
+      title: "Staff",
+      des: "Our team is led by highly skilled architectural, engineering, and construction design teams. we are constantly expanding across all the departments to meet our targets. ",
+      image: "/img/services.jpg",
+      x: "100%",
+      left: "xl:flex-row-reverse",
+    },
+  ];
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { delay: 1 } }}
+    >
       <ImageOverlaysTop namePage="ABOUT" title="Shockers AEC" />
       <Draw_S animationData={S_json} />
-
-      <section className="lg:my-5 max-w-screen-xxl m-auto lg:px-2 overflow-hidden">
-        <motion.div
-          initial={{ x: "-100%", opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            duration: 1,
-          }}
-          className="lg:my-8  flex flex-col items-center lg:flex-row justify-center lg:justify-between"
-        >
-          <div className="content text-seconds flex-1 flex flex-col items-center xl:items-start">
-            <span className="font-bold block text-3xl  py-2  px-4 ">
-              About Baytuna
-            </span>
-            <p className=" text-2xl p-4  mb-6">
-              Established in December 2022, Baytuna emerged as a progressive
-              housing brand from Shockers Company. Focused on residential
-              projects, we prioritize quality and sustainability throughout the
-              development process. Our comprehensive services encompass design,
-              engineering, and construction, along with material supply all
-              conveniently accessible through a user-friendly digital platform.
-            </p>
-          </div>
-          <Image
-            className="lg:w-1/3"
-            src="/assets/services.jpg"
-            width={1500}
-            height={500}
-            alt="project"
-          />
-        </motion.div>
-        <motion.div
-          initial={{ x: "100%", opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            duration: 1,
-          }}
-          className="lg:my-8  flex flex-col lg:flex-row-reverse items-center justify-center lg:justify-between"
-        >
-          <div className="content text-seconds flex-1 flex flex-col items-center xl:items-start">
-            <span className="font-bold block text-3xl  py-2  px-4 ">
-              Years of experience and performance
-            </span>
-            <p className=" text-2xl px-4   mb-6">
-              We built on the expertise of our established engineering,
-              architectural, and construction teams that have over 7 years of
-              experience delivering high-performance housing. With a team of
-              talented contractors, engineers, and workers, we translate those
-              designs into reality, focusing on quality and functionality in
-              every step.
-            </p>
-          </div>
-          <Image
-            className="lg:w-1/3"
-            src="/assets/services.jpg"
-            width={1500}
-            height={500}
-            alt="project"
-          />
-        </motion.div>
-        <motion.div
-          initial={{ x: "-100%", opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            duration: 1,
-          }}
-          className="lg:my-8  flex flex-col items-center  lg:flex-row justify-center lg:justify-between"
-        >
-          <div className="content text-seconds flex-1 flex flex-col items-center xl:items-start">
-            <span className="font-bold block text-3xl px-4 py-2 ">
-              Mission{" "}
-            </span>
-            <p className=" text-2xl  px-4  mb-6">
-              Our mission is to merge visionary architecture with cutting-edge
-              sustainability techniques to create homes that harmonize with
-              nature and enrich the lives of generations to come. We strive to
-              lead by example, prioritizing resource efficiency and renewable
-              energy integration, and provide eco-conscious materials throughout
-              every stage of the building process.
-            </p>
-          </div>
-          <Image
-            className="lg:w-1/3"
-            src="/assets/services.jpg"
-            width={1500}
-            height={500}
-            alt="project"
-          />
-        </motion.div>
-        <motion.div
-          initial={{ x: "100%", opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            duration: 1,
-          }}
-          className="lg:my-8  flex flex-col items-center  lg:flex-row-reverse justify-center lg:justify-between"
-        >
-          <div className="content text-seconds flex-1 flex flex-col items-center xl:items-start">
-            <span className="font-bold block text-3xl px-4 py-2 ">Vision </span>
-            <p className=" text-2xl  px-4  mb-6">
-              Fostering a future where sustainability is synonymous with
-              excellence, we aim to revolutionize house design, construction
-              practices, and material supply chains. We envision a world where
-              every structure embodies ecological harmony, is powered by
-              renewable energy, and is constructed with responsibly sourced
-              materials. By integrating innovative design, advanced construction
-              techniques, and ethical material procurement, we aspire to set a
-              new standard for environmentally conscious building industries.
-            </p>
-          </div>
-          <Image
-            className="lg:w-1/3"
-            src="/assets/services.jpg"
-            width={1500}
-            height={500}
-            alt="project"
-          />
-        </motion.div>
-        <motion.div
-          initial={{ x: "-100%", opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            duration: 1,
-          }}
-          className="lg:my-8  flex flex-col items-center  lg:flex-row justify-center lg:justify-between"
-        >
-          <div className="content text-seconds flex-1 flex flex-col items-center xl:items-start">
-            <span className="font-bold block text-3xl px-4 py-2 ">
-              Value and quality
-            </span>
-            <p className=" text-2xl  px-4  mb-6">
-              At Baytuna, sustainability is the driving force behind our values.
-              We prioritize both value and quality in every aspect, underpinned
-              by principles of honesty, client commitment, innovation,
-              integrity, collaboration, durability, and ethical material
-              sourcing.
-            </p>
-          </div>
-          <Image
-            className="lg:w-1/3"
-            src="/assets/services.jpg"
-            width={1500}
-            height={500}
-            alt="project"
-          />
-        </motion.div>
-        <motion.div
-          initial={{ x: "100%", opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            duration: 1,
-          }}
-          className="lg:my-8  flex flex-col items-center  lg:flex-row-reverse justify-center lg:justify-between"
-        >
-          <div className="content text-seconds flex-1 flex flex-col items-center xl:items-start">
-            <span className="font-bold block text-3xl px-4 py-2 ">Staff </span>
-            <p className=" text-2xl  px-4  mb-6">
-              Our team is the key consistency of experienced architectural
-              engineers with a professional digital platform application to keep
-              you updated. Our construction staff – engineers, contractors,
-              surveyors, and workers deliver efficient, sustainable projects you
-              can trust.
-            </p>
-          </div>
-          <Image
-            className="lg:w-1/3"
-            src="/assets/services.jpg"
-            width={1500}
-            height={500}
-            alt="project"
-          />
-        </motion.div>
+      {/* <section className="overflow-hidden relative z-10">
+        {data.map((item, index) => (
+          <motion.div
+            initial={{ x: index % 2 === 0 ? "100%" : "-100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              duration: 1,
+            }}
+            key={index}
+            className={`w-screen h-screen  flex flex-col items-center ${
+              index % 2 === 0 ? "xl:flex-row" : "xl:flex-row-reverse"
+            }   justify-center lg:justify-between`}
+          >
+            <div className="p-2 lg:p-24 xl:p-32  text-shockersAEC flex-1 flex flex-col items-start">
+              <span className="font-bold text-4xl md:text-5xl lg:text-6xl my-3  lg:mb-6">
+                {item?.attributes.title}
+              </span>
+              <p className="text-xl lg:text-2xl mb-3 lg:mb-0">
+                {item?.attributes.description}
+              </p>
+            </div>
+            <div className="relative w-screen h-full xl:h-screen xl:w-[50vw] ">
+              <Image
+                src={`${linkData}${item?.attributes.imgURL.data?.attributes.url}`}
+                fill={true}
+                alt="aboutus"
+                quality={100}
+                className="object-cover"
+              />
+            </div>
+          </motion.div>
+        ))}
+      </section> */}
+      <section className="overflow-hidden">
+        {aboutus.map((item, index) => (
+          <motion.div
+            initial={{ x: item.x, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              duration: 1,
+            }}
+            key={index}
+            className={`w-screen h-screen  flex flex-col items-center ${item.left} justify-center lg:justify-between`}
+          >
+            <div className="p-2 md:p-4 lg:p-16 xl:p-28 xxl:p-32 text-shockersAEC flex-1 flex flex-col items-start">
+              <span className="font-bold text-4xl md:text-5xl lg:text-6xl my-3  lg:mb-6">
+                {item.title}
+              </span>
+              <p className="text-xl lg:text-2xl mb-3 lg:mb-0">{item.des}</p>
+            </div>
+            <div className="relative w-screen h-full xl:h-screen xl:w-[50vw] ">
+              <Image
+                src={item.image}
+                fill={true}
+                alt="aboutus"
+                quality={75}
+                className="object-cover"
+              />
+            </div>
+          </motion.div>
+        ))}
       </section>
       <Link href="/shockersAEC/projects">
         <ImageOverlaysCenter title="VIEW OUR PROJECTS" />
       </Link>
-    </div>
+    </motion.div>
   );
 };
 

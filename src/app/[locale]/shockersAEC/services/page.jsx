@@ -1,16 +1,9 @@
 "use client";
 import ImageOverlaysTop from "@/components/ImageOverlaysTop";
-import React from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Draw_S from "@/components/Lottie/Draw_S";
-import S_json from "/public/assets/S.json";
+import S_json from "/public/Motion/S.json";
 import Image from "next/image";
 const Services = () => {
   const servicesData = [
@@ -18,19 +11,19 @@ const Services = () => {
       name: "Architectural Services",
       description:
         "We offer comprehensive architectural design for various project types. Our team creates highly detailed 2D drawings, and 3D visualizations, handles approvals, and detailed design. We even provide on-site measurement and compelling presentations, ensuring your project's success from concept to completion. ",
-      imageUrl: "/assets/services.jpg",
+      imageUrl: "/img/services.jpg",
     },
     {
       name: "Engineering Services",
       description:
         "We offer structural, mechanical, electrical, civil, and environmental engineering. Our team utilizes advanced technology to ensure your project's safety, functionality, and sustainability. We handle project management, geotechnical services, and secure approvals – all under one roof.",
-      imageUrl: "/assets/services.jpg",
+      imageUrl: "/img/services.jpg",
     },
     {
       name: "Construction Services",
       description:
         "Our skilled construction team delivers reliable services. We handle everything, from planning and cost estimates to efficient execution and Reliable quality control. Safety is our priority, ensuring international building standards. We also offer construction management, material procurement, and expert project consultation.",
-      imageUrl: "/assets/services.jpg",
+      imageUrl: "/img/services.jpg",
     },
   ];
   const [selectedService, setSelectedService] = useState(servicesData[0]);

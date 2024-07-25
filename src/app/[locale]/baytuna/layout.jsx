@@ -49,7 +49,7 @@ export default function RootLayout({ children, params: { locale } }) {
       ) : ( */}
       <>
         <Header
-          logo="/assets/logoBaytuna.svg"
+          logo="/img/LogosHeader/logoBaytuna.svg"
           width="80"
           name="baytuna"
           bg="bg-baytuna"
@@ -62,7 +62,7 @@ export default function RootLayout({ children, params: { locale } }) {
         <Footer
           width="140"
           name="baytuna"
-          logo="/assets/logoBaytunaWhite.svg"
+          logo="/img/LogosFooter/logoBaytunaWhite.svg"
           nameFooter="BAYTUNA"
           linksNames={linksNames}
           socialMedia={socialMedia}

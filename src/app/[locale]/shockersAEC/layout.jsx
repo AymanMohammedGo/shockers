@@ -53,7 +53,7 @@ export default function RootLayout({ children, params: { locale } }) {
       <>
         <Transition />
         <Header
-          logo="/assets/logoShocker.svg"
+          logo="/img/LogosHeader/logoShocker.svg"
           width="140"
           name="shockersAEC"
           bg="bg-shockersAEC"
@@ -65,7 +65,7 @@ export default function RootLayout({ children, params: { locale } }) {
         <Footer
           width="240"
           name="shockersAEC"
-          logo="/assets/logoShockerWhite.svg"
+          logo="/img/LogosFooter/logoShockerWhite.svg"
           nameFooter="SHOCKERSAEC"
           linksNames={linksNames}
           socialMedia={socialMedia}

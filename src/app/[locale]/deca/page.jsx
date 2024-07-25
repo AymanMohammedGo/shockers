@@ -2,7 +2,7 @@
 
 import SlideProject from "@/components/SlideProject";
 import Draw_S from "@/components/Lottie/Draw_S";
-import S_json from "/public/assets/S.json";
+import S_json from "/public/Motion/S.json";
 import Link from "next/link";
 
 import ServicesSection from "@/components/ServicesSection";
@@ -84,7 +84,7 @@ const ShockersHome = () => {
       <ServicesSection
         services={services}
         link="deca"
-        image="/assets/services.jpg"
+        image="/img/services.jpg"
         bg="bg-deca"
         tc="text-white"
       />

@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import ImageTitleProject from "@/components/ImageTitleProject";
 import Image from "next/image";
@@ -19,7 +18,7 @@ const SubProject = ({ params }) => {
         <div className="relative h-screen w-screen">
           <Image
             className="object-cover"
-            src="/assets/projects1.jpg"
+            src="/img/projects1.jpg"
             fill={true}
             alt=""
           />
@@ -30,7 +29,7 @@ const SubProject = ({ params }) => {
         <div className="relative h-screen w-screen">
           <Image
             className="object-cover"
-            src="/assets/projects2.jpg"
+            src="/img/projects2.jpg"
             fill={true}
             alt=""
           />
@@ -41,7 +40,7 @@ const SubProject = ({ params }) => {
         <div className="relative h-screen w-screen">
           <Image
             className="object-cover"
-            src="/assets/projects1.jpg"
+            src="/img/projects1.jpg"
             fill={true}
             alt=""
           />
@@ -52,7 +51,7 @@ const SubProject = ({ params }) => {
         <div className="relative h-screen w-screen">
           <Image
             className="object-cover"
-            src="/assets/projects2.jpg"
+            src="/img/projects2.jpg"
             fill={true}
             alt=""
           />

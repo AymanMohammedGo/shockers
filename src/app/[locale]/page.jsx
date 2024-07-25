@@ -1,8 +1,8 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import LoadingVideo from "../../components/LoadingVideo";
 const Home = () => {
   const [isVideoEnded, setIsVideoEnded] = useState(true);
@@ -11,8 +11,8 @@ const Home = () => {
     {
       name: "shockersAEC",
       link: "/shockersAEC",
-      imageLogo: "/assets/MainPage/shockers.svg",
-      imageHoverLogo: "/assets/MainPage/shockers.svg",
+      imageLogo: "/img/MainPage/shockers.svg",
+      imageHoverLogo: "/img/MainPage/shockers.svg",
       bgColorHover: "hover:bg-shockersAECYellow",
       textHover: "Dare to be shocked",
       duration: 1,
@@ -23,8 +23,8 @@ const Home = () => {
     {
       name: "BAYTUNA",
       link: "/baytuna",
-      imageLogo: "/assets/MainPage/Baytuna.svg",
-      imageHoverLogo: "/assets/MainPage/BaytunaWhite.svg",
+      imageLogo: "/img/MainPage/Baytuna.svg",
+      imageHoverLogo: "/img/MainPage/BaytunaWhite.svg",
       bgColorHover: "hover:bg-baytuna",
       textHover: "Where your house becomes your home",
       duration: 2,
@@ -36,8 +36,8 @@ const Home = () => {
       name: "YARD",
       link: "#",
       // "/yard"
-      imageLogo: "/assets/MainPage/yard.svg",
-      imageHoverLogo: "/assets/MainPage/yard.svg",
+      imageLogo: "/img/MainPage/yard.svg",
+      imageHoverLogo: "/img/MainPage/yard.svg",
       bgColorHover: "hover:bg-yard",
       textHover: "Ever Green",
       duration: 2,
@@ -47,10 +47,10 @@ const Home = () => {
     },
     {
       name: "DECA",
-      link: "#",
+      link: "/deca",
       // "deca"
-      imageLogo: "/assets/MainPage/Deca.svg",
-      imageHoverLogo: "/assets/MainPage/DecaWhite.svg",
+      imageLogo: "/img/MainPage/Deca.svg",
+      imageHoverLogo: "/img/MainPage/DecaWhite.svg",
       textHover: "Where Details Matter",
       bgColorHover: "hover:bg-deca",
       duration: 2,
@@ -62,8 +62,8 @@ const Home = () => {
       name: "YMARKETING",
       link: "#",
       // "/ymarketing"
-      imageLogo: "/assets/MainPage/yMarketing.svg",
-      imageHoverLogo: "/assets/MainPage/yMarketingYellow.svg",
+      imageLogo: "/img/MainPage/yMarketing.svg",
+      imageHoverLogo: "/img/MainPage/yMarketingYellow.svg",
       bgColorHover: "hover:bg-yMarketing",
       textHover: "Because You Need It",
       duration: 2,
@@ -75,8 +75,8 @@ const Home = () => {
       name: "SHOCKY",
       link: "#",
       // "/shocky"
-      imageLogo: "/assets/MainPage/shocky.svg",
-      imageHoverLogo: "/assets/MainPage/shockyWhite.svg",
+      imageLogo: "/img/MainPage/shocky.svg",
+      imageHoverLogo: "/img/MainPage/shockyWhite.svg",
       bgColorHover: "hover:bg-shocky",
       textHover: "Be The Shock",
       duration: 2,

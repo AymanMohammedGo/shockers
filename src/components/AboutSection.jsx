@@ -62,13 +62,13 @@ const AboutSection = ({ video, text, bg, tc, link }) => {
       </video>
       <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
         <div className="max-w-screen-xxl w-full h-full relative overflow-hidden">
-          <div className="flex w-full flex-col items-center lg:items-start justify-center absolute bottom-0 p-2">
+          <div className="flex w-full flex-col items-center lg:items-start justify-center absolute bottom-0 p-2 lg:px-14 ">
             <motion.h1
               ref={ref}
               initial="hidden"
               animate={controls}
               variants={variant1}
-              className="text-6xl  overflow-hidden lg:text-8xl font-bold mb-5 lg:mb-6 text-white"
+              className="font-bold text-6xl lg:text-8xl mb-5 lg:mb-6 text-white overflow-hidden"
             >
               About US
             </motion.h1>
@@ -77,7 +77,7 @@ const AboutSection = ({ video, text, bg, tc, link }) => {
               initial="hidden"
               animate={controls}
               variants={variant2}
-              className="text-white text-xl text-center"
+              className="text-white text-xl lg:text-2xl  text-center"
             >
               {text}
             </motion.span>

@@ -33,7 +33,7 @@ const Footer = ({ width, name, logo, linksNames, nameFooter, socialMedia }) => {
               <Image src={logo} width={width} height={width} alt={name} />
             </Link>
           </div>
-          <ul className="mt-16 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
+          <ul className="mt-16 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
             {Url.map((item, index) => (
               <li key={index}>
                 <Link

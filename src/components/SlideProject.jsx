@@ -2,7 +2,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import "swiper/css/navigation";
 import "swiper/css";

@@ -42,8 +42,8 @@ const ServicesSection = ({ services, link, image, bg, tc }) => {
   }, [controls1, inView1]);
   return (
     <section className="bg-seconds w-screen h-screen flex items-center justify-center relative z-10">
-      <div className="flex w-full h-full flex-col xl:flex-row justify-center items-center    lg:px-2 overflow-hidden">
-        <div className=" text-white flex-1  flex flex-col items-center justify-center overflow-hidden">
+      <div className="flex w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
+        <div className=" text-white flex-1 p-2 lg:p-4 flex flex-col items-center justify-center overflow-hidden">
           <motion.h1
             ref={ref1}
             initial="hidden"
@@ -61,10 +61,12 @@ const ServicesSection = ({ services, link, image, bg, tc }) => {
                 initial="hidden"
                 animate={controls1}
                 variants={item.effect}
-                className="flex items-center text-xl xl:text-3xl mb-3"
+                className="flex items-center  mb-5"
               >
-                <CircleCheckBig />
-                <span className="mx-2">{item.name}</span>
+                <CircleCheckBig className="w-[25px]" />
+                <span className="mx-2 w-full text-xl lg:text-2xl xl:text-3xl">
+                  {item.name}
+                </span>
               </motion.li>
             ))}
           </ul>

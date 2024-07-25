@@ -90,10 +90,10 @@ const About = ({ params: { locale } }) => {
             }   justify-center lg:justify-between`}
           >
             <div className="p-2 lg:p-24 xl:p-32  text-shockersAEC flex-1 flex flex-col items-start">
-              <span className="font-extrabold text-4xl lg:text-6xl my-3  lg:mb-6">
+              <span className="font-bold text-4xl md:text-5xl lg:text-6xl my-3  lg:mb-6">
                 {item?.attributes.title}
               </span>
-              <p className="text-2xl lg:text-3xl mb-3 lg:mb-0">
+              <p className="text-xl lg:text-2xl mb-3 lg:mb-0">
                 {item?.attributes.description}
               </p>
             </div>
@@ -120,18 +120,18 @@ const About = ({ params: { locale } }) => {
             key={index}
             className={`w-screen h-screen  flex flex-col items-center ${item.left} justify-center lg:justify-between`}
           >
-            <div className="p-2 lg:p-24 xl:p-32  text-shockersAEC flex-1 flex flex-col items-start">
-              <span className="font-extrabold text-4xl lg:text-6xl my-3  lg:mb-6">
+            <div className="p-2 md:p-4 lg:p-16 xl:p-28 xxl:p-32 text-shockersAEC flex-1 flex flex-col items-start">
+              <span className="font-bold text-4xl md:text-5xl lg:text-6xl my-3  lg:mb-6">
                 {item.title}
               </span>
-              <p className="text-2xl lg:text-3xl mb-3 lg:mb-0">{item.des}</p>
+              <p className="text-xl lg:text-2xl mb-3 lg:mb-0">{item.des}</p>
             </div>
             <div className="relative w-screen h-full xl:h-screen xl:w-[50vw] ">
               <Image
                 src={item.image}
                 fill={true}
                 alt="aboutus"
-                quality={100}
+                quality={75}
                 className="object-cover"
               />
             </div>

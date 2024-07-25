@@ -13,7 +13,7 @@ const ImageOverlaysCenter = ({ title }) => {
       <div className="bg-black bg-opacity-80 w-full h-full absolute top-0" />
       <div className="absolute flex items-center justify-center  inset-0 m-auto   ">
         <div className=" text-center lg:text-start   text-white p-2">
-          <h1 className="text-4xl lg:text-6xl font-bold mb-5 lg:mb-6 ">
+          <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl ">
             {title}
           </h1>
         </div>

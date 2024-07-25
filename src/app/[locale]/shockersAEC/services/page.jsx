@@ -42,26 +42,7 @@ const Services = () => {
     >
       <Draw_S animationData={S_json} />
       <ImageOverlaysTop namePage="SERVICES" title={selectedService.name} />
-      {/* <div className="max-w-screen-xxl m-auto w-full  p-2">
-        <Accordion type="single" collapsible className="w-full">
-          {service.map((item, index) => (
-            <AccordionItem key={index} value={item.name} className="my-5">
-              <AccordionTrigger className="font-bold text-2xl md:text-4xl text-seconds">
-                {item.name}
-              </AccordionTrigger>
-              <AccordionContent className="text-xl ">
-                {item.description}
-                <Image
-                  className="  my-3 !relative   object-cover"
-                  src={item.image}
-                  fill={true}
-                  alt={item.name}
-                />
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div> */}
+
       <div className="flex flex-col md:flex-row min-h-screen  max-w-screen-xxl m-auto relative z-10">
         <div className="md:w-1/3 p-4">
           <ul className="space-y-2">
@@ -69,9 +50,9 @@ const Services = () => {
               <li
                 key={index}
                 onClick={() => setSelectedService(service)}
-                className={`cursor-pointer text-xl lg:text-3xl p-4 font-bold rounded-md ${
+                className={`cursor-pointer text-xl lg:text-3xl p-4 font-bold  ${
                   selectedService.name === service.name
-                    ? "border border-l-8 border-shockersAEC  text-shockersAEC"
+                    ? " border-l-[6px] border-shockersAEC  text-shockersAEC"
                     : "text-[#9b9999]   hover:text-shockersAEC"
                 }`}
               >
@@ -81,7 +62,7 @@ const Services = () => {
           </ul>
         </div>
         <div className="md:w-2/3 p-4">
-          <p className="mb-6 text-xl lg:text-2xl !leading-10">
+          <p className="mb-6 text-xl lg:text-2xl ">
             {selectedService.description}
           </p>
           <Image

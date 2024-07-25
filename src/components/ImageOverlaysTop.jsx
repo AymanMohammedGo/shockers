@@ -12,10 +12,12 @@ const ImageOverlaysTop = ({ namePage, title }) => {
         quality={75}
       />
       <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
-      <div className="absolute top-2/3  w-full ">
-        <div className="m-auto max-w-screen-xxl text-center lg:text-start    text-white p-2">
-          <p className=" text-3xl  font-bold mb-6">{namePage}</p>
-          <h1 className="text-6xl lg:text-8xl font-bold mb-5 lg:mb-6 ">
+      <div className="absolute top-[70%]  w-full ">
+        <div className="m-auto max-w-screen-xxl text-center lg:text-start    text-white lg:p-10 xl:p-2">
+          <p className=" text-2xl  md:text-3xl lg:text-4xl font-bold mb-6">
+            {namePage}
+          </p>
+          <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold ">
             {title}
           </h1>
         </div>

@@ -9,21 +9,21 @@ import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/assets/S.json";
 import getAboutUS from "../../../../../utils/ShockersApi";
 const About = ({ params: { locale } }) => {
-  let lan = locale;
-  if (locale === "kr") {
-    lan = "af";
-  }
-  const linkData = "http://localhost:1337";
-  const [data, setData] = useState([]);
-  const getAboutUS_ = useCallback(() => {
-    getAboutUS(lan).then((res) => {
-      console.log(res.data.data);
-      setData(res.data.data);
-    });
-  }, [lan]);
-  useEffect(() => {
-    getAboutUS_();
-  }, [getAboutUS_]);
+  // let lan = locale;
+  // if (locale === "kr") {
+  //   lan = "af";
+  // }
+  // const linkData = "http://localhost:1337";
+  // const [data, setData] = useState([]);
+  // const getAboutUS_ = useCallback(() => {
+  //   getAboutUS(lan).then((res) => {
+  //     console.log(res.data.data);
+  //     setData(res.data.data);
+  //   });
+  // }, [lan]);
+  // useEffect(() => {
+  //   getAboutUS_();
+  // }, [getAboutUS_]);
 
   const aboutus = [
     {
@@ -76,7 +76,7 @@ const About = ({ params: { locale } }) => {
     >
       <ImageOverlaysTop namePage="ABOUT" title="Shockers AEC" />
       <Draw_S animationData={S_json} />
-      <section className="overflow-hidden relative z-10">
+      {/* <section className="overflow-hidden relative z-10">
         {data.map((item, index) => (
           <motion.div
             initial={{ x: index % 2 === 0 ? "100%" : "-100%", opacity: 0 }}
@@ -108,7 +108,7 @@ const About = ({ params: { locale } }) => {
             </div>
           </motion.div>
         ))}
-      </section>
+      </section> */}
       <section className="overflow-hidden">
         {aboutus.map((item, index) => (
           <motion.div

@@ -10,22 +10,23 @@ export default function RootLayout({ children, params: { locale } }) {
     lan = "af";
   }
 
-  const [linksNames, setLinksNames] = useState({
-    NamePageHome: "HOME",
-    NamePageAbout: "ABOUT US",
-    NamePageServices: "SERVICES",
-    NamePageProjects: "PROJECTS",
-  });
-  // const [linksNames, setLinksNames] = useState([]);
-  // const getName_HeaderLinks_ = useCallback(() => {
-  //   getName_HeaderLinks(lan).then((res) => {
-  //     console.log(res.data.data.attributes);
-  //     setLinksNames(res.data.data.attributes);
-  //   });
-  // }, [lan]);
-  // useEffect(() => {
-  //   getName_HeaderLinks_();
-  // }, [getName_HeaderLinks_]);
+  // const [linksNames, setLinksNames] = useState({
+  //   NamePageHome: "HOME",
+  //   NamePageAbout: "ABOUT US",
+  //   NamePageServices: "SERVICES",
+  //   NamePageProjects: "PROJECTS",
+  //   NameMainPage: "Main Page",
+  // });
+  const [linksNames, setLinksNames] = useState([]);
+  const getName_HeaderLinks_ = useCallback(() => {
+    getName_HeaderLinks(lan).then((res) => {
+      console.log(res.data.data.attributes);
+      setLinksNames(res.data.data.attributes);
+    });
+  }, [lan]);
+  useEffect(() => {
+    getName_HeaderLinks_();
+  }, [getName_HeaderLinks_]);
   const [isVideoEnded, setIsVideoEnded] = useState(true);
 
   const socialMedia = [

@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import LoadingVideo from "@/components/LoadingVideo";
 import { useEffect, useState, useCallback } from "react";
+import Transition from "@/components/Motion/Transition";
+
 import getName_HeaderLinks from "../../../../utils/GlobleApi";
 export default function RootLayout({ children, params: { locale } }) {
   let lan = locale;
@@ -49,6 +51,7 @@ export default function RootLayout({ children, params: { locale } }) {
         <LoadingVideo URL="/done8_2.mp4" setIsVideoEnded={setIsVideoEnded} />
       ) : ( */}
       <>
+        <Transition bg="bg-baytuna" />
         <Header
           logo="/img/LogosHeader/logoBaytuna.svg"
           width="80"

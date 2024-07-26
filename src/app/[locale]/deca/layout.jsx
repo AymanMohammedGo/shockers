@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import LoadingVideo from "@/components/LoadingVideo";
 import { useEffect, useState, useCallback } from "react";
 import getName_HeaderLinks from "../../../../utils/GlobleApi";
+import Transition from "@/components/Motion/Transition";
+
 export default function RootLayout({ children, params: { locale } }) {
   let lan = locale;
   if (locale === "kr") {
@@ -51,6 +53,8 @@ export default function RootLayout({ children, params: { locale } }) {
         <LoadingVideo URL="/done8_2.mp4" setIsVideoEnded={setIsVideoEnded} />
       ) : ( */}
       <>
+      <Transition bg="bg-deca" />
+
         <Header
           logo="/img/LogosHeader/logoDeca.svg"
           width="100"
@@ -60,6 +64,7 @@ export default function RootLayout({ children, params: { locale } }) {
           text="text-shockersAEC"
           linksNames={linksNames}
         />
+        
         {children}
         <Footer
           width="200"

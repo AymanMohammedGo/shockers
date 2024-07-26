@@ -52,7 +52,7 @@ export default function RootLayout({ children, params: { locale } }) {
         <LoadingVideo URL="/done8_2.mp4" setIsVideoEnded={setIsVideoEnded} />
       ) : ( */}
       <>
-        <Transition />
+        <Transition bg="bg-shockersAEC" />
         <Header
           logo="/img/LogosHeader/logoShocker.svg"
           width="140"

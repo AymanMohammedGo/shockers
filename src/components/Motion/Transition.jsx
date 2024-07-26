@@ -15,7 +15,7 @@ const animation = {
   },
 };
 
-const Transition = () => {
+const Transition = ({ bg }) => {
   const pathname = usePathname();
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -42,7 +42,7 @@ const Transition = () => {
               animate="animate"
               exit="exit"
               transition={{ duration: 0.6, ease: "easeInOut", delay: 0 }}
-              className="w-full h-full bg-shockersAEC relative"
+              className={`w-full h-full ${bg} relative`}
             />
           </div>
         </div>

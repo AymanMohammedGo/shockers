@@ -1,10 +1,26 @@
 "use client";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { getName_Solgan } from "../../../utils/GlobleApi";
 import LoadingVideo from "../../components/LoadingVideo";
-const Home = () => {
+export default function Home({ params: { locale } }) {
+  let lan = locale;
+  if (locale === "kr") {
+    lan = "af";
+  }
+  const [solgan, setSolgan] = useState([]);
+  const getName_Solgan_ = useCallback(() => {
+    getName_Solgan(lan).then((res) => {
+      console.log(res.data.data.attributes);
+      setSolgan(res.data.data.attributes);
+    });
+  }, [lan]);
+  useEffect(() => {
+    getName_Solgan_();
+  }, [getName_Solgan_]);
+
   const [isVideoEnded, setIsVideoEnded] = useState(true);
   const [hoveredIndex, setHoveredIndex] = useState(0);
   const brond = [
@@ -14,7 +30,7 @@ const Home = () => {
       imageLogo: "/img/MainPage/shockers.svg",
       imageHoverLogo: "/img/MainPage/shockers.svg",
       bgColorHover: "hover:bg-shockersAECYellow",
-      textHover: "Dare to be shocked",
+      textHover: solgan.Shockers,
       duration: 1,
       delay: 0.5,
       hoverIndex: 1,
@@ -26,7 +42,7 @@ const Home = () => {
       imageLogo: "/img/MainPage/Baytuna.svg",
       imageHoverLogo: "/img/MainPage/BaytunaWhite.svg",
       bgColorHover: "hover:bg-baytuna",
-      textHover: "Where your house becomes your home",
+      textHover: solgan.Baytuna,
       duration: 2,
       delay: 1,
       hoverIndex: 2,
@@ -39,7 +55,7 @@ const Home = () => {
       imageLogo: "/img/MainPage/yard.svg",
       imageHoverLogo: "/img/MainPage/yard.svg",
       bgColorHover: "hover:bg-yard",
-      textHover: "Ever Green",
+      textHover: solgan.Yard,
       duration: 2,
       delay: 1.5,
       hoverIndex: 3,
@@ -51,7 +67,7 @@ const Home = () => {
       // "deca"
       imageLogo: "/img/MainPage/Deca.svg",
       imageHoverLogo: "/img/MainPage/DecaWhite.svg",
-      textHover: "Where Details Matter",
+      textHover: solgan.Deca,
       bgColorHover: "hover:bg-deca",
       duration: 2,
       delay: 2,
@@ -65,7 +81,7 @@ const Home = () => {
       imageLogo: "/img/MainPage/yMarketing.svg",
       imageHoverLogo: "/img/MainPage/yMarketingYellow.svg",
       bgColorHover: "hover:bg-yMarketing",
-      textHover: "Because You Need It",
+      textHover: solgan.Ymarketing,
       duration: 2,
       delay: 2.5,
       hoverIndex: 5,
@@ -78,7 +94,7 @@ const Home = () => {
       imageLogo: "/img/MainPage/shocky.svg",
       imageHoverLogo: "/img/MainPage/shockyWhite.svg",
       bgColorHover: "hover:bg-shocky",
-      textHover: "Be The Shock",
+      textHover: solgan.Shocky,
       duration: 2,
       delay: 3,
       hoverIndex: 6,
@@ -221,5 +237,4 @@ const Home = () => {
       {/* )} */}
     </>
   );
-};
-export default Home;
+}

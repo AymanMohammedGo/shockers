@@ -1,4 +1,6 @@
 import axiosClient from "./axiosClient";
-const getName_HeaderLinks = (locale) =>
+export const getName_HeaderLinks = (locale) =>
   axiosClient.get(`/header?locale=${locale}`);
-export default getName_HeaderLinks;
+
+export const getName_Solgan = (locale) =>
+  axiosClient.get(`/solgan-for-brand?locale=${locale}`);

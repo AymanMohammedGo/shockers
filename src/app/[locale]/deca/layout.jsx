@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import LoadingVideo from "@/components/LoadingVideo";
 import { useEffect, useState, useCallback } from "react";
-import getName_HeaderLinks from "../../../../utils/GlobleApi";
+import {getName_HeaderLinks} from "../../../../utils/GlobleApi";
 import Transition from "@/components/Motion/Transition";
 
 export default function RootLayout({ children, params: { locale } }) {

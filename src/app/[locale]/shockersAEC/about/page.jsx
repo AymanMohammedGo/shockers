@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/Motion/S.json";
-import getAboutUS from "../../../../../utils/ShockersApi";
+import { getAboutUS } from "../../../../../utils/ShockersApi";
 const About = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
@@ -100,7 +100,7 @@ const About = ({ params: { locale } }) => {
             {console.log(item?.attributes.imgURL.data?.attributes.url)}
             <div className="relative w-screen h-full xl:h-screen xl:w-[50vw] ">
               <Image
-                src={` ${item?.attributes.imgURL.data?.attributes.url}`}
+                src={item?.attributes.imgURL.data?.attributes.url}
                 fill={true}
                 alt="aboutus"
                 quality={100}

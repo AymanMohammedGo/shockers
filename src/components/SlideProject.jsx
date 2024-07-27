@@ -11,7 +11,12 @@ import "swiper/css/free-mode";
 
 import { FreeMode, Navigation } from "swiper/modules";
 
-export default function SlideProject({ projects, link, ColorText }) {
+export default function SlideProject({
+  categoriesProjects,
+  title,
+  link,
+  ColorText,
+}) {
   const swiperRef = useRef(null);
   const isDelay = useRef(false);
   useEffect(() => {
@@ -45,7 +50,7 @@ export default function SlideProject({ projects, link, ColorText }) {
         id="projects"
         className={`font-bold overflow-hidden   ${ColorText}  w-fit px-4 py-3 z-0 text-3xl  lg:text-4xl  mx-auto mt-6 mb-[16px]`}
       >
-        PROJECTS
+        {title}
       </h2>
       <div className="flex-grow">
         <Swiper
@@ -83,20 +88,19 @@ export default function SlideProject({ projects, link, ColorText }) {
             },
           }}
         >
-          {projects.map((item, index) => (
+          {categoriesProjects?.map((item, index) => (
             <SwiperSlide key={index} className="relative">
-              <Link href={`/${link}/projects/${item.name}`}>
+              <Link href={`/${link}/projects/${item?.id}`}>
                 <Image
                   className=" object-cover"
-                  src={item.image}
+                  src={item?.attributes.imgURL.data?.attributes.url}
                   fill={true}
                   alt={item.id}
                   quality={75}
-                  loading="lazy"
                 />
                 <div className="absolute  inset-0 image-gradient" />
                 <span className="absolute  bottom-0 p-4 text-white text-2xl">
-                  {item.name}
+                  {item?.attributes?.title}
                 </span>
               </Link>
             </SwiperSlide>

@@ -1,98 +1,111 @@
 "use client";
-
 import SlideProject from "@/components/SlideProject";
 import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/Motion/S.json";
-import Link from "next/link";
-
+import { motion } from "framer-motion";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import SalgonSection from "@/components/SalgonSection";
+import { getHome, getServices } from "../../../../utils/DecaApi";
+import { useCallback, useState, useEffect } from "react";
 import "../globals.css";
-import ImageOverlaysCenter from "@/components/ImageOverlaysCenter";
+import { getCategoriesProjects } from "../../../../utils/ShockersApi";
+const DecaHome = ({ params: { locale } }) => {
+  let lan = locale;
+  if (locale === "kr") {
+    lan = "af";
+  }
+  const [data, setData] = useState([]);
+  const [services, setServices] = useState([]);
+  const [categoriesProjects, setCategoriesProjects] = useState([]);
 
-const ShockersHome = () => {
-  const var2 = {
-    hidden: { x: "-100%", opacity: 0 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 1,
-        delay: 0.3,
-      },
-    },
-  };
-  const var3 = {
-    hidden: { x: "-100%", opacity: 0 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 1,
-        delay: 0.6,
-      },
-    },
-  };
-  const var4 = {
-    hidden: { x: "-100%", opacity: 0 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 1,
-        delay: 0.9,
-      },
-    },
-  };
-  const services = [
-    {
-      name: "Deca's Collaborative Design Advantage",
-      effect: var2,
-    },
-    {
-      name: "Streamlined Project Management",
-      effect: var3,
-    },
-  ];
+  const getHome_ = useCallback(() => {
+    getHome(lan).then((res) => {
+      console.log(res.data.data);
+      setData(res.data.data);
+    });
+  }, [lan]);
+  const getServices_ = useCallback(() => {
+    getServices(lan).then((res) => {
+      console.log(res.data.data);
+      const newServices = res.data.data.map((item, index) => ({
+        name: item,
+        effect: {
+          hidden: { x: "-100%", opacity: 0 },
+          visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+              duration: 1,
+              delay: 0.3 * (index + 1),
+            },
+          },
+        },
+      }));
+      setServices(newServices);
+    });
+  }, [lan]);
+  const getCategoriesProjects_ = useCallback(() => {
+    getCategoriesProjects(lan).then((res) => {
+      console.log(res.data.data);
+      setCategoriesProjects(res.data.data);
+    });
+  }, [lan]);
+  useEffect(() => {
+    getHome_();
+    getServices_();
+    getCategoriesProjects_();
+  }, [getHome_, getServices_, getCategoriesProjects_]);
+
   const titleText = [
     {
       text: "WHERE",
-      delay: 1.5,
+      delay: 3,
     },
     {
       text: "DETAILS",
-      delay: 2,
+      delay: 3.5,
     },
     {
       text: "MATTER",
-      delay: 2.5,
+      delay: 4,
     },
   ];
 
   return (
-    <>
-      {/* <Draw_S animationData={S_json} /> */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { delay: 1 } }}
+    >
+      {/* <Draw_S animationData={S_json} delay={800} /> */}
       <SalgonSection titleText={titleText} />
       <AboutSection
         link="deca"
         video="/video2.mp4"
-        text="In 2022,Deca emerged as a leader in comprehensive interior and exterior designs"
+        title={data?.attributes?.TitleAbout}
+        description={data?.attributes?.DescriptionAbout}
+        textButton={data?.attributes?.TextButton}
         bg="bg-deca"
         tc="text-white"
       />
       <ServicesSection
         services={services}
+        title={data?.attributes?.NameServices}
+        textButton={data?.attributes?.TextButton}
         link="deca"
-        image="/img/services.jpg"
+        image={data?.attributes?.ImgServices.data.attributes.url}
+        // image="/"
         bg="bg-deca"
         tc="text-white"
       />
-      <Link href="/deca/projects">
-        <ImageOverlaysCenter title="VIEW OUR PROJECTS" />
-      </Link>
-    </>
+      <SlideProject
+        title={data?.attributes?.NameProjects}
+        categoriesProjects={categoriesProjects}
+        link="deca"
+        ColorText="text-shockersAEC"
+      />
+    </motion.div>
   );
 };
 
-export default ShockersHome;
+export default DecaHome;

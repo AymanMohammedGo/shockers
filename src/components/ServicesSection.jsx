@@ -7,7 +7,15 @@ import Link from "next/link";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-const ServicesSection = ({ services, link, image, bg, tc }) => {
+const ServicesSection = ({
+  services,
+  title,
+  textButton,
+  link,
+  image,
+  bg,
+  tc,
+}) => {
   const var1 = {
     hidden: { x: "-100%", opacity: 0 },
     visible: {
@@ -51,7 +59,7 @@ const ServicesSection = ({ services, link, image, bg, tc }) => {
             variants={var1}
             className="text-6xl lg:text-8xl font-bold my-8 "
           >
-            Services
+            {title}
           </motion.h1>
           <ul>
             {services.map((item, index) => (
@@ -65,7 +73,7 @@ const ServicesSection = ({ services, link, image, bg, tc }) => {
               >
                 <CircleCheckBig className="w-[25px]" />
                 <span className="mx-2 w-full text-xl lg:text-2xl xl:text-3xl">
-                  {item.name}
+                  {item?.name?.attributes?.title}
                 </span>
               </motion.li>
             ))}
@@ -80,7 +88,7 @@ const ServicesSection = ({ services, link, image, bg, tc }) => {
               <Button
                 className={`${bg} w-fit ${tc} hover:bg-shockersAEC hover:text-white hover:outline text-base my-8`}
               >
-                Read More..
+                {textButton}
               </Button>
             </Link>
           </motion.div>
@@ -94,7 +102,7 @@ const ServicesSection = ({ services, link, image, bg, tc }) => {
           className="relative w-screen h-[50vh] xl:h-screen xl:w-[50vw] "
         >
           <Image
-            src={`${image}`}
+            src={image}
             fill={true}
             alt="services"
             quality={100}

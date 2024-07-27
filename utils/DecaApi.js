@@ -1,4 +1,6 @@
 import axiosClient from "./axiosClient";
+export const getHome = (locale) =>
+  axiosClient.get(`/deca-home?populate=*&locale=${locale}`);
 export const getAboutUS = (locale) =>
   axiosClient.get(`/deca-about-uses?populate=*&locale=${locale}`);
 export const getServices = (locale) =>

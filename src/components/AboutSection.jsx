@@ -5,7 +5,15 @@ import { Button } from "@/components/ui/button";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-const AboutSection = ({ video, text, bg, tc, link }) => {
+const AboutSection = ({
+  video,
+  title,
+  description,
+  textButton,
+  bg,
+  tc,
+  link,
+}) => {
   const variant1 = {
     hidden: { y: "100%", opacity: 0 },
     visible: {
@@ -70,7 +78,7 @@ const AboutSection = ({ video, text, bg, tc, link }) => {
               variants={variant1}
               className="font-bold text-6xl lg:text-8xl mb-5 lg:mb-6 text-white overflow-hidden"
             >
-              About US
+              {title}{" "}
             </motion.h1>
             <motion.span
               ref={ref}
@@ -79,7 +87,7 @@ const AboutSection = ({ video, text, bg, tc, link }) => {
               variants={variant2}
               className="text-white text-xl lg:text-2xl  text-center"
             >
-              {text}
+              {description}
             </motion.span>
             <Link href={`/${link}/about`}>
               <motion.div
@@ -91,7 +99,7 @@ const AboutSection = ({ video, text, bg, tc, link }) => {
                 <Button
                   className={`${bg} w-fit ${tc} hover:bg-shockersAEC hover:text-white text-base my-8`}
                 >
-                  Read More..
+                  {textButton}
                 </Button>
               </motion.div>
             </Link>

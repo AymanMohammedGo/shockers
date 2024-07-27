@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback } from "react";
 import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/Motion/S.json";
 import Image from "next/image";
-import { getServices } from "../../../../../utils/ShockersApi";
+import { getServices, getTopServices } from "../../../../../utils/ShockersApi";
 
 const Services = ({ params: { locale } }) => {
   let lan = locale;
@@ -14,6 +14,7 @@ const Services = ({ params: { locale } }) => {
   }
   const [data, setData] = useState([]);
   const [selectedService, setSelectedService] = useState(data[0]);
+  const [topServices, setTopServices] = useState([]);
 
   const getServices_ = useCallback(() => {
     getServices(lan).then((res) => {
@@ -21,9 +22,16 @@ const Services = ({ params: { locale } }) => {
       setData(res.data.data);
     });
   }, [lan]);
+  const getTopServices_ = useCallback(() => {
+    getTopServices(lan).then((res) => {
+      console.log(res.data.data);
+      setTopServices(res.data.data);
+    });
+  }, [lan]);
   useEffect(() => {
     getServices_();
-  }, [getServices_]);
+    getTopServices_();
+  }, [getServices_, getTopServices_]);
   useEffect(() => {
     setSelectedService(data[0]);
   }, [data]);
@@ -57,8 +65,9 @@ const Services = ({ params: { locale } }) => {
       <Draw_S animationData={S_json} />
       {/* <ImageOverlaysTop namePage="SERVICES" title={selectedService.name} /> */}
       <ImageOverlaysTop
-        namePage="SERVICES"
+        namePage={topServices?.attributes?.namePage}
         title={selectedService?.attributes?.title}
+        imgURL={topServices?.attributes?.imgURL.data?.attributes.url}
       />
 
       <div className="flex flex-col md:flex-row min-h-screen  max-w-screen-xxl m-auto relative z-10">

@@ -5,13 +5,19 @@ const loading = ({ URL, setIsVideoEnded }) => {
     setIsVideoEnded(false);
   };
   return (
+    // <div className="fixed bg top-0 left-0 flex items-center justify-center w-screen h-screen ">
+    //   <video
+    //     autoPlay
+    //     muted
+    //     onEnded={handleVideoEnded}
+    //     className="w-full h-full object-cover"
+    //   >
+    //     <source src={URL} type="video/mp4" />
+    //     Your browser does not support the video tag.
+    //   </video>
+    // </div>
     <div className="fixed bg top-0 left-0 flex items-center justify-center w-screen h-screen ">
-      <video
-        autoPlay
-        muted
-        onEnded={handleVideoEnded}
-        className="w-full h-full object-cover"
-      >
+      <video autoPlay muted onEnded={handleVideoEnded}>
         <source src={URL} type="video/mp4" />
         Your browser does not support the video tag.
       </video>

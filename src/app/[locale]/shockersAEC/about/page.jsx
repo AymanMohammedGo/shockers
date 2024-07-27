@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/Motion/S.json";
-import { getAboutUS } from "../../../../../utils/ShockersApi";
+import { getAboutUS, getTopAbout } from "../../../../../utils/ShockersApi";
 const About = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
@@ -15,15 +15,23 @@ const About = ({ params: { locale } }) => {
   }
   // const linkData = "http://localhost:1337";
   const [data, setData] = useState([]);
+  const [topAbout, setTopAbout] = useState([]);
   const getAboutUS_ = useCallback(() => {
     getAboutUS(lan).then((res) => {
       console.log(res.data.data);
       setData(res.data.data);
     });
   }, [lan]);
+  const getTopAbout_ = useCallback(() => {
+    getTopAbout(lan).then((res) => {
+      console.log(res.data.data);
+      setTopAbout(res.data.data);
+    });
+  }, [lan]);
   useEffect(() => {
     getAboutUS_();
-  }, [getAboutUS_]);
+    getTopAbout_();
+  }, [getAboutUS_, getTopAbout_]);
 
   // const aboutus = [
   //   {
@@ -74,7 +82,11 @@ const About = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <ImageOverlaysTop namePage="ABOUT" title="Shockers AEC" />
+      <ImageOverlaysTop
+        namePage={topAbout?.attributes?.namePage}
+        title={topAbout?.attributes?.title}
+        imgURL={topAbout?.attributes?.imgURL.data?.attributes.url}
+      />
       <Draw_S animationData={S_json} />
       <section className="overflow-hidden relative z-10">
         {data.map((item, index) => (

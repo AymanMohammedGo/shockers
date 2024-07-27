@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const ImageOverlaysTop = ({ namePage, title }) => {
+const ImageOverlaysTop = ({ namePage, title, imgURL }) => {
   return (
     <div className="relative w-screen h-screen z-10">
       <Image
         className=" object-cover"
-        src="/img/imageOverlays.jpg"
+        src={imgURL}
         fill={true}
         alt="imageOverlays"
         quality={75}

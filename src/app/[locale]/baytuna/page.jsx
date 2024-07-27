@@ -1,7 +1,7 @@
 "use client";
 import SlideProject from "@/components/SlideProject";
 import Draw_S from "@/components/Lottie/Draw_S";
-import S_json from "/public/Motion/S.json";
+import B_json from "/public/Motion/BAYTUNA";
 import { motion } from "framer-motion";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
@@ -86,7 +86,7 @@ const DecaHome = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      {/* <Draw_S animationData={S_json} delay={800} /> */}
+      <Draw_S animationData={B_json}  />
       <SalgonSection titleText={titleText} />
       <AboutSection
         link="baytuna"

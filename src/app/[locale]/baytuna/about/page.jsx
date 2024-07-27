@@ -6,7 +6,7 @@ import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Draw_S from "@/components/Lottie/Draw_S";
-import S_json from "/public/Motion/S.json";
+import B_json from "/public/Motion/BAYTUNA.json";
 import { getAboutUS } from "../../../../../utils/BaytunaApi";
 const About = ({ params: { locale } }) => {
   let lan = locale;
@@ -75,7 +75,7 @@ const About = ({ params: { locale } }) => {
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
       <ImageOverlaysTop namePage="ABOUT" title="Shockers AEC" />
-      {/* <Draw_S animationData={S_json} /> */}
+      <Draw_S animationData={B_json} />
       <section className="overflow-hidden relative z-10">
         {data.map((item, index) => (
           <motion.div

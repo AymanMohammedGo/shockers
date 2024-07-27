@@ -13,7 +13,7 @@ const About = ({ params: { locale } }) => {
   if (locale === "kr") {
     lan = "af";
   }
-  const linkData = "https://impressive-heart-a54f8c4027.strapiapp.com/";
+  // const linkData = "http://localhost:1337";
   const [data, setData] = useState([]);
   const getAboutUS_ = useCallback(() => {
     getAboutUS(lan).then((res) => {
@@ -97,13 +97,12 @@ const About = ({ params: { locale } }) => {
                 {item?.attributes.description}
               </p>
             </div>
-            {console.log(item?.attributes.imgURL.data?.attributes.url)}
             <div className="relative w-screen h-full xl:h-screen xl:w-[50vw] ">
               <Image
                 src={item?.attributes.imgURL.data?.attributes.url}
                 fill={true}
-                alt="aboutus"
-                quality={100}
+                alt="aboutUs"
+                quality={75}
                 className="object-cover"
               />
             </div>

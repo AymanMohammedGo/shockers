@@ -2,7 +2,7 @@
 import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import { motion } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
-import Draw_S from "@/components/Lottie/Draw_S";
+import Draw_B from "@/components/Lottie/Draw_B";
 import B_json from "/public/Motion/BAYTUNA.json";
 import Image from "next/image";
 import { getServices, getTopServices } from "../../../../../utils/BaytunaApi";
@@ -62,7 +62,7 @@ const Services = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <Draw_S animationData={B_json} />
+      <Draw_B animationData={B_json} />
       {/* <ImageOverlaysTop namePage="SERVICES" title={selectedService.name} /> */}
       <ImageOverlaysTop
         namePage={topServices?.attributes?.namePage}

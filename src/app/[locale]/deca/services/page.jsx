@@ -2,7 +2,7 @@
 import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import { motion } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
-import Draw_S from "@/components/Lottie/Draw_S";
+import Draw_D from "@/components/Lottie/Draw_D";
 import D_json from "/public/Motion/Deca.json";
 
 import Image from "next/image";
@@ -63,7 +63,7 @@ const Services = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <Draw_S animationData={D_json} />
+      <Draw_D animationData={D_json} />
       <ImageOverlaysTop
         namePage={topServices?.attributes?.namePage}
         title={selectedService?.attributes?.title}

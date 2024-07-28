@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Draw_S from "@/components/Lottie/Draw_S";
+import Draw_B from "@/components/Lottie/Draw_B";
 import B_json from "/public/Motion/BAYTUNA.json";
 import { getAboutUS, getTopAbout } from "../../../../../utils/BaytunaApi";
 const About = ({ params: { locale } }) => {
@@ -88,7 +88,7 @@ const About = ({ params: { locale } }) => {
         title={topAbout?.attributes?.title}
         imgURL={topAbout?.attributes?.imgURL.data?.attributes.url}
       />
-      <Draw_S animationData={B_json} />
+      <Draw_B animationData={B_json} />
       <section className="overflow-hidden relative z-10">
         {data.map((item, index) => (
           <motion.div

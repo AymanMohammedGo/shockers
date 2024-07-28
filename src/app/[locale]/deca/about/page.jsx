@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Draw_S from "@/components/Lottie/Draw_S";
+import Draw_D from "@/components/Lottie/Draw_D";
 import D_json from "/public/Motion/Deca.json";
 
 import { getAboutUS, getTopAbout } from "../../../../../utils/DecaApi";
@@ -89,7 +89,7 @@ const About = ({ params: { locale } }) => {
         title={topAbout?.attributes?.title}
         imgURL={topAbout?.attributes?.imgURL.data?.attributes.url}
       />
-      <Draw_S animationData={D_json} />
+      <Draw_D animationData={D_json} />
       <section className="overflow-hidden relative z-10">
         {data.map((item, index) => (
           <motion.div

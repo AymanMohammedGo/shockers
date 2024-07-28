@@ -95,7 +95,7 @@ const DecaHome = ({ params: { locale } }) => {
         muted
         playsInline
       >
-        <source src="/DecaAbout" type="video/mp4" />
+        <source src="/DecaAbout.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <ServicesSection

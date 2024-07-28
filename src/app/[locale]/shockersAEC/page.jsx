@@ -85,7 +85,7 @@ const ShockersHome = ({ params: { locale } }) => {
       <SalgonSection titleText={titleText} />
       <AboutSection
         link="shockersAEC"
-        video="/video2.mp4"
+        video="/ShockersAbout.mp4"
         title={data?.attributes?.TitleAbout}
         description={data?.attributes?.DescriptionAbout}
         textButton={data?.attributes?.TextButton}

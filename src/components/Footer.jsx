@@ -3,6 +3,7 @@ import Link from "next/link";
 
 const Footer = ({ width, name, logo, linksNames, nameFooter, socialMedia }) => {
   const currentYear = new Date().getFullYear();
+  const RTL = document.dir === "ltr";
   const Url = [
     {
       name: linksNames?.NamePageHome,
@@ -46,7 +47,11 @@ const Footer = ({ width, name, logo, linksNames, nameFooter, socialMedia }) => {
             ))}
           </ul>
         </div>
-        <div className="mt-20 text-center   lg:text-start grid grid-cols-1 gap-8 lg:gap-x-[330px] md:grid-cols-2 lg:grid-cols-2">
+        <div
+          className={`mt-20 text-center lg:text-start grid grid-cols-1 gap-8 ${
+            RTL ? "lg:gap-x-[330px]" : "lg:gap-x-[580px]"
+          }  md:grid-cols-2 lg:grid-cols-2`}
+        >
           <div>
             <Link href="https://maps.app.goo.gl/2ByQ52ayynrUF9sA8">
               <p className=" text-white text-xl font-semibold">Address</p>

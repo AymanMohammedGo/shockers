@@ -9,6 +9,7 @@ import { getServices, getTopServices } from "../../../../../utils/ShockersApi";
 
 const Services = ({ params: { locale } }) => {
   let lan = locale;
+
   if (locale === "kr") {
     lan = "af";
   }
@@ -90,11 +91,15 @@ const Services = ({ params: { locale } }) => {
               <li
                 key={index}
                 onClick={() => setSelectedService(service)}
-                className={`cursor-pointer text-xl lg:text-3xl p-4 font-bold  ${
+                className={`cursor-pointer text-xl lg:text-3xl p-4 font-bold ${
                   selectedService?.attributes.title ===
                   service?.attributes.title
-                    ? " border-l-[6px] border-shockersAEC  text-shockersAEC"
-                    : "text-[#9b9999]   hover:text-shockersAEC"
+                    ? `${
+                        document.dir === "ltr"
+                          ? "border-l-[6px]"
+                          : "border-r-[6px]"
+                      } border-shockersAEC text-shockersAEC`
+                    : "text-[#9b9999] hover:text-shockersAEC"
                 }`}
               >
                 {service?.attributes.title}

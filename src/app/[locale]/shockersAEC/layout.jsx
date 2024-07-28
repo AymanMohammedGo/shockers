@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import LoadingVideo from "@/components/LoadingVideo";
 import { useEffect, useState, useCallback } from "react";
 import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
+import { getFooter, getSocialMedias } from "../../../../utils/ShockersApi";
 import Transition from "@/components/Motion/Transition";
 import DrawLogo from "@/components/Lottie/DrawLogo";
 import Shockers from "/public/Motion/Shockers";
@@ -21,33 +22,37 @@ export default function RootLayout({ children, params: { locale } }) {
   //   NameMainPage:"Main Page"
   // });
   const [linksNames, setLinksNames] = useState([]);
+  const [footerNames, setFooterNames] = useState([]);
+  const [socialMedias, setSocialMedias] = useState([]);
+
   const getName_HeaderLinks_ = useCallback(() => {
     getName_HeaderLinks(lan).then((res) => {
       console.log(res.data.data.attributes);
       setLinksNames(res.data.data.attributes);
     });
   }, [lan]);
+  const getFooter_ = useCallback(() => {
+    getFooter(lan).then((res) => {
+      console.log(res.data.data.attributes);
+      setFooterNames(res.data.data.attributes);
+    });
+  }, [lan]);
+  const getSocialMedias_ = useCallback(() => {
+    getSocialMedias(lan).then((res) => {
+      console.log(res.data.data);
+      setSocialMedias(res.data.data);
+    });
+  }, [lan]);
   useEffect(() => {
     getName_HeaderLinks_();
-  }, [getName_HeaderLinks_]);
+    getFooter_();
+    getSocialMedias_();
+  }, [getName_HeaderLinks_, getFooter_, getSocialMedias_]);
 
   const [isVideoEnded, setIsVideoEnded] = useState(true);
   const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
   const [showContent, setShowContent] = useState(false);
-  const socialMedia = [
-    {
-      name: "Instagram",
-      link: "https://www.instagram.com/shockersaec/",
-    },
-    {
-      name: "Facebook",
-      link: "https://www.facebook.com/Shockersaec/",
-    },
-    {
-      name: "Linkedin",
-      link: "https://www.linkedin.com/company/shockers-advertising/",
-    },
-  ];
+
   useEffect(() => {
     if (isAnimationCompleted) {
       setShowContent(true);
@@ -80,7 +85,8 @@ export default function RootLayout({ children, params: { locale } }) {
             logo="/img/LogosFooter/logoShockerWhite.svg"
             nameFooter="SHOCKERSAEC"
             linksNames={linksNames}
-            socialMedia={socialMedia}
+            data={footerNames}
+            socialMedia={socialMedias}
           />
         </>
       )}

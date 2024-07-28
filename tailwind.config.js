@@ -25,7 +25,7 @@ module.exports = {
     extend: {
       colors: {
         shockersAEC: {
-          DEFAULT: "#252424",
+          DEFAULT: "#242424",
         },
         shockersAECYellow: {
           DEFAULT: "#fdcf00",

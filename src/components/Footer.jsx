@@ -22,7 +22,7 @@ const Footer = ({ width, name, logo, linksNames, nameFooter, socialMedia }) => {
     },
   ];
   return (
-    <footer className="bg-seconds z-10">
+    <footer className="bg-shockersAEC z-10">
       <div className="relative mx-auto max-w-screen-xxl px-4 py-16 sm:px-6 lg:p-8  ">
         <div className="mt-16 lg:flex lg:items-center lg:justify-between">
           <div className="flex justify-center  lg:justify-start">

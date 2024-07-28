@@ -176,7 +176,7 @@ export default function Home({ params: { locale } }) {
             ))}
             {/* gap */}
             <motion.div
-              className="hidden sm:flex bg-seconds h-[5px] absolute z-10 left-0"
+              className="hidden sm:flex bg-shockersAEC h-[5px] absolute z-10 left-0"
               animate={{
                 width: ["0%", "100%"],
               }}
@@ -187,7 +187,7 @@ export default function Home({ params: { locale } }) {
             />
 
             <motion.div
-              className="hidden sm:flex bg-seconds w-[5px] absolute top-0 left-1/3 z-10"
+              className="hidden sm:flex bg-shockersAEC w-[5px] absolute top-0 left-1/3 z-10"
               animate={{
                 height: ["0%", "100%"],
               }}
@@ -197,7 +197,7 @@ export default function Home({ params: { locale } }) {
               }}
             />
             <motion.div
-              className="hidden sm:flex bg-seconds w-[5px] absolute top-0 right-1/3 z-10"
+              className="hidden sm:flex bg-shockersAEC w-[5px] absolute top-0 right-1/3 z-10"
               animate={{
                 height: ["0%", "100%"],
               }}
@@ -208,7 +208,7 @@ export default function Home({ params: { locale } }) {
             />
             {/* gap Mobile*/}
             <motion.div
-              className="flex sm:hidden bg-seconds h-[4px] absolute z-10 top-1/3"
+              className="flex sm:hidden bg-shockersAEC h-[4px] absolute z-10 top-1/3"
               animate={{
                 width: ["0%", "100%"], // حرك الـ gap من اليسار إلى اليمين
               }}
@@ -218,7 +218,7 @@ export default function Home({ params: { locale } }) {
               }}
             />
             <motion.div
-              className="flex sm:hidden bg-seconds h-[4px] absolute z-10 bottom-1/3"
+              className="flex sm:hidden bg-shockersAEC h-[4px] absolute z-10 bottom-1/3"
               animate={{
                 width: ["0%", "100%"], // حرك الـ gap من اليسار إلى اليمين
               }}
@@ -228,7 +228,7 @@ export default function Home({ params: { locale } }) {
               }}
             />
             <motion.div
-              className="flex sm:hidden bg-seconds w-[4px] absolute z-10 left-1/2  top-0"
+              className="flex sm:hidden bg-shockersAEC w-[4px] absolute z-10 left-1/2  top-0"
               animate={{
                 height: ["0%", "100%"], // حرك الـ gap من اليسار إلى اليمين
               }}

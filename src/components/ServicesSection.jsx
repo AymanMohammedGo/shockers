@@ -49,7 +49,7 @@ const ServicesSection = ({
     }
   }, [controls1, inView1]);
   return (
-    <section className="bg-seconds w-screen h-screen flex items-center justify-center relative z-10">
+    <section className="bg-shockersAEC w-screen h-screen flex items-center justify-center relative z-10">
       <div className="flex w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
         <div className=" text-white flex-1 p-2 lg:p-4 flex flex-col items-center justify-center overflow-hidden">
           <motion.h1

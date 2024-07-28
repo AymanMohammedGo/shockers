@@ -81,7 +81,7 @@ const DecaHome = ({ params: { locale } }) => {
       <SalgonSection titleText={titleText} />
       <AboutSection
         link="deca"
-        video="/video2.mp4"
+        video="/DecaAbout.mp4"
         title={data?.attributes?.TitleAbout}
         description={data?.attributes?.DescriptionAbout}
         textButton={data?.attributes?.TextButton}

@@ -90,7 +90,7 @@ const DecaHome = ({ params: { locale } }) => {
       <SalgonSection titleText={titleText} />
       <AboutSection
         link="baytuna"
-        video="/video2.mp4"
+        video="/BaytunaAbout.mp4"
         title={data?.attributes?.TitleAbout}
         description={data?.attributes?.DescriptionAbout}
         textButton={data?.attributes?.TextButton}

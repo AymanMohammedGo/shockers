@@ -81,23 +81,14 @@ const DecaHome = ({ params: { locale } }) => {
       <SalgonSection titleText={titleText} />
       <AboutSection
         link="deca"
-        video="/DecaAbout.mp4"
+        video="/DecaAboutUs.mp4"
         title={data?.attributes?.TitleAbout}
         description={data?.attributes?.DescriptionAbout}
         textButton={data?.attributes?.TextButton}
         bg="bg-deca"
         tc="text-white"
       />
-      <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source src="/DecaAbout.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+
       <ServicesSection
         services={services}
         title={data?.attributes?.NameServices}

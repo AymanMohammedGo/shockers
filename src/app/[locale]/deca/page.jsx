@@ -88,6 +88,16 @@ const DecaHome = ({ params: { locale } }) => {
         bg="bg-deca"
         tc="text-white"
       />
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="/DecaAbout" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <ServicesSection
         services={services}
         title={data?.attributes?.NameServices}

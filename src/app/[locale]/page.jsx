@@ -106,7 +106,7 @@ export default function Home({ params: { locale } }) {
       {isVideoEnded ? (
         <div className="bg-primary min-h-screen w-screen ">
           <LoadingVideo
-            URL="/ShockersGroup.mp4"
+            URL="/ShockersAEC.mp4"
             setIsVideoEnded={setIsVideoEnded}
           />
         </div>

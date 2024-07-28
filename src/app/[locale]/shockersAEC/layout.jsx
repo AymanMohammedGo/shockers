@@ -49,7 +49,7 @@ export default function RootLayout({ children, params: { locale } }) {
   return (
     <div className="bg-primary min-h-screen flex flex-col justify-between ">
       {isVideoEnded ? (
-        <div className="bg-primary min-h-screen w-screen ">
+        <div className="bg-primary h-screen w-screen ">
           <LoadingVideo
             URL="/ShockersAEC.mp4"
             setIsVideoEnded={setIsVideoEnded}

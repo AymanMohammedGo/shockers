@@ -103,14 +103,14 @@ export default function Home({ params: { locale } }) {
   ];
   return (
     <>
-      {isVideoEnded ? (
+      {/* {isVideoEnded ? (
         <div className="bg-primary min-h-screen w-screen ">
           <LoadingVideo
             URL="/ShockersGroup.mp4"
             setIsVideoEnded={setIsVideoEnded}
           />
         </div>
-      ) : (
+      ) : ( */}
         <main className="flex items-center justify-center h-screen w-screen bg-primary ">
           <div className=" grid relative w-full h-full  items-center justify-center grid-cols-2  sm:grid-cols-3  ">
             {brond.map((item, index) => (
@@ -239,7 +239,7 @@ export default function Home({ params: { locale } }) {
             />
           </div>
         </main>
-      )}
+      {/* )} */}
     </>
   );
 }

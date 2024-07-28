@@ -48,36 +48,36 @@ export default function RootLayout({ children, params: { locale } }) {
 
   return (
     <div className="bg-primary min-h-screen flex flex-col justify-between ">
-      {isVideoEnded ? (
+      {/* {isVideoEnded ? (
         <div className="bg-primary h-screen w-screen ">
           <LoadingVideo
             URL="/ShockersAEC.mp4"
             setIsVideoEnded={setIsVideoEnded}
           />
         </div>
-      ) : (
-        <>
-          <Transition bg="bg-shockersAEC" />
-          <Header
-            logo="/img/LogosHeader/logoShocker.svg"
-            width="140"
-            name="shockersAEC"
-            bg="bg-shockersAEC"
-            hover="hover:bg-shockersAEC"
-            text="text-shockersAEC"
-            linksNames={linksNames}
-          />
-          {children}
-          <Footer
-            width="240"
-            name="shockersAEC"
-            logo="/img/LogosFooter/logoShockerWhite.svg"
-            nameFooter="SHOCKERSAEC"
-            linksNames={linksNames}
-            socialMedia={socialMedia}
-          />
-        </>
-      )}
+      ) : ( */}
+      <>
+        <Transition bg="bg-shockersAEC" />
+        <Header
+          logo="/img/LogosHeader/logoShocker.svg"
+          width="140"
+          name="shockersAEC"
+          bg="bg-shockersAEC"
+          hover="hover:bg-shockersAEC"
+          text="text-shockersAEC"
+          linksNames={linksNames}
+        />
+        {children}
+        <Footer
+          width="240"
+          name="shockersAEC"
+          logo="/img/LogosFooter/logoShockerWhite.svg"
+          nameFooter="SHOCKERSAEC"
+          linksNames={linksNames}
+          socialMedia={socialMedia}
+        />
+      </>
+      {/* )} */}
     </div>
   );
 }

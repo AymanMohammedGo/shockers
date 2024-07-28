@@ -5,6 +5,8 @@ import LoadingVideo from "@/components/LoadingVideo";
 import { useEffect, useState, useCallback } from "react";
 import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
 import Transition from "@/components/Motion/Transition";
+import DrawLogo from "@/components/Lottie/DrawLogo";
+import Shockers from "/public/Motion/Shockers";
 export default function RootLayout({ children, params: { locale } }) {
   let lan = locale;
   if (locale === "kr") {
@@ -30,7 +32,8 @@ export default function RootLayout({ children, params: { locale } }) {
   }, [getName_HeaderLinks_]);
 
   const [isVideoEnded, setIsVideoEnded] = useState(true);
-
+  const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
+  const [showContent, setShowContent] = useState(false);
   const socialMedia = [
     {
       name: "Instagram",
@@ -45,39 +48,42 @@ export default function RootLayout({ children, params: { locale } }) {
       link: "https://www.linkedin.com/company/shockers-advertising/",
     },
   ];
-
+  useEffect(() => {
+    if (isAnimationCompleted) {
+      setShowContent(true);
+    }
+  }, [isAnimationCompleted]);
   return (
-    <div className="bg-primary min-h-screen flex flex-col justify-between ">
-      {/* {isVideoEnded ? (
-        <div className="bg-primary h-screen w-screen ">
-          <LoadingVideo
-            URL="/ShockersAEC.mp4"
-            setIsVideoEnded={setIsVideoEnded}
+    <div className="bg-primary min-h-screen flex flex-col justify-between">
+      {!isAnimationCompleted && (
+        <DrawLogo
+          animationData={Shockers}
+          onComplete={() => setIsAnimationCompleted(true)}
+        />
+      )}
+      {showContent && (
+        <>
+          <Transition bg="bg-shockersAEC" />
+          <Header
+            logo="/img/LogosHeader/logoShocker.svg"
+            width="140"
+            name="shockersAEC"
+            bg="bg-shockersAEC"
+            hover="hover:bg-shockersAEC"
+            text="text-shockersAEC"
+            linksNames={linksNames}
           />
-        </div>
-      ) : ( */}
-      <>
-        <Transition bg="bg-shockersAEC" />
-        <Header
-          logo="/img/LogosHeader/logoShocker.svg"
-          width="140"
-          name="shockersAEC"
-          bg="bg-shockersAEC"
-          hover="hover:bg-shockersAEC"
-          text="text-shockersAEC"
-          linksNames={linksNames}
-        />
-        {children}
-        <Footer
-          width="240"
-          name="shockersAEC"
-          logo="/img/LogosFooter/logoShockerWhite.svg"
-          nameFooter="SHOCKERSAEC"
-          linksNames={linksNames}
-          socialMedia={socialMedia}
-        />
-      </>
-      {/* )} */}
+          {children}
+          <Footer
+            width="240"
+            name="shockersAEC"
+            logo="/img/LogosFooter/logoShockerWhite.svg"
+            nameFooter="SHOCKERSAEC"
+            linksNames={linksNames}
+            socialMedia={socialMedia}
+          />
+        </>
+      )}
     </div>
   );
 }

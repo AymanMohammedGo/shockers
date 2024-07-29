@@ -85,6 +85,7 @@ export default function RootLayout({ children, params: { locale } }) {
             logo="/img/LogosFooter/logoShockerWhite.svg"
             nameFooter="SHOCKERSAEC"
             linksNames={linksNames}
+            Dir={document.dir}
             data={footerNames}
             socialMedia={socialMedias}
           />

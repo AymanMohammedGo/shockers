@@ -1,17 +1,26 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Footer = ({
   width,
   name,
   logo,
   linksNames,
-  nameFooter,
+  
   socialMedia,
   data,
 }) => {
   const currentYear = new Date().getFullYear();
-  const RTL = document.dir === "ltr";
+  const [RTL, setRTL] = useState(false);
+
+  useEffect(() => {
+    // تأكد من أن الكود يتم تنفيذه فقط في بيئة المتصفح
+    if (typeof document !== "undefined") {
+      setRTL(document.dir === "rtl");
+    }
+  }, []);
   const Url = [
     {
       name: linksNames?.NamePageHome,

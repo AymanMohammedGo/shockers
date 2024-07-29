@@ -1,26 +1,18 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 const Footer = ({
   width,
   name,
   logo,
   linksNames,
-  
+
   socialMedia,
   data,
 }) => {
   const currentYear = new Date().getFullYear();
-  const [RTL, setRTL] = useState(false);
 
-  useEffect(() => {
-    // تأكد من أن الكود يتم تنفيذه فقط في بيئة المتصفح
-    if (typeof document !== "undefined") {
-      setRTL(document.dir === "rtl");
-    }
-  }, []);
   const Url = [
     {
       name: linksNames?.NamePageHome,
@@ -66,7 +58,7 @@ const Footer = ({
         </div>
         <div
           className={`mt-20 text-center lg:text-start grid grid-cols-1 gap-8 ${
-            RTL ? "lg:gap-x-[330px]" : "lg:gap-x-[580px]"
+            document.dir === "ltr" ? "lg:gap-x-[330px]" : "lg:gap-x-[580px]"
           }  md:grid-cols-2 lg:grid-cols-2`}
         >
           <div>

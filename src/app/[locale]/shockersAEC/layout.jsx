@@ -83,9 +83,9 @@ export default function RootLayout({ children, params: { locale } }) {
             width="240"
             name="shockersAEC"
             logo="/img/LogosFooter/logoShockerWhite.svg"
-            nameFooter="SHOCKERSAEC"
             linksNames={linksNames}
             Dir={document.dir}
+            Lan={locale}
             data={footerNames}
             socialMedia={socialMedias}
           />

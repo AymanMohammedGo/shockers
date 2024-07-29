@@ -2,7 +2,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Footer = ({ width, name, logo, linksNames, Dir, socialMedia, data }) => {
+const Footer = ({
+  width,
+  name,
+  logo,
+  linksNames,
+  Dir,
+  Lan,
+  socialMedia,
+  data,
+}) => {
   const currentYear = new Date().getFullYear();
 
   const Url = [
@@ -49,9 +58,13 @@ const Footer = ({ width, name, logo, linksNames, Dir, socialMedia, data }) => {
           </ul>
         </div>
         <div
-          className={`mt-20 text-center lg:text-start grid grid-cols-1 gap-8 ${
-            Dir === "ltr" ? "lg:gap-x-[330px]" : "lg:gap-x-[580px]"
-          }  md:grid-cols-2 lg:grid-cols-2`}
+          className={`mt-20 text-center lg:text-start grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 ${
+            Dir === "ltr"
+              ? "lg:gap-x-[330px]"
+              : Lan === "kr"
+              ? "lg:gap-x-[417px]"
+              : "lg:gap-x-[580px]"
+          }`}
         >
           <div>
             <Link href={data?.LinkAddress || "#"}>

@@ -61,52 +61,52 @@ const Footer = ({
           }  md:grid-cols-2 lg:grid-cols-2`}
         >
           <div>
-            <Link href={data.LinkAddress}>
+            <Link href={data?.LinkAddress || "#"}>
               <p className=" text-white text-xl font-semibold">
-                {data.TitleAddress}
+                {data?.TitleAddress}
               </p>
               <ul className="mt-3 text-sm text-white">
                 <li>
-                  <span className="text-base">{data.CityAddress}</span>
+                  <span className="text-base">{data?.CityAddress}</span>
                 </li>
                 <li>
-                  <span className="text-base">{data.DetailedAddress}</span>
+                  <span className="text-base">{data?.DetailedAddress}</span>
                 </li>
               </ul>
             </Link>
           </div>
           <div>
             <p className=" text-white text-xl font-semibold">
-              {data.TitlePhone}
+              {data?.TitlePhone}
             </p>
 
             <ul className="mt-3 text-sm text-white">
               <li>
-                <span className="text-base">{data.Phone}</span>
+                <span className="text-base">{data?.Phone}</span>
               </li>
             </ul>
           </div>
           <div>
-            <Link href={`mailto:${data.Email}`}>
+            <Link href={`mailto:${data?.Email}` || "#"}>
               <p className=" text-white text-xl font-semibold">
-                {data.TitleEmail}
+                {data?.TitleEmail}
               </p>
               <ul className="mt-3 text-sm text-white">
                 <li>
-                  <span className="text-base">{data.Email}</span>
+                  <span className="text-base">{data?.Email}</span>
                 </li>
               </ul>
             </Link>
           </div>
           <div>
             <p className="text-xl font-semibold text-white">
-              {data.TitleSocialMedia}
+              {data?.TitleSocialMedia}
             </p>
 
             <ul className="mt-3 text-sm text-white">
               {socialMedia.map((item, index) => (
                 <li key={index}>
-                  <Link href={item?.attributes?.LinkURL}>
+                  <Link href={item?.attributes?.LinkURL || "#"}>
                     <span className="text-base">{item?.attributes?.Name}</span>
                   </Link>
                 </li>
@@ -115,7 +115,7 @@ const Footer = ({
           </div>
         </div>
         <p className="mt-12 text-center text-white ">
-          {data.PrivacyPolicy} {currentYear}
+          {data?.PrivacyPolicy} {currentYear}
         </p>
       </div>
     </footer>

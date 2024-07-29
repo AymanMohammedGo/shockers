@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["impressive-heart-a54f8c4027.media.strapiapp.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "impressive-heart-a54f8c4027.media.strapiapp.com",
+        port: "", // يمكنك ترك هذا الحقل فارغًا إذا لم يكن هناك منفذ معين
+        pathname: "/**", // هذا النمط يسمح بجلب الصور من جميع المسارات ضمن هذا النطاق
+      },
+    ],
   },
 };
 

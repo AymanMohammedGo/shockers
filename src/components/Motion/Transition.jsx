@@ -18,6 +18,7 @@ const animation = {
 const Transition = ({ bg }) => {
   const pathname = usePathname();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [start, setStart] = useState(true);
 
   useEffect(() => {
     // افتراضيا تقوم هذه الوظيفة بمحاكاة تحميل الصفحة
@@ -25,7 +26,7 @@ const Transition = ({ bg }) => {
 
     // هنا يمكن استبدالها بعملية تحقق من تحميل الصفحة بالكامل أو أي شرط آخر
     window.addEventListener("load", handleLoad);
-
+   
     return () => {
       window.removeEventListener("load", handleLoad);
     };
@@ -33,7 +34,7 @@ const Transition = ({ bg }) => {
 
   return (
     <AnimatePresence mode="wait">
-      {!isLoaded && (
+      {start && !isLoaded && (
         <div key={pathname}>
           <div className="flex h-screen w-screen fixed top-0 left-0 right-0 pointer-events-none z-50">
             <motion.div

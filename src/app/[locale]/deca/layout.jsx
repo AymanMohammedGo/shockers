@@ -6,7 +6,7 @@ import { useEffect, useState, useCallback } from "react";
 import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
 import Transition from "@/components/Motion/Transition";
 import DrawLogo from "@/components/Lottie/DrawLogo";
-import DECA from "/public/Motion/DECA";
+import DECA from "/public/Motion/DECA.json";
 
 export default function RootLayout({ children, params: { locale } }) {
   let lan = locale;

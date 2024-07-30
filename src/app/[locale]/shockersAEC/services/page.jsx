@@ -66,13 +66,13 @@ const Services = ({ params: { locale } }) => {
       <Draw_S animationData={S_json} />
       {/* <ImageOverlaysTop namePage="SERVICES" title={selectedService.name} /> */}
       <ImageOverlaysTop
-        namePage={topServices?.attributes?.namePage}
+        // namePage={topServices?.attributes?.namePage}
         title={selectedService?.attributes?.title}
         imgURL={topServices?.attributes?.imgURL.data?.attributes.url}
       />
 
-      <div className="flex flex-col md:flex-row min-h-screen  max-w-screen-xxl m-auto relative z-10">
-        <div className="md:w-1/3 p-4">
+      <div className="flex flex-col md:flex-row min-h-screen lg:py-5 max-w-screen-xxl m-auto relative z-10">
+        <div className="md:w-1/3 p-2  md:p-4">
           <ul className="space-y-2">
             {/* {servicesData.map((service, index) => (
               <li
@@ -91,14 +91,14 @@ const Services = ({ params: { locale } }) => {
               <li
                 key={index}
                 onClick={() => setSelectedService(service)}
-                className={`cursor-pointer text-xl lg:text-3xl p-4 font-bold ${
+                className={`cursor-pointer text-xl lg:text-3xl p-4 py-6 lg:!mb-5 font-bold ${
                   selectedService?.attributes.title ===
                   service?.attributes.title
                     ? `${
                         document.dir === "ltr"
                           ? "border-l-[6px]"
                           : "border-r-[6px]"
-                      } border-shockersAEC text-shockersAEC`
+                      } border-shockersAEC bg-[#dad7d7] text-shockersAEC`
                     : "text-[#9b9999] hover:text-shockersAEC"
                 }`}
               >
@@ -107,19 +107,19 @@ const Services = ({ params: { locale } }) => {
             ))}
           </ul>
         </div>
-        <div className="md:w-2/3 p-4">
-          <p className="mb-6 text-xl lg:text-2xl ">
+        <div className="md:w-2/3 p-2 md:p-4">
+          <p className="mb-6 text-xl lg:text-2xl !leading-10  py-4 px-4 lg:px-10 lg:text-justify">
             {/* {selectedService.description} */}
             {selectedService?.attributes?.description}
           </p>
-          <Image
+          {/* <Image
             className="!relative  rounded-xl object-cover "
             // src={selectedService.imageUrl}
             src={selectedService?.attributes?.imgURL?.data?.attributes.url}
             width={1200}
             height={600}
             alt={selectedService?.attributes?.title}
-          />
+          /> */}
         </div>
       </div>
     </motion.div>

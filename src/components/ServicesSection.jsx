@@ -93,7 +93,7 @@ const ServicesSection = ({
             </Link>
           </motion.div>
         </div>
-        <motion.div
+        {/* <motion.div
           initial={{ x: "100%" }}
           whileInView={{ x: 0 }}
           transition={{
@@ -108,7 +108,7 @@ const ServicesSection = ({
             quality={100}
             className="object-cover"
           />
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

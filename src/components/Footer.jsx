@@ -33,7 +33,7 @@ const Footer = ({
     },
   ];
   return (
-    <footer className="bg-shockersAEC z-10">
+    <footer className="bg-shockersAEC z-10 h-screen sm:h-full">
       <div className="relative mx-auto max-w-screen-xxl px-4 py-16 sm:px-6 lg:p-8  ">
         <div className="mt-16 lg:flex lg:items-center lg:justify-between">
           <div className="flex justify-center  lg:justify-start">
@@ -44,7 +44,7 @@ const Footer = ({
               <Image src={logo} width={width} height={width} alt={name} />
             </Link>
           </div>
-          <ul className="mt-16 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
+          <ul className="mt-16 hidden md:flex md:flex-row items-center justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
             {Url.map((item, index) => (
               <li key={index}>
                 <Link

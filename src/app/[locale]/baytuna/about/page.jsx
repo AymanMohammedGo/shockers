@@ -6,7 +6,7 @@ import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Draw_B from "@/components/Lottie/Draw_B";
-import B_json from "/public/Motion/BAYTUNA.json";
+import B_json from "/public/Motion/B.json";
 import { getAboutUS, getTopAbout } from "../../../../../utils/BaytunaApi";
 const About = ({ params: { locale } }) => {
   let lan = locale;

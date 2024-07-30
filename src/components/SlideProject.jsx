@@ -67,40 +67,40 @@ export default function SlideProject({
           className="w-full h-full  "
           ref={swiperRef}
           slidesPerView={1.1}
-          spaceBetween={0}
+          spaceBetween={4}
           freeMode={true}
           navigation={true}
           modules={[FreeMode, Navigation]}
           breakpoints={{
             600: {
               slidesPerView: 1.5,
-              spaceBetween: 0,
+              spaceBetween: 4,
             },
             768: {
               slidesPerView: 2.5,
-              spaceBetween: 0,
+              spaceBetween: 4,
             },
             1024: {
               slidesPerView: 3.5,
-              spaceBetween: 0,
+              spaceBetween: 4,
             },
             1400: {
               slidesPerView: 4.5,
-              spaceBetween: 0,
+              spaceBetween: 4,
             },
             1705: {
               slidesPerView: 5.5,
-              spaceBetween: 0,
+              spaceBetween: 4,
             },
             2000: {
               slidesPerView: 6.5,
-              spaceBetween: 0,
+              spaceBetween: 4,
             },
           }}
         >
           {categoriesProjects?.map((item, index) => (
             <SwiperSlide key={index} className="relative">
-              <Link href={`/${link}/projects/${item?.id}`}>
+              <Link href={`/${link}/${item?.id}`}>
                 <Image
                   className=" object-cover"
                   src={item?.attributes.imgURL.data?.attributes.url}

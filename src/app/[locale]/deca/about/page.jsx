@@ -6,7 +6,7 @@ import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Draw_D from "@/components/Lottie/Draw_D";
-import D_json from "/public/Motion/Deca.json";
+import D_json from "/public/Motion/D.json";
 
 import { getAboutUS, getTopAbout } from "../../../../../utils/DecaApi";
 const About = ({ params: { locale } }) => {

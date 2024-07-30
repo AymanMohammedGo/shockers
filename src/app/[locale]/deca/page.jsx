@@ -1,7 +1,7 @@
 "use client";
 import SlideProject from "@/components/SlideProject";
 import Draw_D from "@/components/Lottie/Draw_D";
-import D_json from "/public/Motion/Deca.json";
+import D_json from "/public/Motion/D.json";
 import { motion } from "framer-motion";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";

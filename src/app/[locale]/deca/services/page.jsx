@@ -3,7 +3,7 @@ import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import { motion } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import Draw_D from "@/components/Lottie/Draw_D";
-import D_json from "/public/Motion/Deca.json";
+import D_json from "/public/Motion/D.json";
 
 import Image from "next/image";
 import { getServices, getTopServices } from "../../../../../utils/DecaApi";

@@ -3,8 +3,10 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import LoadingVideo from "@/components/LoadingVideo";
 import { useEffect, useState, useCallback } from "react";
-import {getName_HeaderLinks} from "../../../../utils/GlobleApi";
+import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
 import Transition from "@/components/Motion/Transition";
+import DrawLogo from "@/components/Lottie/DrawLogo";
+import DECA from "/public/Motion/DECA";
 
 export default function RootLayout({ children, params: { locale } }) {
   let lan = locale;
@@ -30,8 +32,8 @@ export default function RootLayout({ children, params: { locale } }) {
     getName_HeaderLinks_();
   }, [getName_HeaderLinks_]);
 
-  const [isVideoEnded, setIsVideoEnded] = useState(true);
-
+  const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
+  const [showContent, setShowContent] = useState(false);
   const socialMedia = [
     {
       name: "Instagram",
@@ -46,36 +48,44 @@ export default function RootLayout({ children, params: { locale } }) {
       link: "#",
     },
   ];
-
+  useEffect(() => {
+    if (isAnimationCompleted) {
+      setShowContent(true);
+    }
+  }, [isAnimationCompleted]);
   return (
     <div className="bg-primary min-h-screen flex flex-col justify-between ">
-      {/* {isVideoEnded ? (
-        <LoadingVideo URL="/done8_2.mp4" setIsVideoEnded={setIsVideoEnded} />
-      ) : ( */}
-      <>
-      <Transition bg="bg-deca" />
+      {!isAnimationCompleted && (
+        <DrawLogo
+          animationData={DECA}
+          onComplete={() => setIsAnimationCompleted(true)}
+        />
+      )}
+      {showContent && (
+        <>
+          <Transition bg="bg-deca" />
 
-        <Header
-          logo="/img/LogosHeader/logoDeca.svg"
-          width="100"
-          name="deca"
-          bg="bg-deca"
-          hover="hover:bg-deca"
-          text="text-shockersAEC"
-          linksNames={linksNames}
-        />
-        
-        {children}
-        <Footer
-          width="200"
-          name="deca"
-          logo="/img/LogosFooter/logoDecaWhite.svg"
-          nameFooter="DECA"
-          linksNames={linksNames}
-          socialMedia={socialMedia}
-        />
-      </>
-      {/* )} */}
+          <Header
+            logo="/img/LogosHeader/logoDeca.svg"
+            width="100"
+            name="deca"
+            bg="bg-deca"
+            hover="hover:bg-deca"
+            text="text-shockersAEC"
+            linksNames={linksNames}
+          />
+
+          {children}
+          <Footer
+            width="200"
+            name="deca"
+            logo="/img/LogosFooter/logoDecaWhite.svg"
+            nameFooter="DECA"
+            linksNames={linksNames}
+            socialMedia={socialMedia}
+          />
+        </>
+      )}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 import SlideProject from "@/components/SlideProject";
 import Draw_B from "@/components/Lottie/Draw_B";
-import B_json from "/public/Motion/BAYTUNA";
+import B_json from "/public/Motion/B.json";
 import { motion } from "framer-motion";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";

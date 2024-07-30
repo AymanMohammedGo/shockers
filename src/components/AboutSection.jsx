@@ -6,7 +6,8 @@ import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 const AboutSection = ({
-  video,
+  videoMobile,
+  videoLoptap,
   title,
   description,
   textButton,
@@ -59,13 +60,23 @@ const AboutSection = ({
   return (
     <section className="relative w-screen h-screen ">
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover hidden md:block"
         autoPlay
         loop
         muted
         playsInline
       >
-        <source src={video} type="video/mp4" />
+        <source src={videoLoptap} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover md:hidden"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src={videoMobile} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">

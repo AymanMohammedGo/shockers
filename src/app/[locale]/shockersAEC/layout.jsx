@@ -49,7 +49,6 @@ export default function RootLayout({ children, params: { locale } }) {
     getSocialMedias_();
   }, [getName_HeaderLinks_, getFooter_, getSocialMedias_]);
 
-  const [isVideoEnded, setIsVideoEnded] = useState(true);
   const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
   const [showContent, setShowContent] = useState(false);
 
@@ -77,6 +76,7 @@ export default function RootLayout({ children, params: { locale } }) {
             hover="hover:bg-shockersAEC"
             text="text-shockersAEC"
             linksNames={linksNames}
+            Dir={document.dir}
           />
           {children}
           <Footer

@@ -3,7 +3,7 @@ import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import { motion } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import Draw_B from "@/components/Lottie/Draw_B";
-import B_json from "/public/Motion/BAYTUNA.json";
+import B_json from "/public/Motion/B.json";
 import Image from "next/image";
 import { getServices, getTopServices } from "../../../../../utils/BaytunaApi";
 

@@ -7,7 +7,7 @@ import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
 import { getFooter, getSocialMedias } from "../../../../utils/ShockersApi";
 import Transition from "@/components/Motion/Transition";
 import DrawLogo from "@/components/Lottie/DrawLogo";
-import Shockers from "/public/Motion/Baytuna";
+import Shockers from "/public/Motion/Shockers";
 export default function RootLayout({ children, params: { locale } }) {
   let lan = locale;
   if (locale === "kr") {

@@ -68,11 +68,11 @@ const ShockersHome = ({ params: { locale } }) => {
     },
     {
       text: "TO BE",
-      delay: 3.5,
+      delay: 3.8,
     },
     {
       text: "SHOCKED",
-      delay: 4,
+      delay: 4.6,
     },
   ];
 
@@ -81,7 +81,7 @@ const ShockersHome = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <Draw_S animationData={S_json} delay={800} />
+      <Draw_S animationData={S_json} delay={500} />
       <SalgonSection titleText={titleText} />
       <AboutSection
         link="shockersAEC"

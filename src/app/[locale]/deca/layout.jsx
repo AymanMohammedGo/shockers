@@ -6,7 +6,7 @@ import { useEffect, useState, useCallback } from "react";
 import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
 import Transition from "@/components/Motion/Transition";
 import DrawLogo from "@/components/Lottie/DrawLogo";
-
+import DECA from "../../../../public/Motion/DECA.json";
 export default function RootLayout({ children, params: { locale } }) {
   let lan = locale;
   if (locale === "kr") {
@@ -54,12 +54,12 @@ export default function RootLayout({ children, params: { locale } }) {
   }, [isAnimationCompleted]);
   return (
     <div className="bg-primary min-h-screen flex flex-col justify-between ">
-      {/* {!isAnimationCompleted && (
+      {!isAnimationCompleted && (
         <DrawLogo
           animationData={DECA}
           onComplete={() => setIsAnimationCompleted(true)}
         />
-      )} */}
+      )}
       {showContent && (
         <>
           <Transition bg="bg-deca" />

@@ -12,7 +12,7 @@ const SalgonSection = ({ titleText }) => {
               animate={{
                 opacity: 1,
                 scale: 1,
-                transition: { delay: item.delay, duration: 1.5 },
+                transition: { delay: item.delay, duration: 1 },
               }}
               // initial={{ y: "100%", opacity: 0 }}
               // animate={{

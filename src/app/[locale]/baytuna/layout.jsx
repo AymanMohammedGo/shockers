@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import LoadingVideo from "@/components/LoadingVideo";
 import { useEffect, useState, useCallback } from "react";
-import Shockers from "/public/Motion/Shockers";
+import Shockers from "/public/Motion/Baytuna";
 
 import Transition from "@/components/Motion/Transition";
 import DrawLogo from "@/components/Lottie/DrawLogo";

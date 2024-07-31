@@ -60,24 +60,20 @@ const DecaHome = ({ params: { locale } }) => {
 
   const titleText = [
     {
-      text: "WHERE",
+      text: "WHERE YOUR ",
       delay: 3,
     },
     {
-      text: "YOUR",
-      delay: 3.5,
-    },
-    {
-      text: "HOUSE",
-      delay: 4,
+      text: "HOUSE ",
+      delay: 3.8,
     },
     {
       text: "BECOMES",
-      delay: 4.5,
+      delay: 4.6,
     },
     {
       text: "YOUR HOME",
-      delay: 5,
+      delay: 5.4,
     },
   ];
 

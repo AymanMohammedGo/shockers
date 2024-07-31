@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import LoadingVideo from "@/components/LoadingVideo";
 import { useEffect, useState, useCallback } from "react";
 import DrawLogoBaytuna from "@/components/Lottie/DrawLogoBaytuna";
-import Shockers from "/public/Motion/Baytuna";
 import Transition from "@/components/Motion/Transition";
 
 import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
@@ -56,7 +55,7 @@ export default function RootLayout({ children, params: { locale } }) {
     <div className="bg-primary min-h-screen flex flex-col justify-between ">
       {!isAnimationCompleted && (
         <DrawLogoBaytuna
-          animationData={Shockers}
+          animationData="/Motion/Baytuna.json"
           onComplete={() => setIsAnimationCompleted(true)}
         />
       )}

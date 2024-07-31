@@ -5,7 +5,7 @@ import LoadingVideo from "@/components/LoadingVideo";
 import { useEffect, useState, useCallback } from "react";
 import DrawLogoBaytuna from "@/components/Lottie/DrawLogoBaytuna";
 import Transition from "@/components/Motion/Transition";
-import baytuna from "/public/Motion/LogoB";
+import baytuna from "/public/Motion/LogoBaytuna";
 
 import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
 export default function RootLayout({ children, params: { locale } }) {

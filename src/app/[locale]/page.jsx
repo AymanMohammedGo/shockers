@@ -156,8 +156,8 @@ export default function Home({ params: { locale } }) {
                     }`}
                     src={`${item.imageLogo}`}
                     alt={`${item.name}`}
-                    width={420}
-                    height={420}
+                    width={450}
+                    height={450}
                   />
                   <motion.div
                     initial={{ scale: 1 }}
@@ -173,8 +173,8 @@ export default function Home({ params: { locale } }) {
                       className=" xlgl:w-[600px] xlgl:h-[600px] "
                       src={item.imageHoverLogo}
                       alt={item.name}
-                      width={420}
-                      height={420}
+                      width={450}
+                      height={450}
                     />
                   </motion.div>
                   <motion.div

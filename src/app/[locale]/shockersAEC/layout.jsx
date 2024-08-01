@@ -19,7 +19,7 @@ export default function RootLayout({ children, params: { locale } }) {
       renderer: "svg",
       loop: false,
       autoplay: true,
-      path: "/Motion/Shockers.json",
+      path: "/Motion/shockersAEC.json",
     });
     anim.addEventListener("complete", () => {
       setIsAnimationCompleted(true); // استدعاء onComplete عند انتهاء الرسوم المتحركة

@@ -2,15 +2,31 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import LoadingVideo from "@/components/LoadingVideo";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, createRef } from "react";
 import DrawLogoBaytuna from "@/components/Lottie/DrawLogoBaytuna";
 import Transition from "@/components/Motion/Transition";
 import baytuna from "/public/Motion/LogoBaytuna";
+import lottie from "lottie-web";
 
 import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
 export default function RootLayout({ children, params: { locale } }) {
   const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
   const [showContent, setShowContent] = useState(false);
+  let animation = createRef();
+  useEffect(() => {
+    const anim = lottie.loadAnimation({
+      container: animation.current,
+      renderer: "svg",
+      loop: false,
+      autoplay: true,
+      path: "/Motion/LogoBaytuna.json",
+    });
+    anim.addEventListener("complete", () => {
+      setIsAnimationCompleted(true); // استدعاء onComplete عند انتهاء الرسوم المتحركة
+    });
+    return () => anim.destroy();
+  }, []);
+
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
@@ -55,10 +71,16 @@ export default function RootLayout({ children, params: { locale } }) {
   }, [isAnimationCompleted]);
   return (
     <div className="bg-primary min-h-screen flex flex-col justify-between ">
-      {!isAnimationCompleted && (
+      {/* {!isAnimationCompleted && (
         <DrawLogoBaytuna
           animationData={baytuna}
           onComplete={() => setIsAnimationCompleted(true)}
+        />
+      )} */}
+      {!isAnimationCompleted && (
+        <div
+          className="flex justify-center items-center w-screen h-screen"
+          ref={animation}
         />
       )}
       {showContent && (

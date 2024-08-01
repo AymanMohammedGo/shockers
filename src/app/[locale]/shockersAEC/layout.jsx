@@ -2,27 +2,35 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import LoadingVideo from "@/components/LoadingVideo";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, createRef } from "react";
 import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
 import { getFooter, getSocialMedias } from "../../../../utils/ShockersApi";
 import Transition from "@/components/Motion/Transition";
+import lottie from "lottie-web";
 import DrawLogo from "@/components/Lottie/DrawLogo";
 import Shockers from "/public/Motion/Shockers";
 export default function RootLayout({ children, params: { locale } }) {
   const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
   const [showContent, setShowContent] = useState(false);
+  let animation = createRef();
+  useEffect(() => {
+    const anim = lottie.loadAnimation({
+      container: animation.current,
+      renderer: "svg",
+      loop: false,
+      autoplay: true,
+      path: "/Motion/Shockers.json",
+    });
+    anim.addEventListener("complete", () => {
+      setIsAnimationCompleted(true); // استدعاء onComplete عند انتهاء الرسوم المتحركة
+    });
+    return () => anim.destroy();
+  }, []);
+
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
   }
-
-  // const [linksNames, setLinksNames] = useState({
-  //   NamePageHome: "HOME",
-  //   NamePageAbout: "ABOUT US",
-  //   NamePageServices: "SERVICES",
-  //   NamePageProjects: "PROJECTS",
-  //   NameMainPage:"Main Page"
-  // });
   const [linksNames, setLinksNames] = useState([]);
   const [footerNames, setFooterNames] = useState([]);
   const [socialMedias, setSocialMedias] = useState([]);
@@ -59,11 +67,12 @@ export default function RootLayout({ children, params: { locale } }) {
   return (
     <div className="bg-primary min-h-screen flex flex-col justify-between">
       {!isAnimationCompleted && (
-        <DrawLogo
-          animationData={Shockers}
-          onComplete={() => setIsAnimationCompleted(true)}
+        <div
+          className="flex justify-center items-center w-screen h-screen"
+          ref={animation}
         />
       )}
+
       {showContent && (
         <>
           <Transition bg="bg-shockersAEC" />

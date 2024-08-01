@@ -72,7 +72,7 @@ const Services = ({ params: { locale } }) => {
       />
 
       <div className="flex flex-col md:flex-row min-h-screen lg:py-5 max-w-screen-xxl m-auto relative z-10">
-        <div className="md:w-1/3 p-2  md:p-4">
+        <div className="md:w-1/3 p-2  pt-8 md:p-4">
           <ul className="space-y-2">
             {/* {servicesData.map((service, index) => (
               <li
@@ -108,7 +108,7 @@ const Services = ({ params: { locale } }) => {
           </ul>
         </div>
         <div className="md:w-2/3 p-2 md:p-4">
-          <p className="mb-6 text-xl lg:text-2xl !leading-10  py-4 px-4 lg:px-10 lg:text-justify">
+          <p className="mb-6 text-xl lg:text-2xl !leading-10  py-4 px-4 lg:px-10 text-justify">
             {/* {selectedService.description} */}
             {selectedService?.attributes?.description}
           </p>

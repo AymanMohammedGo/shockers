@@ -68,7 +68,7 @@ const ShockersHome = ({ params: { locale } }) => {
     },
     {
       text: "TO BE",
-      delay: 3.8,
+      delay: 3.5,
     },
     {
       text: "SHOCKED",

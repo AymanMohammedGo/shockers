@@ -9,6 +9,8 @@ import Transition from "@/components/Motion/Transition";
 import DrawLogo from "@/components/Lottie/DrawLogo";
 import Shockers from "/public/Motion/Shockers";
 export default function RootLayout({ children, params: { locale } }) {
+  const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
+  const [showContent, setShowContent] = useState(false);
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
@@ -48,9 +50,6 @@ export default function RootLayout({ children, params: { locale } }) {
     getFooter_();
     getSocialMedias_();
   }, [getName_HeaderLinks_, getFooter_, getSocialMedias_]);
-
-  const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
-  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     if (isAnimationCompleted) {

@@ -8,11 +8,11 @@ const SalgonSection = ({ titleText }) => {
         <div className="absolute bottom-0  leading-none text-[67px]  sm:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12 text-shockersAEC">
           {titleText.map((item, index) => (
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, x: "-100%" }}
               animate={{
                 opacity: 1,
-                scale: 1,
-                transition: { delay: item.delay, duration: 1 },
+                x: 0,
+                transition: { delay: item.delay, duration: 1.5 },
               }}
               // initial={{ y: "100%", opacity: 0 }}
               // animate={{

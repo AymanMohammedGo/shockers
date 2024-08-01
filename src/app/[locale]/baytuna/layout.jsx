@@ -9,6 +9,8 @@ import baytuna from "/public/Motion/LogoBaytuna";
 
 import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
 export default function RootLayout({ children, params: { locale } }) {
+  const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
+  const [showContent, setShowContent] = useState(false);
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
@@ -31,8 +33,7 @@ export default function RootLayout({ children, params: { locale } }) {
   useEffect(() => {
     getName_HeaderLinks_();
   }, [getName_HeaderLinks_]);
-  const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
-  const [showContent, setShowContent] = useState(false);
+
   const socialMedia = [
     {
       name: "Instagram",

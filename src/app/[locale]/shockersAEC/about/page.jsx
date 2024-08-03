@@ -45,26 +45,35 @@ const About = ({ params: { locale } }) => {
       <Draw_S animationData={S_json} />
       <section className="overflow-hidden relative z-10">
         {data.map((item, index) => (
-          <motion.div
-            initial={{ x: index % 2 === 0 ? "100%" : "-100%", opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{
-              duration: 1,
-            }}
+          <div
             key={index}
             className={`max-w-screen-xxxl m-auto h-screen  flex flex-col items-center  ${
               index % 2 === 0 ? "xl:flex-row" : "xl:flex-row-reverse"
             } justify-center lg:justify-between`}
           >
-            <div className="p-4 sm:px-24 md:px-36 lg:px-44 lg:py-20 xl:p-8 xl:w-[60%]   text-shockersAEC  flex flex-col items-start">
+            <motion.div
+              initial={{ x: index % 2 === 0 ? "100%" : "-100%", opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{
+                duration: 1,
+              }}
+              className="p-4 sm:px-24 md:px-36 lg:px-44 lg:py-20 xl:p-8 xl:w-[60%]   text-shockersAEC  flex flex-col items-start"
+            >
               <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl my-3  lg:mb-6 !leading-[50px] lg:!leading-[70px]">
                 {item?.attributes.title}
               </h2>
               <p className="text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10 text-justify">
                 {item?.attributes.description}
               </p>
-            </div>
-            <div className=" p-4 ">
+            </motion.div>
+            <motion.div
+              initial={{ x: index % 2 === 0 ? "100%" : "-100%", opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{
+                duration: 1,
+              }}
+              className=" p-4 "
+            >
               <Image
                 src="/img/services.jpg"
                 alt="aboutUs"
@@ -73,8 +82,8 @@ const About = ({ params: { locale } }) => {
                 height={500}
                 className="rounded-2xl"
               />
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         ))}
       </section>
 

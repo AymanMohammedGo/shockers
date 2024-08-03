@@ -49,7 +49,7 @@ const About = ({ params: { locale } }) => {
             key={index}
             className={`max-w-screen-xxxl m-auto h-screen  flex flex-col items-center  ${
               index % 2 === 0 ? "xl:flex-row" : "xl:flex-row-reverse"
-            } justify-center lg:justify-between`}
+            } justify-center lg:justify-between overflow-hidden`}
           >
             <motion.div
               initial={{ x: index % 2 === 0 ? "100%" : "-100%", opacity: 0 }}

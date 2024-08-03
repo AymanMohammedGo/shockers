@@ -52,11 +52,11 @@ const About = ({ params: { locale } }) => {
               duration: 1,
             }}
             key={index}
-            className={`w-screen h-screen  flex flex-col items-center ${
+            className={`max-w-screen-xxxl m-auto h-screen  flex flex-col items-center  ${
               index % 2 === 0 ? "xl:flex-row" : "xl:flex-row-reverse"
             } justify-center lg:justify-between`}
           >
-            <div className="p-4 lg:p-24 xl:p-32  text-shockersAEC flex-1 flex flex-col items-start">
+            <div className="p-4 sm:px-24 md:px-36 lg:px-44 lg:py-20 xl:p-8 xl:w-[60%]   text-shockersAEC  flex flex-col items-start">
               <h2 className="font-bold text-4xl md:text-5xl lg:text-6xl my-3  lg:mb-6 !leading-[50px] lg:!leading-[70px]">
                 {item?.attributes.title}
               </h2>
@@ -64,14 +64,14 @@ const About = ({ params: { locale } }) => {
                 {item?.attributes.description}
               </p>
             </div>
-            <div className="relative p-4 w-full h-full xl:h-screen xl:w-[50vw] flex items-center justify-center   ">
+            <div className=" p-4 ">
               <Image
-                src="/img/about.svg"
+                src="/img/services.jpg"
                 alt="aboutUs"
                 quality={75}
                 width={500}
                 height={500}
-                // className="object-cover"
+                className="rounded-2xl"
               />
             </div>
           </motion.div>

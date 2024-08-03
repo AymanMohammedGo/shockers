@@ -82,33 +82,37 @@ const ShockersHome = ({ params: { locale } }) => {
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
       <Draw_S animationData={S_json} delay={500} />
-      <SalgonSection titleText={titleText} />
-      <AboutSection
-        link="shockersAEC"
-        videoMobile="/ShockersAECwebsiteVideoMobile.mp4"
-        videoLoptap="/ShockersAECwebsiteVideoLaptop.mp4"
-        title={data?.attributes?.TitleAbout}
-        description={data?.attributes?.DescriptionAbout}
-        textButton={data?.attributes?.TextButton}
-        bg="bg-white"
-        tc="text-shockersAEC"
-      />
-      <ServicesSection
-        services={services}
-        title={data?.attributes?.NameServices}
-        textButton={data?.attributes?.TextButton}
-        link="shockersAEC"
-        image={data?.attributes?.ImgServices.data.attributes.url}
-        // image="/"
-        bg="bg-white"
-        tc="text-shockersAEC"
-      />
-      <SlideProject
-        title={data?.attributes?.NameProjects}
-        categoriesProjects={categoriesProjects}
-        link="shockersAEC"
-        ColorText="text-shockersAEC"
-      />
+      <section className="w-full h-full">
+        <SalgonSection titleText={titleText} />
+
+        <AboutSection
+          link="shockersAEC"
+          videoMobile="/ShockersAECwebsiteVideoMobile.mp4"
+          videoLoptap="/ShockersAECwebsiteVideoLaptop.mp4"
+          title={data?.attributes?.TitleAbout}
+          description={data?.attributes?.DescriptionAbout}
+          textButton={data?.attributes?.TextButton}
+          bg="bg-white"
+          tc="text-shockersAEC"
+        />
+
+        <ServicesSection
+          services={services}
+          title={data?.attributes?.NameServices}
+          textButton={data?.attributes?.TextButton}
+          link="shockersAEC"
+          image={data?.attributes?.ImgServices.data.attributes.url}
+          // image="/"
+          bg="bg-white"
+          tc="text-shockersAEC"
+        />
+        <SlideProject
+          title={data?.attributes?.NameProjects}
+          categoriesProjects={categoriesProjects}
+          link="shockersAEC"
+          ColorText="text-shockersAEC"
+        />
+      </section>
     </motion.div>
   );
 };

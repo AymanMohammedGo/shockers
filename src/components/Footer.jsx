@@ -33,7 +33,7 @@ const Footer = ({
     },
   ];
   return (
-    <footer className="bg-shockersAEC z-10 h-screen sm:h-full">
+    <footer className="bg-shockersAEC z-10 min-h-screen  sm:min-h-full">
       <div className="relative mx-auto max-w-screen-xxl px-4 py-16 sm:px-6 lg:p-8  ">
         <div className="mt-16 lg:flex lg:items-center lg:justify-between">
           <div className="flex justify-center  lg:justify-start">
@@ -44,7 +44,7 @@ const Footer = ({
               <Image src={logo} width={width} height={width} alt={name} />
             </Link>
           </div>
-          <ul className="mt-16 hidden md:flex md:flex-row items-center justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
+          {/* <ul className="mt-16 hidden md:flex md:flex-row items-center justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
             {Url.map((item, index) => (
               <li key={index}>
                 <Link
@@ -55,7 +55,7 @@ const Footer = ({
                 </Link>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
         <div
           className={`mt-20 text-center lg:text-start grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 ${
@@ -90,19 +90,32 @@ const Footer = ({
               <li>
                 <span className="text-base">{data?.Phone}</span>
               </li>
+              {data?.Phone1 && (
+                <li>
+                  <span className="text-base">{data?.Phone1}</span>
+                </li>
+              )}
             </ul>
           </div>
           <div>
-            <Link href={`mailto:${data?.Email}` || "#"}>
-              <p className=" text-white text-xl font-semibold">
-                {data?.TitleEmail}
-              </p>
-              <ul className="mt-3 text-sm text-white">
+            <p className=" text-white text-xl font-semibold">
+              {data?.TitleEmail}
+            </p>
+            <ul className="mt-3 text-sm text-white">
+              <Link href={`mailto:${data?.Email}` || "#"}>
                 <li>
                   <span className="text-base">{data?.Email}</span>
                 </li>
-              </ul>
-            </Link>
+              </Link>
+
+              {data?.Email1 && (
+                <Link href={`mailto:${data?.Email1}` || "#"}>
+                  <li>
+                    <span className="text-base">{data?.Email1}</span>
+                  </li>
+                </Link>
+              )}
+            </ul>
           </div>
           <div>
             <p className="text-xl font-semibold text-white">

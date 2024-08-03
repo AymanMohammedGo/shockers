@@ -55,67 +55,69 @@ export default function SlideProject({
   }, []);
 
   return (
-    <div className="w-screen h-screen flex flex-col">
-      <h2
+    <div id="projects">
+      <div className="sticky top-0 w-screen h-screen flex flex-col bg-primary ">
+        {/* <h2
         id="projects"
         className={`font-bold overflow-hidden   ${ColorText}  w-fit px-4 py-3 z-0 text-3xl  lg:text-4xl  mx-auto mt-6 mb-[16px]`}
       >
         {title}
-      </h2>
-      <div className="flex-grow">
-        <Swiper
-          className="w-full h-full  "
-          ref={swiperRef}
-          slidesPerView={1.1}
-          spaceBetween={4}
-          freeMode={true}
-          navigation={true}
-          modules={[FreeMode, Navigation]}
-          breakpoints={{
-            600: {
-              slidesPerView: 1.5,
-              spaceBetween: 4,
-            },
-            768: {
-              slidesPerView: 2.5,
-              spaceBetween: 4,
-            },
-            1024: {
-              slidesPerView: 3.5,
-              spaceBetween: 4,
-            },
-            1400: {
-              slidesPerView: 4.5,
-              spaceBetween: 4,
-            },
-            1705: {
-              slidesPerView: 5.5,
-              spaceBetween: 4,
-            },
-            2000: {
-              slidesPerView: 6.5,
-              spaceBetween: 4,
-            },
-          }}
-        >
-          {categoriesProjects?.map((item, index) => (
-            <SwiperSlide key={index} className="relative">
-              <Link href={`/${link}/${item?.id}`}>
-                <Image
-                  className=" object-cover"
-                  src={item?.attributes.imgURL.data?.attributes.url}
-                  fill={true}
-                  alt={item.id}
-                  quality={75}
-                />
-                <div className="absolute  inset-0 image-gradient" />
-                <span className="absolute  bottom-0 p-4 text-white text-2xl">
-                  {item?.attributes?.title}
-                </span>
-              </Link>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      </h2> */}
+        <div className="flex-grow my-5 md:my-10 lg:my-20">
+          <Swiper
+            className="w-full h-full  "
+            ref={swiperRef}
+            slidesPerView={1.1}
+            spaceBetween={10}
+            freeMode={true}
+            navigation={true}
+            modules={[FreeMode, Navigation]}
+            breakpoints={{
+              600: {
+                slidesPerView: 1.5,
+                spaceBetween: 10,
+              },
+              768: {
+                slidesPerView: 2.5,
+                spaceBetween: 10,
+              },
+              1024: {
+                slidesPerView: 3.5,
+                spaceBetween: 10,
+              },
+              1400: {
+                slidesPerView: 4.5,
+                spaceBetween: 10,
+              },
+              1705: {
+                slidesPerView: 5.5,
+                spaceBetween: 10,
+              },
+              2000: {
+                slidesPerView: 6.5,
+                spaceBetween: 10,
+              },
+            }}
+          >
+            {categoriesProjects?.map((item, index) => (
+              <SwiperSlide key={index} className="relative">
+                <Link href={`/${link}/${item?.id}`}>
+                  <Image
+                    className=" object-cover"
+                    src={item?.attributes.imgURL.data?.attributes.url}
+                    fill={true}
+                    alt={item.id}
+                    quality={75}
+                  />
+                  <div className="absolute  inset-0 image-gradient" />
+                  <span className="absolute  bottom-0 p-4 text-white text-2xl">
+                    {item?.attributes?.title}
+                  </span>
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </div>
   );

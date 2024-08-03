@@ -49,51 +49,52 @@ const ServicesSection = ({
     }
   }, [controls1, inView1]);
   return (
-    <section className="bg-shockersAEC w-screen h-screen flex items-center justify-center relative z-10">
-      <div className="flex w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
-        <div className=" text-white flex-1 p-2 lg:p-4 flex flex-col items-center justify-center overflow-hidden">
-          <motion.h1
-            ref={ref1}
-            initial="hidden"
-            animate={controls1}
-            variants={var1}
-            className="text-6xl lg:text-8xl font-bold my-8 "
-          >
-            {title}
-          </motion.h1>
-          <ul>
-            {services.map((item, index) => (
-              <motion.li
-                key={index}
-                ref={ref1}
-                initial="hidden"
-                animate={controls1}
-                variants={item.effect}
-                className="flex items-center  mb-5"
-              >
-                <CircleCheckBig className="w-[25px]" />
-                <span className="mx-2 w-full text-xl lg:text-2xl xl:text-3xl">
-                  {item?.name?.attributes?.title}
-                </span>
-              </motion.li>
-            ))}
-          </ul>
-          <motion.div
-            ref={ref1}
-            initial="hidden"
-            animate={controls1}
-            variants={var5}
-          >
-            <Link href={`/${link}/services`}>
-              <Button
-                className={`${bg} w-fit ${tc} hover:bg-shockersAEC hover:text-white hover:outline text-base my-8`}
-              >
-                {textButton}
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-        {/* <motion.div
+    <section className="sticky top-0">
+      <div className="bg-shockersAEC  w-screen h-screen flex items-center justify-center relative z-10">
+        <div className="flex w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
+          <div className=" text-white flex-1 p-2 lg:p-4 flex flex-col items-center justify-center ">
+            <motion.h1
+              ref={ref1}
+              initial="hidden"
+              animate={controls1}
+              variants={var1}
+              className="text-6xl lg:text-8xl font-bold my-8 "
+            >
+              {title}
+            </motion.h1>
+            <ul>
+              {services.map((item, index) => (
+                <motion.li
+                  key={index}
+                  ref={ref1}
+                  initial="hidden"
+                  animate={controls1}
+                  variants={item.effect}
+                  className="flex items-center  mb-7"
+                >
+                  <CircleCheckBig className="w-[25px] lg:w-[30px]" />
+                  <span className="mx-4 w-full text-xl lg:text-2xl xl:text-3xl">
+                    {item?.name?.attributes?.title}
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
+            <motion.div
+              ref={ref1}
+              initial="hidden"
+              animate={controls1}
+              variants={var5}
+            >
+              <Link href={`/${link}/services`}>
+                <Button
+                  className={`${bg} w-fit ${tc} hover:bg-shockersAEC hover:text-white hover:outline text-base my-8`}
+                >
+                  {textButton}
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+          {/* <motion.div
           initial={{ x: "100%" }}
           whileInView={{ x: 0 }}
           transition={{
@@ -109,6 +110,7 @@ const ServicesSection = ({
             className="object-cover"
           />
         </motion.div> */}
+        </div>
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const SalgonSection = ({ titleText }) => {
   return (
-    <section className=" w-screen h-screen ">
+    <section className="sticky top-0 w-screen h-screen ">
       <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 sm:px-6 md:px-10 lg:px-14 overflow-hidden">
         <div className="absolute bottom-0  leading-none text-[67px]  sm:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12 text-shockersAEC">
           {titleText.map((item, index) => (

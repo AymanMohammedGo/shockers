@@ -29,136 +29,15 @@ const Header = ({ logo, name, width, bg, hover, text, linksNames, Dir }) => {
   return (
     <>
       <motion.header
-        initial={{ y: 0, opacity: 0 }}
-        whileHover={{
-          opacity: 1,
-          y: 0,
-          transition: {
-            duration: 1, // مدة الأنيميشن عند التحويم
-            ease: "easeInOut",
-          },
-        }}
-        animate={{
-          y: [0, "-100%", 0],
-          opacity: [1, 1, 0],
-          transition: {
-            duration: 2,
-            times: [0, 0.99, 1],
-            ease: "easeInOut",
-          },
-        }}
-        className="absolute w-full z-20 bg-primary hidden lg:block "
-      >
-        <Link href="/" className=" text-center">
-          <div
-            className={`${bg}    p-2 text-white flex items-center justify-center`}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-house"
-            >
-              <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
-              <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-            </svg>
-            <span
-              className={`mx-2  ${
-                Dir === "rtl" ? "text-lg" : "text-base"
-              } text-white`}
-            >
-              {" "}
-              {linksNames?.NameMainPage}
-            </span>
-          </div>
-        </Link>
-        <div className=" max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-4">
-          <Link
-            href={`/${name}`}
-            className=" flex items-center space-x-3 rtl:space-x-reverse"
-          >
-            <Image
-              src={logo}
-              width={width}
-              height={width}
-              alt={`${name}Logo`}
-            />
-          </Link>
-          <div className="flex md:hidden ">
-            <button
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-              type="button"
-              className="flex items-center p-2 w-10 h-10 justify-center    md:hidden focus:outline-none "
-            >
-              <svg
-                className="w-5 h-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 17 14"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 1h15M1 7h15M1 13h15"
-                />
-              </svg>
-            </button>
-          </div>
-          <div
-            className={`${
-              isOpen ? "block" : "hidden"
-            } w-full md:block md:w-auto`}
-          >
-            <ul
-              className={`font-medium ${
-                Dir === "rtl" && "text-lg"
-              }  flex flex-col pt-4 md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 `}
-            >
-              {Url.map((item, index) => (
-                <li key={index}>
-                  <Link
-                    href={item?.link}
-                    onClick={() => {
-                      setIsOpen(!isOpen);
-                    }}
-                    className={`block font-normal py-2 px-3 ${text} ${hover}  hover:text-white rounded-lg transition-all`}
-                  >
-                    {item?.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            {/* <hr className="w-full bg-shockersAEC"></hr> */}
-            <div className="flex md:hidden mt-3 ">
-              <LanguageChanger hover={hover} />
-            </div>
-          </div>
-          <div className="hidden md:flex ">
-            <LanguageChanger hover={hover} />
-          </div>
-        </div>
-      </motion.header>
-      <motion.header
         initial={{ y: "-100%" }}
         whileInView={{ y: 0 }}
         transition={{
           duration: 1,
           delay: 0,
         }}
-        className="absolute w-full z-20 bg-primary block lg:hidden "
+        className="absolute w-full z-20 bg-primary   "
       >
-        <Link href="/" className=" text-center">
+        {/* <Link href="/" className=" text-center">
           <div
             className={`${bg}    p-2 text-white flex items-center justify-center`}
           >
@@ -182,10 +61,10 @@ const Header = ({ logo, name, width, bg, hover, text, linksNames, Dir }) => {
               {linksNames?.NameMainPage}
             </span>
           </div>
-        </Link>
+        </Link>*/}
         <div className=" max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
-            href={`/${name}`}
+            href={`/`}
             className=" flex items-center space-x-3 rtl:space-x-reverse"
           >
             <Image

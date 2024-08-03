@@ -58,7 +58,7 @@ const AboutSection = ({
     }
   }, [controls, inView]);
   return (
-    <section className="relative w-screen h-screen ">
+    <section className="sticky top-0 w-screen h-screen ">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover hidden md:block"
         autoPlay
@@ -81,7 +81,7 @@ const AboutSection = ({
       </video>
       <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
         <div className="max-w-screen-xxl w-full h-full relative overflow-hidden">
-          <div className="flex w-full flex-col items-center lg:items-start justify-center absolute bottom-0 p-2 lg:px-14 ">
+          <div className="flex w-full flex-col items-center lg:items-start justify-center absolute bottom-10 p-2 lg:px-14 ">
             <motion.h1
               ref={ref}
               initial="hidden"

@@ -18,8 +18,10 @@ export default function RootLayout({ children, params: { locale } }) {
       autoplay: true,
       path: "/Motion/shockersAEC.json",
     });
+    anim.setSpeed(2);
+
     anim.addEventListener("complete", () => {
-      setIsAnimationCompleted(true);   
+      setIsAnimationCompleted(true);
     });
     return () => anim.destroy();
   }, []);

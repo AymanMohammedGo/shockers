@@ -54,45 +54,45 @@ export default function RootLayout({ children, params: { locale } }) {
     getSocialMedias_();
   }, [getName_HeaderLinks_, getFooter_, getSocialMedias_]);
 
-  useEffect(() => {
-    if (isAnimationCompleted) {
-      setShowContent(true);
-    }
-  }, [isAnimationCompleted]);
+  // useEffect(() => {
+  //   if (isAnimationCompleted) {
+  //     setShowContent(true);
+  //   }
+  // }, [isAnimationCompleted]);
   return (
     <div className="bg-primary min-h-screen flex flex-col justify-between ">
-      {!isAnimationCompleted && (
+      {/* {!isAnimationCompleted && (
         <div
           className="flex justify-center items-center w-screen h-screen"
           ref={animation}
         />
-      )}
-      {showContent && (
-        <>
-          <Transition bg="bg-deca" />
-          <Header
-            logo="/img/LogosHeader/logoDeca.svg"
-            width="100"
-            name="deca"
-            hover="hover:bg-deca"
-            text="text-shockersAEC"
-            linksNames={linksNames}
-            Dir={document.dir}
-          />
+      )} */}
+      {/* {showContent && ( */}
+      <>
+        <Transition bg="bg-deca" />
+        <Header
+          logo="/img/LogosHeader/logoDeca.svg"
+          width="100"
+          name="deca"
+          hover="hover:bg-deca"
+          text="text-shockersAEC"
+          linksNames={linksNames}
+          Dir={document.dir}
+        />
 
-          {children}
-          <Footer
-            width="200"
-            name="deca"
-            logo="/img/LogosFooter/logoDecaWhite.svg"
-            linksNames={linksNames}
-            Dir={document.dir}
-            Lan={locale}
-            data={footerNames}
-            socialMedia={socialMedias}
-          />
-        </>
-      )}
+        {children}
+        <Footer
+          width="200"
+          name="deca"
+          logo="/img/LogosFooter/logoDecaWhite.svg"
+          linksNames={linksNames}
+          Dir={document.dir}
+          Lan={locale}
+          data={footerNames}
+          socialMedia={socialMedias}
+        />
+      </>
+      {/* )} */}
     </div>
   );
 }

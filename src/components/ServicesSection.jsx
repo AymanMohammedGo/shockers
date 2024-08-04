@@ -7,15 +7,7 @@ import Link from "next/link";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-const ServicesSection = ({
-  services,
-  title,
-  textButton,
-  link,
-  image,
-  bg,
-  tc,
-}) => {
+const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
   const var1 = {
     hidden: { x: "-100%", opacity: 0 },
     visible: {
@@ -58,7 +50,7 @@ const ServicesSection = ({
               initial="hidden"
               animate={controls1}
               variants={var1}
-              className="text-6xl lg:text-8xl font-bold my-8 "
+              className="text-[55px] sm:text-6xl lg:text-8xl font-bold my-8 "
             >
               {title}
             </motion.h1>

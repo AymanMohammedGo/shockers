@@ -7,6 +7,8 @@ import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import SalgonSection from "@/components/SalgonSection";
 import { getHome, getServices } from "../../../../utils/BaytunaApi";
+import { getName_Solgan } from "../../../../utils/GlobleApi";
+
 import { useCallback, useState, useEffect } from "react";
 import { getCategoriesProjects } from "../../../../utils/ShockersApi";
 import "../globals.css";
@@ -16,10 +18,23 @@ const DecaHome = ({ params: { locale } }) => {
   if (locale === "kr") {
     lan = "af";
   }
+  const [solgan, setSolgan] = useState([]);
+
   const [data, setData] = useState([]);
   const [services, setServices] = useState([]);
   const [categoriesProjects, setCategoriesProjects] = useState([]);
-
+  const getName_Solgan_ = useCallback(() => {
+    getName_Solgan(lan).then((res) => {
+      const newSolgan = [];
+      res.data.data?.attributes?.baytunaHome.map((item, index) => {
+        newSolgan.push({
+          text: item?.children[0].text,
+          delay: 2.5 + (index + 1) / 2,
+        });
+      });
+      setSolgan(newSolgan);
+    });
+  }, [lan]);
   const getHome_ = useCallback(() => {
     getHome(lan).then((res) => {
       setData(res.data.data);
@@ -53,26 +68,8 @@ const DecaHome = ({ params: { locale } }) => {
     getHome_();
     getServices_();
     getCategoriesProjects_();
-  }, [getHome_, getServices_, getCategoriesProjects_]);
-
-  const titleText = [
-    {
-      text: "WHERE YOUR ",
-      delay: 3,
-    },
-    {
-      text: "HOUSE ",
-      delay: 3.8,
-    },
-    {
-      text: "BECOMES",
-      delay: 4.6,
-    },
-    {
-      text: "YOUR HOME",
-      delay: 5.4,
-    },
-  ];
+    getName_Solgan_();
+  }, [getHome_, getServices_, getCategoriesProjects_, getName_Solgan_()]);
 
   return (
     <motion.div
@@ -81,7 +78,7 @@ const DecaHome = ({ params: { locale } }) => {
     >
       <Draw_B animationData={B_json} delay={500} />
       <section className="w-full h-full">
-        <SalgonSection titleText={titleText} />
+        <SalgonSection titleText={solgan} />
 
         <AboutSection
           link="baytuna"
@@ -102,10 +99,7 @@ const DecaHome = ({ params: { locale } }) => {
           bg="bg-baytuna"
           tc="text-white"
         />
-        <SlideProject
-          categoriesProjects={categoriesProjects}
-          link="baytuna"
-        />
+        <SlideProject categoriesProjects={categoriesProjects} link="baytuna" />
       </section>
     </motion.div>
   );

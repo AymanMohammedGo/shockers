@@ -11,6 +11,7 @@ import {
   getServices,
   getCategoriesProjects,
 } from "../../../../utils/ShockersApi";
+import { getName_Solgan } from "../../../../utils/GlobleApi";
 import { useCallback, useState, useEffect } from "react";
 import "../globals.css";
 
@@ -19,10 +20,22 @@ const ShockersHome = ({ params: { locale } }) => {
   if (locale === "kr") {
     lan = "af";
   }
+  const [solgan, setSolgan] = useState([]);
   const [data, setData] = useState([]);
   const [services, setServices] = useState([]);
   const [categoriesProjects, setCategoriesProjects] = useState([]);
-
+  const getName_Solgan_ = useCallback(() => {
+    getName_Solgan(lan).then((res) => {
+      const newSolgan = [];
+      res.data.data?.attributes?.ShockersHome.map((item, index) => {
+        newSolgan.push({
+          text: item?.children[0].text,
+          delay: 2.5 + (index + 1) / 2,
+        });
+      });
+      setSolgan(newSolgan);
+    });
+  }, [lan]);
   const getHome_ = useCallback(() => {
     getHome(lan).then((res) => {
       setData(res.data.data);
@@ -56,22 +69,8 @@ const ShockersHome = ({ params: { locale } }) => {
     getHome_();
     getServices_();
     getCategoriesProjects_();
-  }, [getHome_, getServices_, getCategoriesProjects_]);
-
-  const titleText = [
-    {
-      text: "DARE",
-      delay: 3,
-    },
-    {
-      text: "TO BE",
-      delay: 3.5,
-    },
-    {
-      text: "SHOCKED",
-      delay: 4.6,
-    },
-  ];
+    getName_Solgan_();
+  }, [getHome_, getServices_, getCategoriesProjects_, getName_Solgan_]);
 
   return (
     <motion.div
@@ -80,7 +79,7 @@ const ShockersHome = ({ params: { locale } }) => {
     >
       <Draw_S animationData={S_json} delay={500} />
       <section className="w-full h-full">
-        <SalgonSection titleText={titleText} />
+        <SalgonSection titleText={solgan} />
 
         <AboutSection
           link="shockersAEC"

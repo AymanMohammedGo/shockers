@@ -49,22 +49,22 @@ const Services = ({ params: { locale } }) => {
         <div className="md:w-1/3 p-2  pt-8 md:p-4">
           <ul className="space-y-2">
             {data.map((service, index) => (
-              <li
-                key={index}
-                onClick={() => setSelectedService(service)}
-                className={`cursor-pointer text-xl lg:text-3xl p-4 py-6 lg:!mb-5 font-bold ${
-                  selectedService?.attributes.title ===
-                  service?.attributes.title
-                    ? `${
-                        document.dir === "ltr"
-                          ? "border-l-[6px]"
-                          : "border-r-[6px]"
-                      } border-deca bg-[#eeeeee] text-deca`
-                    : "text-[#9b9999] hover:text-deca"
-                }`}
-              >
-                {service?.attributes.title}
-              </li>
+              // <li
+              //   key={index}
+              //   onClick={() => setSelectedService(service)}
+              //   className={`cursor-pointer text-xl lg:text-3xl p-4 py-6 lg:!mb-5 font-bold ${
+              //     selectedService?.attributes.title ===
+              //     service?.attributes.title
+              //       ? `${
+              //           document.dir === "ltr"
+              //             ? "border-l-[6px]"
+              //             : "border-r-[6px]"
+              //         } border-deca bg-[#eeeeee] text-deca`
+              //       : "text-[#9b9999] hover:text-deca"
+              //   }`}
+              // >
+              //   {service?.attributes.title}
+              // </li>
             ))}
           </ul>
         </div>

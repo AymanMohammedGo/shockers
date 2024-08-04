@@ -84,9 +84,7 @@ export default function RootLayout({ children, params: { locale } }) {
             width="140"
             name="baytuna"
             logo="/img/LogosFooter/logoBaytunaWhite.svg"
-            linksNames={linksNames}
-            Dir={document.dir}
-            Lan={locale}
+           
             data={footerNames}
             socialMedia={socialMedias}
           />

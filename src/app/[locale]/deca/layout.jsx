@@ -85,9 +85,6 @@ export default function RootLayout({ children, params: { locale } }) {
           width="200"
           name="deca"
           logo="/img/LogosFooter/logoDecaWhite.svg"
-          linksNames={linksNames}
-          Dir={document.dir}
-          Lan={locale}
           data={footerNames}
           socialMedia={socialMedias}
         />

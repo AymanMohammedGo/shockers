@@ -6,32 +6,12 @@ const Footer = ({
   width,
   name,
   logo,
-  linksNames,
-  Dir,
-  Lan,
   socialMedia,
   data,
 }) => {
   const currentYear = new Date().getFullYear();
 
-  const Url = [
-    {
-      name: linksNames?.NamePageHome,
-      link: `/${name}`,
-    },
-    {
-      name: linksNames?.NamePageAbout,
-      link: `/${name}/about`,
-    },
-    {
-      name: linksNames?.NamePageServices,
-      link: `/${name}/services`,
-    },
-    {
-      name: linksNames?.NamePageProjects,
-      link: `/${name}/projects`,
-    },
-  ];
+  
   return (
     <footer className="bg-shockersAEC z-10 min-h-screen  sm:min-h-full">
       <div className="relative mx-auto max-w-screen-xxl px-4 py-8 sm:px-6 lg:p-8  ">
@@ -44,18 +24,7 @@ const Footer = ({
               <Image src={logo} width={width} height={width} alt={name} />
             </Link>
           </div>
-          {/* <ul className="mt-16 hidden md:flex md:flex-row items-center justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
-            {Url.map((item, index) => (
-              <li key={index}>
-                <Link
-                  href={item?.link}
-                  className="text-white transition text-xl"
-                >
-                  {item?.name}
-                </Link>
-              </li>
-            ))}
-          </ul> */}
+         
         </div>
         <div
           className={`mt-20 text-center lg:text-start grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 lg:gap-x-[580px]`}

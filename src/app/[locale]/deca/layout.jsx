@@ -1,52 +1,59 @@
 "use client";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import LoadingVideo from "@/components/LoadingVideo";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, createRef } from "react";
 import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
+import { getFooter, getSocialMedias } from "../../../../utils/DecaApi";
 import Transition from "@/components/Motion/Transition";
-import DrawLogo from "@/components/Lottie/DrawLogo";
-import Shockers from "/public/Motion/Shockers";
+import lottie from "lottie-web";
+
 export default function RootLayout({ children, params: { locale } }) {
+  const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+  let animation = createRef();
+  useEffect(() => {
+    const anim = lottie.loadAnimation({
+      container: animation.current,
+      renderer: "svg",
+      loop: false,
+      autoplay: true,
+      path: "/Motion/shockersAEC.json",
+    });
+    anim.addEventListener("complete", () => {
+      setIsAnimationCompleted(true);
+    });
+    return () => anim.destroy();
+  }, []);
+
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
   }
-
-  // const [linksNames, setLinksNames] = useState({
-  //   NamePageHome: "HOME",
-  //   NamePageAbout: "ABOUT US",
-  //   NamePageServices: "SERVICES",
-  //   NamePageProjects: "PROJECTS",
-  //   NameMainPage:"Main Page"
-  // });
   const [linksNames, setLinksNames] = useState([]);
+  const [footerNames, setFooterNames] = useState([]);
+  const [socialMedias, setSocialMedias] = useState([]);
+
   const getName_HeaderLinks_ = useCallback(() => {
     getName_HeaderLinks(lan).then((res) => {
-      console.log(res.data.data.attributes);
       setLinksNames(res.data.data.attributes);
+    });
+  }, [lan]);
+  const getFooter_ = useCallback(() => {
+    getFooter(lan).then((res) => {
+      setFooterNames(res.data.data.attributes);
+    });
+  }, [lan]);
+  const getSocialMedias_ = useCallback(() => {
+    getSocialMedias(lan).then((res) => {
+      setSocialMedias(res.data.data);
     });
   }, [lan]);
   useEffect(() => {
     getName_HeaderLinks_();
-  }, [getName_HeaderLinks_]);
+    getFooter_();
+    getSocialMedias_();
+  }, [getName_HeaderLinks_, getFooter_, getSocialMedias_]);
 
-  const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
-  const [showContent, setShowContent] = useState(false);
-  const socialMedia = [
-    {
-      name: "Instagram",
-      link: "#",
-    },
-    {
-      name: "Facebook",
-      link: "#",
-    },
-    {
-      name: "Linkedin",
-      link: "#",
-    },
-  ];
   useEffect(() => {
     if (isAnimationCompleted) {
       setShowContent(true);
@@ -55,23 +62,22 @@ export default function RootLayout({ children, params: { locale } }) {
   return (
     <div className="bg-primary min-h-screen flex flex-col justify-between ">
       {!isAnimationCompleted && (
-        <DrawLogo
-          animationData={Shockers}
-          onComplete={() => setIsAnimationCompleted(true)}
+        <div
+          className="flex justify-center items-center w-screen h-screen"
+          ref={animation}
         />
       )}
       {showContent && (
         <>
           <Transition bg="bg-deca" />
-
           <Header
             logo="/img/LogosHeader/logoDeca.svg"
             width="100"
             name="deca"
-            bg="bg-deca"
             hover="hover:bg-deca"
             text="text-shockersAEC"
             linksNames={linksNames}
+            Dir={document.dir}
           />
 
           {children}
@@ -79,9 +85,11 @@ export default function RootLayout({ children, params: { locale } }) {
             width="200"
             name="deca"
             logo="/img/LogosFooter/logoDecaWhite.svg"
-            nameFooter="DECA"
             linksNames={linksNames}
-            socialMedia={socialMedia}
+            Dir={document.dir}
+            Lan={locale}
+            data={footerNames}
+            socialMedia={socialMedias}
           />
         </>
       )}

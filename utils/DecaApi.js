@@ -9,3 +9,7 @@ export const getTopAbout = (locale) =>
   axiosClient.get(`/deca-top-about?populate=*&locale=${locale}`);
 export const getTopServices = (locale) =>
   axiosClient.get(`/deca-top-service?populate=*&locale=${locale}`);
+export const getSocialMedias = (locale) =>
+  axiosClient.get(`/deca-social-medias?locale=${locale}`);
+export const getFooter = (locale) =>
+  axiosClient.get(`/deca-footer?locale=${locale}`);

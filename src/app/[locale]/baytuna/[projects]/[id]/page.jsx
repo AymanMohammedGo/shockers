@@ -1,5 +1,4 @@
 "use client";
-import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import ImageTitleProject from "@/components/ImageTitleProject";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -10,7 +9,6 @@ const SubProject = ({ params }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      {/* <ImageOverlaysTop namePage="Sub Project" title={params.id} /> */}
       <div className="sticky top-0">
         <ImageTitleProject />
       </div>

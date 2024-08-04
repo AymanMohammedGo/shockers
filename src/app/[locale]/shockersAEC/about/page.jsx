@@ -1,10 +1,8 @@
 "use client";
-import ImageOverlaysCenter from "@/components/ImageOverlaysCenter";
 import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import Image from "next/image";
 import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/Motion/S.json";
 import { getAboutUS, getTopAbout } from "../../../../../utils/ShockersApi";
@@ -13,18 +11,15 @@ const About = ({ params: { locale } }) => {
   if (locale === "kr") {
     lan = "af";
   }
-  // const linkData = "http://localhost:1337";
   const [data, setData] = useState([]);
   const [topAbout, setTopAbout] = useState([]);
   const getAboutUS_ = useCallback(() => {
     getAboutUS(lan).then((res) => {
-      console.log(res.data.data);
       setData(res.data.data);
     });
   }, [lan]);
   const getTopAbout_ = useCallback(() => {
     getTopAbout(lan).then((res) => {
-      console.log(res.data.data);
       setTopAbout(res.data.data);
     });
   }, [lan]);
@@ -47,7 +42,7 @@ const About = ({ params: { locale } }) => {
         {data.map((item, index) => (
           <div
             key={index}
-            className={`max-w-screen-xxxl m-auto h-screen  flex flex-col items-center  ${
+            className={`max-w-screen-xxxl m-auto min-h-screen  flex flex-col items-center  ${
               index % 2 === 0 ? "xl:flex-row" : "xl:flex-row-reverse"
             } justify-center lg:justify-between overflow-hidden`}
           >
@@ -75,7 +70,7 @@ const About = ({ params: { locale } }) => {
               className=" p-4 "
             >
               <Image
-                src="/img/services.jpg"
+                src={item?.attributes.imgURL.data?.attributes.url}
                 alt="aboutUs"
                 quality={75}
                 width={500}
@@ -87,9 +82,7 @@ const About = ({ params: { locale } }) => {
         ))}
       </section>
 
-      {/* <Link href="/shockersAEC/projects">
-        <ImageOverlaysCenter title="VIEW OUR PROJECTS" />
-      </Link> */}
+   
     </motion.div>
   );
 };

@@ -1,14 +1,11 @@
 "use client";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import LoadingVideo from "@/components/LoadingVideo";
 import { useEffect, useState, useCallback, createRef } from "react";
-import DrawLogoBaytuna from "@/components/Lottie/DrawLogoBaytuna";
-import Transition from "@/components/Motion/Transition";
-import baytuna from "/public/Motion/LogoBaytuna";
-import lottie from "lottie-web";
-
 import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
+import { getFooter, getSocialMedias } from "../../../../utils/BaytunaApi";
+import Transition from "@/components/Motion/Transition";
+import lottie from "lottie-web";
 export default function RootLayout({ children, params: { locale } }) {
   const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
   const [showContent, setShowContent] = useState(false);
@@ -22,7 +19,7 @@ export default function RootLayout({ children, params: { locale } }) {
       path: "/Motion/LogoBaytuna.json",
     });
     anim.addEventListener("complete", () => {
-      setIsAnimationCompleted(true); // استدعاء onComplete عند انتهاء الرسوم المتحركة
+      setIsAnimationCompleted(true);
     });
     return () => anim.destroy();
   }, []);
@@ -31,39 +28,31 @@ export default function RootLayout({ children, params: { locale } }) {
   if (locale === "kr") {
     lan = "af";
   }
-
-  // const [linksNames, setLinksNames] = useState({
-  //   NamePageHome: "HOME",
-  //   NamePageAbout: "ABOUT US",
-  //   NamePageServices: "SERVICES",
-  //   NamePageProjects: "PROJECTS",
-  //   NameMainPage: "Main Page",
-  // });
   const [linksNames, setLinksNames] = useState([]);
+  const [footerNames, setFooterNames] = useState([]);
+  const [socialMedias, setSocialMedias] = useState([]);
+
   const getName_HeaderLinks_ = useCallback(() => {
     getName_HeaderLinks(lan).then((res) => {
-      console.log(res.data.data.attributes);
       setLinksNames(res.data.data.attributes);
+    });
+  }, [lan]);
+  const getFooter_ = useCallback(() => {
+    getFooter(lan).then((res) => {
+      setFooterNames(res.data.data.attributes);
+    });
+  }, [lan]);
+  const getSocialMedias_ = useCallback(() => {
+    getSocialMedias(lan).then((res) => {
+      setSocialMedias(res.data.data);
     });
   }, [lan]);
   useEffect(() => {
     getName_HeaderLinks_();
-  }, [getName_HeaderLinks_]);
+    getFooter_();
+    getSocialMedias_();
+  }, [getName_HeaderLinks_, getFooter_, getSocialMedias_]);
 
-  const socialMedia = [
-    {
-      name: "Instagram",
-      link: "",
-    },
-    {
-      name: "Facebook",
-      link: "",
-    },
-    {
-      name: "Linkedin",
-      link: "",
-    },
-  ];
   useEffect(() => {
     if (isAnimationCompleted) {
       setShowContent(true);
@@ -71,18 +60,13 @@ export default function RootLayout({ children, params: { locale } }) {
   }, [isAnimationCompleted]);
   return (
     <div className="bg-primary min-h-screen flex flex-col justify-between ">
-      {/* {!isAnimationCompleted && (
-        <DrawLogoBaytuna
-          animationData={baytuna}
-          onComplete={() => setIsAnimationCompleted(true)}
-        />
-      )} */}
       {!isAnimationCompleted && (
         <div
           className="flex justify-center items-center w-screen h-screen"
           ref={animation}
         />
       )}
+
       {showContent && (
         <>
           <Transition bg="bg-baytuna" />
@@ -90,20 +74,21 @@ export default function RootLayout({ children, params: { locale } }) {
             logo="/img/LogosHeader/logoBaytuna.svg"
             width="80"
             name="baytuna"
-            bg="bg-baytuna"
             hover="hover:bg-baytuna"
             text="text-shockersAEC"
             linksNames={linksNames}
+            Dir={document.dir}
           />
-
           {children}
           <Footer
             width="140"
             name="baytuna"
             logo="/img/LogosFooter/logoBaytunaWhite.svg"
-            nameFooter="BAYTUNA"
             linksNames={linksNames}
-            socialMedia={socialMedia}
+            Dir={document.dir}
+            Lan={locale}
+            data={footerNames}
+            socialMedia={socialMedias}
           />
         </>
       )}

@@ -21,13 +21,11 @@ const DecaHome = ({ params: { locale } }) => {
 
   const getHome_ = useCallback(() => {
     getHome(lan).then((res) => {
-      console.log(res.data.data);
       setData(res.data.data);
     });
   }, [lan]);
   const getServices_ = useCallback(() => {
     getServices(lan).then((res) => {
-      console.log(res.data.data);
       const newServices = res.data.data.map((item, index) => ({
         name: item,
         effect: {
@@ -47,7 +45,6 @@ const DecaHome = ({ params: { locale } }) => {
   }, [lan]);
   const getCategoriesProjects_ = useCallback(() => {
     getCategoriesProjects(lan).then((res) => {
-      console.log(res.data.data);
       setCategoriesProjects(res.data.data);
     });
   }, [lan]);
@@ -77,34 +74,34 @@ const DecaHome = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <Draw_D animationData={D_json} />
-      <SalgonSection titleText={titleText} />
-      <AboutSection
-        link="deca"
-        video="/DecaAboutUs.mp4"
-        title={data?.attributes?.TitleAbout}
-        description={data?.attributes?.DescriptionAbout}
-        textButton={data?.attributes?.TextButton}
-        bg="bg-deca"
-        tc="text-white"
-      />
+      <Draw_D animationData={D_json} delay={500} />
+      <section className="w-full h-full">
+        <SalgonSection titleText={titleText} />
 
-      <ServicesSection
-        services={services}
-        title={data?.attributes?.NameServices}
-        textButton={data?.attributes?.TextButton}
-        link="deca"
-        image={data?.attributes?.ImgServices.data.attributes.url}
-        // image="/"
-        bg="bg-deca"
-        tc="text-white"
-      />
-      <SlideProject
-        title={data?.attributes?.NameProjects}
-        categoriesProjects={categoriesProjects}
-        link="deca"
-        ColorText="text-shockersAEC"
-      />
+        <AboutSection
+          link="deca"
+          videoMobile="/DecaAboutUs.mp4"
+          videoLoptap="/DecaAboutUs.mp4"
+          title={data?.attributes?.TitleAbout}
+          description={data?.attributes?.DescriptionAbout}
+          textButton={data?.attributes?.TextButton}
+          bg="bg-deca"
+          tc="text-white"
+        />
+
+        <ServicesSection
+          services={services}
+          title={data?.attributes?.NameServices}
+          textButton={data?.attributes?.TextButton}
+          link="deca"
+          bg="bg-deca"
+          tc="text-white"
+        />
+        <SlideProject
+          categoriesProjects={categoriesProjects}
+          link="deca"
+        />
+      </section>
     </motion.div>
   );
 };

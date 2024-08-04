@@ -9,3 +9,7 @@ export const getTopAbout = (locale) =>
   axiosClient.get(`/baytuna-top-about?populate=*&locale=${locale}`);
 export const getTopServices = (locale) =>
   axiosClient.get(`/baytuna-top-service?populate=*&locale=${locale}`);
+export const getSocialMedias = (locale) =>
+  axiosClient.get(`/baytuna-social-medias?locale=${locale}`);
+export const getFooter = (locale) =>
+  axiosClient.get(`/baytuna-footer?locale=${locale}`);

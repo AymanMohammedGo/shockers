@@ -25,13 +25,11 @@ const ShockersHome = ({ params: { locale } }) => {
 
   const getHome_ = useCallback(() => {
     getHome(lan).then((res) => {
-      console.log(res.data.data);
       setData(res.data.data);
     });
   }, [lan]);
   const getServices_ = useCallback(() => {
     getServices(lan).then((res) => {
-      console.log(res.data.data);
       const newServices = res.data.data.map((item, index) => ({
         name: item,
         effect: {
@@ -51,7 +49,6 @@ const ShockersHome = ({ params: { locale } }) => {
   }, [lan]);
   const getCategoriesProjects_ = useCallback(() => {
     getCategoriesProjects(lan).then((res) => {
-      console.log(res.data.data);
       setCategoriesProjects(res.data.data);
     });
   }, [lan]);
@@ -101,16 +98,12 @@ const ShockersHome = ({ params: { locale } }) => {
           title={data?.attributes?.NameServices}
           textButton={data?.attributes?.TextButton}
           link="shockersAEC"
-          image={data?.attributes?.ImgServices.data.attributes.url}
-          // image="/"
           bg="bg-white"
           tc="text-shockersAEC"
         />
         <SlideProject
-          title={data?.attributes?.NameProjects}
           categoriesProjects={categoriesProjects}
           link="shockersAEC"
-          ColorText="text-shockersAEC"
         />
       </section>
     </motion.div>

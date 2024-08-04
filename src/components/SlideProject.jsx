@@ -11,12 +11,7 @@ import "swiper/css/free-mode";
 
 import { FreeMode, Navigation } from "swiper/modules";
 
-export default function SlideProject({
-  categoriesProjects,
-  title,
-  link,
-  ColorText,
-}) {
+export default function SlideProject({ categoriesProjects, link }) {
   const swiperRef = useRef(null);
   const isDelay = useRef(false);
   useEffect(() => {

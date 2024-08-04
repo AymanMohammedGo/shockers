@@ -7,7 +7,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { getCategoriesProjects } from "../../../../../utils/ShockersApi";
 import { useCallback, useState, useEffect } from "react";
-
 const Projects = ({ params: { locale, projects } }) => {
   let lan = locale;
   if (locale === "kr") {
@@ -69,17 +68,14 @@ const Projects = ({ params: { locale, projects } }) => {
         </div>
         {project.map((item, index) => (
           <div key={index} className="sticky top-0">
-            <Link href={`/shockersAEC/${projects}/${item.name}`}>
+            <Link href={`/baytuna/${projects}/${item.name}`}>
               <ImageOverlaysCenter title={item.name} />
             </Link>
           </div>
         ))}
 
         <div className="sticky top-0 bg-primary ">
-          <SlideProject
-            categoriesProjects={categoriesProjects}
-            link="shockersAEC"
-          />
+          <SlideProject categoriesProjects={categoriesProjects} link="baytuna" />
         </div>
       </section>
     </motion.div>

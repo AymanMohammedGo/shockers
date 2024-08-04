@@ -22,13 +22,11 @@ const DecaHome = ({ params: { locale } }) => {
 
   const getHome_ = useCallback(() => {
     getHome(lan).then((res) => {
-      console.log(res.data.data);
       setData(res.data.data);
     });
   }, [lan]);
   const getServices_ = useCallback(() => {
     getServices(lan).then((res) => {
-      console.log(res.data.data);
       const newServices = res.data.data.map((item, index) => ({
         name: item,
         effect: {
@@ -48,7 +46,6 @@ const DecaHome = ({ params: { locale } }) => {
   }, [lan]);
   const getCategoriesProjects_ = useCallback(() => {
     getCategoriesProjects(lan).then((res) => {
-      console.log(res.data.data);
       setCategoriesProjects(res.data.data);
     });
   }, [lan]);
@@ -82,34 +79,34 @@ const DecaHome = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <Draw_B animationData={B_json} />
-      <SalgonSection titleText={titleText} />
-      <AboutSection
-        link="baytuna"
-        video="/BaytunaAbout.mp4"
-        title={data?.attributes?.TitleAbout}
-        description={data?.attributes?.DescriptionAbout}
-        textButton={data?.attributes?.TextButton}
-        bg="bg-baytuna"
-        tc="text-white"
-      />
-      <ServicesSection
-        services={services}
-        title={data?.attributes?.NameServices}
-        textButton={data?.attributes?.TextButton}
-        link="baytuna"
-        image={data?.attributes?.ImgServices.data.attributes.url}
-        // image="/"
-        bg="bg-baytuna"
-        tc="text-white"
-      />
+      <Draw_B animationData={B_json} delay={500} />
+      <section className="w-full h-full">
+        <SalgonSection titleText={titleText} />
 
-      <SlideProject
-        title={data?.attributes?.NameProjects}
-        categoriesProjects={categoriesProjects}
-        link="baytuna"
-        ColorText="text-shockersAEC"
-      />
+        <AboutSection
+          link="baytuna"
+          videoMobile="/BaytunaAbout.mp4"
+          videoLoptap="/BaytunaAbout.mp4"
+          title={data?.attributes?.TitleAbout}
+          description={data?.attributes?.DescriptionAbout}
+          textButton={data?.attributes?.TextButton}
+          bg="bg-baytuna"
+          tc="text-white"
+        />
+
+        <ServicesSection
+          services={services}
+          title={data?.attributes?.NameServices}
+          textButton={data?.attributes?.TextButton}
+          link="baytuna"
+          bg="bg-baytuna"
+          tc="text-white"
+        />
+        <SlideProject
+          categoriesProjects={categoriesProjects}
+          link="baytuna"
+        />
+      </section>
     </motion.div>
   );
 };

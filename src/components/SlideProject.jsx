@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 import "swiper/css/navigation";
 import "swiper/css";
@@ -97,14 +98,25 @@ export default function SlideProject({ categoriesProjects, link }) {
             {categoriesProjects?.map((item, index) => (
               <SwiperSlide key={index} className="relative">
                 <Link href={`/${link}/${item?.id}`}>
-                  <Image
-                    className=" object-cover"
-                    src={item?.attributes.imgURL.data?.attributes.url}
-                    fill={true}
-                    alt={item.id}
-                    quality={75}
-                  />
-                  <div className="absolute  inset-0 image-gradient" />
+                  <div className="relative w-full h-full overflow-hidden ">
+                    <motion.div
+                      className="relative w-full h-full"
+                      initial={{ scale: 1 }}
+                      whileHover={{ scale: 1.2 }} // تأثير التكبير عند hover
+                      transition={{
+                        duration: 0.5,
+                      }}
+                    >
+                      <Image
+                        className="object-cover"
+                        src={item?.attributes.imgURL.data?.attributes.url}
+                        layout="fill"
+                        alt={item.id}
+                        quality={75}
+                      />
+                      <div className="absolute  inset-0 image-gradient" />
+                    </motion.div>
+                  </div>
                   <span className="absolute  bottom-0 p-4 text-white text-2xl">
                     {item?.attributes?.title}
                   </span>

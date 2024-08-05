@@ -46,10 +46,10 @@ const ShockersHome = ({ params: { locale } }) => {
       const newServices = res.data.data.map((item, index) => ({
         name: item,
         effect: {
-          hidden: { x: "-100%", opacity: 0 },
+          hidden: { y: "100%", opacity: 0 },
           visible: {
             opacity: 1,
-            x: 0,
+            y: 0,
             transition: {
               duration: 1,
               delay: 0.3 * (index + 1),

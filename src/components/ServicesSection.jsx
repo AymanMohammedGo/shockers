@@ -44,34 +44,67 @@ const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
     <section className="sticky top-0">
       <div className="bg-shockersAEC  w-screen h-screen flex items-center justify-center relative z-10">
         <div className="flex w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
-          <div className=" text-white flex-1 p-2 lg:p-4 flex flex-col items-center justify-center ">
+          <div className=" text-white w-full h-full flex-1 p-2 lg:p-4 flex flex-col items-center justify-center ">
             <motion.h1
               ref={ref1}
               initial="hidden"
               animate={controls1}
               variants={var1}
-              className="text-[55px] sm:text-6xl lg:text-8xl font-bold my-8 "
+              className="text-[55px] sm:text-6xl lg:text-8xl font-bold mb-10 lg:mb-16 xl:mb-20  "
             >
               {title}
             </motion.h1>
-            <ul>
+            <ul className="grid grid-cols-1 lg:grid-cols-3 gap-12 ">
               {services.map((item, index) => (
+                // <motion.li
+                //   key={index}
+                //   ref={ref1}
+                //   initial="hidden"
+                //   animate={controls1}
+                //   variants={item.effect}
+                //   className="flex items-center  mb-7"
+                // >
+                //   <CircleCheckBig className="w-[25px] lg:w-[30px]" />
+                //   <span className="mx-4 w-full text-xl lg:text-2xl xl:text-3xl">
+                //     {item?.name?.attributes?.title}
+                //   </span>
+                // </motion.li>
                 <motion.li
                   key={index}
                   ref={ref1}
                   initial="hidden"
                   animate={controls1}
                   variants={item.effect}
-                  className="flex items-center  mb-7"
+                  className="relative group"
                 >
-                  <CircleCheckBig className="w-[25px] lg:w-[30px]" />
-                  <span className="mx-4 w-full text-xl lg:text-2xl xl:text-3xl">
-                    {item?.name?.attributes?.title}
-                  </span>
+                  <div className="absolute left-0 top-0 h-[20vh] lg:h-[50vh] w-full  border-white border-2 rounded-md "></div>
+                  <Link href="/shockersAEC/services">
+                    <div className="bg-white  -left-4 top-4 h-[20vh] lg:h-[50vh] relative hover:left-0 rounded-md  hover:top-0 hover:bg-shockersAECYellow  p-10 text-center text-shockersAEC flex items-center justify-center transition-all duration-300 ease-in-out">
+                      <span className="relative mx-4 w-full text-xl lg:text-2xl xl:text-3xl group-hover:after:content-[''] group-hover:after:block group-hover:after:absolute group-hover:after:left-1/2 group-hover:after:bottom-0 group-hover:after:-translate-x-1/2 group-hover:after:w-[75%] pb-3 group-hover:after:h-[2px] group-hover:after:bg-shockersAEC transition-all duration-300 ease-in-out">
+                        {item?.name?.attributes?.title}
+                      </span>
+                      <div className="w-[18px] translate-x-6 translate-y-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 absolute right-0 bottom-0 m-6 transition-all duration-300 ease-in-out">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-chevron-right"
+                        >
+                          <path d="m9 18 6-6-6-6" />
+                        </svg>
+                      </div>
+                    </div>
+                  </Link>
                 </motion.li>
               ))}
             </ul>
-            <motion.div
+            {/* <motion.div
               ref={ref1}
               initial="hidden"
               animate={controls1}
@@ -84,24 +117,8 @@ const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
                   {textButton}
                 </Button>
               </Link>
-            </motion.div>
+            </motion.div> */}
           </div>
-          {/* <motion.div
-          initial={{ x: "100%" }}
-          whileInView={{ x: 0 }}
-          transition={{
-            duration: 2,
-          }}
-          className="relative w-screen h-[50vh] xl:h-screen xl:w-[50vw] "
-        >
-          <Image
-            src={image}
-            fill={true}
-            alt="services"
-            quality={100}
-            className="object-cover"
-          />
-        </motion.div> */}
         </div>
       </div>
     </section>

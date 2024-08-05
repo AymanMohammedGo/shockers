@@ -178,17 +178,17 @@ export default function Home({ params: { locale } }) {
                     />
                   </motion.div>
                   <motion.div
-                    initial={{ bottom: 0 }}
+                    initial={{ bottom: 0, opacity: 1 }}
                     animate={
                       hoveredIndex === item.hoverIndex
-                        ? { bottom: 0 }
-                        : { bottom: -65 }
+                        ? { bottom: 0, opacity: 1 }
+                        : { bottom: -65, opacity: 0 }
                     }
                     transition={{
                       duration: 0.5,
                       delay: 0,
                     }}
-                    className={`${item.textColor}  absolute mb-3 font-medium  text-center   text-sm sm:text-lg md:text-2xl xlgl:text-3xl   overflow-hidden`}
+                    className={`${item.textColor}  absolute  font-medium  text-center xl:mb-1 xxl:mb-3  text-sm sm:text-lg md:text-xl xxl:text-2xl xlgl:text-3xl   overflow-hidden`}
                   >
                     {item.textHover}
                   </motion.div>

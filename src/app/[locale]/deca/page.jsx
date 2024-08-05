@@ -44,15 +44,39 @@ const DecaHome = ({ params: { locale } }) => {
       const newServices = res.data.data.map((item, index) => ({
         name: item,
         effect: {
-          hidden: { x: "-100%", opacity: 0 },
-          visible: {
-            opacity: 1,
-            x: 0,
-            transition: {
-              duration: 1,
-              delay: 0.3 * (index + 1),
-            },
-          },
+          hidden:
+            index === 0
+              ? { left: "-100%", opacity: 0 }
+              : index === 1
+              ? { top: "100%", opacity: 0 }
+              : { right: "-100%", opacity: 0 },
+          visible:
+            index === 1
+              ? {
+                  opacity: 1,
+                  top: 0,
+                  transition: {
+                    duration: 1,
+                    delay: 0.3,
+                  },
+                }
+              : index === 0
+              ? {
+                  opacity: 1,
+                  left: 0,
+                  transition: {
+                    duration: 1,
+                    delay: 0.3,
+                  },
+                }
+              : {
+                  opacity: 1,
+                  right: 0,
+                  transition: {
+                    duration: 1,
+                    delay: 0.3,
+                  },
+                },
         },
       }));
       setServices(newServices);
@@ -96,7 +120,7 @@ const DecaHome = ({ params: { locale } }) => {
           textButton={data?.attributes?.TextButton}
           link="deca"
           bg="bg-deca"
-          tc="text-white"
+          tc="text-shockersAEC"
         />
         <SlideProject categoriesProjects={categoriesProjects} link="deca" />
       </section>

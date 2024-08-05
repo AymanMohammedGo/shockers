@@ -47,7 +47,7 @@ const Footer = ({ width, name, logo, socialMedia, data }) => {
                   <span className="text-base px-2">{data?.CityAddress}</span>
                 </li>
                 <li className="my-2 flex items-center justify-center lg:justify-start">
-                  <svg
+                  {/* <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
                     height="20"
@@ -63,8 +63,8 @@ const Footer = ({ width, name, logo, socialMedia, data }) => {
                     <path d="M18 10a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 .601.2" />
                     <path d="M18 22v-3" />
                     <circle cx="10" cy="10" r="3" />
-                  </svg>
-                  <span className="text-base px-2">
+                  </svg> */}
+                  <span className="text-base px-[28px]">
                     {data?.DetailedAddress}
                   </span>
                 </li>

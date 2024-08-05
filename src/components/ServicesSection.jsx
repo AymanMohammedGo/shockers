@@ -43,8 +43,8 @@ const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
   return (
     <section className="sticky top-0">
       <div className="bg-shockersAEC  w-screen h-screen flex items-center justify-center relative z-10">
-        <div className="flex w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
-          <div className=" text-white w-full h-full flex-1 p-2 lg:p-4 flex flex-col items-center justify-center ">
+        <div className="flex  w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
+          <div className=" text-white w-full h-full flex-1 p-7  flex flex-col items-center justify-center ">
             <motion.h1
               ref={ref1}
               initial="hidden"
@@ -54,21 +54,8 @@ const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
             >
               {title}
             </motion.h1>
-            <ul className="grid grid-cols-1 lg:grid-cols-3 gap-12 ">
+            <ul className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 ">
               {services.map((item, index) => (
-                // <motion.li
-                //   key={index}
-                //   ref={ref1}
-                //   initial="hidden"
-                //   animate={controls1}
-                //   variants={item.effect}
-                //   className="flex items-center  mb-7"
-                // >
-                //   <CircleCheckBig className="w-[25px] lg:w-[30px]" />
-                //   <span className="mx-4 w-full text-xl lg:text-2xl xl:text-3xl">
-                //     {item?.name?.attributes?.title}
-                //   </span>
-                // </motion.li>
                 <motion.li
                   key={index}
                   ref={ref1}
@@ -77,10 +64,14 @@ const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
                   variants={item.effect}
                   className="relative group"
                 >
-                  <div className="absolute left-0 top-0 h-[20vh] lg:h-[50vh] w-full  border-white border-2 rounded-md "></div>
+                  <div className="absolute left-0 top-0 h-[15vh] md:h-[20vh] lg:h-[60vh] w-full  border-white border-2 rounded-md "></div>
                   <Link href="/shockersAEC/services">
-                    <div className="bg-white  -left-4 top-4 h-[20vh] lg:h-[50vh] relative hover:left-0 rounded-md  hover:top-0 hover:bg-shockersAECYellow  p-10 text-center text-shockersAEC flex items-center justify-center transition-all duration-300 ease-in-out">
-                      <span className="relative mx-4 w-full text-xl lg:text-2xl xl:text-3xl group-hover:after:content-[''] group-hover:after:block group-hover:after:absolute group-hover:after:left-1/2 group-hover:after:bottom-0 group-hover:after:-translate-x-1/2 group-hover:after:w-[75%] pb-3 group-hover:after:h-[2px] group-hover:after:bg-shockersAEC transition-all duration-300 ease-in-out">
+                    <div
+                      className={`bg-white  -left-4 top-4 h-[15vh] md:h-[20vh] lg:h-[60vh] relative hover:left-0 rounded-md  hover:top-0 hover:${bg}  p-2 text-center ${tc} flex items-center justify-center transition-all duration-300 ease-in-out`}
+                    >
+                      <span
+                        className={`relative  w-full text-xl lg:text-2xl xl:text-3xl group-hover:after:content-[''] group-hover:after:block group-hover:after:absolute group-hover:after:left-1/2 group-hover:after:bottom-0 group-hover:after:-translate-x-1/2 group-hover:after:w-[75%] pb-3 group-hover:after:h-[2px] group-hover:after:bg-shockersAEC transition-all duration-300 ease-in-out`}
+                      >
                         {item?.name?.attributes?.title}
                       </span>
                       <div className="w-[18px] translate-x-6 translate-y-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 absolute right-0 bottom-0 m-6 transition-all duration-300 ease-in-out">
@@ -104,20 +95,6 @@ const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
                 </motion.li>
               ))}
             </ul>
-            {/* <motion.div
-              ref={ref1}
-              initial="hidden"
-              animate={controls1}
-              variants={var5}
-            >
-              <Link href={`/${link}/services`}>
-                <Button
-                  className={`${bg} w-fit ${tc} hover:bg-shockersAEC hover:text-white hover:outline text-base my-8`}
-                >
-                  {textButton}
-                </Button>
-              </Link>
-            </motion.div> */}
           </div>
         </div>
       </div>

@@ -46,15 +46,39 @@ const ShockersHome = ({ params: { locale } }) => {
       const newServices = res.data.data.map((item, index) => ({
         name: item,
         effect: {
-          hidden: { y: "100%", opacity: 0 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-              duration: 1,
-              delay: 0.3 * (index + 1),
-            },
-          },
+          hidden:
+            index === 0
+              ? { left: "-100%", opacity: 0 }
+              : index === 1
+              ? { top: "100%", opacity: 0 }
+              : { right: "-100%", opacity: 0 },
+          visible:
+            index === 1
+              ? {
+                  opacity: 1,
+                  top: 0,
+                  transition: {
+                    duration: 1,
+                    delay: 0.3,
+                  },
+                }
+              : index === 0
+              ? {
+                  opacity: 1,
+                  left: 0,
+                  transition: {
+                    duration: 1,
+                    delay: 0.3,
+                  },
+                }
+              : {
+                  opacity: 1,
+                  right: 0,
+                  transition: {
+                    duration: 1,
+                    delay: 0.3,
+                  },
+                },
         },
       }));
       setServices(newServices);
@@ -97,7 +121,7 @@ const ShockersHome = ({ params: { locale } }) => {
           title={data?.attributes?.NameServices}
           textButton={data?.attributes?.TextButton}
           link="shockersAEC"
-          bg="bg-white"
+          bg="bg-shockersAECYellow"
           tc="text-shockersAEC"
         />
         <SlideProject

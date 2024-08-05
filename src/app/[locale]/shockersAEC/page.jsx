@@ -121,7 +121,7 @@ const ShockersHome = ({ params: { locale } }) => {
           title={data?.attributes?.NameServices}
           textButton={data?.attributes?.TextButton}
           link="shockersAEC"
-          bg="bg-shockersAECYellow"
+          bg="bg-Hover-gradient"
           tc="text-shockersAEC"
         />
         <SlideProject

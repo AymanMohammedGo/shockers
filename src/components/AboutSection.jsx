@@ -79,7 +79,8 @@ const AboutSection = ({
         <source src={videoMobile} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="absolute left-0 top-0 w-screen h-screen bg-black bg-opacity-50"></div>
+      <div className="absolute inset-0 flex items-center justify-center ">
         <div className="max-w-screen-xxl w-full h-full relative overflow-hidden">
           <div className="flex w-full flex-col items-center lg:items-start justify-center absolute bottom-10 p-2 lg:px-14 ">
             <motion.h1

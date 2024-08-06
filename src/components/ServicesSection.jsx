@@ -19,7 +19,17 @@ const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
       },
     },
   };
-
+  const var2 = {
+    hidden: { y: "100%", opacity: 0 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        delay: 0,
+      },
+    },
+  };
   const var5 = {
     hidden: { opacity: 0 },
     visible: {
@@ -59,10 +69,12 @@ const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
                 {services.map((item, index) => (
                   <motion.li
                     key={index}
-                    ref={ref1}
-                    initial="hidden"
-                    animate={controls1}
-                    variants={item.effect}
+                    initial={{ opacity: 1, y: "100%" }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 1,
+                      delay: 0,
+                    }}
                     className="relative "
                   >
                     <div className="absolute left-0 top-0 h-[15vh] md:h-[20vh] lg:h-[60vh] w-full border-white border-2 "></div>

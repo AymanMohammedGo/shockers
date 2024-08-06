@@ -51,14 +51,8 @@ export default function SlideProject({ categoriesProjects, link }) {
   }, []);
 
   return (
-    <div id="projects">
-      <div className="sticky top-0 w-screen h-screen flex flex-col bg-primary ">
-        {/* <h2
-        id="projects"
-        className={`font-bold overflow-hidden   ${ColorText}  w-fit px-4 py-3 z-0 text-3xl  lg:text-4xl  mx-auto mt-6 mb-[16px]`}
-      >
-        {title}
-      </h2> */}
+    <div id="projects" className="sticky top-0   bg-primary ">
+      <div className="flex flex-col  w-screen h-screen">
         <div className="flex-grow my-5 md:my-10 lg:my-20">
           <Swiper
             className="w-full h-full  "

@@ -54,7 +54,7 @@ const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
             >
               {title}
             </motion.h1>
-            <ul className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 max-w-screen-xl lg:w-full ">
+            <ul className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 xl:gap-20 xlgl:gap-40 max-w-screen-xlgl lg:w-full ">
               {services.map((item, index) => (
                 <motion.li
                   key={index}
@@ -62,15 +62,15 @@ const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
                   initial="hidden"
                   animate={controls1}
                   variants={item.effect}
-                  className="relative group"
+                  className="relative "
                 >
-                  <div className="absolute left-0 top-0 h-[15vh] md:h-[20vh] lg:h-[60vh] w-full border-white border-2 rounded-md"></div>
+                  <div className="absolute left-0 top-0 h-[15vh] md:h-[20vh] lg:h-[60vh] w-full border-white border-2 "></div>
                   <Link href="/shockersAEC/services">
                     <div
-                      className={`bg-gradient -translate-x-4 translate-y-4 h-[15vh] md:h-[20vh] lg:h-[60vh] relative hover:translate-x-0 hover:translate-y-0 rounded-md ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
+                      className={`bg-gradient group -translate-x-4 translate-y-4 h-[15vh] md:h-[20vh] lg:h-[60vh] relative hover:translate-x-0 hover:translate-y-0  ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
                     >
                       <span
-                        className={`relative font-medium w-full text-xl lg:min-w-[250px] lg:text-2xl xl:text-3xl group-hover:after:content-[''] group-hover:after:block group-hover:after:absolute group-hover:after:left-1/2 group-hover:after:bottom-0 group-hover:after:-translate-x-1/2 group-hover:after:w-[40%] pb-3 group-hover:after:h-[2px] group-hover:after:bg-shockersAEC transition-all duration-300 ease-in-out`}
+                        className={`relative font-medium w-full text-xl lg:text-2xl xl:text-3xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-shockersAEC after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-[40%]`}
                       >
                         {item?.name?.attributes?.title}
                       </span>

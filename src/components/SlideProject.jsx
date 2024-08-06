@@ -117,7 +117,7 @@ export default function SlideProject({ categoriesProjects, link }) {
                       <div className="absolute  inset-0 image-gradient" />
                     </motion.div>
                   </div>
-                  <span className="absolute  bottom-0 p-4 text-white text-2xl">
+                  <span className="absolute text-center w-full  bottom-0 p-4 text-white text-2xl">
                     {item?.attributes?.title}
                   </span>
                 </Link>

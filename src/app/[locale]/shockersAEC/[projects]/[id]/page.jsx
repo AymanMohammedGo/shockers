@@ -1,9 +1,25 @@
 "use client";
+import SlideProject from "@/components/SlideProject";
 import ImageTitleProject from "@/components/ImageTitleProject";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { getCategoriesProjects } from "../../../../../../utils/ShockersApi";
+import { useCallback, useState, useEffect } from "react";
+const SubProject = ({ params: { locale } }) => {
+  let lan = locale;
+  if (locale === "kr") {
+    lan = "af";
+  }
+  const [categoriesProjects, setCategoriesProjects] = useState([]);
 
-const SubProject = ({ params }) => {
+  const getCategoriesProjects_ = useCallback(() => {
+    getCategoriesProjects(lan).then((res) => {
+      setCategoriesProjects(res.data.data);
+    });
+  }, [lan]);
+  useEffect(() => {
+    getCategoriesProjects_();
+  }, [getCategoriesProjects_]);
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -55,6 +71,12 @@ const SubProject = ({ params }) => {
           />
           <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
         </div>
+      </div>
+      <div className="sticky top-0 bg-primary ">
+        <SlideProject
+          categoriesProjects={categoriesProjects}
+          link="shockersAEC"
+        />
       </div>
     </motion.div>
   );

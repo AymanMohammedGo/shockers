@@ -1,28 +1,13 @@
 "use client";
 import ImageOverlaysCenter from "@/components/ImageOverlaysCenter";
-import SlideProject from "@/components/SlideProject";
 import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/Motion/S.json";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { getCategoriesProjects } from "../../../../../utils/ShockersApi";
-import { useCallback, useState, useEffect } from "react";
+
 
 const Projects = ({ params: { locale, projects } }) => {
-  let lan = locale;
-  if (locale === "kr") {
-    lan = "af";
-  }
-  const [categoriesProjects, setCategoriesProjects] = useState([]);
 
-  const getCategoriesProjects_ = useCallback(() => {
-    getCategoriesProjects(lan).then((res) => {
-      setCategoriesProjects(res.data.data);
-    });
-  }, [lan]);
-  useEffect(() => {
-    getCategoriesProjects_();
-  }, [getCategoriesProjects_]);
   const project = [
     {
       name: `${projects} 1`,
@@ -75,12 +60,7 @@ const Projects = ({ params: { locale, projects } }) => {
           </div>
         ))}
 
-        <div className="sticky top-0 bg-primary ">
-          <SlideProject
-            categoriesProjects={categoriesProjects}
-            link="shockersAEC"
-          />
-        </div>
+       
       </section>
     </motion.div>
   );

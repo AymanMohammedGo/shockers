@@ -51,7 +51,7 @@ export default function SlideProject({ categoriesProjects, link }) {
   }, []);
 
   return (
-    <div id="projects" className="sticky top-0 py-6  bg-primary ">
+    <div id="projects" className="sticky top-0 xl:py-6  bg-primary ">
       <div className=" w-screen h-screen">
         <div className="flex flex-col w-full h-full">
           <div className="flex-grow my-5 md:my-10 lg:my-20">

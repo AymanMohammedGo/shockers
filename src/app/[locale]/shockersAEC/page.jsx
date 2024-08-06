@@ -83,8 +83,8 @@ const ShockersHome = ({ params: { locale } }) => {
 
         <AboutSection
           link="shockersAEC"
-          videoMobile="/ShockersAECwebsiteVideoMobile.mp4"
-          videoLoptap="/ShockersAECwebsiteVideoLaptop.mp4"
+          videoMobile="/ShockersAECAboutUs.mp4"
+          videoLoptap="/ShockersAECAboutUs.mp4"
           title={data?.attributes?.TitleAbout}
           description={data?.attributes?.DescriptionAbout}
           textButton={data?.attributes?.TextButton}

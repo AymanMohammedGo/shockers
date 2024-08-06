@@ -51,72 +51,74 @@ export default function SlideProject({ categoriesProjects, link }) {
   }, []);
 
   return (
-    <div id="projects" className="sticky top-0   bg-primary ">
-      <div className="flex flex-col  w-screen h-screen">
-        <div className="flex-grow my-5 md:my-10 lg:my-20">
-          <Swiper
-            className="w-full h-full  "
-            ref={swiperRef}
-            slidesPerView={1.1}
-            spaceBetween={10}
-            freeMode={true}
-            modules={[FreeMode]}
-            breakpoints={{
-              600: {
-                slidesPerView: 1.5,
-                spaceBetween: 10,
-              },
-              768: {
-                slidesPerView: 2.5,
-                spaceBetween: 10,
-              },
-              1024: {
-                slidesPerView: 3.5,
-                spaceBetween: 10,
-              },
-              1400: {
-                slidesPerView: 4.5,
-                spaceBetween: 10,
-              },
-              1705: {
-                slidesPerView: 5.5,
-                spaceBetween: 10,
-              },
-              2000: {
-                slidesPerView: 6.5,
-                spaceBetween: 10,
-              },
-            }}
-          >
-            {categoriesProjects?.map((item, index) => (
-              <SwiperSlide key={index} className="relative">
-                <Link href={`/${link}/${item?.id}`}>
-                  <div className="relative w-full h-full overflow-hidden ">
-                    <motion.div
-                      className="relative w-full h-full"
-                      initial={{ scale: 1 }}
-                      whileHover={{ scale: 1.2 }} // تأثير التكبير عند hover
-                      transition={{
-                        duration: 0.5,
-                      }}
-                    >
-                      <Image
-                        className="object-cover"
-                        src={item?.attributes.imgURL.data?.attributes.url}
-                        layout="fill"
-                        alt={item.id}
-                        quality={75}
-                      />
-                      <div className="absolute  inset-0 image-gradient" />
-                    </motion.div>
-                  </div>
-                  <span className="absolute text-center w-full  bottom-0 p-4 text-white text-2xl">
-                    {item?.attributes?.title}
-                  </span>
-                </Link>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+    <div id="projects" className="sticky top-0 py-6  bg-primary ">
+      <div className=" w-screen h-screen">
+        <div className="flex flex-col w-full h-full">
+          <div className="flex-grow my-5 md:my-10 lg:my-20">
+            <Swiper
+              className="w-full h-full  "
+              ref={swiperRef}
+              slidesPerView={1.1}
+              spaceBetween={10}
+              freeMode={true}
+              modules={[FreeMode]}
+              breakpoints={{
+                600: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 10,
+                },
+                768: {
+                  slidesPerView: 2.5,
+                  spaceBetween: 10,
+                },
+                1024: {
+                  slidesPerView: 3.5,
+                  spaceBetween: 10,
+                },
+                1400: {
+                  slidesPerView: 4.5,
+                  spaceBetween: 10,
+                },
+                1705: {
+                  slidesPerView: 5.5,
+                  spaceBetween: 10,
+                },
+                2000: {
+                  slidesPerView: 6.5,
+                  spaceBetween: 10,
+                },
+              }}
+            >
+              {categoriesProjects?.map((item, index) => (
+                <SwiperSlide key={index} className="relative">
+                  <Link href={`/${link}/${item?.id}`}>
+                    <div className="relative w-full h-full overflow-hidden ">
+                      <motion.div
+                        className="relative w-full h-full"
+                        initial={{ scale: 1 }}
+                        whileHover={{ scale: 1.2 }} // تأثير التكبير عند hover
+                        transition={{
+                          duration: 0.5,
+                        }}
+                      >
+                        <Image
+                          className="object-cover"
+                          src={item?.attributes.imgURL.data?.attributes.url}
+                          layout="fill"
+                          alt={item.id}
+                          quality={75}
+                        />
+                        <div className="absolute  inset-0 image-gradient" />
+                      </motion.div>
+                    </div>
+                    <span className="absolute text-center w-full  bottom-0 p-4 text-white text-2xl">
+                      {item?.attributes?.title}
+                    </span>
+                  </Link>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </div>
     </div>

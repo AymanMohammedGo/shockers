@@ -17,7 +17,7 @@ export default function RootLayout({ children, params: { locale } }) {
       renderer: "svg",
       loop: false,
       autoplay: true,
-      path: "/Motion/shockersAEC.json",
+      path: "/Motion/Deca.json",
     });
     anim.addEventListener("complete", () => {
       setIsAnimationCompleted(true);

@@ -85,7 +85,7 @@ html {
 }
 ::-webkit-scrollbar {
   width: 10px;
-  display: none;
+  display: block;
 }
 ::-webkit-scrollbar-thumb {
   background: #fbce12;

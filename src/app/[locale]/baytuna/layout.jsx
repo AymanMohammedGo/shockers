@@ -66,7 +66,6 @@ export default function RootLayout({ children, params: { locale } }) {
           ref={animation}
         />
       )}
-
       {showContent && (
         <>
           <Transition bg="bg-baytuna" />
@@ -84,7 +83,6 @@ export default function RootLayout({ children, params: { locale } }) {
             width="140"
             name="baytuna"
             logo="/img/LogosFooter/logoBaytunaWhite.svg"
-           
             data={footerNames}
             socialMedia={socialMedias}
           />

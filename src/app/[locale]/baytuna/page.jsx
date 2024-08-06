@@ -106,7 +106,7 @@ const DecaHome = ({ params: { locale } }) => {
 
         <AboutSection
           link="baytuna"
-          videoMobile="/BaytunaAbout.mp4"
+          videoMobile="/BaytunaMobile.mp4"
           videoLoptap="/BaytunaAbout.mp4"
           title={data?.attributes?.TitleAbout}
           description={data?.attributes?.DescriptionAbout}

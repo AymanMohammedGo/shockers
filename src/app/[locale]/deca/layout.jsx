@@ -60,7 +60,7 @@ export default function RootLayout({ children, params: { locale } }) {
     }
   }, [isAnimationCompleted]);
   return (
-    <div className="bg-primary min-h-screen flex flex-col justify-between ">
+    <div className="bg-primary min-h-screen  flex flex-col justify-between ">
       {!isAnimationCompleted && (
         <div
           className="flex justify-center items-center w-screen h-screen"

@@ -5,9 +5,7 @@ import S_json from "/public/Motion/S.json";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-
 const Projects = ({ params: { locale, projects } }) => {
-
   const project = [
     {
       name: `${projects} 1`,
@@ -35,7 +33,7 @@ const Projects = ({ params: { locale, projects } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <Draw_S animationData={S_json} delay={500} />
+      <Draw_S speed={4} animationData={S_json} />
       <section className="w-full h-full">
         <div className="h-screen sticky top-0">
           <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
@@ -44,7 +42,7 @@ const Projects = ({ params: { locale, projects } }) => {
               animate={{ x: 0, opacity: 1 }}
               transition={{
                 duration: 2,
-                delay: 2,
+                delay: 0.3,
               }}
               className="w-[96%] absolute bottom-14 text-6xl md:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12 text-seconds"
             >
@@ -59,8 +57,6 @@ const Projects = ({ params: { locale, projects } }) => {
             </Link>
           </div>
         ))}
-
-       
       </section>
     </motion.div>
   );

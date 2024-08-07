@@ -77,9 +77,9 @@ const ShockersHome = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <Draw_S animationData={S_json} delay={500} />
+      <Draw_S animationData={S_json} delay={500} speed={0.4} />
       <section className="w-full h-full">
-        <SalgonSection titleText={solgan} dir={document.dir}/>
+        <SalgonSection titleText={solgan} dir={document.dir} />
 
         <AboutSection
           link="shockersAEC"

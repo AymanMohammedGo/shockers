@@ -28,7 +28,7 @@ const ScrollToTopButton = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="p-3 rounded-full bg-shockersAECYellow text-shockersAEC shadow-lg transition-transform transform hover:scale-110 focus:outline-none focus:ring-2 focus:text-shockersAEC"
+          className="p-3 rounded-full   text-white  bg-white/10  shadow-2xl   transition-transform transform hover:scale-110 focus:outline-none focus:ring-2 focus:text-shockersAEC"
           style={{ transition: "transform 0.2s ease-in-out" }}
         >
           <svg
@@ -41,7 +41,7 @@ const ScrollToTopButton = () => {
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            class="lucide lucide-circle-arrow-up"
+            className="lucide lucide-circle-arrow-up"
           >
             <circle cx="12" cy="12" r="10" />
             <path d="m16 12-4-4-4 4" />

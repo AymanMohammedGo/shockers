@@ -77,13 +77,13 @@ const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
                     }}
                     className="relative "
                   >
-                    <div className="absolute left-0 top-0 h-[15vh] md:h-[20vh] lg:h-[60vh] w-full border-white border-2 "></div>
+                    <div className="absolute left-0 top-0 h-[15vh] w-[90vw] md:h-[20vh] lg:h-[60vh] lg:w-full border-white border-2 "></div>
                     <Link href="/shockersAEC/services">
                       <div
-                        className={`bg-gradient group -translate-x-4 translate-y-4 h-[15vh] md:h-[20vh] lg:h-[60vh] relative hover:translate-x-0 hover:translate-y-0  ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
+                        className={`bg-gradient group -translate-x-4 translate-y-4 h-[15vh] w-[90vw] lg:w-full md:h-[20vh] lg:h-[60vh] relative hover:translate-x-0 hover:translate-y-0  ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
                       >
                         <span
-                          className={`relative font-medium w-full text-xl lg:text-2xl xl:text-3xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-shockersAEC after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-[40%]`}
+                          className={`relative font-medium w-full text-xl lg:text-2xl xl:text-3xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-shockersAEC after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out group-hover:after:w-[40%]`}
                         >
                           {item?.name?.attributes?.title}
                         </span>

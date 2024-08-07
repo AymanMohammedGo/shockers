@@ -80,7 +80,7 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
             } w-full md:block md:w-auto`}
           >
             <ul
-              className={`font-medium flex flex-col pt-4 md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 `}
+              className={`font-medium flex flex-col pt-4 md:p-0 md:flex-row md:space-x-7 rtl:space-x-reverse md:mt-0 `}
             >
               {Url.map((item, index) => (
                 <li key={index}>

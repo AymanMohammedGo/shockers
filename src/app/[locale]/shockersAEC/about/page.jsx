@@ -30,7 +30,7 @@ const About = ({ params: { locale } }) => {
     getTopAbout_();
   }, [getAboutUS_, getTopAbout_]);
   const { scrollYProgress } = useScroll();
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "110%"]);
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "105%"]);
 
   return (
     <motion.div
@@ -61,7 +61,7 @@ const About = ({ params: { locale } }) => {
               {/* <div className="absolute top-0 h-screen left-[calc(100px + 10px)] w-[5px] bg-shockersAEC"></div> */}
 
               {/*الخط السابق*/}
-              <div className="flex items-center absolute top-[60px] ">
+              <div className="flex items-center absolute top-[0px] ">
                 <motion.div
                   initial={{
                     x: "-100%",
@@ -90,7 +90,7 @@ const About = ({ params: { locale } }) => {
                   {data[index - 1]?.attributes.title}
                 </motion.span>
               </div>
-              <div className="flex items-center absolute bottom-[60px] ">
+              <div className="flex items-center absolute bottom-[0px] ">
                 <motion.div
                   initial={{
                     x: "-100%",

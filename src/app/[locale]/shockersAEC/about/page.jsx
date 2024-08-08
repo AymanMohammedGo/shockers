@@ -31,7 +31,7 @@ const About = ({ params: { locale } }) => {
     getTopAbout_();
   }, [getAboutUS_, getTopAbout_]);
   const { scrollYProgress } = useScroll();
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "110%"]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const sectionRefs = useRef([]);
 

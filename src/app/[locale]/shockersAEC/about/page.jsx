@@ -54,14 +54,14 @@ const About = ({ params: { locale } }) => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="   px-4 h-screen my-[80vh]    text-shockersAEC flex flex-col items-start"
+            className="   px-4 h-screen my-10 md:my-[80vh]    text-shockersAEC flex flex-col items-start"
           >
             <div className="relative  max-w-screen-xxl m-auto  flex flex-col items-start overflow-hidden">
               {/* الخط العمودي */}
               {/* <div className="absolute top-0 h-screen left-[calc(100px + 10px)] w-[5px] bg-shockersAEC"></div> */}
 
               {/*الخط السابق*/}
-              <div className="flex items-center absolute top-[0px] ">
+              <div className="hidden md:flex items-center absolute top-[0px] ">
                 <motion.div
                   initial={{
                     x: "-100%",
@@ -90,7 +90,7 @@ const About = ({ params: { locale } }) => {
                   {data[index - 1]?.attributes.title}
                 </motion.span>
               </div>
-              <div className="flex items-center absolute bottom-[0px] ">
+              <div className="hidden md:flex items-center absolute bottom-[0px] ">
                 <motion.div
                   initial={{
                     x: "-100%",

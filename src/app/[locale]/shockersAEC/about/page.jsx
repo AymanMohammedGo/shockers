@@ -98,8 +98,9 @@ const About = ({ params: { locale } }) => {
               {/*الخط السابق*/}
               {data[index - 1] && (
                 <div
-                  style={{ display: index === currentIndex ? "flex" : "none" }}
-                  className="hidden md:flex items-center absolute top-[40px] "
+                  className={`${
+                    index === currentIndex && "md:flex"
+                  } hidden  items-center absolute top-[40px] `}
                 >
                   <motion.div
                     initial={{
@@ -132,8 +133,9 @@ const About = ({ params: { locale } }) => {
               )}
               {data[index + 1] && (
                 <div
-                  style={{ display: index === currentIndex ? "flex" : "none" }}
-                  className="hidden md:flex items-center absolute bottom-[40px] "
+                  className={`${
+                    index === currentIndex && "md:flex"
+                  } hidden  items-center absolute bottom-[40px] `}
                 >
                   <motion.div
                     initial={{
@@ -180,7 +182,7 @@ const About = ({ params: { locale } }) => {
                     }}
                     className="relative flex items-center"
                   >
-                    <div className="w-[50px] lg:w-[100px] h-[5px] bg-shockersAEC"></div>
+                    <div className="w-0 md:w-[50px] lg:w-[100px] h-[5px] bg-shockersAEC"></div>
                     <div className="w-[20px] h-[20px] rounded-full bg-shockersAEC -ml-[10px]"></div>
                   </motion.div>
                   {/* العنوان */}
@@ -208,7 +210,7 @@ const About = ({ params: { locale } }) => {
                   transition={{
                     duration: 1,
                   }}
-                  className="ml-[78px] text-shockersAEC lg:ml-[130px] text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10 text-justify"
+                  className="ml-[26px] md:ml-[78px] text-shockersAEC lg:ml-[130px] text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10 text-justify"
                 >
                   {item?.attributes.description}
                 </motion.p>

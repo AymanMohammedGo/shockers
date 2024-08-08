@@ -39,14 +39,24 @@ const Services = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <Draw_S speed={4} animationData={S_json} />
+      <Draw_S animationData={S_json} />
       <ImageOverlaysTop
         title={selectedService?.attributes?.title}
         imgURL={topServices?.attributes?.imgURL.data?.attributes.url}
       />
 
       <div className="flex flex-col items-center justify-center md:flex-row min-h-screen lg:py-5 max-w-screen-xxl m-auto relative z-10">
-        <div className="w-full md:w-1/3 p-2  pt-8 md:p-4">
+        <motion.div
+          initial={{
+            x: "-100%",
+            opacity: 0,
+          }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 1,
+          }}
+          className="w-full md:w-1/3 p-2  pt-8 md:p-4"
+        >
           <ul className="space-y-2">
             {data.map((service, index) => (
               <li
@@ -67,12 +77,22 @@ const Services = ({ params: { locale } }) => {
               </li>
             ))}
           </ul>
-        </div>
-        <div className="md:w-2/3 p-2 md:p-4">
+        </motion.div>
+        <motion.div
+          initial={{
+            x: "100%",
+            opacity: 0,
+          }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 1,
+          }}
+          className="md:w-2/3 p-2 md:p-4"
+        >
           <p className="mb-6 text-xl lg:text-2xl !leading-[50px]  py-4 px-4 lg:px-10 text-justify">
             {selectedService?.attributes?.description}
           </p>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );

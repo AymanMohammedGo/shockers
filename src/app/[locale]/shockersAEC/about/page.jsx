@@ -7,6 +7,7 @@ import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/Motion/S.json";
 import { getAboutUS, getTopAbout } from "../../../../../utils/ShockersApi";
 import { useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const About = ({ params: { locale } }) => {
   let lan = locale;
@@ -30,8 +31,38 @@ const About = ({ params: { locale } }) => {
     getTopAbout_();
   }, [getAboutUS_, getTopAbout_]);
   const { scrollYProgress } = useScroll();
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "105%"]);
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const sectionRefs = useRef([]);
 
+  // إنشاء Intersection Observer
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5, // نسبة الرؤية التي تعتبر بأنها مرئية
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = sectionRefs.current.indexOf(entry.target);
+          if (index !== -1) {
+            setCurrentIndex(index);
+          }
+        }
+      });
+    }, options);
+
+    sectionRefs.current.forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
+    return () => {
+      observer.disconnect();
+    };
+  }, [data]);
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -48,77 +79,91 @@ const About = ({ params: { locale } }) => {
         <div className="max-w-screen-xxl px-4 xxl:px-0 h-full m-auto">
           <motion.div
             style={{ height: lineHeight }}
-            className="absolute  top-0 left-[calc(100px + 10px)] w-[5px] bg-shockersAEC"
+            className="absolute  top-[45.5vh] left-[calc(100px + 10px)] w-[5px] bg-shockersAEC"
           />
         </div>
         {data.map((item, index) => (
           <div
             key={index}
-            className="   px-4 h-screen my-10 md:my-[80vh]    text-shockersAEC flex flex-col items-start"
+            ref={(el) => (sectionRefs.current[index] = el)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: index === currentIndex ? 1 : 0 }}
+            transition={{ duration: 0.5 }}
+            className="px-4 h-screen text-shockersAEC flex flex-col items-start"
           >
             <div className="relative  max-w-screen-xxl m-auto  flex flex-col items-start overflow-hidden">
               {/* الخط العمودي */}
               {/* <div className="absolute top-0 h-screen left-[calc(100px + 10px)] w-[5px] bg-shockersAEC"></div> */}
 
               {/*الخط السابق*/}
-              <div className="hidden md:flex items-center absolute top-[0px] ">
-                <motion.div
-                  initial={{
-                    x: "-100%",
-                    opacity: 0,
-                  }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  transition={{
-                    duration: 1,
-                  }}
-                  className="flex items-center"
+              {data[index - 1] && (
+                <div
+                  style={{ display: index === currentIndex ? "flex" : "none" }}
+                  className="hidden md:flex items-center absolute top-[40px] "
                 >
-                  <div className=" w-[50px] lg:w-[100px] h-[5px] bg-shockersAEC/10 "></div>
-                  <div className="w-[20px] h-[20px] rounded-full bg-shockersAEC/10 -ml-[1px]"></div>
-                </motion.div>
-                <motion.span
-                  initial={{
-                    x: "100%",
-                    opacity: 0,
-                  }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  transition={{
-                    duration: 1,
-                  }}
-                  className="ml-3 flex-1 text-shockersAEC/10  w-full font-bold text-3xl md:text-4xl lg:text-5xl !leading-[50px] lg:!leading-[70px]"
+                  <motion.div
+                    initial={{
+                      x: "-100%",
+                      opacity: 0,
+                    }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                    }}
+                    className="flex items-center"
+                  >
+                    <div className=" w-[50px] lg:w-[100px] h-[5px] bg-shockersAEC/10 "></div>
+                    <div className="w-[20px] h-[20px] rounded-full bg-shockersAEC/10 -ml-[1px]"></div>
+                  </motion.div>
+                  <motion.span
+                    initial={{
+                      x: "100%",
+                      opacity: 0,
+                    }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                    }}
+                    className="ml-3 flex-1 text-shockersAEC/10  w-full font-bold text-3xl md:text-4xl lg:text-5xl !leading-[50px] lg:!leading-[70px]"
+                  >
+                    {data[index - 1]?.attributes.title}
+                  </motion.span>
+                </div>
+              )}
+              {data[index + 1] && (
+                <div
+                  style={{ display: index === currentIndex ? "flex" : "none" }}
+                  className="hidden md:flex items-center absolute bottom-[40px] "
                 >
-                  {data[index - 1]?.attributes.title}
-                </motion.span>
-              </div>
-              <div className="hidden md:flex items-center absolute bottom-[0px] ">
-                <motion.div
-                  initial={{
-                    x: "-100%",
-                    opacity: 0,
-                  }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  transition={{
-                    duration: 1,
-                  }}
-                  className="flex items-center"
-                >
-                  <div className=" w-[50px] lg:w-[100px] h-[5px] bg-shockersAEC/10 "></div>
-                  <div className="w-[20px] h-[20px] rounded-full bg-shockersAEC/10 -ml-[1px]"></div>
-                </motion.div>
-                <motion.span
-                  initial={{
-                    x: "100%",
-                    opacity: 0,
-                  }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  transition={{
-                    duration: 1,
-                  }}
-                  className="ml-3 flex-1 text-shockersAEC/10  w-full font-bold text-3xl md:text-4xl lg:text-5xl !leading-[50px] lg:!leading-[70px]"
-                >
-                  {data[index + 1]?.attributes.title}
-                </motion.span>
-              </div>
+                  <motion.div
+                    initial={{
+                      x: "-100%",
+                      opacity: 0,
+                    }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                    }}
+                    className="flex items-center"
+                  >
+                    <div className=" w-[50px] lg:w-[100px] h-[5px] bg-shockersAEC/10 "></div>
+                    <div className="w-[20px] h-[20px] rounded-full bg-shockersAEC/10 -ml-[1px]"></div>
+                  </motion.div>
+                  <motion.span
+                    initial={{
+                      x: "100%",
+                      opacity: 0,
+                    }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                    }}
+                    className="ml-3 flex-1 text-shockersAEC/10  w-full font-bold text-3xl md:text-4xl lg:text-5xl !leading-[50px] lg:!leading-[70px]"
+                  >
+                    {data[index + 1]?.attributes.title}
+                  </motion.span>
+                </div>
+              )}
               {/* <div className="absolute bottom-[20vh] w-[25px] lg:w-[50px] h-[5px] bg-shockersAEC/20"></div> */}
 
               <div className="flex flex-col items-center justify-center h-screen overflow-hidden">

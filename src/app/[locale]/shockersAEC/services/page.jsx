@@ -39,7 +39,7 @@ const Services = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <Draw_S animationData={S_json} />
+      <Draw_S speed={4} animationData={S_json} />
       <ImageOverlaysTop
         title={selectedService?.attributes?.title}
         imgURL={topServices?.attributes?.imgURL.data?.attributes.url}

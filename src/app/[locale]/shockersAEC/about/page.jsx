@@ -79,7 +79,7 @@ const About = ({ params: { locale } }) => {
         <div className="max-w-screen-xxl px-4 xxl:px-0 h-full m-auto">
           <motion.div
             style={{ height: lineHeight }}
-            className="absolute  top-[45.5vh] left-[calc(100px + 10px)] w-[5px] bg-shockersAEC"
+            className="absolute  top-0 left-[calc(100px + 10px)] w-[5px] bg-shockersAEC"
           />
         </div>
         {data.map((item, index) => (

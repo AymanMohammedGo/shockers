@@ -6,6 +6,8 @@ import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
 import { getFooter, getSocialMedias } from "../../../../utils/BaytunaApi";
 import Transition from "@/components/Motion/Transition";
 import lottie from "lottie-web";
+import ScrollToTopButton from "@/components/scrollTop";
+
 export default function RootLayout({ children, params: { locale } }) {
   const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
   const [showContent, setShowContent] = useState(false);
@@ -79,6 +81,8 @@ export default function RootLayout({ children, params: { locale } }) {
             Dir={document.dir}
           />
           {children}
+          <ScrollToTopButton />
+
           <Footer
             width="140"
             name="baytuna"

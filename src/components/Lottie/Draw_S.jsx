@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import lottie from "lottie-web";
-
+ 
 const LottieAnimation = ({ animationData, speed, delay = 0 }) => {
   const animationContainer = useRef(null);
 

@@ -44,39 +44,15 @@ const DecaHome = ({ params: { locale } }) => {
       const newServices = res.data.data.map((item, index) => ({
         name: item,
         effect: {
-          hidden:
-            index === 0
-              ? { left: "-100%", opacity: 0 }
-              : index === 1
-              ? { top: "100%", opacity: 0 }
-              : { right: "-100%", opacity: 0 },
-          visible:
-            index === 1
-              ? {
-                  opacity: 1,
-                  top: 0,
-                  transition: {
-                    duration: 1,
-                    delay: 0.3,
-                  },
-                }
-              : index === 0
-              ? {
-                  opacity: 1,
-                  left: 0,
-                  transition: {
-                    duration: 1,
-                    delay: 0.3,
-                  },
-                }
-              : {
-                  opacity: 1,
-                  right: 0,
-                  transition: {
-                    duration: 1,
-                    delay: 0.3,
-                  },
-                },
+          hidden: { left: "-100%", opacity: 0 },
+          visible: {
+            opacity: 1,
+            left: 0,
+            transition: {
+              duration: 1,
+              delay: 0.3,
+            },
+          },
         },
       }));
       setServices(newServices);
@@ -99,13 +75,13 @@ const DecaHome = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <Draw_D animationData={D_json} delay={500} />
+      <Draw_D animationData={D_json} delay={500} speed={0.5} />
       <section className="w-full h-full">
-        <SalgonSection titleText={solgan} />
+        <SalgonSection titleText={solgan} dir={document.dir} />
 
         <AboutSection
           link="deca"
-          videoMobile="/DecaAboutUs.mp4"
+          videoMobile="/DecaMobile.mp4"
           videoLoptap="/DecaAboutUs.mp4"
           title={data?.attributes?.TitleAbout}
           description={data?.attributes?.DescriptionAbout}
@@ -119,7 +95,7 @@ const DecaHome = ({ params: { locale } }) => {
           title={data?.attributes?.NameServices}
           textButton={data?.attributes?.TextButton}
           link="deca"
-          bg="bg-deca"
+          bg="bg-Hover-gradient-Deca"
           tc="text-shockersAEC"
         />
         <SlideProject categoriesProjects={categoriesProjects} link="deca" />

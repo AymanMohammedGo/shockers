@@ -6,6 +6,7 @@ import { getName_HeaderLinks } from "../../../../utils/GlobleApi";
 import { getFooter, getSocialMedias } from "../../../../utils/DecaApi";
 import Transition from "@/components/Motion/Transition";
 import lottie from "lottie-web";
+import ScrollToTopButton from "@/components/scrollTop";
 
 export default function RootLayout({ children, params: { locale } }) {
   const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
@@ -67,6 +68,7 @@ export default function RootLayout({ children, params: { locale } }) {
           ref={animation}
         />
       )}
+
       {showContent && (
         <>
           <Transition bg="bg-deca" />
@@ -81,6 +83,8 @@ export default function RootLayout({ children, params: { locale } }) {
           />
 
           {children}
+          <ScrollToTopButton />
+
           <Footer
             width="200"
             name="deca"

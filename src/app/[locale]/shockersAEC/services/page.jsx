@@ -45,7 +45,7 @@ const Services = ({ params: { locale } }) => {
         imgURL={topServices?.attributes?.imgURL.data?.attributes.url}
       />
 
-      <div className="flex flex-col items-center justify-center md:flex-row min-h-screen lg:py-5 max-w-screen-xxl m-auto relative z-10">
+      <div className="flex flex-col items-center justify-center md:flex-row min-h-screen lg:py-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
         <motion.div
           initial={{
             x: "-100%",

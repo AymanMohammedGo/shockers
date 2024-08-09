@@ -1,13 +1,10 @@
 "use client";
-import Image from "next/image";
-import { CircleCheckBig } from "lucide-react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
+const ServicesSection = ({ services, title, bg, tc }) => {
   const var1 = {
     hidden: { y: "-100%", opacity: 0 },
     visible: {
@@ -19,27 +16,7 @@ const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
       },
     },
   };
-  const var2 = {
-    hidden: { y: "100%", opacity: 0 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-        delay: 0,
-      },
-    },
-  };
-  const var5 = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 1,
-        delay: 1.5,
-      },
-    },
-  };
+ 
   const controls1 = useAnimation();
   const [ref1, inView1] = useInView({ triggerOnce: false, threshold: 0.1 });
 
@@ -65,7 +42,9 @@ const ServicesSection = ({ services, title, textButton, link, bg, tc }) => {
               >
                 {title}
               </motion.h1>
-              <ul className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 xl:gap-20 xlgl:gap-40 max-w-screen-xlgl lg:w-full ">
+              <ul
+                className={`grid grid-cols-1 lg:grid-cols-${services.length} gap-8 lg:gap-12 xl:gap-20 xlgl:gap-40 max-w-screen-xlgl lg:w-full `}
+              >
                 {services.map((item, index) => (
                   <motion.li
                     key={index}

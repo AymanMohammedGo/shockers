@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 const ServicesSection = ({ services, title, bg, tc }) => {
   const var1 = {
     hidden: { y: "-100%", opacity: 0 },
@@ -16,10 +16,13 @@ const ServicesSection = ({ services, title, bg, tc }) => {
       },
     },
   };
- 
+
   const controls1 = useAnimation();
   const [ref1, inView1] = useInView({ triggerOnce: false, threshold: 0.1 });
-
+  const [col, setCol] = useState(0);
+  useEffect(() => {
+    setCol(services.length);
+  }, [services]);
   useEffect(() => {
     if (inView1) {
       controls1.start("visible");
@@ -43,7 +46,7 @@ const ServicesSection = ({ services, title, bg, tc }) => {
                 {title}
               </motion.h1>
               <ul
-                className={`grid grid-cols-1 lg:grid-cols-${services.length} gap-8 lg:gap-12 xl:gap-20 xlgl:gap-40 max-w-screen-xlgl lg:w-full `}
+                className={`grid grid-cols-1 lg:grid-cols-${col} gap-8 lg:gap-12 xl:gap-20 xlgl:gap-40 max-w-screen-xlgl lg:w-full `}
               >
                 {services.map((item, index) => (
                   <motion.li

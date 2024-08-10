@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
-const ServicesSection = ({ services, title, bg, tc }) => {
+const ServicesSection = ({ services, title, bg, link, tc }) => {
   const var1 = {
     hidden: { y: "-100%", opacity: 0 },
     visible: {
@@ -19,10 +19,7 @@ const ServicesSection = ({ services, title, bg, tc }) => {
 
   const controls1 = useAnimation();
   const [ref1, inView1] = useInView({ triggerOnce: false, threshold: 0.1 });
-  const [col, setCol] = useState(0);
-  useEffect(() => {
-    setCol(services.length);
-  }, [services]);
+
   useEffect(() => {
     if (inView1) {
       controls1.start("visible");
@@ -46,8 +43,11 @@ const ServicesSection = ({ services, title, bg, tc }) => {
                 {title}
               </motion.h1>
               <ul
-                className={`grid grid-cols-1 lg:grid-cols-${col} gap-8 lg:gap-12 xl:gap-20 xlgl:gap-40 max-w-screen-xlgl lg:w-full `}
+                className={`grid grid-cols-1 ${
+                  link === "deca" ? "lg:grid-cols-2" : "lg:grid-cols-3"
+                }  gap-8 lg:gap-12 xl:gap-20 xlgl:gap-40 max-w-screen-xlgl lg:w-full `}
               >
+                {console.log(services)}
                 {services.map((item, index) => (
                   <motion.li
                     key={index}
@@ -60,7 +60,7 @@ const ServicesSection = ({ services, title, bg, tc }) => {
                     className="relative "
                   >
                     <div className="absolute left-0 top-0 h-[15vh] w-[90vw] md:h-[20vh] lg:h-[60vh] lg:w-full border-white border-2 "></div>
-                    <Link href="/shockersAEC/services">
+                    <Link href={`/${link}/services`}>
                       <div
                         className={`bg-gradient group -translate-x-4 translate-y-4 h-[15vh] w-[90vw] lg:w-full md:h-[20vh] lg:h-[60vh] relative hover:translate-x-0 hover:translate-y-0  ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
                       >

@@ -93,7 +93,6 @@ const DecaHome = ({ params: { locale } }) => {
         <ServicesSection
           services={services}
           title={data?.attributes?.NameServices}
-          textButton={data?.attributes?.TextButton}
           link="deca"
           bg="bg-Hover-gradient-Deca"
           tc="text-shockersAEC"

@@ -95,7 +95,6 @@ const ShockersHome = ({ params: { locale } }) => {
         <ServicesSection
           services={services}
           title={data?.attributes?.NameServices}
-          textButton={data?.attributes?.TextButton}
           link="shockersAEC"
           bg="bg-Hover-gradient"
           tc="text-shockersAEC"

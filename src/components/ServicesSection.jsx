@@ -47,10 +47,9 @@ const ServicesSection = ({ services, title, bg, link, tc }) => {
                   link === "deca" ? "lg:grid-cols-2" : "lg:grid-cols-3"
                 }  gap-8 lg:gap-12 xl:gap-20 xlgl:gap-40 max-w-screen-xlgl lg:w-full `}
               >
-                {console.log(services)}
                 {services.map((item, index) => (
                   <motion.li
-                    key={index}
+                    key={item?.name?.id}
                     initial={{ opacity: 1, y: "100%" }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{
@@ -60,7 +59,9 @@ const ServicesSection = ({ services, title, bg, link, tc }) => {
                     className="relative "
                   >
                     <div className="absolute left-0 top-0 h-[15vh] w-[90vw] md:h-[20vh] lg:h-[60vh] lg:w-full border-white border-2 "></div>
-                    <Link href={`/${link}/services`}>
+                    <Link
+                      href={`/${link}/services?serviceId=${item?.name?.id}`}
+                    >
                       <div
                         className={`bg-gradient group -translate-x-4 translate-y-4 h-[15vh] w-[90vw] lg:w-full md:h-[20vh] lg:h-[60vh] relative hover:translate-x-0 hover:translate-y-0  ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
                       >

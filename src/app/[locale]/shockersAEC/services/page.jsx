@@ -5,13 +5,16 @@ import { useState, useEffect, useCallback } from "react";
 import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/Motion/S.json";
 import { getServices, getTopServices } from "../../../../../utils/ShockersApi";
+import { useRouter } from "next/router";
 
 const Services = ({ params: { locale } }) => {
   let lan = locale;
-
   if (locale === "kr") {
     lan = "af";
   }
+  // const router = useRouter();
+  // const { serviceId } = router.query;
+
   const [data, setData] = useState([]);
   const [selectedService, setSelectedService] = useState(data[0]);
   const [topServices, setTopServices] = useState([]);
@@ -21,6 +24,14 @@ const Services = ({ params: { locale } }) => {
       setData(res.data.data);
     });
   }, [lan]);
+  // useEffect(() => {
+  //   if (serviceId) {
+  //     const serviceFilter = data.find(
+  //       (service) => service.id === parseInt(item?.name?.id)
+  //     );
+  //     console.log(serviceFilter);
+  //   }
+  // }, [serviceId, data]);
   const getTopServices_ = useCallback(() => {
     getTopServices(lan).then((res) => {
       setTopServices(res.data.data);

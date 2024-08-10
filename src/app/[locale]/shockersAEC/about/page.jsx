@@ -96,7 +96,7 @@ const About = ({ params: { locale } }) => {
               {/* <div className="absolute top-0 h-screen left-[calc(100px + 10px)] w-[5px] bg-shockersAEC"></div> */}
 
               {/*الخط السابق*/}
-              {data[index - 1] && (
+              {/* {data[index - 1] && (
                 <div
                   className={`${
                     index === currentIndex && "md:flex"
@@ -165,7 +165,7 @@ const About = ({ params: { locale } }) => {
                     {data[index + 1]?.attributes.title}
                   </motion.span>
                 </div>
-              )}
+              )} */}
               {/* <div className="absolute bottom-[20vh] w-[25px] lg:w-[50px] h-[5px] bg-shockersAEC/20"></div> */}
 
               <div className="flex flex-col items-center justify-center h-screen overflow-hidden">

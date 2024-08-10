@@ -24,6 +24,10 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
       name: linksNames?.NamePageProjects,
       link: `/${name}/#projects`,
     },
+    {
+      name: linksNames?.NamePageContact,
+      link: `/${name}/#contact`,
+    },
   ];
 
   return (
@@ -37,7 +41,7 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
         }}
         className="absolute w-full z-20 bg-primary   "
       >
-        <div className=" max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className=" max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
             href={`/`}
             className=" flex items-center space-x-3 rtl:space-x-reverse"
@@ -80,7 +84,7 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
             } w-full md:block md:w-auto`}
           >
             <ul
-              className={`font-medium flex flex-col pt-4 md:p-0 md:flex-row md:space-x-7 rtl:space-x-reverse md:mt-0 `}
+              className={`font-medium flex flex-col pt-4 md:p-0 md:flex-row `}
             >
               {Url.map((item, index) => (
                 <li key={index}>
@@ -91,7 +95,7 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
                     }}
                     className={`${
                       Dir === "ltr" ? "text-base" : "text-lg"
-                    } block font-normal py-2 px-3 ${text} ${hover}  hover:text-white rounded-lg transition-all`}
+                    } block font-normal py-2 px-2 lg:px-3 lg:mx-2 xl:mx-3 ${text} ${hover}  hover:text-white rounded-lg transition-all`}
                   >
                     {item?.name}
                   </Link>

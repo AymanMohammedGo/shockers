@@ -150,7 +150,7 @@ export default function Home({ params: { locale } }) {
                   className="relative flex items-center w-full h-full justify-center overflow-hidden"
                 >
                   <Image
-                    className={`xlgl:w-[600px] xlgl:h-[600px]  opacity-1 transition-opacity duration-100 ${
+                    className={`  opacity-1 transition-opacity duration-100 ${
                       hoveredIndex === item.hoverIndex &&
                       "opacity-0  transition-opacity duration-100"
                     }`}
@@ -170,7 +170,7 @@ export default function Home({ params: { locale } }) {
                     className={`absolute top-0 w-full h-full  overflow-hidden left-0  flex items-center justify-center  opacity-0   hover:opacity-100 transition-opacity duration-100`}
                   >
                     <Image
-                      className=" xlgl:w-[600px] xlgl:h-[600px] "
+                      // className=" xlgl:w-[600px] xlgl:h-[600px] "
                       src={item.imageHoverLogo}
                       alt={item.name}
                       width={450}
@@ -188,7 +188,7 @@ export default function Home({ params: { locale } }) {
                       duration: 0.5,
                       delay: 0,
                     }}
-                    className={`${item.textColor}  absolute  font-medium  text-center xl:mb-1 xxl:mb-3  text-sm sm:text-lg md:text-xl xxl:text-2xl xlgl:text-3xl   overflow-hidden`}
+                    className={`${item.textColor} whitespace-break-spaces pointer-events-none  absolute  font-medium  text-center xl:mb-1 xxl:mb-3  text-sm sm:text-lg md:text-xl xxl:text-2xl    overflow-hidden`}
                   >
                     {item.textHover}
                   </motion.div>

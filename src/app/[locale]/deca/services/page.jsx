@@ -4,32 +4,26 @@ import { motion } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import Draw_D from "@/components/Lottie/Draw_D";
 import D_json from "/public/Motion/D.json";
-import { getServices, getTopServices } from "../../../../../utils/DecaApi";
+import { getServices } from "../../../../../utils/DecaApi";
 
 const Services = ({ params: { locale } }) => {
   let lan = locale;
-
   if (locale === "kr") {
     lan = "af";
   }
+
   const [data, setData] = useState([]);
   const [selectedService, setSelectedService] = useState(data[0]);
-  const [topServices, setTopServices] = useState([]);
 
   const getServices_ = useCallback(() => {
     getServices(lan).then((res) => {
       setData(res.data.data);
     });
   }, [lan]);
-  const getTopServices_ = useCallback(() => {
-    getTopServices(lan).then((res) => {
-      setTopServices(res.data.data);
-    });
-  }, [lan]);
+
   useEffect(() => {
     getServices_();
-    getTopServices_();
-  }, [getServices_, getTopServices_]);
+  }, [getServices_]);
   useEffect(() => {
     setSelectedService(data[0]);
   }, [data]);
@@ -42,10 +36,10 @@ const Services = ({ params: { locale } }) => {
       <Draw_D animationData={D_json} />
       <ImageOverlaysTop
         title={selectedService?.attributes?.title}
-        imgURL={topServices?.attributes?.imgURL.data?.attributes.url}
+        imgURL={selectedService?.attributes?.imgURL.data?.attributes.url}
       />
 
-<div className="flex flex-col items-center justify-center md:flex-row min-h-screen lg:py-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
+      <div className="flex flex-col  justify-center md:flex-row min-h-screen lg:py-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
         <motion.div
           initial={{
             x: "-100%",
@@ -69,8 +63,8 @@ const Services = ({ params: { locale } }) => {
                         document.dir === "ltr"
                           ? "border-l-[6px]"
                           : "border-r-[6px]"
-                      } border-shockersAEC bg-[#eeeeee] text-shockersAEC`
-                    : "text-[#9b9999] hover:text-shockersAEC"
+                      } border-deca bg-[#eeeeee] text-deca`
+                    : "text-[#9b9999] hover:text-deca"
                 }`}
               >
                 {service?.attributes.title}
@@ -89,7 +83,7 @@ const Services = ({ params: { locale } }) => {
           }}
           className="md:w-2/3 p-2 md:p-4"
         >
-          <p className="mb-6 text-xl lg:text-2xl !leading-[50px]  py-4 px-4 lg:px-10 text-justify">
+          <p className="mb-6 text-lg md:text-xl lg:text-2xl  !leading-[40px] md:!leading-[45px] lg:!leading-[50px]  py-4 px-4 lg:px-10  whitespace-pre-line">
             {selectedService?.attributes?.description}
           </p>
         </motion.div>

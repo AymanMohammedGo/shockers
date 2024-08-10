@@ -9,8 +9,6 @@ export const getCategoriesProjects = (locale) =>
   axiosClient.get(`/shockers-categories?populate=*&locale=${locale}`);
 export const getTopAbout = (locale) =>
   axiosClient.get(`/shockers-top-about?populate=*&locale=${locale}`);
-export const getTopServices = (locale) =>
-  axiosClient.get(`/shockers-top-service?populate=*&locale=${locale}`);
 export const getSocialMedias = (locale) =>
   axiosClient.get(`/shockers-social-medias?locale=${locale}`);
 export const getFooter = (locale) =>

@@ -26,7 +26,7 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
     },
     {
       name: linksNames?.NamePageContact,
-      link: `/${name}/#contact`,
+      link: `/${name}/contact`,
     },
   ];
 

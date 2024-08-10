@@ -48,15 +48,19 @@ const Footer = ({ width, name, logo, socialMedia, data }) => {
                 </li>
                 <li className="my-2 flex items-center justify-center lg:justify-start">
                   <span className="text-base px-[28px]">
-                    {data?.DetailedAddress.split("rd").map((part, index) => (
-                      <>
-                        {part}
-                        {index <
-                          data?.DetailedAddress.split("rd").length - 1 && (
-                          <sup className="text-xs">rd</sup>
-                        )}
-                      </>
-                    ))}
+                    {data?.DetailedAddress.includes("rd") ? (
+                      data?.DetailedAddress.split("rd").map((part, index) => (
+                        <>
+                          {part}
+                          {index <
+                            data?.DetailedAddress.split("rd").length - 1 && (
+                            <sup className="text-xs">rd</sup>
+                          )}
+                        </>
+                      ))
+                    ) : (
+                      <span>{data?.DetailedAddress}</span>
+                    )}
                   </span>
                 </li>
               </ul>

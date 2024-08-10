@@ -5,13 +5,15 @@ import { useState, useEffect, useCallback } from "react";
 import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/Motion/S.json";
 import { getServices } from "../../../../../utils/ShockersApi";
+import { useSearchParams } from "next/navigation";
 
 const Services = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
   }
-
+  const searchParams = useSearchParams();
+  const search = searchParams.get("serviceId");
   const [data, setData] = useState([]);
   const [selectedService, setSelectedService] = useState(data[0]);
 
@@ -26,7 +28,10 @@ const Services = ({ params: { locale } }) => {
   }, [getServices_]);
   useEffect(() => {
     setSelectedService(data[0]);
-  }, [data]);
+    data.find((item) => {
+      if (item.id == search) return setSelectedService(item);
+    });
+  }, [data, search]);
 
   return (
     <motion.div
@@ -38,11 +43,10 @@ const Services = ({ params: { locale } }) => {
         title={selectedService?.attributes?.title}
         imgURL={selectedService?.attributes?.imgURL?.data?.attributes.url}
       />
-
       <div className="flex flex-col  justify-center md:flex-row min-h-screen lg:py-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
         <motion.div
           initial={{
-            x: "-100%",
+            x: document.dir === "ltr" ? "-100%" : "+100%",
             opacity: 0,
           }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -74,7 +78,7 @@ const Services = ({ params: { locale } }) => {
         </motion.div>
         <motion.div
           initial={{
-            x: "100%",
+            x: document.dir === "ltr" ? "100%" : "-100%",
             opacity: 0,
           }}
           whileInView={{ x: 0, opacity: 1 }}

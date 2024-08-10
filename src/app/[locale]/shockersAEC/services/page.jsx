@@ -21,6 +21,7 @@ const Services = ({ params: { locale } }) => {
 
   const getServices_ = useCallback(() => {
     getServices(lan).then((res) => {
+      console.log(res.data.data);
       setData(res.data.data);
     });
   }, [lan]);
@@ -100,7 +101,7 @@ const Services = ({ params: { locale } }) => {
           }}
           className="md:w-2/3 p-2 md:p-4"
         >
-          <p className="mb-6 text-xl lg:text-2xl !leading-[50px]  py-4 px-4 lg:px-10 text-justify">
+          <p className="mb-6 text-xl lg:text-2xl !leading-[50px]  py-4 px-4 lg:px-10 text-justify whitespace-pre-line">
             {selectedService?.attributes?.description}
           </p>
         </motion.div>

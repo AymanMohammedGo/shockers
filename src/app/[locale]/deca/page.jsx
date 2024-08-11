@@ -96,6 +96,8 @@ const DecaHome = ({ params: { locale } }) => {
           link="deca"
           bg="bg-Hover-gradient-Deca"
           tc="text-shockersAEC"
+          dir={document.dir}
+
         />
         <SlideProject categoriesProjects={categoriesProjects} link="deca" />
       </section>

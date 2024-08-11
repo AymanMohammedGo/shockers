@@ -98,6 +98,7 @@ const ShockersHome = ({ params: { locale } }) => {
           link="shockersAEC"
           bg="bg-Hover-gradient"
           tc="text-shockersAEC"
+          dir={document.dir}
         />
         <SlideProject
           categoriesProjects={categoriesProjects}

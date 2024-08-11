@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
-const ServicesSection = ({ services, title, bg, link, tc }) => {
+const ServicesSection = ({ services, title, bg, link, tc, dir }) => {
   const var1 = {
     hidden: { y: "-100%", opacity: 0 },
     visible: {
@@ -47,7 +47,7 @@ const ServicesSection = ({ services, title, bg, link, tc }) => {
                   link === "deca" ? "lg:grid-cols-2" : "lg:grid-cols-3"
                 }  gap-8 lg:gap-12 xl:gap-20 xlgl:gap-40 max-w-screen-xlgl lg:w-full `}
               >
-                {services.map((item, index) => (
+                {services.map((item) => (
                   <motion.li
                     key={item?.name?.id}
                     initial={{ opacity: 1, y: "100%" }}
@@ -66,11 +66,19 @@ const ServicesSection = ({ services, title, bg, link, tc }) => {
                         className={`bg-gradient group -translate-x-4 translate-y-4 h-[15vh] w-[90vw] lg:w-full md:h-[20vh] lg:h-[60vh] relative hover:translate-x-0 hover:translate-y-0  ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
                       >
                         <span
-                          className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-shockersAEC after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out group-hover:after:w-[40%]`}
+                          className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] ${
+                            link === "baytuna" || link === "deca"
+                              ? "group-hover:text-white after:bg-white"
+                              : "after:bg-shockersAEC"
+                          }  after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out group-hover:after:w-[40%]`}
                         >
                           {item?.name?.attributes?.title}
                         </span>
-                        <div className="w-[18px] translate-x-6 translate-y-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 absolute right-0 bottom-0 m-6 transition-all duration-300 ease-in-out">
+                        <div
+                          className={`w-[18px] translate-x-6 translate-y-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 absolute ${
+                            dir === "ltr" ? "right-0" : "left-0"
+                          }  bottom-0 m-6 transition-all duration-300 ease-in-out`}
+                        >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -81,7 +89,15 @@ const ServicesSection = ({ services, title, bg, link, tc }) => {
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                            class="lucide lucide-chevron-right"
+                            className={`lucide  ${
+                              dir === "ltr"
+                                ? "lucide-chevron-right"
+                                : "rotate-180"
+                            }  ${
+                              link === "baytuna" || link === "deca"
+                                ? "group-hover:text-white "
+                                : "group-hover:text-shockersAEC"
+                            }`}
                           >
                             <path d="m9 18 6-6-6-6" />
                           </svg>

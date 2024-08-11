@@ -40,10 +40,11 @@ const Services = ({ params: { locale } }) => {
     >
       <Draw_S animationData={S_json} />
       <ImageOverlaysTop
+        dir={document.dir}
         title={selectedService?.attributes?.title}
         imgURL={selectedService?.attributes?.imgURL?.data?.attributes.url}
       />
-      <div className="flex flex-col  justify-center md:flex-row min-h-screen lg:py-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
+      <div className="flex flex-col   justify-center md:flex-row min-h-screen lg:py-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
         <motion.div
           initial={{
             x: document.dir === "ltr" ? "-100%" : "+100%",
@@ -53,7 +54,7 @@ const Services = ({ params: { locale } }) => {
           transition={{
             duration: 1,
           }}
-          className="w-full md:w-1/3 p-2  pt-8 md:p-4"
+          className="w-full md:w-1/3 px-2  pt-8 md:p-4"
         >
           <ul className="space-y-2">
             {data.map((service, index) => (
@@ -87,7 +88,7 @@ const Services = ({ params: { locale } }) => {
           }}
           className="md:w-2/3 p-2 md:p-4"
         >
-          <p className="mb-6 text-lg md:text-xl lg:text-2xl  !leading-[40px] md:!leading-[45px] lg:!leading-[50px]  py-4 px-4 lg:px-10  whitespace-pre-line">
+          <p className="mb-6 text-lg md:text-xl lg:text-2xl  !leading-[40px] md:!leading-[45px] lg:!leading-[50px] py-0 lg:py-4 px-4 lg:px-10  whitespace-pre-line text-justify hyphens-auto">
             {selectedService?.attributes?.description}
           </p>
         </motion.div>

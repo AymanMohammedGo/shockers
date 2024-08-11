@@ -70,6 +70,7 @@ const About = ({ params: { locale } }) => {
     >
       <div className="sticky top-0 w-screen h-screen   ">
         <ImageOverlaysTop
+          dir={document.dir}
           title={topAbout?.attributes?.title}
           imgURL={topAbout?.attributes?.imgURL.data?.attributes.url}
         />

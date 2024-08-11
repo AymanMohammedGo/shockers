@@ -40,11 +40,12 @@ const Services = ({ params: { locale } }) => {
     >
       <Draw_D animationData={D_json} />
       <ImageOverlaysTop
+        dir={document.dir}
         title={selectedService?.attributes?.title}
         imgURL={selectedService?.attributes?.imgURL.data?.attributes.url}
       />
 
-      <div className="flex flex-col  justify-center md:flex-row min-h-screen lg:py-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
+      <div className="flex flex-col   justify-center md:flex-row min-h-screen lg:py-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
         <motion.div
           initial={{
             x: document.dir === "ltr" ? "-100%" : "+100%",
@@ -54,7 +55,7 @@ const Services = ({ params: { locale } }) => {
           transition={{
             duration: 1,
           }}
-          className="w-full md:w-1/3 p-2  pt-8 md:p-4"
+          className="w-full md:w-1/3 px-2  pt-8 md:p-4"
         >
           <ul className="space-y-2">
             {data.map((service, index) => (

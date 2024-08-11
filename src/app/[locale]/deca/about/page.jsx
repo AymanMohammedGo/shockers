@@ -33,6 +33,7 @@ const About = ({ params: { locale } }) => {
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
       <ImageOverlaysTop
+        dir={document.dir}
         namePage={topAbout?.attributes?.namePage}
         title={topAbout?.attributes?.title}
         imgURL={topAbout?.attributes?.imgURL.data?.attributes.url}

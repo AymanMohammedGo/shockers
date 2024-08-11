@@ -116,6 +116,9 @@ html {
     rgba(252, 252, 252, 0) 50%
   );
 }
+.swiper-pagination-bullet-active {
+  background-color: white !important;
+}
 .bg-gradient {
   background: linear-gradient(
     45deg,
@@ -131,4 +134,8 @@ html {
 }
 .bg-Hover-gradient-Baytuna:hover {
   background: #c01f4a;
+}
+.cancelEffect {
+  outline: none !important;
+  box-shadow: none !important;
 }

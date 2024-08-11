@@ -13,3 +13,7 @@ export const getSocialMedias = (locale) =>
   axiosClient.get(`/shockers-social-medias?locale=${locale}`);
 export const getFooter = (locale) =>
   axiosClient.get(`/shockers-footer?locale=${locale}`);
+export const getContact = (locale) =>
+  axiosClient.get(`/shockers-contact?locale=${locale}`);
+export const getJobOffers = (locale) =>
+  axiosClient.get(`/shockers-jobs-offers?locale=${locale}`);

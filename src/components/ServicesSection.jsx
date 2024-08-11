@@ -44,7 +44,9 @@ const ServicesSection = ({ services, title, bg, link, tc, dir }) => {
               </motion.h1>
               <ul
                 className={`grid grid-cols-1 ${
-                  link === "deca" ? "lg:grid-cols-2" : "lg:grid-cols-3"
+                  link === "deca" || link === "baytuna"
+                    ? "lg:grid-cols-2"
+                    : "lg:grid-cols-3"
                 }  gap-8 lg:gap-12 xl:gap-20 xlgl:gap-40 max-w-screen-xlgl lg:w-full `}
               >
                 {services.map((item) => (

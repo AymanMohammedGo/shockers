@@ -11,3 +11,7 @@ export const getSocialMedias = (locale) =>
   axiosClient.get(`/baytuna-social-medias?locale=${locale}`);
 export const getFooter = (locale) =>
   axiosClient.get(`/baytuna-footer?locale=${locale}`);
+export const getContact = (locale) =>
+  axiosClient.get(`/baytuna-contact?locale=${locale}`);
+export const getJobOffers = (locale) =>
+  axiosClient.get(`/baytuna-jobs-offers?locale=${locale}`);

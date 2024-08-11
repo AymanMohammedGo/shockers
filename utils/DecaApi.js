@@ -11,3 +11,7 @@ export const getSocialMedias = (locale) =>
   axiosClient.get(`/deca-social-medias?locale=${locale}`);
 export const getFooter = (locale) =>
   axiosClient.get(`/deca-footer?locale=${locale}`);
+export const getContact = (locale) =>
+  axiosClient.get(`/deca-contact?locale=${locale}`);
+export const getJobOffers = (locale) =>
+  axiosClient.get(`/deca-jobs-offers?locale=${locale}`);

@@ -75,7 +75,10 @@ const Projects = ({ params: { locale, projects } }) => {
         ))}
 
         <div className="sticky top-0 bg-primary ">
-          <SlideProject categoriesProjects={categoriesProjects} link="baytuna" />
+          <SlideProject
+            categoriesProjects={categoriesProjects}
+            link="baytuna"
+          />
         </div>
       </section>
     </motion.div>

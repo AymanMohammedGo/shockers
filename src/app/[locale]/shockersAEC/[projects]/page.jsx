@@ -4,49 +4,30 @@ import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/Motion/S.json";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { getProject } from "../../../../../utils/ShockersApi";
 import { useEffect, useState, useCallback } from "react";
+import { getProjects } from "../../../../../utils/ShockersApi";
+import { useTranslation } from "react-i18next";
 
 const Projects = ({ params: { locale, projects } }) => {
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
   }
+  const { t } = useTranslation();
+
   const [nameCat, setNameCat] = useState();
   const [projectsCat, setProjectsCat] = useState();
 
-  const getProject_ = useCallback(() => {
-    getProject(lan, projects).then((res) => {
-      console.log(res.data.data?.attributes?.shockers_projects);
+  const getProjects_ = useCallback(() => {
+    getProjects(lan, projects).then((res) => {
       setNameCat(res.data.data?.attributes?.title);
       setProjectsCat(res.data.data?.attributes?.shockers_projects?.data);
     });
   }, [lan, projects]);
   useEffect(() => {
-    getProject_();
-  }, [getProject_]);
-  const project = [
-    {
-      name: `${projects} 1`,
-      image: "/img/project.jpg",
-    },
-    {
-      name: `${projects} 2`,
-      image: "/img/project.jpg",
-    },
-    {
-      name: `${projects} 3`,
-      image: "/img/project.jpg",
-    },
-    {
-      name: `${projects} 4`,
-      image: "/img/project.jpg",
-    },
-    {
-      name: `${projects} 5`,
-      image: "/img/project.jpg",
-    },
-  ];
+    getProjects_();
+  }, [getProjects_]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -69,6 +50,7 @@ const Projects = ({ params: { locale, projects } }) => {
             </motion.div>
           </div>
         </div>
+
         {projectsCat?.length > 0 ? (
           projectsCat?.map((item, index) => (
             <div key={index} className="sticky top-0">
@@ -83,7 +65,7 @@ const Projects = ({ params: { locale, projects } }) => {
         ) : (
           <div className="sticky top-0 ">
             <ImageOverlaysCenter
-              title="COMING SOON"
+              title={t("COMING_SOON")}
               imgURl="/img/imageOverlays.jpg"
             />
           </div>

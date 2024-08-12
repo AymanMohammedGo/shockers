@@ -7,17 +7,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import {
-  getFooter,
-  getSocialMedias,
-  getContact,
-  getJobOffers,
-} from "../../../../../utils/ShockersApi";
+import { getContact, getJobOffers } from "../../../../../utils/ShockersApi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
-import FooterContact from "@/components/FooterContact";
 
 const Contact = ({ params: { locale } }) => {
   let lan = locale;
@@ -26,21 +20,9 @@ const Contact = ({ params: { locale } }) => {
   }
   const [sectionView, setSectionView] = useState(0);
 
-  const [footerNames, setFooterNames] = useState([]);
-  const [socialMedias, setSocialMedias] = useState([]);
   const [ContactNames, setContactNames] = useState([]);
   const [jobOffers, setJobOffers] = useState([]);
 
-  const getFooter_ = useCallback(() => {
-    getFooter(lan).then((res) => {
-      setFooterNames(res.data.data.attributes);
-    });
-  }, [lan]);
-  const getSocialMedias_ = useCallback(() => {
-    getSocialMedias(lan).then((res) => {
-      setSocialMedias(res.data.data);
-    });
-  }, [lan]);
   const getContact_ = useCallback(() => {
     getContact(lan).then((res) => {
       setContactNames(res.data.data.attributes);
@@ -52,11 +34,9 @@ const Contact = ({ params: { locale } }) => {
     });
   }, [lan]);
   useEffect(() => {
-    getFooter_();
-    getSocialMedias_();
     getContact_();
     getJobOffers_();
-  }, [getFooter_, getSocialMedias_, getContact_, getJobOffers_]);
+  }, [getContact_, getJobOffers_]);
   const nav = [
     {
       name: ContactNames.INQUIRY,
@@ -111,7 +91,7 @@ const Contact = ({ params: { locale } }) => {
         </ul>
         {sectionView === 0 && (
           <div className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden">
-            <div className="w-full md:w-[60%] xl:w-[50%] p-2 ">
+            <div className="w-full md:w-[60%] xl:w-[50%] p-2 m-auto ">
               {sectionForm.map((item, index) => (
                 <div key={index} className="mb-4">
                   <Label
@@ -147,17 +127,11 @@ const Contact = ({ params: { locale } }) => {
                 {ContactNames.SUBMIT}
               </Button>
             </div>
-            <div className="w-full md:w-1/3 p-2  ">
-              <FooterContact
-                footerNames={footerNames}
-                socialMedias={socialMedias}
-              />
-            </div>
           </div>
         )}
         {sectionView === 1 && (
           <div className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden">
-            <div className="w-full md:w-[60%] xl:w-[50%] p-2 ">
+            <div className="w-full md:w-[60%] xl:w-[50%] p-2 m-auto">
               <h1 className="text-shockersAEC text-xl  border-b-[1px] border-shockersAEC/20 mb-5 pb-5 lg:mb-10 lg:pb-10 font-medium ">
                 {ContactNames.SUBSCRIBTION_TEXT}
               </h1>
@@ -181,12 +155,6 @@ const Contact = ({ params: { locale } }) => {
               <Button className="bg-shockersAECYellow hover:bg-shockersAEC hover:text-white w-full text-lg rounded-lg">
                 {ContactNames.SUBMIT}
               </Button>
-            </div>
-            <div className="w-full md:w-1/3 p-2  ">
-              <FooterContact
-                footerNames={footerNames}
-                socialMedias={socialMedias}
-              />
             </div>
           </div>
         )}
@@ -317,10 +285,6 @@ const Contact = ({ params: { locale } }) => {
                   ))}
                 </Swiper>
               </div>
-              <FooterContact
-                footerNames={footerNames}
-                socialMedias={socialMedias}
-              />
             </div>
           </div>
         )}

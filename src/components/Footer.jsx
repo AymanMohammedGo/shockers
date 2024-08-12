@@ -48,7 +48,7 @@ const Footer = ({ width, name, logo, socialMedia, data }) => {
                 </li>
                 <li className="my-2 flex items-center justify-center lg:justify-start">
                   <span className="text-base px-[28px]">
-                    {data?.DetailedAddress.includes("rd") ? (
+                    {data?.DetailedAddress?.includes("rd") ? (
                       data?.DetailedAddress.split("rd").map((part, index) => (
                         <>
                           {part}

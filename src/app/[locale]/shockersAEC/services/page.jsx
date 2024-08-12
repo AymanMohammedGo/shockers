@@ -88,9 +88,21 @@ const Services = ({ params: { locale } }) => {
           }}
           className="md:w-2/3 p-2 md:p-4"
         >
-          <p className="mb-6 text-lg md:text-xl lg:text-2xl  !leading-[40px] md:!leading-[45px] lg:!leading-[50px] py-0 lg:py-4 px-4 lg:px-10  whitespace-pre-line text-justify hyphens-auto">
-            {selectedService?.attributes?.description}
-          </p>
+          {/* <div className="mb-6 text-lg md:text-xl lg:text-2xl  !leading-[40px] md:!leading-[45px] lg:!leading-[50px] py-0 lg:py-4 px-4 lg:px-10  whitespace-pre-line text-justify hyphens-auto">
+            <span>{selectedService?.attributes?.description}</span>
+          </div> */}
+          <div className="mb-6 text-lg md:text-xl lg:text-2xl !leading-[40px] md:!leading-[45px] lg:!leading-[50px] py-0 lg:py-4 px-4 lg:px-10 whitespace-pre-line text-justify hyphens-auto">
+            {selectedService?.attributes?.description
+              .split("\n")
+              .map((service, index) => (
+                <div key={index} className="flex items-start ">
+                  <span className="w-2 mx-2">
+                    {service.startsWith("-") ? "" : "•"}
+                  </span>
+                  <p className="flex-1 ">{service.trim()}</p>
+                </div>
+              ))}
+          </div>
         </motion.div>
       </div>
     </motion.div>

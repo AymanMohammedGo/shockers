@@ -4,8 +4,27 @@ import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/Motion/S.json";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { getProject } from "../../../../../utils/ShockersApi";
+import { useEffect, useState, useCallback } from "react";
 
 const Projects = ({ params: { locale, projects } }) => {
+  let lan = locale;
+  if (locale === "kr") {
+    lan = "af";
+  }
+  const [nameCat, setNameCat] = useState();
+  const [projectsCat, setProjectsCat] = useState();
+
+  const getProject_ = useCallback(() => {
+    getProject(lan, projects).then((res) => {
+      console.log(res.data.data?.attributes?.shockers_projects);
+      setNameCat(res.data.data?.attributes?.title);
+      setProjectsCat(res.data.data?.attributes?.shockers_projects?.data);
+    });
+  }, [lan, projects]);
+  useEffect(() => {
+    getProject_();
+  }, [getProject_]);
   const project = [
     {
       name: `${projects} 1`,
@@ -46,17 +65,29 @@ const Projects = ({ params: { locale, projects } }) => {
               }}
               className="w-[96%] absolute bottom-14 text-6xl md:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12 text-seconds"
             >
-              {projects}
+              {nameCat}
             </motion.div>
           </div>
         </div>
-        {project.map((item, index) => (
-          <div key={index} className="sticky top-0">
-            <Link href={`/shockersAEC/${projects}/${item.name}`}>
-              <ImageOverlaysCenter title={item.name} />
-            </Link>
+        {projectsCat?.length > 0 ? (
+          projectsCat?.map((item, index) => (
+            <div key={index} className="sticky top-0">
+              <Link href={`/shockersAEC/${projects}/${item.id}`}>
+                <ImageOverlaysCenter
+                  title={item?.attributes?.name}
+                  imgURl={item?.attributes?.imgURl?.data?.attributes.url}
+                />
+              </Link>
+            </div>
+          ))
+        ) : (
+          <div className="sticky top-0 ">
+            <ImageOverlaysCenter
+              title="COMING SOON"
+              imgURl="/img/imageOverlays.jpg"
+            />
           </div>
-        ))}
+        )}
       </section>
     </motion.div>
   );

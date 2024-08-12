@@ -18,4 +18,6 @@ export const getContact = (locale) =>
 export const getJobOffers = (locale) =>
   axiosClient.get(`/shockers-jobs-offers?locale=${locale}`);
 export const getProject = (locale, id) =>
-  axiosClient.get(`/shockers-categories/${id}?populate=*&locale=${locale}`);
+  axiosClient.get(
+    `/shockers-categories/${id}?populate[shockers_projects][populate]=*&populate=*&locale=${locale}`
+  );

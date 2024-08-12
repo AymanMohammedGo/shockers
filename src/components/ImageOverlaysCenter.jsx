@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-const ImageOverlaysCenter = ({ title }) => {
+const ImageOverlaysCenter = ({ title, imgURl }) => {
   return (
-    <div className="relative w-screen h-screen">
+    <div className="relative w-screen h-screen ">
       <Image
         className="object-cover"
-        src="/img/imageOverlays.jpg"
+        src={imgURl}
         fill={true}
         alt="imageOverlays"
         quality={75}

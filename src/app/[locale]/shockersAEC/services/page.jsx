@@ -44,7 +44,7 @@ const Services = ({ params: { locale } }) => {
         title={selectedService?.attributes?.title}
         imgURL={selectedService?.attributes?.imgURL?.data?.attributes.url}
       />
-      <div className="flex flex-col   justify-center md:flex-row min-h-screen lg:py-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
+      <div className="flex flex-col   justify-center md:flex-row min-h-screen lg:py-5 lg:my-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
         <motion.div
           initial={{
             x: document.dir === "ltr" ? "-100%" : "+100%",

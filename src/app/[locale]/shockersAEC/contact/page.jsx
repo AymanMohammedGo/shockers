@@ -275,14 +275,20 @@ const Contact = ({ params: { locale } }) => {
                   modules={[Autoplay, Pagination]}
                   className="mySwiper w-full h-full"
                 >
-                  {jobOffers.map((item, index) => (
-                    <SwiperSlide
-                      key={index}
-                      className="!flex justify-center items-center bg-shockersAEC text-white text-xl text-center rounded-lg"
-                    >
-                      {item?.attributes?.title}
+                  {jobOffers.length > 0 ? (
+                    jobOffers.map((item, index) => (
+                      <SwiperSlide
+                        key={index}
+                        className="!flex justify-center items-center bg-shockersAEC text-white text-xl text-center rounded-lg"
+                      >
+                        {item.attributes?.title}
+                      </SwiperSlide>
+                    ))
+                  ) : (
+                    <SwiperSlide className="!flex justify-center items-center bg-shockersAEC text-white text-xl text-center rounded-lg">
+                      {ContactNames.No_offers_yet}
                     </SwiperSlide>
-                  ))}
+                  )}
                 </Swiper>
               </div>
             </div>

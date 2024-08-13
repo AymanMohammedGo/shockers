@@ -173,13 +173,13 @@ const ServicesOver3Section = ({ services, title, bg, link, tc, dir }) => {
                     className="relative"
                   >
                     <div
-                      className={`absolute left-0 top-0 h-[12vh] w-[90vw]   border-white border-2`}
+                      className={`absolute left-0 top-0 h-[11vh] w-[90vw]   border-white border-2`}
                     ></div>
                     <Link
                       href={`/${link}/services?serviceId=${item?.name?.id}`}
                     >
                       <div
-                        className={`bg-gradient group -translate-x-4 translate-y-4 h-[12vh] w-[90vw]    relative hover:translate-x-0 hover:translate-y-0 ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
+                        className={`bg-gradient group -translate-x-3 translate-y-3 h-[11vh] w-[90vw]    relative hover:translate-x-0 hover:translate-y-0 ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
                       >
                         <span
                           className={`relative font-medium w-full text-2xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] group-hover:text-white after:bg-white after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out group-hover:after:w-[40%]`}
@@ -187,9 +187,9 @@ const ServicesOver3Section = ({ services, title, bg, link, tc, dir }) => {
                           {item?.name?.attributes?.title}
                         </span>
                         <div
-                          className={`w-[18px] translate-x-6 translate-y-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 absolute ${
+                          className={`w-[18px] translate-x-3 translate-y-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 absolute ${
                             dir === "ltr" ? "right-0" : "left-0"
-                          } bottom-0 m-6 transition-all duration-300 ease-in-out`}
+                          } bottom-0 m-3 transition-all duration-300 ease-in-out`}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"

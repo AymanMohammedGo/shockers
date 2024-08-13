@@ -11,7 +11,7 @@ import { getName_Solgan } from "../../../../utils/GlobleApi";
 
 import "../globals.css";
 import { getCategoriesProjects } from "../../../../utils/ShockersApi";
-import ServicesOver3Section from "@/components/servicesOver3Section";
+import ServicesOver3Section from "@/components/ServicesOver3Section";
 const DecaHome = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {

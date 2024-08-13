@@ -3,7 +3,6 @@ import SlideProject from "@/components/SlideProject";
 import Draw_D from "@/components/Lottie/Draw_D";
 import D_json from "/public/Motion/D.json";
 import { motion } from "framer-motion";
-import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import SalgonSection from "@/components/SalgonSection";
 import { getHome, getServices } from "../../../../utils/DecaApi";
@@ -12,6 +11,7 @@ import { getName_Solgan } from "../../../../utils/GlobleApi";
 
 import "../globals.css";
 import { getCategoriesProjects } from "../../../../utils/ShockersApi";
+import ServicesOver3Section from "@/components/servicesOver3Section";
 const DecaHome = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
@@ -90,14 +90,13 @@ const DecaHome = ({ params: { locale } }) => {
           tc="text-white"
         />
 
-        <ServicesSection
+        <ServicesOver3Section
           services={services}
           title={data?.attributes?.NameServices}
           link="deca"
           bg="bg-Hover-gradient-Deca"
           tc="text-shockersAEC"
           dir={document.dir}
-
         />
         <SlideProject categoriesProjects={categoriesProjects} link="deca" />
       </section>

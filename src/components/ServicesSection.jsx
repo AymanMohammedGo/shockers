@@ -44,9 +44,7 @@ const ServicesSection = ({ services, title, bg, link, tc, dir }) => {
               </motion.h1>
               <ul
                 className={`grid grid-cols-1 ${
-                  link === "deca" || link === "baytuna"
-                    ? "lg:grid-cols-2"
-                    : "lg:grid-cols-3"
+                  link === "baytuna" ? "lg:grid-cols-2" : "lg:grid-cols-3"
                 }  gap-8 lg:gap-12 xl:gap-20 xlgl:gap-40 max-w-screen-xlgl lg:w-full `}
               >
                 {services.map((item) => (
@@ -69,7 +67,7 @@ const ServicesSection = ({ services, title, bg, link, tc, dir }) => {
                       >
                         <span
                           className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] ${
-                            link === "baytuna" || link === "deca"
+                            link === "baytuna"
                               ? "group-hover:text-white after:bg-white"
                               : "after:bg-shockersAEC"
                           }  after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out group-hover:after:w-[40%]`}
@@ -96,7 +94,7 @@ const ServicesSection = ({ services, title, bg, link, tc, dir }) => {
                                 ? "lucide-chevron-right"
                                 : "rotate-180"
                             }  ${
-                              link === "baytuna" || link === "deca"
+                              link === "baytuna"
                                 ? "group-hover:text-white "
                                 : "group-hover:text-shockersAEC"
                             }`}

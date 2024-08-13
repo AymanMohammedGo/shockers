@@ -38,7 +38,7 @@ const ServicesOver3Section = ({ services, title, bg, link, tc, dir }) => {
                 initial="hidden"
                 animate={controls1}
                 variants={var1}
-                className="text-[55px] sm:text-6xl lg:text-8xl font-bold mb-10 lg:mb-16   "
+                className="text-[55px] sm:text-6xl lg:text-8xl font-bold mb-6 lg:mb-16   "
               >
                 {title}
               </motion.h1>
@@ -173,13 +173,13 @@ const ServicesOver3Section = ({ services, title, bg, link, tc, dir }) => {
                     className="relative"
                   >
                     <div
-                      className={`absolute left-0 top-0 h-[10vh] w-[90vw]   border-white border-2`}
+                      className={`absolute left-0 top-0 h-[12vh] w-[90vw]   border-white border-2`}
                     ></div>
                     <Link
                       href={`/${link}/services?serviceId=${item?.name?.id}`}
                     >
                       <div
-                        className={`bg-gradient group -translate-x-4 translate-y-4 h-[10vh] w-[90vw]    relative hover:translate-x-0 hover:translate-y-0 ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
+                        className={`bg-gradient group -translate-x-4 translate-y-4 h-[12vh] w-[90vw]    relative hover:translate-x-0 hover:translate-y-0 ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
                       >
                         <span
                           className={`relative font-medium w-full text-2xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] group-hover:text-white after:bg-white after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out group-hover:after:w-[40%]`}

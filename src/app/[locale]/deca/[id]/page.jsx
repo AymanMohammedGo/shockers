@@ -1,28 +1,25 @@
 "use client";
-import SlideCategories from "@/components/SlideCategories";
+import SlideProject from "@/components/SlideProject";
 import ImageTitleProject from "@/components/ImageTitleProject";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { getDetail_project } from "../../../../../../utils/GlobleApi";
-import {
-  getCategoriesProjects,
-  getProject,
-} from "../../../../../../utils/ShockersApi";
+import { getDetail_project } from "../../../../../utils/GlobleApi";
+import { getProject, getProjects } from "../../../../../utils/DecaApi";
 import { useCallback, useState, useEffect } from "react";
 const SubProject = ({ params: { locale, id } }) => {
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
   }
-  const [categoriesProjects, setCategoriesProjects] = useState([]);
+  const [projects, setProjects] = useState([]);
   const [project, setProject] = useState();
   const [getDetailProject, setGetDetailProject] = useState();
-
-  const getCategoriesProjects_ = useCallback(() => {
-    getCategoriesProjects(lan).then((res) => {
-      setCategoriesProjects(res.data.data);
+  const getProjects_ = useCallback(() => {
+    getProjects(lan).then((res) => {
+      setProjects(res.data.data);
     });
   }, [lan]);
+
   const getProject_ = useCallback(() => {
     getProject(lan, id).then((res) => {
       setProject(res.data.data);
@@ -34,10 +31,10 @@ const SubProject = ({ params: { locale, id } }) => {
     });
   }, [lan]);
   useEffect(() => {
-    getCategoriesProjects_();
+    getProjects_();
     getProject_();
     getDetail_project_();
-  }, [getCategoriesProjects_, getProject_, getDetail_project_]);
+  }, [getProjects_, getProject_, getDetail_project_]);
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -68,10 +65,7 @@ const SubProject = ({ params: { locale, id } }) => {
       ))}
 
       <div className="sticky top-0 bg-primary ">
-        <SlideCategories
-          categoriesProjects={categoriesProjects}
-          link="shockersAEC"
-        />
+        <SlideProject allProjects={projects} link="deca" />
       </div>
     </motion.div>
   );

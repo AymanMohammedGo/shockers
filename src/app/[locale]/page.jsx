@@ -5,7 +5,6 @@ import lottie from "lottie-web";
 import Link from "next/link";
 import Image from "next/image";
 import { getName_Solgan } from "../../../utils/GlobleApi";
-import LoadingVideo from "../../components/LoadingVideo";
 export default function Home({ params: { locale } }) {
   const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
   const [showContent, setShowContent] = useState(false);

@@ -1,5 +1,5 @@
 "use client";
-import SlideProject from "@/components/SlideProject";
+import SlideCategories from "@/components/SlideCategories";
 import Draw_S from "@/components/Lottie/Draw_S";
 import S_json from "/public/Motion/S.json";
 import { motion } from "framer-motion";
@@ -100,7 +100,7 @@ const ShockersHome = ({ params: { locale } }) => {
           tc="text-shockersAEC"
           dir={document.dir}
         />
-        <SlideProject
+        <SlideCategories
           categoriesProjects={categoriesProjects}
           link="shockersAEC"
         />

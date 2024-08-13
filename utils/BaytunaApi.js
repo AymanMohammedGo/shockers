@@ -15,3 +15,7 @@ export const getContact = (locale) =>
   axiosClient.get(`/baytuna-contact?locale=${locale}`);
 export const getJobOffers = (locale) =>
   axiosClient.get(`/baytuna-jobs-offers?locale=${locale}`);
+export const getProjects = (locale) =>
+  axiosClient.get(`/baytuna-projects?populate=*&locale=${locale}`);
+export const getProject = (locale, id) =>
+  axiosClient.get(`/baytuna-projects/${id}?populate=*&locale=${locale}`);

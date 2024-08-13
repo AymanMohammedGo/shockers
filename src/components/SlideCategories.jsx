@@ -10,9 +10,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 
-import { FreeMode } from "swiper/modules";
+import { FreeMode, Navigation } from "swiper/modules";
 
-export default function SlideProject({ allProjects, link }) {
+export default function SlideCategories({ categoriesProjects, link }) {
   const swiperRef = useRef(null);
   const isDelay = useRef(false);
   useEffect(() => {
@@ -89,7 +89,7 @@ export default function SlideProject({ allProjects, link }) {
                 },
               }}
             >
-              {allProjects?.map((item, index) => (
+              {categoriesProjects?.map((item, index) => (
                 <SwiperSlide key={index} className="relative">
                   <Link href={`/${link}/${item?.id}`}>
                     <div className="relative w-full h-full overflow-hidden ">
@@ -103,9 +103,7 @@ export default function SlideProject({ allProjects, link }) {
                       >
                         <Image
                           className="object-cover"
-                          src={
-                            item?.attributes?.imgURLHome?.data?.attributes?.url
-                          }
+                          src={item?.attributes?.imgURL?.data?.attributes?.url}
                           layout="fill"
                           alt={item.id}
                           quality={75}
@@ -114,7 +112,7 @@ export default function SlideProject({ allProjects, link }) {
                       </motion.div>
                     </div>
                     <span className="absolute text-center w-full  bottom-0 p-4 text-white text-2xl">
-                      {item?.attributes?.name}
+                      {item?.attributes?.title}
                     </span>
                   </Link>
                 </SwiperSlide>

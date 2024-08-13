@@ -5,12 +5,11 @@ import D_json from "/public/Motion/D.json";
 import { motion } from "framer-motion";
 import AboutSection from "@/components/AboutSection";
 import SalgonSection from "@/components/SalgonSection";
-import { getHome, getServices } from "../../../../utils/DecaApi";
+import { getHome, getServices, getProjects } from "../../../../utils/DecaApi";
 import { useCallback, useState, useEffect } from "react";
 import { getName_Solgan } from "../../../../utils/GlobleApi";
 
 import "../globals.css";
-import { getCategoriesProjects } from "../../../../utils/ShockersApi";
 import ServicesOver3Section from "@/components/ServicesOver3Section";
 const DecaHome = ({ params: { locale } }) => {
   let lan = locale;
@@ -21,7 +20,7 @@ const DecaHome = ({ params: { locale } }) => {
   const [solgan, setSolgan] = useState([]);
   const [data, setData] = useState([]);
   const [services, setServices] = useState([]);
-  const [categoriesProjects, setCategoriesProjects] = useState([]);
+  const [projects, setProjects] = useState([]);
   const getName_Solgan_ = useCallback(() => {
     getName_Solgan(lan).then((res) => {
       const newSolgan = [];
@@ -58,17 +57,17 @@ const DecaHome = ({ params: { locale } }) => {
       setServices(newServices);
     });
   }, [lan]);
-  const getCategoriesProjects_ = useCallback(() => {
-    getCategoriesProjects(lan).then((res) => {
-      setCategoriesProjects(res.data.data);
+  const getProjects_ = useCallback(() => {
+    getProjects(lan).then((res) => {
+      setProjects(res.data.data);
     });
   }, [lan]);
   useEffect(() => {
     getHome_();
     getServices_();
-    getCategoriesProjects_();
+    getProjects_();
     getName_Solgan_();
-  }, [getHome_, getServices_, getCategoriesProjects_, getName_Solgan_]);
+  }, [getHome_, getServices_, getProjects_, getName_Solgan_]);
 
   return (
     <motion.div
@@ -98,7 +97,7 @@ const DecaHome = ({ params: { locale } }) => {
           tc="text-shockersAEC"
           dir={document.dir}
         />
-        <SlideProject categoriesProjects={categoriesProjects} link="deca" />
+        <SlideProject allProjects={projects} link="deca" />
       </section>
     </motion.div>
   );

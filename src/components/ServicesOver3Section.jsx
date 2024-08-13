@@ -38,7 +38,7 @@ const ServicesOver3Section = ({ services, title, bg, link, tc, dir }) => {
                 initial="hidden"
                 animate={controls1}
                 variants={var1}
-                className="text-[55px] sm:text-6xl lg:text-8xl font-bold mb-6 lg:mb-16   "
+                className="text-[55px] sm:text-6xl lg:text-8xl font-bold mb-6 lg:mb-8 xxl:mb-16   "
               >
                 {title}
               </motion.h1>

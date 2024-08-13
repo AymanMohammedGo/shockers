@@ -15,3 +15,7 @@ export const getContact = (locale) =>
   axiosClient.get(`/deca-contact?locale=${locale}`);
 export const getJobOffers = (locale) =>
   axiosClient.get(`/deca-jobs-offers?locale=${locale}`);
+export const getProjects = (locale) =>
+  axiosClient.get(`/deca-projects?populate=*&locale=${locale}`);
+export const getProject = (locale, id) =>
+  axiosClient.get(`/deca-projects/${id}?populate=*&locale=${locale}`);

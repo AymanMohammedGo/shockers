@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const ImageOverlaysCenter = ({ title, imgURl }) => {
   return (
-    <div className="relative w-screen h-screen mt-24">
+    <div className="relative w-screen h-screen ">
       <Image
         className="object-cover"
         src={imgURl}

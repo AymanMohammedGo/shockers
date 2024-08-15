@@ -9,7 +9,11 @@ import {
   getProject,
 } from "../../../../../../utils/ShockersApi";
 import { useCallback, useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+
 const SubProject = ({ params: { locale, id } }) => {
+  const router = useRouter();
+
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
@@ -24,10 +28,18 @@ const SubProject = ({ params: { locale, id } }) => {
     });
   }, [lan]);
   const getProject_ = useCallback(() => {
-    getProject(lan, id).then((res) => {
-      setProject(res.data.data);
-    });
-  }, [lan, id]);
+    getProject(lan, id)
+      .then((res) => {
+        if (!res.data) {
+          router.push("/404");
+        } else {
+          setProject(res.data.data);
+        }
+      })
+      .catch(() => {
+        router.push("/404");
+      });
+  }, [lan, id, router]);
   const getDetail_project_ = useCallback(() => {
     getDetail_project(lan).then((res) => {
       setGetDetailProject(res.data.data.attributes);

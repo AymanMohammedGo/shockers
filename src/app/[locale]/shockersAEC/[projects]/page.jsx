@@ -7,8 +7,11 @@ import { motion } from "framer-motion";
 import { useEffect, useState, useCallback } from "react";
 import { getProjects } from "../../../../../utils/ShockersApi";
 import { useTranslation } from "react-i18next";
+import { useRouter } from "next/navigation";
 
 const Projects = ({ params: { locale, projects } }) => {
+  const router = useRouter();
+
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
@@ -19,11 +22,19 @@ const Projects = ({ params: { locale, projects } }) => {
   const [projectsCat, setProjectsCat] = useState();
 
   const getProjects_ = useCallback(() => {
-    getProjects(lan, projects).then((res) => {
-      setNameCat(res.data.data?.attributes?.title);
-      setProjectsCat(res.data.data?.attributes?.shockers_projects?.data);
-    });
-  }, [lan, projects]);
+    getProjects(lan, projects)
+      .then((res) => {
+        if (!res.data) {
+          router.push("/404");
+        } else {
+          setNameCat(res.data.data?.attributes?.title);
+          setProjectsCat(res.data.data?.attributes?.shockers_projects?.data);
+        }
+      })
+      .catch(() => {
+        router.push("/404");
+      });
+  }, [lan, projects, router]);
   useEffect(() => {
     getProjects_();
   }, [getProjects_]);
@@ -37,17 +48,17 @@ const Projects = ({ params: { locale, projects } }) => {
       <section className="w-full h-full">
         <div className="h-screen sticky top-0">
           <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
-            <motion.div
+            <motion.h1
               initial={{ x: "-100%", opacity: 1 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{
                 duration: 2,
                 delay: 0.3,
               }}
-              className="w-[96%] absolute bottom-14 text-6xl md:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12 text-seconds"
+              className="w-full p-2 absolute left-0 bottom-14 text-6xl md:text-8xl lg:text-9xl font-extrabold m-auto lg:mb-12 text-seconds"
             >
               {nameCat}
-            </motion.div>
+            </motion.h1>
           </div>
         </div>
 

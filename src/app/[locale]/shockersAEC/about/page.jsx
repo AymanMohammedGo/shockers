@@ -91,6 +91,14 @@ const About = ({ params: { locale } }) => {
             transition={{ duration: 0.5 }}
             className="px-4 h-screen text-shockersAEC flex flex-col items-start"
           >
+            <div className="absolute h-screen w-full">
+              <Draw_S
+                animationData={S_json}
+                delay={500}
+                speed={0.4}
+                postion={"absolute"}
+              />
+            </div>
             <div className="relative  max-w-screen-xxl m-auto  flex flex-col items-start overflow-hidden">
               <div className="flex flex-col items-center justify-center h-screen overflow-hidden">
                 <div className="relative flex items-center z-10 w-full overflow-hidden">
@@ -134,7 +142,7 @@ const About = ({ params: { locale } }) => {
                   transition={{
                     duration: 1,
                   }}
-                  className="ml-[26px] md:ml-[78px] text-shockersAEC lg:ml-[130px] text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10 "
+                  className="ml-[26px] md:ml-[78px] text-justify hyphens-auto text-shockersAEC lg:ml-[130px] text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10 "
                 >
                   {item?.attributes.description}
                 </motion.p>

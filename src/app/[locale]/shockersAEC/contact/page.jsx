@@ -77,9 +77,8 @@ const Contact = ({ params: { locale } }) => {
           {nav.map((item, index) => (
             <li
               key={index}
-              className={`px-4 py-2 mx-3 mb-3 lg:mb-0 cursor-pointer w-full ${
-                sectionView === item.index &&
-                "bg-shockersAEC text-white rounded-lg"
+              className={`px-4 py-2 mx-3 mb-3 lg:mb-0 rounded-lg cursor-pointer w-full hover:bg-shockersAEC hover:text-white transition-all ${
+                sectionView === item.index && "bg-shockersAEC text-white  "
               }`}
               onClick={() => {
                 setSectionView(item.index);
@@ -90,7 +89,17 @@ const Contact = ({ params: { locale } }) => {
           ))}
         </ul>
         {sectionView === 0 && (
-          <div className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden">
+          <motion.div
+            initial={{
+              y: "100%",
+              opacity: 0,
+            }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 1,
+            }}
+            className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden"
+          >
             <div className="w-full md:w-[60%] xl:w-[50%] p-2 m-auto ">
               {sectionForm.map((item, index) => (
                 <div key={index} className="mb-4">
@@ -127,10 +136,20 @@ const Contact = ({ params: { locale } }) => {
                 {ContactNames.SUBMIT}
               </Button>
             </div>
-          </div>
+          </motion.div>
         )}
         {sectionView === 1 && (
-          <div className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden">
+          <motion.div
+            initial={{
+              y: "100%",
+              opacity: 0,
+            }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 1,
+            }}
+            className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden"
+          >
             <div className="w-full md:w-[60%] xl:w-[50%] p-2 m-auto">
               <h1 className="text-shockersAEC text-xl  border-b-[1px] border-shockersAEC/20 mb-5 pb-5 lg:mb-10 lg:pb-10 font-medium ">
                 {ContactNames.SUBSCRIBTION_TEXT}
@@ -156,10 +175,20 @@ const Contact = ({ params: { locale } }) => {
                 {ContactNames.SUBMIT}
               </Button>
             </div>
-          </div>
+          </motion.div>
         )}
         {sectionView === 2 && (
-          <div className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden">
+          <motion.div
+            initial={{
+              y: "100%",
+              opacity: 0,
+            }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 1,
+            }}
+            className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden"
+          >
             <div className="w-full md:w-[60%] xl:w-[50%] p-2 ">
               <h1 className="text-shockersAEC text-xl  border-b-[1px] border-shockersAEC/20 mb-5 pb-5 lg:mb-10 lg:pb-10 font-medium ">
                 {ContactNames.JOBAPPLICATION_Text}
@@ -292,7 +321,7 @@ const Contact = ({ params: { locale } }) => {
                 </Swiper>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
       </section>
     </motion.div>

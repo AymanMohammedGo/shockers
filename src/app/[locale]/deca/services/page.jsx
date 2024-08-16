@@ -38,7 +38,7 @@ const Services = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <Draw_D animationData={D_json} />
+      <Draw_D animationData={D_json} delay={500} speed={0.4} />
       <ImageOverlaysTop
         dir={document.dir}
         title={selectedService?.attributes?.title}

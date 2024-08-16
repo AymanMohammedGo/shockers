@@ -40,14 +40,69 @@ const Contact = ({ params: { locale } }) => {
   const nav = [
     {
       name: ContactNames.INQUIRY,
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-circle-help mx-2"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+          <path d="M12 17h.01" />
+        </svg>
+      ),
       index: 0,
     },
     {
       name: ContactNames.SUBSCRIBTION,
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-user-round-check mx-2"
+        >
+          <path d="M2 21a8 8 0 0 1 13.292-6" />
+          <circle cx="10" cy="8" r="5" />
+          <path d="m16 19 2 2 4-4" />
+        </svg>
+      ),
       index: 1,
     },
     {
       name: ContactNames.JOB_APPLICATION,
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-briefcase-business mx-2"
+        >
+          <path d="M12 12h.01" />
+          <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+          <path d="M22 13a18.15 18.15 0 0 1-20 0" />
+          <rect width="20" height="14" x="2" y="6" rx="2" />
+        </svg>
+      ),
       index: 2,
     },
   ];
@@ -77,13 +132,14 @@ const Contact = ({ params: { locale } }) => {
           {nav.map((item, index) => (
             <li
               key={index}
-              className={`px-4 py-2 mx-3 mb-3 lg:mb-0 cursor-pointer rounded-lg hover:bg-deca hover:text-white transition-all w-full ${
+              className={`px-4 py-2 mx-3 mb-3 lg:mb-0 cursor-pointer rounded-lg flex items-center lg:justify-center hover:bg-deca hover:text-white transition-all w-full ${
                 sectionView === item.index && "bg-deca text-white "
               }`}
               onClick={() => {
                 setSectionView(item.index);
               }}
             >
+              {item.icon}
               {item.name}
             </li>
           ))}

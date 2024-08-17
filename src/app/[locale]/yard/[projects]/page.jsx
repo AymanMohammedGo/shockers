@@ -80,49 +80,50 @@ const Projects = ({ params: { locale, projects } }) => {
   }, [getProjects_, getCategoriesProject_]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { delay: 1 } }}
-    >
-      <Draw_S speed={4} animationData={S_json} />
-      <section className="w-full h-full">
-        <div className="h-screen sticky top-0">
-          <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
-            <motion.h1
-              initial={{ x: "-100%", opacity: 1 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{
-                duration: 2,
-                delay: 0.3,
-              }}
-              className="w-full break-words p-2 absolute text-center lg:text-start !leading-[65px] md:!leading-[145px] left-0 bottom-7 lg:bottom-14 text-6xl md:text-8xl lg:text-9xl font-extrabold m-auto lg:mb-10 text-seconds"
-            >
-              {nameCat}
-            </motion.h1>
-          </div>
-        </div>
+    <></>
+    // <motion.div
+    //   initial={{ opacity: 0 }}
+    //   animate={{ opacity: 1, transition: { delay: 1 } }}
+    // >
+    //   <Draw_S speed={4} animationData={S_json} />
+    //   <section className="w-full h-full">
+    //     <div className="h-screen sticky top-0">
+    //       <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
+    //         <motion.h1
+    //           initial={{ x: "-100%", opacity: 1 }}
+    //           animate={{ x: 0, opacity: 1 }}
+    //           transition={{
+    //             duration: 2,
+    //             delay: 0.3,
+    //           }}
+    //           className="w-full break-words p-2 absolute text-center lg:text-start !leading-[65px] md:!leading-[145px] left-0 bottom-7 lg:bottom-14 text-6xl md:text-8xl lg:text-9xl font-extrabold m-auto lg:mb-10 text-seconds"
+    //         >
+    //           {nameCat}
+    //         </motion.h1>
+    //       </div>
+    //     </div>
 
-        {projectsCat?.length > 0 ? (
-          projectsCat?.map((item, index) => (
-            <div key={index} className="sticky top-0">
-              <Link href={`/shockersAEC/${projects}/${item.id}`}>
-                <ImageOverlaysCenter
-                  title={item?.attributes?.name}
-                  imgURl={item?.attributes?.imgURl?.data?.attributes.url}
-                />
-              </Link>
-            </div>
-          ))
-        ) : (
-          <div className="sticky top-0 ">
-            <ImageOverlaysCenter
-              title={t("COMING_SOON")}
-              imgURl="/img/imageOverlays.jpg"
-            />
-          </div>
-        )}
-      </section>
-    </motion.div>
+    //     {projectsCat?.length > 0 ? (
+    //       projectsCat?.map((item, index) => (
+    //         <div key={index} className="sticky top-0">
+    //           <Link href={`/shockersAEC/${projects}/${item.id}`}>
+    //             <ImageOverlaysCenter
+    //               title={item?.attributes?.name}
+    //               imgURl={item?.attributes?.imgURl?.data?.attributes.url}
+    //             />
+    //           </Link>
+    //         </div>
+    //       ))
+    //     ) : (
+    //       <div className="sticky top-0 ">
+    //         <ImageOverlaysCenter
+    //           title={t("COMING_SOON")}
+    //           imgURl="/img/imageOverlays.jpg"
+    //         />
+    //       </div>
+    //     )}
+    //   </section>
+    // </motion.div>
   );
 };
 

@@ -5,39 +5,79 @@ import S_json from "/public/Motion/S.json";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState, useCallback } from "react";
-import { getProjects } from "../../../../../utils/ShockersApi";
+import {
+  getProjects,
+  getCategoriesProject,
+} from "../../../../../utils/ShockersApi";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
 
 const Projects = ({ params: { locale, projects } }) => {
   const router = useRouter();
+  const lanID = {
+    en: 0,
+    ar: 0,
+    af: 0,
+  };
 
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
   }
+
   const { t } = useTranslation();
 
   const [nameCat, setNameCat] = useState();
   const [projectsCat, setProjectsCat] = useState();
+  const assignLocalizationIDs = (locale, id, localizations) => {
+    lanID[locale] = id;
+    localizations.forEach((localization) => {
+      const loc = localization.attributes.locale;
+      if (loc === "af") {
+        lanID.af = localization.id;
+      } else if (loc === "ar") {
+        lanID.ar = localization.id;
+      } else if (loc === "en") {
+        lanID.en = localization.id;
+      }
+      console.log(lanID);
+    });
+    if (lan === "ar") {
+      router.push(`/shockersAEC/${lanID.ar}`);
+    } else if (lan === "en") {
+      router.push(`/shockersAEC/${lanID.en}`);
+    } else {
+      router.push(`/shockersAEC/${lanID.af}`);
+    }
+  };
+
+  const getCategoriesProject_ = useCallback(() => {
+    getCategoriesProject(lan, projects).then((res) => {
+      if (res.data) {
+        const { locale, localizations } = res.data.data.attributes;
+        assignLocalizationIDs(locale, res.data.data.id, localizations.data);
+      }
+    });
+  }, [lan, projects]);
 
   const getProjects_ = useCallback(() => {
     getProjects(lan, projects)
       .then((res) => {
         if (!res.data) {
-          router.push("/404");
+          router.push(`/en/shockersAEC`);
         } else {
           setNameCat(res.data.data?.attributes?.title);
           setProjectsCat(res.data.data?.attributes?.shockers_projects?.data);
         }
       })
       .catch(() => {
-        router.push("/404");
+        router.push(`/en/shockersAEC`);
       });
   }, [lan, projects, router]);
   useEffect(() => {
     getProjects_();
-  }, [getProjects_]);
+    getCategoriesProject_();
+  }, [getProjects_, getCategoriesProject_]);
 
   return (
     <motion.div

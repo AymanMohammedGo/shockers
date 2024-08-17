@@ -13,7 +13,7 @@ const ImageOverlaysTop = ({ title, imgURL, dir }) => {
       />
       <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
       <div className="absolute bottom-10 lg:bottom-20 w-full ">
-        <div className="m-auto overflow-hidden max-w-screen-xxl text-center lg:text-start text-white lg:p-10  xxl:p-2">
+        <div className="m-auto px-2 lg:px-0 overflow-hidden max-w-screen-xxl text-center lg:text-start text-white lg:p-10  xxl:p-2">
           <motion.h1
             initial={{
               x: dir === "ltr" ? "-100%" : "+100%",

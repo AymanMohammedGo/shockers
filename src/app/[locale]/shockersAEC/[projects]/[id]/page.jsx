@@ -10,18 +10,44 @@ import {
 } from "../../../../../../utils/ShockersApi";
 import { useCallback, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 
 const SubProject = ({ params: { locale, id } }) => {
   const router = useRouter();
-
+  const lanID = {
+    en: 0,
+    ar: 0,
+    af: 0,
+  };
   let lan = locale;
+  const params = useParams();
   if (locale === "kr") {
     lan = "af";
   }
   const [categoriesProjects, setCategoriesProjects] = useState([]);
   const [project, setProject] = useState();
   const [getDetailProject, setGetDetailProject] = useState();
-
+  const assignLocalizationIDs = (locale, id, localizations) => {
+    lanID[locale] = id;
+    localizations.forEach((localization) => {
+      const loc = localization?.attributes?.locale;
+      if (loc === "af") {
+        lanID.af = localization.id;
+      } else if (loc === "ar") {
+        lanID.ar = localization.id;
+      } else if (loc === "en") {
+        lanID.en = localization.id;
+      }
+      console.log(lanID);
+    });
+    if (lan === "ar") {
+      router.push(`/shockersAEC/${params.projects}/${lanID.ar}`);
+    } else if (lan === "en") {
+      router.push(`/shockersAEC/${params.projects}/${lanID.en}`);
+    } else {
+      router.push(`/shockersAEC/${params.projects}/${lanID.af}`);
+    }
+  };
   const getCategoriesProjects_ = useCallback(() => {
     getCategoriesProjects(lan).then((res) => {
       setCategoriesProjects(res.data.data);
@@ -31,13 +57,15 @@ const SubProject = ({ params: { locale, id } }) => {
     getProject(lan, id)
       .then((res) => {
         if (!res.data) {
-          router.push("/404");
+          router.push(`/en/shockersAEC`);
         } else {
           setProject(res.data.data);
+          const { locale, localizations } = res.data.data.attributes;
+          assignLocalizationIDs(locale, res.data.data.id, localizations.data);
         }
       })
       .catch(() => {
-        router.push("/404");
+        router.push(`/en/shockersAEC`);
       });
   }, [lan, id, router]);
   const getDetail_project_ = useCallback(() => {

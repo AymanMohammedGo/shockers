@@ -10,7 +10,11 @@ import { useRouter } from "next/navigation";
 
 const SubProject = ({ params: { locale, id } }) => {
   const router = useRouter();
-
+  const lanID = {
+    en: 0,
+    ar: 0,
+    af: 0,
+  };
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
@@ -18,6 +22,27 @@ const SubProject = ({ params: { locale, id } }) => {
   const [projects, setProjects] = useState([]);
   const [project, setProject] = useState();
   const [getDetailProject, setGetDetailProject] = useState();
+  const assignLocalizationIDs = (locale, id, localizations) => {
+    lanID[locale] = id;
+    localizations.forEach((localization) => {
+      const loc = localization?.attributes?.locale;
+      if (loc === "af") {
+        lanID.af = localization.id;
+      } else if (loc === "ar") {
+        lanID.ar = localization.id;
+      } else if (loc === "en") {
+        lanID.en = localization.id;
+      }
+      console.log(lanID);
+    });
+    if (lan === "ar") {
+      router.push(`/baytuna/${lanID.ar}`);
+    } else if (lan === "en") {
+      router.push(`/baytuna/${lanID.en}`);
+    } else {
+      router.push(`/baytuna/${lanID.af}`);
+    }
+  };
   const getProjects_ = useCallback(() => {
     getProjects(lan).then((res) => {
       setProjects(res.data.data);
@@ -28,13 +53,15 @@ const SubProject = ({ params: { locale, id } }) => {
     getProject(lan, id)
       .then((res) => {
         if (!res.data) {
-          router.push("/404");
+          router.push("/en/baytuna");
         } else {
           setProject(res.data.data);
+          const { locale, localizations } = res.data.data.attributes;
+          assignLocalizationIDs(locale, res.data.data.id, localizations.data);
         }
       })
       .catch(() => {
-        router.push("/404");
+        router.push("/en/baytuna");
       });
   }, [lan, id, router]);
   const getDetail_project_ = useCallback(() => {

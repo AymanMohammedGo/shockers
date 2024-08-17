@@ -10,7 +10,7 @@ const ImageOverlaysCenter = ({ title, imgURl }) => {
         alt="imageOverlays"
         quality={100}
       />
-      <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
+      <div className="bg-black bg-opacity-40 w-full h-full absolute top-0" />
       <div className="absolute flex items-center justify-center  inset-0 m-auto   ">
         <div className=" text-center lg:text-start   text-white p-2">
           <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl ">

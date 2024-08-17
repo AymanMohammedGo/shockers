@@ -135,6 +135,9 @@ html {
 .bg-Hover-gradient-Baytuna:hover {
   background: #c01f4a;
 }
+.bg-Hover-gradient-yard:hover {
+  background: #b9d988;
+}
 .cancelEffect {
   outline: none !important;
   box-shadow: none !important;

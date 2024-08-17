@@ -102,7 +102,7 @@ const SubProject = ({ params: { locale, id } }) => {
               fill={true}
               alt=""
             />
-            {/* <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" /> */}
+            <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
           </div>
         </div>
       ))}

@@ -29,7 +29,6 @@ export default function Home({ params: { locale } }) {
   const [solgan, setSolgan] = useState([]);
   const getName_Solgan_ = useCallback(() => {
     getName_Solgan(lan).then((res) => {
-      console.log(res.data.data.attributes);
       setSolgan(res.data.data.attributes);
     });
   }, [lan]);
@@ -37,7 +36,6 @@ export default function Home({ params: { locale } }) {
     getName_Solgan_();
   }, [getName_Solgan_]);
 
-  const [isVideoEnded, setIsVideoEnded] = useState(true);
   const [hoveredIndex, setHoveredIndex] = useState(0);
   const brond = [
     {

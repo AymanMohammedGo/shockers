@@ -95,7 +95,7 @@ const Projects = ({ params: { locale, projects } }) => {
                 duration: 2,
                 delay: 0.3,
               }}
-              className="w-full p-2 absolute left-0 bottom-14 text-6xl md:text-8xl lg:text-9xl font-extrabold m-auto lg:mb-12 text-seconds"
+              className="w-full break-words p-2 absolute text-center lg:text-start !leading-[65px] md:!leading-[145px] left-0 bottom-7 lg:bottom-14 text-6xl md:text-8xl lg:text-9xl font-extrabold m-auto lg:mb-10 text-seconds"
             >
               {nameCat}
             </motion.h1>

@@ -29,7 +29,7 @@ const ServicesOver3Section = ({ services, title, bg, link, tc, dir }) => {
   }, [controls1, inView1]);
   return (
     <section className="sticky top-0">
-      <div className="w-screen h-screen my-14">
+      <div className="w-screen h-screen my-20">
         <div className="bg-shockersAEC  w-screen h-screen flex items-center justify-center relative z-10">
           <div className="flex  w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
             <div className=" text-white w-full h-full flex-1 p-7  flex flex-col items-center justify-center ">

@@ -55,14 +55,14 @@ const Services = ({ params: { locale } }) => {
           transition={{
             duration: 1,
           }}
-          className="w-full md:w-1/3 px-2  pt-8 md:p-4"
+          className="w-full md:w-1/3 px-2  pt-4 md:p-4"
         >
           <ul className="space-y-2">
             {data.map((service, index) => (
               <li
                 key={index}
                 onClick={() => setSelectedService(service)}
-                className={`cursor-pointer text-xl lg:text-3xl p-4 py-6 lg:!mb-5 font-bold ${
+                className={`cursor-pointer text-2xl lg:text-3xl p-4 py-6 lg:!mb-5 font-bold ${
                   selectedService?.attributes.title ===
                   service?.attributes.title
                     ? `${
@@ -89,7 +89,7 @@ const Services = ({ params: { locale } }) => {
           }}
           className="md:w-2/3 p-2 md:p-4"
         >
-         <div className="mb-6 text-lg md:text-xl lg:text-2xl !leading-[40px] md:!leading-[45px] lg:!leading-[50px] py-0 lg:py-4 px-4 lg:px-10 whitespace-pre-line text-justify hyphens-auto">
+          <div className="mb-6 text-xl lg:text-2xl !leading-[40px]  lg:!leading-[50px] py-0 lg:py-4 px-4 lg:px-10 whitespace-pre-line text-justify hyphens-auto">
             {selectedService?.attributes?.description
               .split("\n")
               .map((service, index) => {
@@ -100,7 +100,13 @@ const Services = ({ params: { locale } }) => {
 
                 return (
                   <div key={index} className="flex items-start">
-                    <span className={`w-2 mx-2 ${extraSpacing}`}>{bullet}</span>
+                    <span
+                      className={`w-2 ${
+                        document.dir === "ltr" ? "mr-2" : "ml-2"
+                      }  ${extraSpacing}`}
+                    >
+                      {bullet}
+                    </span>
                     <p className="flex-1">{trimmedService}</p>
                   </div>
                 );

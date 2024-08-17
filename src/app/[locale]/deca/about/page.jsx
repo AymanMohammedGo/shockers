@@ -71,7 +71,9 @@ const About = ({ params: { locale } }) => {
                 animationData={D_json}
                 delay={500}
                 speed={0.4}
-                postion={"absolute right-[20%] lg:right-2/3"}
+                postion={"absolute right-0"}
+
+                // postion={"absolute right-[20%] lg:right-2/3"}
               />
             </div>
 

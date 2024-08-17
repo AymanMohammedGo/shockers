@@ -6,7 +6,7 @@ const LottieAnimation = ({
   animationData,
   speed,
   delay = 0,
-  postion = "fixed right-0",
+  postion = "fixed right-0 ",
 }) => {
   const animationContainer = useRef(null);
 

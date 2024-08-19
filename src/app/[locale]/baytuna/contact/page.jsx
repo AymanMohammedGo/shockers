@@ -3,15 +3,13 @@ import { motion } from "framer-motion";
 import Draw_B from "@/components/Lottie/Draw_B";
 import B_json from "/public/Motion/B.json";
 import { useEffect, useState, useCallback } from "react";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { getContact, getJobOffers } from "../../../../../utils/BaytunaApi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
+import FormField from "@/components/ui/FormField";
 
 const Contact = ({ params: { locale } }) => {
   let lan = locale;
@@ -22,7 +20,46 @@ const Contact = ({ params: { locale } }) => {
 
   const [ContactNames, setContactNames] = useState([]);
   const [jobOffers, setJobOffers] = useState([]);
-
+  const [formData, setFormData] = useState({
+    dataSectionOne: {
+      FULL_NAME: "",
+      EMAIL_ADDRESS: "",
+      PHONE_NUMBER: "",
+      INQUIRY: "",
+    },
+    dataSectionTwo: {
+      SUBSCRIPTION_FULL_NAME: "",
+      SUBSCRIPTION_EMAIL_ADDRESS: "",
+      SUBSCRIPTION_PHONE_NUMBER: "",
+    },
+    dataSectionThree: {
+      Job_FULL_NAME: "",
+      Job_EMAIL_ADDRESS: "",
+      Job_PHONE_NUMBER: "",
+      Job_ACADEMIC_QUALIFICATION: "",
+      Job_CV_PORTFOLIO: "",
+      Job_Notes: "",
+    },
+  });
+  const handleChange = (section, e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [section]: {
+        ...prevState[section],
+        [e.target.id]: e.target.value,
+      },
+    }));
+  };
+  const handleSubmit = (section, e) => {
+    e.preventDefault();
+    console.log(formData[section]);
+    setFormData((prevState) => ({
+      ...prevState,
+      [section]: Object.fromEntries(
+        Object.keys(prevState[section]).map((key) => [key, ""])
+      ),
+    }));
+  };
   const getContact_ = useCallback(() => {
     getContact(lan).then((res) => {
       setContactNames(res.data.data.attributes);
@@ -106,20 +143,7 @@ const Contact = ({ params: { locale } }) => {
       index: 2,
     },
   ];
-  const sectionForm = [
-    {
-      id: "FULL_NAME",
-      name: ContactNames.FULL_NAME,
-    },
-    {
-      id: "EMAIL_ADDRESS",
-      name: ContactNames.EMAIL_ADDRESS,
-    },
-    {
-      id: "PHONE_NUMBER",
-      name: ContactNames.PHONE_NUMBER,
-    },
-  ];
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -156,42 +180,46 @@ const Contact = ({ params: { locale } }) => {
             }}
             className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden"
           >
-            <div className="w-full md:w-[60%] xl:w-[50%] p-2 m-auto ">
-              {sectionForm.map((item, index) => (
-                <div key={index} className="mb-4">
-                  <Label
-                    htmlFor={item.id}
-                    className="mb-3 text-lg text-shockersAEC"
-                  >
-                    {item.name}
-                  </Label>
-                  <Input
-                    type="text"
-                    id={item.id}
-                    placeholder=""
-                    className="py-5 text-base bg-transparent border-shockersAEC border-[1px] my-2 cancelEffect"
-                  />
-                </div>
-              ))}
-
-              <div className="mb-4">
-                <Label
-                  htmlFor="INQUIRY"
-                  className="mb-3 text-lg text-shockersAEC"
-                >
-                  {ContactNames.INQUIRY_Area}
-                </Label>
-                <Textarea
-                  id={ContactNames.INQUIRY_Area}
-                  placeholder={ContactNames.INQUIRY_Placeholder}
-                  className="text-base bg-transparent border-shockersAEC border-[1px] my-2 cancelEffect"
-                  rows={6}
-                />
-              </div>
+            <form
+              className="w-full md:w-[60%] xl:w-[50%] p-2 m-auto "
+              onSubmit={(e) => handleSubmit("dataSectionOne", e)}
+            >
+              <FormField
+                id="FULL_NAME"
+                label={ContactNames.FULL_NAME}
+                type="text"
+                value={formData.dataSectionOne.FULL_NAME}
+                onChange={(e) => handleChange("dataSectionOne", e)}
+                required
+              />
+              <FormField
+                id="EMAIL_ADDRESS"
+                label={ContactNames.EMAIL_ADDRESS}
+                type="email"
+                value={formData.dataSectionOne.EMAIL_ADDRESS}
+                onChange={(e) => handleChange("dataSectionOne", e)}
+                required
+              />
+              <FormField
+                id="PHONE_NUMBER"
+                label={ContactNames.PHONE_NUMBER}
+                type="number"
+                value={formData.dataSectionOne.PHONE_NUMBER}
+                onChange={(e) => handleChange("dataSectionOne", e)}
+                required
+              />
+              <FormField
+                id="INQUIRY"
+                label={ContactNames.INQUIRY_Area}
+                isTextarea={true}
+                value={formData.dataSectionOne.INQUIRY}
+                onChange={(e) => handleChange("dataSectionOne", e)}
+                placeholder={ContactNames.INQUIRY_Placeholder}
+              />
               <Button className="bg-baytuna hover:bg-shockersAEC text-white w-full text-lg rounded-lg">
                 {ContactNames.SUBMIT}
               </Button>
-            </div>
+            </form>
           </motion.div>
         )}
         {sectionView === 1 && (
@@ -206,31 +234,41 @@ const Contact = ({ params: { locale } }) => {
             }}
             className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden"
           >
-            <div className="w-full md:w-[60%] xl:w-[50%] p-2 m-auto">
+            <form
+              className="w-full md:w-[60%] xl:w-[50%] p-2 m-auto"
+              onSubmit={(e) => handleSubmit("dataSectionTwo", e)}
+            >
               <h1 className="text-shockersAEC text-xl  border-b-[1px] border-shockersAEC/20 mb-5 pb-5 lg:mb-10 lg:pb-10 font-medium ">
                 {ContactNames.SUBSCRIBTION_TEXT}
               </h1>
-              {sectionForm.map((item, index) => (
-                <div key={index} className="mb-4">
-                  <Label
-                    htmlFor={item.id}
-                    className="mb-3 text-lg text-shockersAEC"
-                  >
-                    {item.name}
-                  </Label>
-                  <Input
-                    type="text"
-                    id={item.id}
-                    placeholder=""
-                    className="py-5 text-base bg-transparent border-shockersAEC border-[1px] my-2 cancelEffect"
-                  />
-                </div>
-              ))}
-
+              <FormField
+                id="SUBSCRIPTION_FULL_NAME"
+                label={ContactNames.FULL_NAME}
+                type="text"
+                value={formData.dataSectionTwo.FULL_NAME}
+                onChange={(e) => handleChange("dataSectionTwo", e)}
+                required
+              />
+              <FormField
+                id="SUBSCRIPTION_EMAIL_ADDRESS"
+                label={ContactNames.EMAIL_ADDRESS}
+                type="email"
+                value={formData.dataSectionTwo.EMAIL_ADDRESS}
+                onChange={(e) => handleChange("dataSectionTwo", e)}
+                required
+              />
+              <FormField
+                id="SUBSCRIPTION_PHONE_NUMBER"
+                label={ContactNames.PHONE_NUMBER}
+                type="number"
+                value={formData.dataSectionTwo.PHONE_NUMBER}
+                onChange={(e) => handleChange("dataSectionTwo", e)}
+                required
+              />
               <Button className="bg-baytuna hover:bg-shockersAEC text-white w-full text-lg rounded-lg">
                 {ContactNames.SUBMIT}
               </Button>
-            </div>
+            </form>
           </motion.div>
         )}
         {sectionView === 2 && (
@@ -245,105 +283,67 @@ const Contact = ({ params: { locale } }) => {
             }}
             className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden"
           >
-            <div className="w-full md:w-[60%] xl:w-[50%] p-2 ">
+            <form
+              className="w-full md:w-[60%] xl:w-[50%] p-2 "
+              onSubmit={(e) => handleSubmit("dataSectionThree", e)}
+            >
               <h1 className="text-shockersAEC text-xl  border-b-[1px] border-shockersAEC/20 mb-5 pb-5 lg:mb-10 lg:pb-10 font-medium ">
                 {ContactNames.JOBAPPLICATION_Text}
               </h1>
-              {sectionForm.map((item, index) => (
-                <div key={index} className="mb-4">
-                  <Label
-                    htmlFor={item.id}
-                    className="mb-3 text-lg text-shockersAEC"
-                  >
-                    {item.name}
-                  </Label>
-                  <Input
-                    type="text"
-                    id={item.id}
-                    placeholder=""
-                    className="py-5 text-base bg-transparent border-shockersAEC border-[1px] my-2 cancelEffect"
-                  />
-                </div>
-              ))}
-              <div className="mb-4">
-                <Label
-                  htmlFor={ContactNames.ACADEMIC_QUALIFICATION}
-                  className="mb-3 text-lg text-shockersAEC"
-                >
-                  {ContactNames.ACADEMIC_QUALIFICATION}
-                </Label>
-                <Input
-                  type="text"
-                  id={ContactNames.ACADEMIC_QUALIFICATION}
-                  placeholder=""
-                  className=" py-5 text-base bg-transparent border-shockersAEC border-[1px] my-2 cancelEffect"
-                />
-              </div>
-              <div className="mb-4">
-                <Label
-                  htmlFor={ContactNames.CV_PORTFOLIO}
-                  className="mb-3 text-lg text-shockersAEC"
-                >
-                  {ContactNames.CV_PORTFOLIO}
-                </Label>
-                {/* <Input
-                  id="cv"
-                  type="file"
-                  className="  text-base bg-transparent border-shockersAEC border-[1px] my-2 cancelEffect"
-                /> */}
-                <div className="mt-4  mb-6">
-                  <input
-                    id="cv"
-                    type="file"
-                    className="hidden "
-                    onChange={(e) => {
-                      const fileName =
-                        e.target.files.length > 0
-                          ? e.target.files[0].name
-                          : ContactNames.No_file_chosen;
-                      document.getElementById("fileLabel").innerText = fileName;
-                    }}
-                  />
+              <FormField
+                id="Job_FULL_NAME"
+                label={ContactNames.FULL_NAME}
+                type="text"
+                value={formData.dataSectionThree.Job_FULL_NAME}
+                onChange={(e) => handleChange("dataSectionThree", e)}
+                required
+              />
+              <FormField
+                id="Job_EMAIL_ADDRESS"
+                label={ContactNames.EMAIL_ADDRESS}
+                type="email"
+                value={formData.dataSectionThree.Job_EMAIL_ADDRESS}
+                onChange={(e) => handleChange("dataSectionThree", e)}
+                required
+              />
+              <FormField
+                id="Job_PHONE_NUMBER"
+                label={ContactNames.PHONE_NUMBER}
+                type="number"
+                value={formData.dataSectionThree.Job_PHONE_NUMBER}
+                onChange={(e) => handleChange("dataSectionThree", e)}
+                required
+              />
+              <FormField
+                id="Job_ACADEMIC_QUALIFICATION"
+                label={ContactNames.ACADEMIC_QUALIFICATION}
+                type="text"
+                value={formData.dataSectionThree.Job_ACADEMIC_QUALIFICATION}
+                onChange={(e) => handleChange("dataSectionThree", e)}
+                required
+              />
+              <FormField
+                id="Job_CV_PORTFOLIO"
+                label={ContactNames.CV_PORTFOLIO}
+                isFile={true}
+                placeholder={ContactNames.No_file_chosen}
+                onChange={(e) => handleChange("dataSectionThree", e)}
+              />
+              <FormField
+                id="Job_Notes"
+                label={ContactNames.TextNote}
+                isTextarea={true}
+                placeholder={ContactNames.TextNote}
+                onChange={(e) => handleChange("dataSectionThree", e)}
+                rows={3}
+                lable={false}
+              />
 
-                  <label
-                    htmlFor="cv"
-                    className=" flex items-center cursor-pointer rounded-lg bg-transparent border-shockersAEC border-[1px] text-base  py-2 cancelEffect"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-upload mx-4"
-                    >
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                      <polyline points="17 8 12 3 7 8" />
-                      <line x1="12" x2="12" y1="3" y2="15" />
-                    </svg>
-                    {ContactNames.ATTACH_YOUR_FILES}
-                  </label>
-                  <span id="fileLabel" className="ml-2">
-                    {ContactNames.No_file_chosen}
-                  </span>
-                </div>
-              </div>
-              <div className="mb-4">
-                <Textarea
-                  id="Notes"
-                  placeholder={ContactNames.TextNote}
-                  className="text-base bg-transparent border-shockersAEC border-[1px] my-2 cancelEffect"
-                  rows={2}
-                />
-              </div>
               <Button className="bg-baytuna hover:bg-shockersAEC text-white w-full text-lg rounded-lg">
                 {ContactNames.SUBMIT}
               </Button>
-            </div>
+            </form>
+
             <div className="w-full  md:w-1/3 p-2  ">
               <h1 className="text-shockersAEC text-xl  text-center font-medium ">
                 {ContactNames.AVAILABLE_JOB_OFFERS}

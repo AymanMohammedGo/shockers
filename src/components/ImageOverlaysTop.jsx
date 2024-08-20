@@ -10,6 +10,8 @@ const ImageOverlaysTop = ({ title, imgURL, dir }) => {
         fill={true}
         alt="imageOverlays"
         quality={75}
+        placeholder="blur"
+        blurDataURL="/img/imageOverlays.jpg"
       />
       <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
       <div className="absolute bottom-10 lg:bottom-20 w-full ">

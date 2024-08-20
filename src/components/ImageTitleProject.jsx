@@ -23,6 +23,8 @@ const ImageTitleProject = ({
         fill={true}
         alt="ImageTitleProject"
         quality={75}
+        placeholder="blur"
+        blurDataURL="/img/imageOverlays.jpg"
       />
       {/* <div className="bg-black bg-opacity-40 w-full h-full absolute top-0" /> */}
       <div className="flex items-center justify-center text-center">

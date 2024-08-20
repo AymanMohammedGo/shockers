@@ -131,6 +131,15 @@ export default function Home({ params: { locale } }) {
       {showContent && (
         <main className="flex items-center justify-center h-screen w-screen bg-primary ">
           <div className=" grid relative w-full h-full  items-center justify-center grid-cols-2  sm:grid-cols-3  ">
+            {/* 
+            <button
+              onClick={async () => {
+                await fetch("/en/api/emails", { method: "POST" });
+              }}
+            >
+              SEND EMAIL
+            </button> 
+            */}
             {brond.map((item, index) => (
               <Link
                 href={`${item.link}`}

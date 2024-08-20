@@ -166,6 +166,7 @@ const Contact = ({ params: { locale } }) => {
             </li>
           ))}
         </ul>
+       
         {sectionView === 0 && (
           <motion.div
             initial={{

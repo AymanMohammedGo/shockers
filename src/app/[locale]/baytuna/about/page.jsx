@@ -7,6 +7,8 @@ import B_json from "/public/Motion/B.json";
 import { getAboutUS, getTopAbout } from "../../../../../utils/DecaApi";
 import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import AboutTopSection from "@/components/AboutTopVideo";
+
 const About = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
@@ -43,10 +45,16 @@ const About = ({ params: { locale } }) => {
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
       <div className="sticky top-0 w-screen h-screen   ">
-        <ImageOverlaysTop
+        {/* <ImageOverlaysTop
           dir={document.dir}
           title={topAbout?.attributes?.title}
           imgURL={topAbout?.attributes?.imgURL.data?.attributes.url}
+        /> */}
+        <AboutTopSection
+          title={topAbout?.attributes?.title}
+          videoMobile="/BaytunaMobile.mp4"
+          videoLoptap="/BaytunaAbout.mp4"
+          dir={document.dir}
         />
       </div>
       <section ref={ref} className="overflow-hidden  sticky top-0 bg-primary">

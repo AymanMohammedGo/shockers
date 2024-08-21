@@ -1,13 +1,12 @@
 "use client";
-import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Draw_D from "@/components/Lottie/Draw_D";
 import D_json from "/public/Motion/D.json";
-import { getAboutUS, getTopAbout } from "../../../../../utils/DecaApi";
-import { useScroll, useTransform } from "framer-motion";
+import { getAboutUS } from "../../../../../utils/DecaApi";
 import { useRef } from "react";
 import AboutTopSection from "@/components/AboutTopVideo";
+import { useTranslation } from "react-i18next";
 
 const About = ({ params: { locale } }) => {
   let lan = locale;
@@ -15,43 +14,28 @@ const About = ({ params: { locale } }) => {
     lan = "af";
   }
   const [data, setData] = useState([]);
-  const [topAbout, setTopAbout] = useState([]);
   const getAboutUS_ = useCallback(() => {
     getAboutUS(lan).then((res) => {
       setData(res.data.data);
     });
   }, [lan]);
-  const getTopAbout_ = useCallback(() => {
-    getTopAbout(lan).then((res) => {
-      setTopAbout(res.data.data);
-    });
-  }, [lan]);
+
   useEffect(() => {
     getAboutUS_();
-    getTopAbout_();
-  }, [getAboutUS_, getTopAbout_]);
+  }, [getAboutUS_]);
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const height = useTransform(scrollYProgress, [0, 1], ["0%", "105%"]);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const sectionRefs = useRef([]);
-
+  const { t } = useTranslation();
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
       <div className="sticky top-0 w-screen h-screen   ">
-        {/* <ImageOverlaysTop
-          dir={document.dir}
-          title={topAbout?.attributes?.title}
-          imgURL={topAbout?.attributes?.imgURL.data?.attributes.url}
-        /> */}
         <AboutTopSection
-          title={topAbout?.attributes?.title}
+          title={t("DECA")}
           videoMobile="/DecaMobile.mp4"
           videoLoptap="/DecaAboutUs.mp4"
           dir={document.dir}
@@ -60,7 +44,6 @@ const About = ({ params: { locale } }) => {
       <section ref={ref} className="overflow-hidden  sticky top-0 bg-primary">
         <div className="max-w-screen-xxl px-4 xxl:px-0 h-full m-auto">
           <motion.div
-            // style={{ height: height }}
             className="absolute h-full   top-0 left-[calc(100px + 10px)] w-[5px] bg-shockersAEC z-10"
           />
         </div>

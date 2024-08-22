@@ -96,12 +96,12 @@ const SubProject = ({ params: { locale, id } }) => {
               className="object-cover"
               src={item?.attributes?.url}
               fill={true}
-              alt=""
+              alt="imageOverlays"
               quality={75}
               placeholder="blur"
               blurDataURL="/img/imageOverlays.jpg"
             />
-            <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
+            {/* <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" /> */}
           </div>
         </div>
       ))}

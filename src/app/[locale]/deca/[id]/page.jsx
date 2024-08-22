@@ -101,7 +101,7 @@ const SubProject = ({ params: { locale, id } }) => {
               placeholder="blur"
               blurDataURL="/img/imageOverlays.jpg"
             />
-            <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" />
+            {/* <div className="bg-black bg-opacity-60 w-full h-full absolute top-0" /> */}
           </div>
         </div>
       ))}

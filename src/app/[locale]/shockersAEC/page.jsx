@@ -100,6 +100,8 @@ const ShockersHome = ({ params: { locale } }) => {
           tc="text-shockersAEC"
           dir={document.dir}
         />
+        {/* {console.log(categoriesProjects)} */}
+
         <SlideCategories
           categoriesProjects={categoriesProjects}
           link="shockersAEC"

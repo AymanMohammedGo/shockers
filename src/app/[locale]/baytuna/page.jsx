@@ -1,5 +1,4 @@
 "use client";
-import SlideProject from "@/components/SlideProject";
 import Draw_B from "@/components/Lottie/Draw_B";
 import B_json from "/public/Motion/B.json";
 import { motion } from "framer-motion";
@@ -15,6 +14,7 @@ import { getName_Solgan } from "../../../../utils/GlobleApi";
 
 import { useCallback, useState, useEffect } from "react";
 import "../globals.css";
+import SlideProjectsOneItems from "@/components/SlideProjectsOneItems";
 
 const DecaHome = ({ params: { locale } }) => {
   let lan = locale;
@@ -102,7 +102,7 @@ const DecaHome = ({ params: { locale } }) => {
           tc="text-shockersAEC"
           dir={document.dir}
         />
-        <SlideProject allProjects={projects} link="baytuna" />
+        <SlideProjectsOneItems allProjects={projects} link="baytuna" />
       </section>
     </motion.div>
   );

@@ -17,8 +17,11 @@ const About = ({ params: { locale } }) => {
   const getAboutUS_ = useCallback(() => {
     getAboutUS(lan).then((res) => {
       setData(res.data.data);
+      
     });
   }, [lan]);
+
+  
 
   useEffect(() => {
     getAboutUS_();

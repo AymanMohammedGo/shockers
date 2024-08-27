@@ -4,7 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-
+import Draw_S from "@/components/Lottie/Draw_S";
+import ComingSoonBG from "/public/Motion/ComingSoonBG";
 import "swiper/css/navigation";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -12,9 +13,43 @@ import "swiper/css/free-mode";
 
 import { FreeMode, Navigation } from "swiper/modules";
 
+const VideoItem = ({ src, title }) => {
+  const videoRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    videoRef.current.play();
+  };
+
+  const handleMouseLeave = () => {
+    videoRef.current.pause();
+  };
+
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      <div className="relative w-full h-full bg-shockersAEC">
+        <video
+          ref={videoRef}
+          className="w-full h-full object-contain"
+          loop
+          muted
+          playsInline
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <source src={src} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <span className="absolute text-center w-full bottom-0 p-4 text-white text-2xl">
+        {title}
+      </span>
+    </div>
+  );
+};
 export default function SlideCategories({ categoriesProjects, link }) {
   const swiperRef = useRef(null);
   const isDelay = useRef(false);
+
   useEffect(() => {
     const handleMouseMove = (event) => {
       const isRTL = document.dir === "rtl";
@@ -49,7 +84,12 @@ export default function SlideCategories({ categoriesProjects, link }) {
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
-
+  const validProjects = categoriesProjects?.filter(
+    (item) => item?.attributes?.shockers_projects?.data?.length > 0
+  );
+  const invalidProjects = categoriesProjects?.filter(
+    (item) => item?.attributes?.shockers_projects?.data?.length === 0
+  );
   return (
     <div className="sticky top-0 xl:py-6  bg-primary ">
       <div id="projects" className=" w-screen h-screen">
@@ -89,63 +129,42 @@ export default function SlideCategories({ categoriesProjects, link }) {
                 },
               }}
             >
-              {categoriesProjects?.map((item, index) => (
+              {validProjects?.map((item, index) => (
                 <SwiperSlide key={index} className="relative">
-                  {item?.attributes?.shockers_projects?.data?.length > 0 ? (
-                    <Link href={`/${link}/${item?.id}`}>
-                      <div className="relative w-full h-full overflow-hidden ">
-                        <motion.div
-                          className="relative w-full h-full"
-                          initial={{ scale: 1 }}
-                          whileHover={{ scale: 1.2 }} // تأثير التكبير عند hover
-                          transition={{
-                            duration: 0.5,
-                          }}
-                        >
-                          <Image
-                            className="object-cover"
-                            src={
-                              item?.attributes?.imgURL?.data?.attributes?.url
-                            }
-                            layout="fill"
-                            alt={item.id}
-                            quality={75}
-                          />
-                          <div className="absolute  inset-0 image-gradient" />
-                        </motion.div>
-                      </div>
-                      <span className="absolute text-center w-full  bottom-0 p-4 text-white text-2xl">
-                        {item?.attributes?.title}
-                      </span>
-                    </Link>
-                  ) : (
-                    <>
-                      <div className="relative w-full h-full overflow-hidden ">
-                        <motion.div
-                          className="relative w-full h-full"
-                          initial={{ scale: 1 }}
-                          whileHover={{ scale: 1.2 }} // تأثير التكبير عند hover
-                          transition={{
-                            duration: 0.5,
-                          }}
-                        >
-                          <Image
-                            className="object-cover"
-                            src={
-                              item?.attributes?.imgURL?.data?.attributes?.url
-                            }
-                            layout="fill"
-                            alt={item.id}
-                            quality={75}
-                          />
-                          <div className="absolute  inset-0 image-gradient" />
-                        </motion.div>
-                      </div>
-                      <span className="absolute text-center w-full  bottom-0 p-4 text-white text-2xl">
-                        {item?.attributes?.title}
-                      </span>{" "}
-                    </>
-                  )}
+                  <Link href={`/${link}/${item?.id}`}>
+                    <div className="relative w-full h-full overflow-hidden ">
+                      <motion.div
+                        className="relative w-full h-full"
+                        initial={{ scale: 1 }}
+                        whileHover={{ scale: 1.2 }} // تأثير التكبير عند hover
+                        transition={{
+                          duration: 0.5,
+                        }}
+                      >
+                        <Image
+                          className="object-cover"
+                          src={item?.attributes?.imgURL?.data?.attributes?.url}
+                          layout="fill"
+                          alt={item.id}
+                          quality={75}
+                        />
+                        <div className="bg-black bg-opacity-20 w-full h-full absolute top-0" />
+                        <div className="absolute  inset-0 image-gradient" />
+                      </motion.div>
+                    </div>
+                    <span className="absolute text-center w-full  bottom-0 p-4 text-white text-2xl">
+                      {item?.attributes?.title}
+                    </span>
+                  </Link>
+                </SwiperSlide>
+              ))}
+              {invalidProjects?.map((item, index) => (
+                <SwiperSlide key={index} className="relative">
+                  <VideoItem
+                    key={index}
+                    src="/ComingSoon.mp4"
+                    title={item?.attributes?.title}
+                  />
                 </SwiperSlide>
               ))}
             </Swiper>

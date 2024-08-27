@@ -1,5 +1,4 @@
 "use client";
-import SlideProject from "@/components/SlideProject";
 import ImageTitleProject from "@/components/ImageTitleProject";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -7,6 +6,7 @@ import { getDetail_project } from "../../../../../utils/GlobleApi";
 import { getProject, getProjects } from "../../../../../utils/BaytunaApi";
 import { useCallback, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import SlideProjectsOneItems from "@/components/SlideProjectsOneItems";
 
 const SubProject = ({ params: { locale, id } }) => {
   const router = useRouter();
@@ -107,7 +107,7 @@ const SubProject = ({ params: { locale, id } }) => {
       ))}
 
       <div className="sticky top-0 bg-primary ">
-        <SlideProject allProjects={projects} link="baytuna" />
+        <SlideProjectsOneItems allProjects={projects} link="baytuna" />
       </div>
     </motion.div>
   );

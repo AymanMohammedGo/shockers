@@ -1,5 +1,4 @@
 "use client";
-import SlideProject from "@/components/SlideProject";
 import Draw_D from "@/components/Lottie/Draw_D";
 import D_json from "/public/Motion/D.json";
 import { motion } from "framer-motion";
@@ -11,6 +10,7 @@ import { getName_Solgan } from "../../../../utils/GlobleApi";
 
 import "../globals.css";
 import ServicesOver3Section from "@/components/ServicesOver3Section";
+import SlideProjectsOneItems from "@/components/SlideProjectsOneItems";
 const DecaHome = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
@@ -97,7 +97,7 @@ const DecaHome = ({ params: { locale } }) => {
           tc="text-shockersAEC"
           dir={document.dir}
         />
-        <SlideProject allProjects={projects} link="deca" />
+        <SlideProjectsOneItems allProjects={projects} link="deca" />
       </section>
     </motion.div>
   );

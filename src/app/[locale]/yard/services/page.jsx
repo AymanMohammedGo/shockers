@@ -40,7 +40,7 @@ const Services = ({ params: { locale } }) => {
     >
       <Draw_B animationData={B_json} delay={500} speed={0.5} />
       <ImageOverlaysTop
-        dir={document?.dir}
+        dir={typeof document !== "undefined" && document?.dir}
         title={selectedService?.attributes?.title}
         imgURL={selectedService?.attributes?.imgURL.data?.attributes.url}
       />
@@ -48,7 +48,7 @@ const Services = ({ params: { locale } }) => {
       <div className="flex flex-col  justify-center md:flex-row min-h-screen lg:py-5 lg:my-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
         <motion.div
           initial={{
-            x: document?.dir === "ltr" ? "-100%" : "+100%",
+            x: typeof document !== "undefined" && document?.dir === "ltr" ? "-100%" : "+100%",
             opacity: 0,
           }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -66,7 +66,7 @@ const Services = ({ params: { locale } }) => {
                   selectedService?.attributes.title ===
                   service?.attributes.title
                     ? `${
-                        document?.dir === "ltr"
+                        typeof document !== "undefined" && document?.dir === "ltr"
                           ? "border-l-[6px]"
                           : "border-r-[6px]"
                       } border-yard bg-[#eeeeee] text-yard`
@@ -80,7 +80,7 @@ const Services = ({ params: { locale } }) => {
         </motion.div>
         <motion.div
           initial={{
-            x: document?.dir === "ltr" ? "100%" : "-100%",
+            x: typeof document !== "undefined" && document?.dir === "ltr" ? "100%" : "-100%",
             opacity: 0,
           }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -102,7 +102,7 @@ const Services = ({ params: { locale } }) => {
                   <div key={index} className="flex items-start">
                     <span
                       className={`w-2 ${
-                        document?.dir === "ltr" ? "mr-2" : "ml-2"
+                        typeof document !== "undefined" && document?.dir === "ltr" ? "mr-2" : "ml-2"
                       }  ${extraSpacing}`}
                     >
                       {bullet}

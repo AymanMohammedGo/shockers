@@ -12,6 +12,7 @@ export default function RootLayout({ children, params: { locale } }) {
   const [isAnimationCompleted, setIsAnimationCompleted] = useState(false);
   const [showContent, setShowContent] = useState(false);
   let animation = createRef();
+
   useEffect(() => {
     const anim = lottie.loadAnimation({
       container: animation.current,

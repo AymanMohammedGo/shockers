@@ -1,12 +1,11 @@
 "use client";
+import { useState, useEffect, useCallback } from "react";
 import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import { motion } from "framer-motion";
-import { useState, useEffect, useCallback } from "react";
 import Draw_B from "@/components/Lottie/Draw_B";
 import B_json from "/public/Motion/B.json";
-import { getServices } from "../../../../../utils/YardApi";
 import { useSearchParams } from "next/navigation";
-
+import { getServices } from "../../../../../utils/YardApi";
 const Services = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {

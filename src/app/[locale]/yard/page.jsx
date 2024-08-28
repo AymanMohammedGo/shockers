@@ -77,7 +77,7 @@ const YardHome = ({ params: { locale } }) => {
     >
       <Draw_B animationData={B_json} delay={500} speed={0.5} />
       <section className="w-full h-full">
-        <SalgonSection titleText={solgan} dir={document.dir} />
+        <SalgonSection titleText={solgan} dir={document?.dir} />
 
         <AboutSection
           link="yard"
@@ -95,7 +95,7 @@ const YardHome = ({ params: { locale } }) => {
           link="yard"
           bg="bg-Hover-gradient-yard"
           tc="text-shockersAEC"
-          dir={document.dir}
+          dir={document?.dir}
         />
         <SlideProjectsOneItems allProjects={projects} link="yard" />
       </section>

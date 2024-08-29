@@ -4,15 +4,15 @@ import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import { motion } from "framer-motion";
 import Draw_B from "@/components/Lottie/Draw_B";
 import B_json from "/public/Motion/B.json";
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 import { getServices } from "../../../../../utils/YardApi";
 const Services = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
   }
-  const searchParams = useSearchParams();
-  const search = searchParams.get("serviceId");
+  // const searchParams = useSearchParams();
+  // const search = searchParams.get("serviceId");
   const [data, setData] = useState([]);
   const [selectedService, setSelectedService] = useState(data[0]);
 
@@ -47,7 +47,7 @@ const Services = ({ params: { locale } }) => {
       <div className="flex flex-col  justify-center md:flex-row min-h-screen lg:py-5 lg:my-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
         <motion.div
           initial={{
-            x: locale === "en"  ? "-100%" : "+100%",
+            x: locale === "en" ? "-100%" : "+100%",
             opacity: 0,
           }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -77,7 +77,7 @@ const Services = ({ params: { locale } }) => {
         </motion.div>
         <motion.div
           initial={{
-            x: locale === "en"  ? "100%" : "-100%",
+            x: locale === "en" ? "100%" : "-100%",
             opacity: 0,
           }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -99,7 +99,7 @@ const Services = ({ params: { locale } }) => {
                   <div key={index} className="flex items-start">
                     <span
                       className={`w-2 ${
-                        locale === "en"  ? "mr-2" : "ml-2"
+                        locale === "en" ? "mr-2" : "ml-2"
                       }  ${extraSpacing}`}
                     >
                       {bullet}

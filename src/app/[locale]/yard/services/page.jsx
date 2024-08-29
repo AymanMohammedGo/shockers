@@ -26,14 +26,10 @@ const Services = ({ params: { locale } }) => {
     getServices_();
   }, [getServices_]);
   useEffect(() => {
-    if (data.length > 0) {
-      setSelectedService(data[0]);
-
-      if (search) {
-        const foundService = data.find((item) => item.id === search);
-        setSelectedService(foundService || data[0]); 
-      }
-    }
+    setSelectedService(data[0]);
+    data.find((item) => {
+      if (item.id == search) return setSelectedService(item);
+    });
   }, [data, search]);
 
   return (
@@ -51,7 +47,7 @@ const Services = ({ params: { locale } }) => {
       <div className="flex flex-col  justify-center md:flex-row min-h-screen lg:py-5 lg:my-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
         <motion.div
           initial={{
-            x: locale === "en" ? "-100%" : "+100%",
+            x: locale === "en"  ? "-100%" : "+100%",
             opacity: 0,
           }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -81,7 +77,7 @@ const Services = ({ params: { locale } }) => {
         </motion.div>
         <motion.div
           initial={{
-            x: locale === "en" ? "100%" : "-100%",
+            x: locale === "en"  ? "100%" : "-100%",
             opacity: 0,
           }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -103,7 +99,7 @@ const Services = ({ params: { locale } }) => {
                   <div key={index} className="flex items-start">
                     <span
                       className={`w-2 ${
-                        locale === "en" ? "mr-2" : "ml-2"
+                        locale === "en"  ? "mr-2" : "ml-2"
                       }  ${extraSpacing}`}
                     >
                       {bullet}

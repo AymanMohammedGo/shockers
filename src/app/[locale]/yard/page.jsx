@@ -1,4 +1,6 @@
 "use client";
+import React from "react";
+import { useCallback, useState, useEffect } from "react";
 import Draw_B from "@/components/Lottie/Draw_B";
 import B_json from "/public/Motion/B.json";
 import { motion } from "framer-motion";
@@ -8,11 +10,9 @@ import SalgonSection from "@/components/SalgonSection";
 import { getHome, getServices } from "../../../../utils/YardApi";
 import { getProjects } from "../../../../utils/BaytunaApi";
 import { getName_Solgan } from "../../../../utils/GlobleApi";
-import { useCallback, useState, useEffect } from "react";
 import "../globals.css";
 import SlideProjectsOneItems from "@/components/SlideProjectsOneItems";
-
-const YardHome = ({ params: { locale } }) => {
+const Page = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
@@ -77,10 +77,7 @@ const YardHome = ({ params: { locale } }) => {
     >
       <Draw_B animationData={B_json} delay={500} speed={0.5} />
       <section className="w-full h-full">
-        <SalgonSection
-          titleText={solgan}
-          dir={document.dir}
-        />
+        <SalgonSection titleText={solgan} dir={locale === "ar" || locale === "kr" ? "rtl" : "ltr"} />
 
         <AboutSection
           link="yard"
@@ -98,7 +95,7 @@ const YardHome = ({ params: { locale } }) => {
           link="yard"
           bg="bg-Hover-gradient-yard"
           tc="text-shockersAEC"
-          dir={document.dir}
+          dir={locale === "ar" || locale === "kr" ? "rtl" : "ltr"}
         />
         <SlideProjectsOneItems allProjects={projects} link="yard" />
       </section>
@@ -106,4 +103,4 @@ const YardHome = ({ params: { locale } }) => {
   );
 };
 
-export default YardHome;
+export default Page;

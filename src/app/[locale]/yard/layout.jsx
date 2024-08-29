@@ -80,7 +80,7 @@ export default function RootLayout({ children, params: { locale } }) {
             hover="hover:bg-yard"
             text="text-shockersAEC"
             linksNames={linksNames}
-            Dir={typeof document !== "undefined" && document?.dir}
+            Dir={document.dir}
           />
           {children}
           <ScrollToTopButton />

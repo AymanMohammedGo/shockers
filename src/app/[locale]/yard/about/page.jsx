@@ -39,7 +39,7 @@ const About = ({ params: { locale } }) => {
           title={t("YARD")}
           videoMobile="/YardMobile.mp4"
           videoLoptap="/YardAbout.mp4"
-          dir={typeof document !== "undefined" && document?.dir}
+          dir={document.dir}
         />
       </div>
       <section ref={ref} className="overflow-hidden  sticky top-0 bg-primary">
@@ -70,7 +70,7 @@ const About = ({ params: { locale } }) => {
                   {/* الخط الأفقي والدائرة */}
                   <motion.div
                     initial={{
-                      x: typeof document !== "undefined" && document?.dir === "ltr" ? "-100%" : "100%",
+                      x: document.dir === "ltr" ? "-100%" : "100%",
                       opacity: 0,
                     }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -83,7 +83,7 @@ const About = ({ params: { locale } }) => {
                     <div className="relative">
                       <div
                         className={`w-[20px] h-[20px] rounded-full bg-shockersAEC ${
-                          typeof document !== "undefined" && document?.dir === "ltr" ? " -ml-[10px]" : " -mr-[10px]"
+                          document.dir === "ltr" ? " -ml-[10px]" : " -mr-[10px]"
                         }`}
                       ></div>
                     </div>
@@ -91,7 +91,7 @@ const About = ({ params: { locale } }) => {
                   {/* العنوان */}
                   <motion.h2
                     initial={{
-                      x: typeof document !== "undefined" && document?.dir === "ltr" ? "100%" : "-100%",
+                      x: document.dir === "ltr" ? "100%" : "-100%",
                       opacity: 0,
                     }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -106,7 +106,7 @@ const About = ({ params: { locale } }) => {
                 {/* النص */}
                 <motion.p
                   initial={{
-                    x: typeof document !== "undefined" && document?.dir === "ltr" ? "100%" : "-100%",
+                    x: document.dir === "ltr" ? "100%" : "-100%",
                     opacity: 0,
                   }}
                   whileInView={{ x: 0, opacity: 1 }}
@@ -114,7 +114,7 @@ const About = ({ params: { locale } }) => {
                     duration: 1,
                   }}
                   className={`${
-                    typeof document !== "undefined" && document?.dir === "ltr"
+                    document.dir === "ltr"
                       ? "ml-[26px] md:ml-[78px] lg:ml-[130px]"
                       : "mr-[26px] md:mr-[78px] lg:mr-[130px]"
                   } text-justify hyphens-auto text-shockersAEC text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10`}

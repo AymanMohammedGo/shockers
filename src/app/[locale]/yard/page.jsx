@@ -79,7 +79,7 @@ const YardHome = ({ params: { locale } }) => {
       <section className="w-full h-full">
         <SalgonSection
           titleText={solgan}
-          dir={typeof document !== "undefined" && document?.dir}
+          dir={document.dir}
         />
 
         <AboutSection
@@ -98,7 +98,7 @@ const YardHome = ({ params: { locale } }) => {
           link="yard"
           bg="bg-Hover-gradient-yard"
           tc="text-shockersAEC"
-          dir={typeof document !== "undefined" && document?.dir}
+          dir={document.dir}
         />
         <SlideProjectsOneItems allProjects={projects} link="yard" />
       </section>

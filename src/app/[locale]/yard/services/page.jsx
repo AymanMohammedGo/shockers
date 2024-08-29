@@ -4,15 +4,15 @@ import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import { motion } from "framer-motion";
 import Draw_B from "@/components/Lottie/Draw_B";
 import B_json from "/public/Motion/B.json";
-// import { useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { getServices } from "../../../../../utils/YardApi";
 const Services = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
   }
-  // const searchParams = useSearchParams();
-  // const search = searchParams.get("serviceId");
+  const searchParams = useSearchParams();
+  const search = searchParams.get("serviceId");
   const [data, setData] = useState([]);
   const [selectedService, setSelectedService] = useState(data[0]);
 
@@ -26,10 +26,14 @@ const Services = ({ params: { locale } }) => {
     getServices_();
   }, [getServices_]);
   useEffect(() => {
-    setSelectedService(data[0]);
-    data.find((item) => {
-      if (item.id == search) return setSelectedService(item);
-    });
+    if (data.length > 0) {
+      setSelectedService(data[0]);
+
+      if (search) {
+        const foundService = data.find((item) => item.id === search);
+        setSelectedService(foundService || data[0]); 
+      }
+    }
   }, [data, search]);
 
   return (

@@ -13,4 +13,7 @@ export const getContact = (locale) =>
   axiosClient.get(`/yard-contact?locale=${locale}`);
 export const getJobOffers = (locale) =>
   axiosClient.get(`/yard-jobs-offers?locale=${locale}`);
-
+export const getProjects = (locale) =>
+  axiosClient.get(`/yard-projects?populate=*&locale=${locale}`);
+export const getProject = (locale, id) =>
+  axiosClient.get(`/yard-projects/${id}?populate=*&locale=${locale}`);

@@ -3,7 +3,7 @@ import ImageTitleProject from "@/components/ImageTitleProject";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { getDetail_project } from "../../../../../utils/GlobleApi";
-import { getProject, getProjects } from "../../../../../utils/BaytunaApi";
+import { getProject, getProjects } from "../../../../../utils/YardApi";
 import { useCallback, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import SlideProjectsOneItems from "@/components/SlideProjectsOneItems";
@@ -36,11 +36,11 @@ const SubProject = ({ params: { locale, id } }) => {
       console.log(lanID);
     });
     if (lan === "ar") {
-      router.push(`/baytuna/${lanID.ar}`);
+      router.push(`/yard/${lanID.ar}`);
     } else if (lan === "en") {
-      router.push(`/baytuna/${lanID.en}`);
+      router.push(`/yard/${lanID.en}`);
     } else {
-      router.push(`/baytuna/${lanID.af}`);
+      router.push(`/yard/${lanID.af}`);
     }
   };
   const getProjects_ = useCallback(() => {
@@ -53,7 +53,7 @@ const SubProject = ({ params: { locale, id } }) => {
     getProject(lan, id)
       .then((res) => {
         if (!res.data) {
-          router.push("/en/baytuna");
+          router.push("/en/yard");
         } else {
           setProject(res.data.data);
           const { locale, localizations } = res.data.data.attributes;
@@ -61,7 +61,7 @@ const SubProject = ({ params: { locale, id } }) => {
         }
       })
       .catch(() => {
-        router.push("/en/baytuna");
+        router.push("/en/yard");
       });
   }, [lan, id, router]);
   const getDetail_project_ = useCallback(() => {
@@ -107,7 +107,7 @@ const SubProject = ({ params: { locale, id } }) => {
       ))}
 
       <div className="sticky top-0 bg-primary ">
-        <SlideProjectsOneItems allProjects={projects} link="baytuna" />
+        <SlideProjectsOneItems allProjects={projects} link="yard" />
       </div>
     </motion.div>
   );

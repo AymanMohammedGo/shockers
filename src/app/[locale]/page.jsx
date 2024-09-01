@@ -64,7 +64,7 @@ export default function Home({ params: { locale } }) {
     },
     {
       name: "YARD",
-      link: "#",
+      link: "/yard",
       // "/yard"
       imageLogo: "/img/MainPage/yard.svg",
       imageHoverLogo: "/img/MainPage/yard.svg",

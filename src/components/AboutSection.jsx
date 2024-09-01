@@ -58,8 +58,8 @@ const AboutSection = ({
     }
   }, [controls, inView]);
   return (
-    <section className="sticky top-0 ">
-      <div className="w-screen h-screen my-14">
+    <section className=" ">
+      <div className="w-screen h-screen ">
         <video
           className="absolute top-0 left-0 w-full h-full object-cover hidden md:block"
           autoPlay

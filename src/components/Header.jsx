@@ -1,9 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LanguageChanger from "./LanguageChanger";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,12 +29,20 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
       link: `/${name}/contact`,
     },
   ];
+  const { scrollY } = useScroll();
+  const [hide, setHide] = useState(false);
 
+  // Update hide state based on scroll position
+  useEffect(() => {
+    return scrollY.onChange((latest) => {
+      setHide(latest >= 1);
+    });
+  }, [scrollY]);
   return (
     <>
       <motion.header
         initial={{ y: "-100%" }}
-        whileInView={{ y: 0 }}
+        animate={{ y: hide ? "-100%" : 0 }}
         transition={{
           duration: 1,
           delay: 0,

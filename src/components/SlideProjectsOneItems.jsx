@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
-
+import { Navigation } from "swiper/modules";
 import { FreeMode } from "swiper/modules";
 
 export default function SlideProjectsOneItems({ allProjects, link }) {
@@ -42,7 +42,7 @@ export default function SlideProjectsOneItems({ allProjects, link }) {
       isDelay.current = true;
       setTimeout(() => {
         isDelay.current = false;
-      }, 100);
+      }, 1000);
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
@@ -57,7 +57,8 @@ export default function SlideProjectsOneItems({ allProjects, link }) {
           className="w-full h-full  "
           ref={swiperRef}
           freeMode={true}
-          modules={[FreeMode]}
+          navigation={true}
+          modules={[FreeMode, Navigation]}
         >
           {allProjects?.map((item, index) => (
             <SwiperSlide key={index} className="relative w-full h-full">
@@ -65,8 +66,8 @@ export default function SlideProjectsOneItems({ allProjects, link }) {
                 <div className="relative w-full h-full overflow-hidden ">
                   <motion.div
                     className="relative w-full h-full"
-                    initial={{ scale: 1 }}
-                    whileHover={{ scale: 1.1 }} // تأثير التكبير عند hover
+                    initial={{ scale: 1.15 }}
+                    whileHover={{ scale: 1 }}
                     transition={{
                       duration: 0.5,
                     }}

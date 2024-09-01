@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import Draw_B from "@/components/Lottie/Draw_B";
-import B_json from "/public/Motion/B.json";
+import Draw_Y from "@/components/Lottie/Draw_Y";
+import Y_json from "/public/Motion/Y.json";
 import { useEffect, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { getContact, getJobOffers } from "../../../../../utils/YardApi";
@@ -149,7 +149,7 @@ const Contact = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <Draw_B animationData={B_json} delay={500} speed={0.5} />
+      <Draw_Y animationData={Y_json} delay={500} speed={0.5} />
 
       <section className="min-h-screen max-w-screen-xl  mx-auto mt-[100px]  z-10 relative flex   flex-col ">
         <ul className="flex flex-col md:flex-row items-center text-lg  text-center w-full px-4 mb-0 md:mb-10 ">

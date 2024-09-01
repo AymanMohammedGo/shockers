@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
 import { useCallback, useState, useEffect } from "react";
-import Draw_B from "@/components/Lottie/Draw_B";
-import B_json from "/public/Motion/B.json";
+import Draw_Y from "@/components/Lottie/Draw_Y";
+import Y_json from "/public/Motion/Y.json";
 import { motion } from "framer-motion";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import SalgonSection from "@/components/SalgonSection";
-import { getHome, getServices,getProjects } from "../../../../utils/YardApi";
+import { getHome, getServices, getProjects } from "../../../../utils/YardApi";
 import { getName_Solgan } from "../../../../utils/GlobleApi";
 import "../globals.css";
 import SlideProjectsOneItems from "@/components/SlideProjectsOneItems";
@@ -74,9 +74,12 @@ const Page = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <Draw_B animationData={B_json} delay={500} speed={0.5} />
+      <Draw_Y animationData={Y_json} delay={500} speed={0.5} />
       <section className="w-full h-full">
-        <SalgonSection titleText={solgan} dir={locale === "ar" || locale === "kr" ? "rtl" : "ltr"} />
+        <SalgonSection
+          titleText={solgan}
+          dir={locale === "ar" || locale === "kr" ? "rtl" : "ltr"}
+        />
 
         <AboutSection
           link="yard"

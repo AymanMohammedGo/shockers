@@ -19,7 +19,7 @@ export default function RootLayout({ children, params: { locale } }) {
       renderer: "svg",
       loop: false,
       autoplay: true,
-      path: "/Motion/LogoBaytuna.json",
+      path: "/Motion/Yard.json",
     });
     anim.addEventListener("complete", () => {
       setIsAnimationCompleted(true);
@@ -63,14 +63,13 @@ export default function RootLayout({ children, params: { locale } }) {
   }, [isAnimationCompleted]);
   return (
     <div className="bg-primary min-h-screen flex flex-col justify-between ">
-      {/* {!isAnimationCompleted && (
+      {!isAnimationCompleted && (
         <div
           className="flex justify-center items-center w-screen h-screen"
           ref={animation}
         />
-      )} */}
-      {/* delete ! */}
-      {!showContent && (
+      )}
+      {showContent && (
         <>
           <Transition bg="bg-yard" />
           <Header

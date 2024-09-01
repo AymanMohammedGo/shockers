@@ -1,8 +1,8 @@
 "use client";
 import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Draw_B from "@/components/Lottie/Draw_B";
-import B_json from "/public/Motion/B.json";
+import Draw_Y from "@/components/Lottie/Draw_Y";
+import Y_json from "/public/Motion/Y.json";
 import { getAboutUS } from "../../../../../utils/YardApi";
 import { useRef } from "react";
 import AboutTopSection from "@/components/AboutTopVideo";
@@ -56,10 +56,10 @@ const About = ({ params: { locale } }) => {
             className="px-4 h-screen text-shockersAEC flex flex-col items-start"
           >
             <div className="absolute h-screen w-full">
-              <Draw_B
-                animationData={B_json}
+              <Draw_Y
+                animationData={Y_json}
                 delay={500}
-                speed={0.4}
+                speed={0.5}
                 postion={"absolute"}
               />
             </div>
@@ -70,7 +70,7 @@ const About = ({ params: { locale } }) => {
                   {/* الخط الأفقي والدائرة */}
                   <motion.div
                     initial={{
-                      x: locale === "en"  ? "-100%" : "100%",
+                      x: locale === "en" ? "-100%" : "100%",
                       opacity: 0,
                     }}
                     whileInView={{ x: 0, opacity: 1 }}

@@ -147,74 +147,72 @@ const ShockersHome = ({ params: { locale } }) => {
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
       <Draw_S animationData={S_json} delay={500} speed={0.4} />
-      <section className="w-screen h-screen">
-        <Swiper
-          className="w-full h-full"
-          direction={"vertical"}
-          speed={1000}
-          grabCursor={true}
-          // pagination={{
-          //   clickable: true,
-          // }}
-          modules={[Mousewheel, Keyboard]}
-          mousewheel={{
-            releaseOnEdges: true,
-          }}
-          keyboard={{
-            releaseOnEdges: true,
-          }}
-          onWheel={handleWheel}
-          // onSlideChange={handleSlideChange}
-          onTransitionEnd={handleTransitionEnd}
-          // onReachEnd={(swiper) => {
-          //   if (scrollingDown) {
-          //     swiper.mousewheel.disable(); // Disable mousewheel if scrolling down on the last slide
-          //     window.scrollTo(0, 1);
-          //   } else {
-          //     swiper.mousewheel.enable(); // Ensure mousewheel is enabled if not on the last slide
-          //     window.scrollTo(0, 1);
-          //   }
-          // swiper.mousewheel.disable();
-          // swiper.keyboard.disable();
-          // }}
-          // onTransitionEnd={handleTransitionEnd}
-          // onWheel={handleWheel}
-        >
-          <SwiperSlide className="relative w-full h-full">
-            {" "}
-            <SalgonSection titleText={solgan} dir={document.dir} />
-          </SwiperSlide>
-          <SwiperSlide className="relative w-full h-full">
-            <AboutSection
-              link="shockersAEC"
-              videoMobile="/ShockersMobile.mp4"
-              videoLoptap="/ShockersAECAboutUs.mp4"
-              title={data?.attributes?.TitleAbout}
-              description={data?.attributes?.DescriptionAbout}
-              textButton={data?.attributes?.TextButton}
-              bg="bg-white"
-              tc="text-shockersAEC"
-            />
-          </SwiperSlide>
-          <SwiperSlide className="relative w-full h-full">
-            <ServicesSection
-              services={services}
-              title={data?.attributes?.NameServices}
-              link="shockersAEC"
-              bg="bg-Hover-gradient"
-              tc="text-shockersAEC"
-              dir={document.dir}
-            />
-          </SwiperSlide>
-          <SwiperSlide className="relative w-full h-full">
-            {" "}
-            <SlideCategories
-              categoriesProjects={categoriesProjects}
-              link="shockersAEC"
-            />
-          </SwiperSlide>
-        </Swiper>
-      </section>
+      <Swiper
+        className="w-screen h-screen"
+        direction={"vertical"}
+        speed={1000}
+        grabCursor={true}
+        // pagination={{
+        //   clickable: true,
+        // }}
+        modules={[Mousewheel, Keyboard]}
+        mousewheel={{
+          releaseOnEdges: true,
+        }}
+        keyboard={{
+          releaseOnEdges: true,
+        }}
+        onWheel={handleWheel}
+        // onSlideChange={handleSlideChange}
+        onTransitionEnd={handleTransitionEnd}
+        // onReachEnd={(swiper) => {
+        //   if (scrollingDown) {
+        //     swiper.mousewheel.disable(); // Disable mousewheel if scrolling down on the last slide
+        //     window.scrollTo(0, 1);
+        //   } else {
+        //     swiper.mousewheel.enable(); // Ensure mousewheel is enabled if not on the last slide
+        //     window.scrollTo(0, 1);
+        //   }
+        // swiper.mousewheel.disable();
+        // swiper.keyboard.disable();
+        // }}
+        // onTransitionEnd={handleTransitionEnd}
+        // onWheel={handleWheel}
+      >
+        <SwiperSlide className="relative w-full h-full">
+          {" "}
+          <SalgonSection titleText={solgan} dir={document.dir} />
+        </SwiperSlide>
+        <SwiperSlide className="relative w-full h-full">
+          <AboutSection
+            link="shockersAEC"
+            videoMobile="/ShockersMobile.mp4"
+            videoLoptap="/ShockersAECAboutUs.mp4"
+            title={data?.attributes?.TitleAbout}
+            description={data?.attributes?.DescriptionAbout}
+            textButton={data?.attributes?.TextButton}
+            bg="bg-white"
+            tc="text-shockersAEC"
+          />
+        </SwiperSlide>
+        <SwiperSlide className="relative w-full h-full">
+          <ServicesSection
+            services={services}
+            title={data?.attributes?.NameServices}
+            link="shockersAEC"
+            bg="bg-Hover-gradient"
+            tc="text-shockersAEC"
+            dir={document.dir}
+          />
+        </SwiperSlide>
+        <SwiperSlide className="relative w-full h-full">
+          {" "}
+          <SlideCategories
+            categoriesProjects={categoriesProjects}
+            link="shockersAEC"
+          />
+        </SwiperSlide>
+      </Swiper>
     </motion.div>
   );
 };

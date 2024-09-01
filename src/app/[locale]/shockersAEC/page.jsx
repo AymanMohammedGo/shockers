@@ -151,6 +151,8 @@ const ShockersHome = ({ params: { locale } }) => {
         <Swiper
           className="w-full h-full"
           direction={"vertical"}
+          speed={1000}
+          grabCursor={true}
           // pagination={{
           //   clickable: true,
           // }}

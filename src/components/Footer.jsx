@@ -42,7 +42,7 @@ const Footer = ({ width, name, logo, socialMedia, data }) => {
   );
 
   return (
-    <footer className="bg-shockersAEC z-10 min-h-screen  sm:min-h-full">
+    <footer id="footer" className="bg-shockersAEC z-10 min-h-screen  sm:min-h-full">
       <div className="relative mx-auto max-w-screen-xxl px-4 py-8 sm:px-6 lg:p-8  ">
         <div className="mt-16 lg:flex lg:items-center lg:justify-between">
           <div className="flex justify-center  lg:justify-start">
@@ -202,7 +202,7 @@ const Footer = ({ width, name, logo, socialMedia, data }) => {
             </p>
 
             <ul className="mt-3 text-sm text-white">
-              {socialMedia.map((item, index) => (
+              {socialMedia?.map((item, index) => (
                 <li
                   className="my-2 flex items-center justify-center lg:justify-start"
                   key={index}

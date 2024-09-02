@@ -80,30 +80,28 @@ const DecaHome = ({ params: { locale } }) => {
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
       <Draw_B animationData={B_json} delay={500} speed={0.5} />
-      <section className="w-full h-full">
-        <SalgonSection titleText={solgan} dir={document.dir} />
+      <SalgonSection titleText={solgan} dir={document.dir} />
 
-        <AboutSection
-          link="baytuna"
-          videoMobile="/BaytunaMobile.mp4"
-          videoLoptap="/BaytunaAbout.mp4"
-          title={data?.attributes?.TitleAbout}
-          description={data?.attributes?.DescriptionAbout}
-          textButton={data?.attributes?.TextButton}
-          bg="bg-baytuna"
-          tc="text-white"
-        />
+      <AboutSection
+        link="baytuna"
+        videoMobile="/BaytunaMobile.mp4"
+        videoLoptap="/BaytunaAbout.mp4"
+        title={data?.attributes?.TitleAbout}
+        description={data?.attributes?.DescriptionAbout}
+        textButton={data?.attributes?.TextButton}
+        bg="bg-baytuna"
+        tc="text-white"
+      />
 
-        <ServicesSection
-          services={services}
-          title={data?.attributes?.NameServices}
-          link="baytuna"
-          bg="bg-Hover-gradient-Baytuna"
-          tc="text-shockersAEC"
-          dir={document.dir}
-        />
-        <SlideProjectsOneItems allProjects={projects} link="baytuna" />
-      </section>
+      <ServicesSection
+        services={services}
+        title={data?.attributes?.NameServices}
+        link="baytuna"
+        bg="bg-Hover-gradient-Baytuna"
+        tc="text-shockersAEC"
+        dir={document.dir}
+      />
+      <SlideProjectsOneItems allProjects={projects} link="baytuna" />
     </motion.div>
   );
 };

@@ -142,3 +142,31 @@ html {
   outline: none !important;
   box-shadow: none !important;
 }
+@media screen and (min-width: 1200px) and (max-width: 1300px) and (min-height: 550px) and (max-height: 700px) {
+  /* الأنماط الخاصة بهذا الحجم */
+  .lg\:text-9xl,
+  .xl\:text-9xl {
+    font-size: 7rem !important;
+  }
+  .lg\:text-8xl,
+  .xl\:text-8xl {
+    font-size: 5rem !important;
+  }
+  .lg\:text-2xl,
+  .xl\:text-2xl {
+    font-size: 1.3rem !important;
+  }
+  .lg\:text-3xl,
+  .xl\:text-3xl {
+    font-size: 1.5rem !important;
+  }
+  .lg\:text-4xl,
+  .xl\:text-4xl {
+    font-size: 1.8rem !important;
+  }
+  .lg\:my-20 {
+    margin: 10px 0px !important;
+  }
+
+  /* أضف المزيد من الأنماط حسب الحاجة */
+}

@@ -14,12 +14,12 @@ import {
 import { getName_Solgan } from "../../../../utils/GlobleApi";
 import { useCallback, useState, useEffect, useRef } from "react";
 import "../globals.css";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import { Mousewheel, Keyboard } from "swiper/modules";
 
 const ShockersHome = ({ params: { locale } }) => {
   let lan = locale;
@@ -105,26 +105,8 @@ const ShockersHome = ({ params: { locale } }) => {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  // const handleKeyDown = useCallback((event) => {
-  //   console.log("Key pressed:", event.key);
-  //   if (event.key === "ArrowDown" || event.key === "PageDown") {
-  //     // console.log("a");
-  //     setActionName(true); // يتم تحديث actionName إلى true عند الضغط على ArrowDown
-  //   } else if (event.key === "ArrowUp" || event.key === "PageUp") {
-  //     // console.log("b");
-  //     setActionName(false); // يتم تحديث actionName إلى false عند الضغط على ArrowUp
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   window.addEventListener("keydown", handleKeyDown);
-
-  //   return () => {
-  //     window.removeEventListener("keydown", handleKeyDown);
-  //   };
-  // }, [handleKeyDown]);
-
   //Moving mouse
+
   const handleTransitionEnd = useCallback(
     (swiper) => {
       if (swiper.activeIndex === swiper.slides.length - 1) {
@@ -156,38 +138,8 @@ const ShockersHome = ({ params: { locale } }) => {
     }
   }, []);
 
-  // const [isLastSlide, setIsLastSlide] = useState(false);
-
-  // useEffect(() => {
-  //   if (swiperInstance) {
-  //     swiperInstance.on("slideChange", () => {
-  //       if (swiperInstance.isEnd) {
-  //         setIsLastSlide(true);
-  //       } else {
-  //         setIsLastSlide(false);
-  //       }
-  //     });
-  //   }
-  // }, [swiperInstance]);
-
-  // useEffect(() => {
-  //   if (isLastSlide) {
-  //     const handleTouchEnd = (e) => {
-  //       const touchY = e.changedTouches[0].clientY;
-  //       console.log(touchY);
-  //       if (touchY) {
-  //         swiperInstance.allowTouchMove = false;
-  //       }
-  //     };
-
-  //     document.addEventListener("touchend", handleTouchEnd);
-  //     return () => {
-  //       document.removeEventListener("touchend", handleTouchEnd);
-  //       swiperInstance.allowTouchMove = true;
-  //     };
-  //   }
-  // }, [isLastSlide, swiperInstance]);
   //buttons
+
   useEffect(() => {
     if (swiperInstance) {
       swiperInstance.on("slideChange", () => {
@@ -200,7 +152,6 @@ const ShockersHome = ({ params: { locale } }) => {
     if (isLastSlide) {
       const handleWheel = (e) => {
         if (e.deltaY > 0) {
-          // إذا حاول المستخدم التمرير لأسفل، نعطل التمرير داخل Swiper
           swiperInstance.allowTouchMove = false;
           swiperInstance.allowSlidePrev = false;
           swiperInstance.allowSlideNext = false;
@@ -214,7 +165,6 @@ const ShockersHome = ({ params: { locale } }) => {
 
       const handleKeyDown = (e) => {
         if (e.key === "ArrowDown") {
-          // عند استخدام الأسهم، نعطل التمرير داخل Swiper
           swiperInstance.allowTouchMove = false;
           swiperInstance.allowSlidePrev = false;
           swiperInstance.allowSlideNext = false;
@@ -280,15 +230,18 @@ const ShockersHome = ({ params: { locale } }) => {
         swiperInstance.allowTouchMove = true;
       };
 
-      swiperInstance.el.addEventListener("touchstart", handleTouchStart);
-      swiperInstance.el.addEventListener("touchmove", handleTouchMove);
-      swiperInstance.el.addEventListener("touchend", handleTouchEnd);
+      swiperInstance?.el?.addEventListener("touchstart", handleTouchStart);
+      swiperInstance?.el?.addEventListener("touchmove", handleTouchMove);
+      swiperInstance?.el?.addEventListener("touchend", handleTouchEnd);
 
       return () => {
         if (swiperInstance) {
-          swiperInstance.el.removeEventListener("touchstart", handleTouchStart);
-          swiperInstance.el.removeEventListener("touchmove", handleTouchMove);
-          swiperInstance.el.removeEventListener("touchend", handleTouchEnd);
+          swiperInstance?.el?.removeEventListener(
+            "touchstart",
+            handleTouchStart
+          );
+          swiperInstance?.el?.removeEventListener("touchmove", handleTouchMove);
+          swiperInstance?.el?.removeEventListener("touchend", handleTouchEnd);
         }
       };
     }

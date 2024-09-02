@@ -83,7 +83,7 @@ export default function RootLayout({ children, params: { locale } }) {
           />
 
           {children}
-          <ScrollToTopButton />
+          {/* <ScrollToTopButton /> */}
 
           <Footer
             width="200"

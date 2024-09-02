@@ -51,7 +51,7 @@ export default function SlideProjectsOneItems({ allProjects, link }) {
   }, []);
 
   return (
-    <div className="sticky    bg-primary ">
+    <div className="bg-primary ">
       <div id="projects" className=" w-screen h-screen">
         <Swiper
           className="w-full h-full  "

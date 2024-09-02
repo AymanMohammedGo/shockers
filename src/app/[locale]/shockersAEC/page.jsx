@@ -80,9 +80,8 @@ const ShockersHome = ({ params: { locale } }) => {
   const [scrollingDown, setScrollingDown] = useState(false);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
-  // const [actionName, setActionName] = useState(false);
-  // const [swiperInstance, setSwiperInstance] = useState(null);
 
+  //button scroll top
   const [isVisible, setIsVisible] = useState(false);
 
   const handleGoToFirstSlide = () => {
@@ -124,6 +123,8 @@ const ShockersHome = ({ params: { locale } }) => {
   //     window.removeEventListener("keydown", handleKeyDown);
   //   };
   // }, [handleKeyDown]);
+
+  //Moving mouse
   const handleTransitionEnd = useCallback(
     (swiper) => {
       if (swiper.activeIndex === swiper.slides.length - 1) {
@@ -187,51 +188,56 @@ const ShockersHome = ({ params: { locale } }) => {
   //   }
   // }, [isLastSlide, swiperInstance]);
   //buttons
-  // useEffect(() => {
-  //   if (swiperInstance) {
-  //     swiperInstance.on("slideChange", () => {
-  //       setIsLastSlide(swiperInstance.isEnd);
-  //     });
-  //   }
-  // }, [swiperInstance]);
+  useEffect(() => {
+    if (swiperInstance) {
+      swiperInstance.on("slideChange", () => {
+        setIsLastSlide(swiperInstance.isEnd);
+      });
+    }
+  }, [swiperInstance]);
 
-  // useEffect(() => {
-  //   if (isLastSlide) {
-  //     const handleWheel = (e) => {
-  //       if (e.deltaY > 0) {
-  //         // إذا حاول المستخدم التمرير لأسفل، نعطل التمرير داخل Swiper
-  //         swiperInstance.allowTouchMove = false;
-  //         swiperInstance.allowSlidePrev = false;
-  //         swiperInstance.allowSlideNext = false;
-  //       }
-  //     };
+  useEffect(() => {
+    if (isLastSlide) {
+      const handleWheel = (e) => {
+        if (e.deltaY > 0) {
+          // إذا حاول المستخدم التمرير لأسفل، نعطل التمرير داخل Swiper
+          swiperInstance.allowTouchMove = false;
+          swiperInstance.allowSlidePrev = false;
+          swiperInstance.allowSlideNext = false;
+        }
+        if (e.deltaY < 0) {
+          swiperInstance.allowTouchMove = true;
+          swiperInstance.allowSlidePrev = true;
+          swiperInstance.allowSlideNext = true;
+        }
+      };
 
-  //     const handleKeyDown = (e) => {
-  //       if (e.key === "ArrowDown") {
-  //         // عند استخدام الأسهم، نعطل التمرير داخل Swiper
-  //         swiperInstance.allowTouchMove = false;
-  //         swiperInstance.allowSlidePrev = false;
-  //         swiperInstance.allowSlideNext = false;
-  //       }
-  //       // if (e.key === "ArrowUp") {
-  //       //   swiperInstance.allowTouchMove = true;
-  //       //   swiperInstance.allowSlidePrev = true;
-  //       //   swiperInstance.allowSlideNext = true;
-  //       // }
-  //     };
+      const handleKeyDown = (e) => {
+        if (e.key === "ArrowDown") {
+          // عند استخدام الأسهم، نعطل التمرير داخل Swiper
+          swiperInstance.allowTouchMove = false;
+          swiperInstance.allowSlidePrev = false;
+          swiperInstance.allowSlideNext = false;
+        }
+        if (e.key === "ArrowUp") {
+          swiperInstance.allowTouchMove = true;
+          swiperInstance.allowSlidePrev = true;
+          swiperInstance.allowSlideNext = true;
+        }
+      };
 
-  //     window.addEventListener("wheel", handleWheel);
-  //     window.addEventListener("keydown", handleKeyDown);
+      window.addEventListener("wheel", handleWheel);
+      window.addEventListener("keydown", handleKeyDown);
 
-  //     return () => {
-  //       window.removeEventListener("wheel", handleWheel);
-  //       window.removeEventListener("keydown", handleKeyDown);
-  //       swiperInstance.allowTouchMove = true;
-  //       swiperInstance.allowSlidePrev = true;
-  //       swiperInstance.allowSlideNext = true;
-  //     };
-  //   }
-  // }, [isLastSlide, swiperInstance]);
+      return () => {
+        window.removeEventListener("wheel", handleWheel);
+        window.removeEventListener("keydown", handleKeyDown);
+        swiperInstance.allowTouchMove = true;
+        swiperInstance.allowSlidePrev = true;
+        swiperInstance.allowSlideNext = true;
+      };
+    }
+  }, [isLastSlide, swiperInstance]);
 
   //Mobile
 
@@ -248,36 +254,39 @@ const ShockersHome = ({ params: { locale } }) => {
 
   useEffect(() => {
     if (swiperInstance) {
-      const handleTouchMove = (e) => {
-        const touch = e.touches[0];
-        const deltaY = touch.clientY - (touch.previousClientY || touch.clientY);
-        if (isLastSlide && deltaY == 0) {
-          console.log("s");
+      let startY = 0;
+      let endY = 0;
 
-          // عند التمرير لأسفل في الشريحة الأخيرة
+      const handleTouchStart = (e) => {
+        startY = e.touches[0].clientY;
+      };
+
+      const handleTouchMove = (e) => {
+        endY = e.touches[0].clientY;
+        const deltaY = endY - startY;
+
+        if (isLastSlide && deltaY < 0) {
           swiperInstance.allowTouchMove = false;
-          window.scrollBy(0, 500); // تمرير الصفحة في الاتجاه المعاكس
+          window.scrollTo(0, 600); // تمرير الصفحة في الاتجاه المعاكس
         } else if (isFirstSlide && deltaY > 0) {
-          // عند التمرير لأعلى في الشريحة الأولى
           swiperInstance.allowTouchMove = false;
-          window.scrollBy(0, -deltaY); // تمرير الصفحة في الاتجاه المعاكس
+          window.scrollTo(0, 0); // تمرير الصفحة في الاتجاه المعاكس
         } else {
           swiperInstance.allowTouchMove = true;
         }
-
-        // حفظ الوضع الحالي للعميل (لمنع الالتباس في اللمس)
-        touch.previousClientY = touch.clientY;
       };
 
       const handleTouchEnd = () => {
         swiperInstance.allowTouchMove = true;
       };
 
+      swiperInstance.el.addEventListener("touchstart", handleTouchStart);
       swiperInstance.el.addEventListener("touchmove", handleTouchMove);
       swiperInstance.el.addEventListener("touchend", handleTouchEnd);
 
       return () => {
         if (swiperInstance) {
+          swiperInstance.el.removeEventListener("touchstart", handleTouchStart);
           swiperInstance.el.removeEventListener("touchmove", handleTouchMove);
           swiperInstance.el.removeEventListener("touchend", handleTouchEnd);
         }

@@ -78,8 +78,10 @@ const ShockersHome = ({ params: { locale } }) => {
     getName_Solgan_();
   }, [getHome_, getServices_, getCategoriesProjects_, getName_Solgan_]);
   const [scrollingDown, setScrollingDown] = useState(false);
-  const [actionName, setActionName] = useState(false);
   const [swiperInstance, setSwiperInstance] = useState(null);
+  const [isLastSlide, setIsLastSlide] = useState(false);
+  // const [actionName, setActionName] = useState(false);
+  // const [swiperInstance, setSwiperInstance] = useState(null);
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -104,40 +106,37 @@ const ShockersHome = ({ params: { locale } }) => {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  const handleKeyDown = useCallback((event) => {
-    console.log("Key pressed:", event.key);
-    if (event.key === "ArrowDown" || event.key === "PageDown") {
-      // console.log("a");
-      setActionName(true); // يتم تحديث actionName إلى true عند الضغط على ArrowDown
-    } else if (event.key === "ArrowUp" || event.key === "PageUp") {
-      // console.log("b");
-      setActionName(false); // يتم تحديث actionName إلى false عند الضغط على ArrowUp
-    }
-  }, []);
+  // const handleKeyDown = useCallback((event) => {
+  //   console.log("Key pressed:", event.key);
+  //   if (event.key === "ArrowDown" || event.key === "PageDown") {
+  //     // console.log("a");
+  //     setActionName(true); // يتم تحديث actionName إلى true عند الضغط على ArrowDown
+  //   } else if (event.key === "ArrowUp" || event.key === "PageUp") {
+  //     // console.log("b");
+  //     setActionName(false); // يتم تحديث actionName إلى false عند الضغط على ArrowUp
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
+  // useEffect(() => {
+  //   window.addEventListener("keydown", handleKeyDown);
 
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [handleKeyDown]);
+  //   return () => {
+  //     window.removeEventListener("keydown", handleKeyDown);
+  //   };
+  // }, [handleKeyDown]);
   const handleTransitionEnd = useCallback(
     (swiper) => {
       if (swiper.activeIndex === swiper.slides.length - 1) {
         if (scrollingDown) {
           swiper.mousewheel.disable();
-          swiper.keyboard.disable();
           window.scrollTo(0, 1);
         } else {
           swiper.mousewheel.enable();
-          swiper.keyboard.enable();
 
           window.scrollTo(0, 1);
         }
       } else {
         swiper.mousewheel.enable();
-        swiper.keyboard.enable();
 
         window.scrollTo(0, 1);
       }
@@ -155,6 +154,131 @@ const ShockersHome = ({ params: { locale } }) => {
       window.scrollTo(0, 1);
     }
   }, []);
+
+  // const [isLastSlide, setIsLastSlide] = useState(false);
+
+  // useEffect(() => {
+  //   if (swiperInstance) {
+  //     swiperInstance.on("slideChange", () => {
+  //       if (swiperInstance.isEnd) {
+  //         setIsLastSlide(true);
+  //       } else {
+  //         setIsLastSlide(false);
+  //       }
+  //     });
+  //   }
+  // }, [swiperInstance]);
+
+  // useEffect(() => {
+  //   if (isLastSlide) {
+  //     const handleTouchEnd = (e) => {
+  //       const touchY = e.changedTouches[0].clientY;
+  //       console.log(touchY);
+  //       if (touchY) {
+  //         swiperInstance.allowTouchMove = false;
+  //       }
+  //     };
+
+  //     document.addEventListener("touchend", handleTouchEnd);
+  //     return () => {
+  //       document.removeEventListener("touchend", handleTouchEnd);
+  //       swiperInstance.allowTouchMove = true;
+  //     };
+  //   }
+  // }, [isLastSlide, swiperInstance]);
+  //buttons
+  // useEffect(() => {
+  //   if (swiperInstance) {
+  //     swiperInstance.on("slideChange", () => {
+  //       setIsLastSlide(swiperInstance.isEnd);
+  //     });
+  //   }
+  // }, [swiperInstance]);
+
+  // useEffect(() => {
+  //   if (isLastSlide) {
+  //     const handleWheel = (e) => {
+  //       if (e.deltaY > 0) {
+  //         // إذا حاول المستخدم التمرير لأسفل، نعطل التمرير داخل Swiper
+  //         swiperInstance.allowTouchMove = false;
+  //         swiperInstance.allowSlidePrev = false;
+  //         swiperInstance.allowSlideNext = false;
+  //       }
+  //     };
+
+  //     const handleKeyDown = (e) => {
+  //       if (e.key === "ArrowDown") {
+  //         // عند استخدام الأسهم، نعطل التمرير داخل Swiper
+  //         swiperInstance.allowTouchMove = false;
+  //         swiperInstance.allowSlidePrev = false;
+  //         swiperInstance.allowSlideNext = false;
+  //       }
+  //       // if (e.key === "ArrowUp") {
+  //       //   swiperInstance.allowTouchMove = true;
+  //       //   swiperInstance.allowSlidePrev = true;
+  //       //   swiperInstance.allowSlideNext = true;
+  //       // }
+  //     };
+
+  //     window.addEventListener("wheel", handleWheel);
+  //     window.addEventListener("keydown", handleKeyDown);
+
+  //     return () => {
+  //       window.removeEventListener("wheel", handleWheel);
+  //       window.removeEventListener("keydown", handleKeyDown);
+  //       swiperInstance.allowTouchMove = true;
+  //       swiperInstance.allowSlidePrev = true;
+  //       swiperInstance.allowSlideNext = true;
+  //     };
+  //   }
+  // }, [isLastSlide, swiperInstance]);
+
+  //Mobile
+  const [isMobileLastSlide, setIsMobileLastSlide] = useState(false);
+  const [isFirstSlide, setIsFirstSlide] = useState(false);
+  useEffect(() => {
+    if (swiperInstance) {
+      swiperInstance.on("slideChange", () => {
+        setIsMobileLastSlide(swiperInstance.isEnd);
+        setIsFirstSlide(swiperInstance.isBeginning);
+      });
+    }
+  }, [swiperInstance]);
+
+  useEffect(() => {
+    if (swiperInstance) {
+      const handleTouchMove = (e) => {
+        const deltaY =
+          e.touches[0].clientY - e.touches[e.touches.length - 1].clientY;
+        console.log(isMobileLastSlide, deltaY);
+
+        if (isMobileLastSlide && deltaY == 0) {
+          console.log("اسفل");
+          // إذا كنت في الشريحة الأخيرة وتحركت لأسفل، قم بتعطيل التمرير داخل Swiper
+          swiperInstance.allowTouchMove = false;
+        } else if (isFirstSlide && deltaY > 0) {
+          // إذا كنت في الشريحة الأولى وتحركت لأعلى، قم بتعطيل التمرير داخل Swiper
+          swiperInstance.allowTouchMove = false;
+        } else {
+          swiperInstance.allowTouchMove = true;
+        }
+      };
+
+      const handleTouchEnd = () => {
+        swiperInstance.allowTouchMove = true;
+      };
+
+      swiperInstance.el.addEventListener("touchmove", handleTouchMove);
+      swiperInstance.el.addEventListener("touchend", handleTouchEnd);
+
+      return () => {
+        if (swiperInstance) {
+          swiperInstance.el.removeEventListener("touchmove", handleTouchMove);
+          swiperInstance.el.removeEventListener("touchend", handleTouchEnd);
+        }
+      };
+    }
+  }, [isMobileLastSlide, isFirstSlide, swiperInstance]);
   return (
     <motion.div
       initial={{ opacity: 0 }}

@@ -234,12 +234,13 @@ const ShockersHome = ({ params: { locale } }) => {
   // }, [isLastSlide, swiperInstance]);
 
   //Mobile
-  const [isMobileLastSlide, setIsMobileLastSlide] = useState(false);
+
   const [isFirstSlide, setIsFirstSlide] = useState(false);
+
   useEffect(() => {
     if (swiperInstance) {
       swiperInstance.on("slideChange", () => {
-        setIsMobileLastSlide(swiperInstance.isEnd);
+        setIsLastSlide(swiperInstance.isEnd);
         setIsFirstSlide(swiperInstance.isBeginning);
       });
     }
@@ -248,20 +249,24 @@ const ShockersHome = ({ params: { locale } }) => {
   useEffect(() => {
     if (swiperInstance) {
       const handleTouchMove = (e) => {
-        const deltaY =
-          e.touches[0].clientY - e.touches[e.touches.length - 1].clientY;
-        console.log(isMobileLastSlide, deltaY);
+        const touch = e.touches[0];
+        const deltaY = touch.clientY - (touch.previousClientY || touch.clientY);
+        if (isLastSlide && deltaY == 0) {
+          console.log("s");
 
-        if (isMobileLastSlide && deltaY == 0) {
-          console.log("اسفل");
-          // إذا كنت في الشريحة الأخيرة وتحركت لأسفل، قم بتعطيل التمرير داخل Swiper
+          // عند التمرير لأسفل في الشريحة الأخيرة
           swiperInstance.allowTouchMove = false;
+          window.scrollBy(0, 500); // تمرير الصفحة في الاتجاه المعاكس
         } else if (isFirstSlide && deltaY > 0) {
-          // إذا كنت في الشريحة الأولى وتحركت لأعلى، قم بتعطيل التمرير داخل Swiper
+          // عند التمرير لأعلى في الشريحة الأولى
           swiperInstance.allowTouchMove = false;
+          window.scrollBy(0, -deltaY); // تمرير الصفحة في الاتجاه المعاكس
         } else {
           swiperInstance.allowTouchMove = true;
         }
+
+        // حفظ الوضع الحالي للعميل (لمنع الالتباس في اللمس)
+        touch.previousClientY = touch.clientY;
       };
 
       const handleTouchEnd = () => {
@@ -278,7 +283,8 @@ const ShockersHome = ({ params: { locale } }) => {
         }
       };
     }
-  }, [isMobileLastSlide, isFirstSlide, swiperInstance]);
+  }, [isLastSlide, isFirstSlide, swiperInstance]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}

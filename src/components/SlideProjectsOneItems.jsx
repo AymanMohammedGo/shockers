@@ -54,7 +54,7 @@ export default function SlideProjectsOneItems({ allProjects, link }) {
     <div className="bg-primary ">
       <div id="projects" className=" w-screen h-screen">
         <Swiper
-          className="w-full h-full  "
+          className={`${link} w-full h-full`}
           ref={swiperRef}
           freeMode={true}
           navigation={true}

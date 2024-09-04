@@ -91,14 +91,21 @@ html {
   background: #fbce12;
   border-radius: 15px;
 }
-.swiper-button-prev:after,
-.swiper-rtl .swiper-button-next:after,
-.swiper-button-next:after,
-.swiper-rtl .swiper-button-prev:after {
-  /* background-color: white; */
-  color: #ffcf01;
+.deca .swiper-button-prev:after,
+.deca .swiper-rtl .swiper-button-next:after,
+.deca .swiper-button-next:after,
+.deca .swiper-rtl .swiper-button-prev:after {
+  color: #17b9b5;
+  border-radius: 50%;
   font-weight: 900;
-  /* border-radius: 8px; */
+  padding: 12px;
+}
+.baytuna .swiper-button-prev:after,
+.baytuna .swiper-rtl .swiper-button-next:after,
+.baytuna .swiper-button-next:after,
+.baytuna .swiper-rtl .swiper-button-prev:after {
+  color: #c01f4a;
+  font-weight: 900;
   padding: 12px;
 }
 .swiper-button-next,
@@ -167,5 +174,4 @@ html {
   .lg\:my-20 {
     margin: 10px 0px !important;
   }
-
 }

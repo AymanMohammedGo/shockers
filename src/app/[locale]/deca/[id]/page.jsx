@@ -3,10 +3,9 @@ import ImageTitleProject from "@/components/ImageTitleProject";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { getDetail_project } from "../../../../../utils/GlobleApi";
-import { getProject, getProjects } from "../../../../../utils/DecaApi";
+import { getProject } from "../../../../../utils/DecaApi";
 import { useCallback, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import SlideProjectsOneItems from "@/components/SlideProjectsOneItems";
 
 const SubProject = ({ params: { locale, id } }) => {
   const router = useRouter();
@@ -19,7 +18,6 @@ const SubProject = ({ params: { locale, id } }) => {
   if (locale === "kr") {
     lan = "af";
   }
-  const [projects, setProjects] = useState([]);
   const [project, setProject] = useState();
   const [getDetailProject, setGetDetailProject] = useState();
   const assignLocalizationIDs = (locale, id, localizations) => {
@@ -43,11 +41,6 @@ const SubProject = ({ params: { locale, id } }) => {
       router.push(`/deca/${lanID.af}`);
     }
   };
-  const getProjects_ = useCallback(() => {
-    getProjects(lan).then((res) => {
-      setProjects(res.data.data);
-    });
-  }, [lan]);
 
   const getProject_ = useCallback(() => {
     getProject(lan, id)
@@ -70,10 +63,9 @@ const SubProject = ({ params: { locale, id } }) => {
     });
   }, [lan]);
   useEffect(() => {
-    getProjects_();
     getProject_();
     getDetail_project_();
-  }, [getProjects_, getProject_, getDetail_project_]);
+  }, [getProject_, getDetail_project_]);
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -105,10 +97,6 @@ const SubProject = ({ params: { locale, id } }) => {
           </div>
         </div>
       ))}
-
-      <div className="sticky top-0 bg-primary ">
-        <SlideProjectsOneItems allProjects={projects} link="deca" />
-      </div>
     </motion.div>
   );
 };

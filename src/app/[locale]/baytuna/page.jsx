@@ -78,7 +78,6 @@ const DecaHome = ({ params: { locale } }) => {
     getProjects_();
     getName_Solgan_();
   }, [getHome_, getServices_, getProjects_, getName_Solgan_]);
-
   const [scrollingDown, setScrollingDown] = useState(false);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -109,26 +108,21 @@ const DecaHome = ({ params: { locale } }) => {
 
   //Moving mouse
 
-  const handleTransitionEnd = useCallback(
-    (swiper) => {
-      if (swiper.activeIndex === swiper.slides.length - 1) {
-        if (scrollingDown) {
-          swiper.mousewheel.disable();
-          window.scrollTo(0, 1);
-        } else {
-          swiper.mousewheel.enable();
-
-          window.scrollTo(0, 1);
-        }
-      } else {
-        swiper.mousewheel.enable();
-
-        window.scrollTo(0, 1);
-      }
-    },
-    [scrollingDown]
-  );
-
+  const handleTransitionEnd = useCallback((swiper) => {
+    if (swiper.activeIndex === swiper.slides.length - 1) {
+      swiper.mousewheel.disable();
+      document.body.style.overflow = "auto";
+    }
+    else if (swiper.activeIndex === 0) {
+      swiper.mousewheel.disable();
+      document.body.style.overflow = "auto";
+      window.scrollTo(0, 1);
+    } else {
+      swiper.mousewheel.enable();
+      document.body.style.overflow = "hidden";
+      window.scrollTo(0, 1);
+    }
+  }, []);
   const handleWheel = useCallback((event) => {
     const delta = event.deltaY;
     if (delta > 0) {
@@ -139,6 +133,21 @@ const DecaHome = ({ params: { locale } }) => {
       window.scrollTo(0, 1);
     }
   }, []);
+
+  const handleScroll = useCallback(() => {
+    const scrollTop = window.pageYOffset;
+    if (scrollTop === 0) {
+      swiperInstance.mousewheel.enable();
+    }
+  }, [swiperInstance]);
+  useEffect(() => {
+    if (swiperInstance) {
+      window.addEventListener("scroll", handleScroll);
+    }
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [swiperInstance, handleScroll]);
 
   //buttons
 

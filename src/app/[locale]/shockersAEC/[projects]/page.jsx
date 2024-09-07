@@ -11,7 +11,12 @@ import {
 } from "../../../../../utils/ShockersApi";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import { Mousewheel, Keyboard } from "swiper/modules";
 const Projects = ({ params: { locale, projects } }) => {
   const router = useRouter();
   const lanID = {
@@ -78,6 +83,184 @@ const Projects = ({ params: { locale, projects } }) => {
     getProjects_();
     getCategoriesProject_();
   }, [getProjects_, getCategoriesProject_]);
+  const [scrollingDown, setScrollingDown] = useState(false);
+  const [swiperInstance, setSwiperInstance] = useState(null);
+  const [isLastSlide, setIsLastSlide] = useState(false);
+
+  //button scroll top
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleGoToFirstSlide = () => {
+    if (swiperInstance) {
+      swiperInstance.slideTo(0, 1000);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 2000);
+    }
+  };
+  const toggleVisibility = () => {
+    if (window.pageYOffset >= 1) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  //Moving mouse
+
+  const handleTransitionEnd = useCallback((swiper) => {
+    if (swiper.activeIndex === swiper.slides.length - 1) {
+      swiper.mousewheel.disable();
+      document.body.style.overflow = "auto";
+    } else if (swiper.activeIndex === 0) {
+      swiper.mousewheel.disable();
+      document.body.style.overflow = "auto";
+      window.scrollTo(0, 1);
+    } else {
+      swiper.mousewheel.enable();
+      document.body.style.overflow = "hidden";
+      window.scrollTo(0, 1);
+    }
+  }, []);
+  const handleWheel = useCallback((event) => {
+    const delta = event.deltaY;
+    if (delta > 0) {
+      setScrollingDown(true);
+      window.scrollTo(0, 1);
+    } else {
+      setScrollingDown(false);
+      window.scrollTo(0, 1);
+    }
+  }, []);
+
+  const handleScroll = useCallback(() => {
+    const scrollTop = window.pageYOffset;
+    if (scrollTop === 0) {
+      swiperInstance.mousewheel.enable();
+    }
+  }, [swiperInstance]);
+  useEffect(() => {
+    if (swiperInstance) {
+      window.addEventListener("scroll", handleScroll);
+    }
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [swiperInstance, handleScroll]);
+
+  //buttons
+
+  useEffect(() => {
+    if (swiperInstance) {
+      swiperInstance.on("slideChange", () => {
+        setIsLastSlide(swiperInstance.isEnd);
+      });
+    }
+  }, [swiperInstance]);
+
+  useEffect(() => {
+    if (isLastSlide) {
+      const handleWheel = (e) => {
+        if (e.deltaY > 0) {
+          swiperInstance.allowTouchMove = false;
+          swiperInstance.allowSlidePrev = false;
+          swiperInstance.allowSlideNext = false;
+        }
+        if (e.deltaY < 0) {
+          swiperInstance.allowTouchMove = true;
+          swiperInstance.allowSlidePrev = true;
+          swiperInstance.allowSlideNext = true;
+        }
+      };
+
+      const handleKeyDown = (e) => {
+        if (e.key === "ArrowDown") {
+          swiperInstance.allowTouchMove = false;
+          swiperInstance.allowSlidePrev = false;
+          swiperInstance.allowSlideNext = false;
+        }
+        if (e.key === "ArrowUp") {
+          swiperInstance.allowTouchMove = true;
+          swiperInstance.allowSlidePrev = true;
+          swiperInstance.allowSlideNext = true;
+        }
+      };
+
+      window.addEventListener("wheel", handleWheel);
+      window.addEventListener("keydown", handleKeyDown);
+
+      return () => {
+        window.removeEventListener("wheel", handleWheel);
+        window.removeEventListener("keydown", handleKeyDown);
+        swiperInstance.allowTouchMove = true;
+        swiperInstance.allowSlidePrev = true;
+        swiperInstance.allowSlideNext = true;
+      };
+    }
+  }, [isLastSlide, swiperInstance]);
+
+  //Mobile
+
+  const [isFirstSlide, setIsFirstSlide] = useState(false);
+
+  useEffect(() => {
+    if (swiperInstance) {
+      swiperInstance.on("slideChange", () => {
+        setIsLastSlide(swiperInstance.isEnd);
+        setIsFirstSlide(swiperInstance.isBeginning);
+      });
+    }
+  }, [swiperInstance]);
+
+  useEffect(() => {
+    if (swiperInstance) {
+      let startY = 0;
+      let endY = 0;
+
+      const handleTouchStart = (e) => {
+        startY = e.touches[0].clientY;
+      };
+
+      const handleTouchMove = (e) => {
+        endY = e.touches[0].clientY;
+        const deltaY = endY - startY;
+
+        if (isLastSlide && deltaY < 0) {
+          swiperInstance.allowTouchMove = false;
+          window.scrollTo(0, 600); // تمرير الصفحة في الاتجاه المعاكس
+        } else if (isFirstSlide && deltaY > 0) {
+          swiperInstance.allowTouchMove = false;
+          window.scrollTo(0, 0); // تمرير الصفحة في الاتجاه المعاكس
+        } else {
+          swiperInstance.allowTouchMove = true;
+        }
+      };
+
+      const handleTouchEnd = () => {
+        swiperInstance.allowTouchMove = true;
+      };
+
+      swiperInstance?.el?.addEventListener("touchstart", handleTouchStart);
+      swiperInstance?.el?.addEventListener("touchmove", handleTouchMove);
+      swiperInstance?.el?.addEventListener("touchend", handleTouchEnd);
+
+      return () => {
+        if (swiperInstance) {
+          swiperInstance?.el?.removeEventListener(
+            "touchstart",
+            handleTouchStart
+          );
+          swiperInstance?.el?.removeEventListener("touchmove", handleTouchMove);
+          swiperInstance?.el?.removeEventListener("touchend", handleTouchEnd);
+        }
+      };
+    }
+  }, [isLastSlide, isFirstSlide, swiperInstance]);
 
   return (
     <motion.div
@@ -86,41 +269,77 @@ const Projects = ({ params: { locale, projects } }) => {
     >
       <Draw_S speed={4} animationData={S_json} />
       <section className="w-full h-full">
-        <div className="h-screen sticky top-0">
-          <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
-            <motion.h1
-              initial={{ x: "-100%", opacity: 1 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{
-                duration: 2,
-                delay: 0.3,
-              }}
-              className="w-full break-words p-2 absolute text-center lg:text-start !leading-[65px] md:!leading-[145px] left-0 bottom-7 lg:bottom-14 text-6xl md:text-8xl lg:text-9xl font-extrabold m-auto lg:mb-10 text-seconds"
-            >
-              {nameCat}
-            </motion.h1>
-          </div>
-        </div>
-
-        {projectsCat?.length > 0 ? (
-          projectsCat?.map((item, index) => (
-            <div key={index} className="sticky top-0">
-              <Link href={`/shockersAEC/${projects}/${item.id}`}>
-                <ImageOverlaysCenter
-                  title={item?.attributes?.name}
-                  imgURl={item?.attributes?.imgURl?.data?.attributes.url}
-                />
-              </Link>
+        <Swiper
+          onSwiper={setSwiperInstance}
+          className="w-screen h-screen"
+          direction={"vertical"}
+          speed={1000}
+          grabCursor={true}
+          modules={[Mousewheel, Keyboard]}
+          mousewheel={{
+            releaseOnEdges: true,
+          }}
+          keyboard={{
+            releaseOnEdges: true,
+          }}
+          onWheel={handleWheel}
+          onTransitionEnd={handleTransitionEnd}
+        >
+          <SwiperSlide className="relative w-full h-full">
+            <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
+              <motion.h1
+                initial={{ x: "-100%", opacity: 1 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  duration: 2,
+                  delay: 0.3,
+                }}
+                className="w-full break-words p-2 absolute text-center lg:text-start !leading-[65px] md:!leading-[145px] left-0 bottom-7 lg:bottom-14 text-6xl md:text-8xl lg:text-9xl font-extrabold m-auto lg:mb-10 text-seconds"
+              >
+                {nameCat}
+              </motion.h1>
             </div>
-          ))
-        ) : (
-          <div className="sticky top-0 ">
-            <ImageOverlaysCenter
-              title={t("COMING_SOON")}
-              imgURl="/img/imageOverlays.jpg"
-            />
-          </div>
-        )}
+          </SwiperSlide>
+
+          {projectsCat?.map((item, index) => (
+            <div key={index}>
+              <SwiperSlide className="relative w-full h-full">
+                <Link href={`/shockersAEC/${projects}/${item.id}`}>
+                  <ImageOverlaysCenter
+                    title={item?.attributes?.name}
+                    imgURl={item?.attributes?.imgURl?.data?.attributes.url}
+                  />
+                </Link>
+              </SwiperSlide>
+            </div>
+          ))}
+        </Swiper>
+        <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
+          {isVisible && (
+            <button
+              onClick={handleGoToFirstSlide}
+              className="p-3 rounded-full   text-white  bg-shockersAEC/20  shadow-2xl   transition-transform transform hover:scale-110 focus:outline-none "
+              style={{ transition: "transform 0.2s ease-in-out" }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="lucide lucide-circle-arrow-up"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="m16 12-4-4-4 4" />
+                <path d="M12 16V8" />
+              </svg>
+            </button>
+          )}
+        </div>
       </section>
     </motion.div>
   );

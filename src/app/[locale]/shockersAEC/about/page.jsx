@@ -62,26 +62,20 @@ const About = ({ params: { locale } }) => {
 
   //Moving mouse
 
-  const handleTransitionEnd = useCallback(
-    (swiper) => {
-      if (swiper.activeIndex === swiper.slides.length - 1) {
-        if (scrollingDown) {
-          swiper.mousewheel.disable();
-          window.scrollTo(0, 1);
-        } else {
-          swiper.mousewheel.enable();
-
-          window.scrollTo(0, 1);
-        }
-      } else {
-        swiper.mousewheel.enable();
-
-        window.scrollTo(0, 1);
-      }
-    },
-    [scrollingDown]
-  );
-
+  const handleTransitionEnd = useCallback((swiper) => {
+    if (swiper.activeIndex === swiper.slides.length - 1) {
+      swiper.mousewheel.disable();
+      document.body.style.overflow = "auto";
+    } else if (swiper.activeIndex === 0) {
+      swiper.mousewheel.disable();
+      document.body.style.overflow = "auto";
+      window.scrollTo(0, 1);
+    } else {
+      swiper.mousewheel.enable();
+      document.body.style.overflow = "hidden";
+      window.scrollTo(0, 1);
+    }
+  }, []);
   const handleWheel = useCallback((event) => {
     const delta = event.deltaY;
     if (delta > 0) {
@@ -92,6 +86,21 @@ const About = ({ params: { locale } }) => {
       window.scrollTo(0, 1);
     }
   }, []);
+
+  const handleScroll = useCallback(() => {
+    const scrollTop = window.pageYOffset;
+    if (scrollTop === 0) {
+      swiperInstance.mousewheel.enable();
+    }
+  }, [swiperInstance]);
+  useEffect(() => {
+    if (swiperInstance) {
+      window.addEventListener("scroll", handleScroll);
+    }
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [swiperInstance, handleScroll]);
 
   //buttons
 
@@ -316,6 +325,32 @@ const About = ({ params: { locale } }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
+        {isVisible && (
+          <button
+            onClick={handleGoToFirstSlide}
+            className="p-3 rounded-full   text-white  bg-shockersAEC/20  shadow-2xl   transition-transform transform hover:scale-110 focus:outline-none "
+            style={{ transition: "transform 0.2s ease-in-out" }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              className="lucide lucide-circle-arrow-up"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="m16 12-4-4-4 4" />
+              <path d="M12 16V8" />
+            </svg>
+          </button>
+        )}
+      </div>
     </motion.div>
   );
 };

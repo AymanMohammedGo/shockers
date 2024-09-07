@@ -114,9 +114,11 @@ const Projects = ({ params: { locale, projects } }) => {
   //Moving mouse
 
   const handleTransitionEnd = useCallback((swiper) => {
+    console.log(swiper.activeIndex, swiper.slides.length);
     if (swiper.activeIndex === swiper.slides.length - 1) {
       swiper.mousewheel.disable();
       document.body.style.overflow = "auto";
+      window.scrollTo(0, 1);
     } else if (swiper.activeIndex === 0) {
       swiper.mousewheel.disable();
       document.body.style.overflow = "auto";
@@ -268,79 +270,75 @@ const Projects = ({ params: { locale, projects } }) => {
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
       <Draw_S speed={4} animationData={S_json} />
-      <section className="w-full h-full">
-        <Swiper
-          onSwiper={setSwiperInstance}
-          className="w-screen h-screen"
-          direction={"vertical"}
-          speed={1000}
-          grabCursor={true}
-          modules={[Mousewheel, Keyboard]}
-          mousewheel={{
-            releaseOnEdges: true,
-          }}
-          keyboard={{
-            releaseOnEdges: true,
-          }}
-          onWheel={handleWheel}
-          onTransitionEnd={handleTransitionEnd}
-        >
-          <SwiperSlide className="relative w-full h-full">
-            <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
-              <motion.h1
-                initial={{ x: "-100%", opacity: 1 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{
-                  duration: 2,
-                  delay: 0.3,
-                }}
-                className="w-full break-words p-2 absolute text-center lg:text-start !leading-[65px] md:!leading-[145px] left-0 bottom-7 lg:bottom-14 text-6xl md:text-8xl lg:text-9xl font-extrabold m-auto lg:mb-10 text-seconds"
-              >
-                {nameCat}
-              </motion.h1>
-            </div>
-          </SwiperSlide>
-
-          {projectsCat?.map((item, index) => (
-            <div key={index}>
-              <SwiperSlide className="relative w-full h-full">
-                <Link href={`/shockersAEC/${projects}/${item.id}`}>
-                  <ImageOverlaysCenter
-                    title={item?.attributes?.name}
-                    imgURl={item?.attributes?.imgURl?.data?.attributes.url}
-                  />
-                </Link>
-              </SwiperSlide>
-            </div>
-          ))}
-        </Swiper>
-        <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
-          {isVisible && (
-            <button
-              onClick={handleGoToFirstSlide}
-              className="p-3 rounded-full   text-white  bg-shockersAEC/20  shadow-2xl   transition-transform transform hover:scale-110 focus:outline-none "
-              style={{ transition: "transform 0.2s ease-in-out" }}
+      <Swiper
+        onSwiper={setSwiperInstance}
+        className="w-screen h-screen"
+        direction={"vertical"}
+        speed={1000}
+        grabCursor={true}
+        modules={[Mousewheel, Keyboard]}
+        mousewheel={{
+          releaseOnEdges: true,
+        }}
+        keyboard={{
+          releaseOnEdges: true,
+        }}
+        onWheel={handleWheel}
+        onTransitionEnd={handleTransitionEnd}
+      >
+        <SwiperSlide className="relative w-full h-full">
+          <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 overflow-hidden">
+            <motion.h1
+              initial={{ x: "-100%", opacity: 1 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{
+                duration: 2,
+                delay: 0.3,
+              }}
+              className="w-full break-words p-2 absolute text-center lg:text-start !leading-[65px] md:!leading-[145px] left-0 bottom-7 lg:bottom-14 text-6xl md:text-8xl lg:text-9xl font-extrabold m-auto lg:mb-10 text-seconds"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="lucide lucide-circle-arrow-up"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="m16 12-4-4-4 4" />
-                <path d="M12 16V8" />
-              </svg>
-            </button>
-          )}
-        </div>
-      </section>
+              {nameCat}
+            </motion.h1>
+          </div>
+        </SwiperSlide>
+
+        {projectsCat?.map((item, index) => (
+          <SwiperSlide key={index} className="relative w-full h-full">
+            <Link href={`/shockersAEC/${projects}/${item.id}`}>
+              <ImageOverlaysCenter
+                title={item?.attributes?.name}
+                imgURl={item?.attributes?.imgURl?.data?.attributes.url}
+              />
+            </Link>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
+        {isVisible && (
+          <button
+            onClick={handleGoToFirstSlide}
+            className="p-3 rounded-full   text-white  bg-shockersAEC/20  shadow-2xl   transition-transform transform hover:scale-110 focus:outline-none "
+            style={{ transition: "transform 0.2s ease-in-out" }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              className="lucide lucide-circle-arrow-up"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="m16 12-4-4-4 4" />
+              <path d="M12 16V8" />
+            </svg>
+          </button>
+        )}
+      </div>
     </motion.div>
   );
 };

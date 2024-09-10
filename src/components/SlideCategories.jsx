@@ -160,11 +160,35 @@ export default function SlideCategories({ categoriesProjects, link }) {
               ))}
               {invalidProjects?.map((item, index) => (
                 <SwiperSlide key={index} className="relative">
-                  <VideoItem
+                  <div className="relative w-full h-full overflow-hidden ">
+                    <motion.div
+                      className="relative w-full h-full"
+                      initial={{ scale: 1 }}
+                      whileHover={{ scale: 1.2 }} // تأثير التكبير عند hover
+                      transition={{
+                        duration: 0.5,
+                      }}
+                    >
+                      <Image
+                        className="object-cover"
+                        src="/img/COMING_SOON.png"
+                        layout="fill"
+                        alt={item.id}
+                        quality={75}
+                      />
+                      <div className="bg-black bg-opacity-20 w-full h-full absolute top-0" />
+                      <div className="absolute  inset-0 image-gradient" />
+                    </motion.div>
+                  </div>
+
+                  <span className="absolute text-center w-full  bottom-0 p-4 text-white text-2xl">
+                    {item?.attributes?.title}
+                  </span>
+                  {/* <VideoItem
                     key={index}
                     src="/ComingSoon.mp4"
                     title={item?.attributes?.title}
-                  />
+                  /> */}
                 </SwiperSlide>
               ))}
             </Swiper>

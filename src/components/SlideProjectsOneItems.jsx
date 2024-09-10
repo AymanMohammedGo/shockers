@@ -60,36 +60,40 @@ export default function SlideProjectsOneItems({ allProjects, link }) {
           navigation={true}
           modules={[FreeMode, Navigation]}
         >
-          {allProjects?.map((item, index) => (
-            <SwiperSlide key={index} className="relative w-full h-full">
-              <Link href={`/${link}/${item?.id}`}>
-                <div className="relative w-full h-full overflow-hidden ">
-                  <motion.div
-                    className="relative w-full h-full"
-                    initial={{ scale: 1.15 }}
-                    whileHover={{ scale: 1 }}
-                    transition={{
-                      duration: 0.5,
-                    }}
-                  >
-                    <Image
-                      className="object-cover"
-                      src={item?.attributes?.imgURLHome?.data?.attributes?.url}
-                      layout="fill"
-                      alt={item.id}
-                      quality={75}
-                    />
-                    <div className="bg-black bg-opacity-20 w-full h-full absolute top-0" />
+          {allProjects
+            ?.sort((a, b) => a.attributes.name.localeCompare(b.attributes.name))
+            .map((item, index) => (
+              <SwiperSlide key={index} className="relative w-full h-full">
+                <Link href={`/${link}/${item?.id}`}>
+                  <div className="relative w-full h-full overflow-hidden ">
+                    <motion.div
+                      className="relative w-full h-full"
+                      initial={{ scale: 1.15 }}
+                      whileHover={{ scale: 1 }}
+                      transition={{
+                        duration: 0.5,
+                      }}
+                    >
+                      <Image
+                        className="object-cover"
+                        src={
+                          item?.attributes?.imgURLHome?.data?.attributes?.url
+                        }
+                        layout="fill"
+                        alt={item.id}
+                        quality={75}
+                      />
+                      <div className="bg-black bg-opacity-20 w-full h-full absolute top-0" />
 
-                    <div className="absolute  inset-0 image-gradient" />
-                  </motion.div>
-                </div>
-                <span className="absolute text-center w-full  bottom-5 p-4 text-white text-2xl lg:text-3xl xl:text-4xl">
-                  {item?.attributes?.name}
-                </span>
-              </Link>
-            </SwiperSlide>
-          ))}
+                      <div className="absolute  inset-0 image-gradient" />
+                    </motion.div>
+                  </div>
+                  <span className="absolute text-center w-full  bottom-5 p-4 text-white text-2xl lg:text-3xl xl:text-4xl">
+                    {item?.attributes?.name}
+                  </span>
+                </Link>
+              </SwiperSlide>
+            ))}
         </Swiper>
       </div>
     </div>

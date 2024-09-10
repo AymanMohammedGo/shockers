@@ -227,10 +227,10 @@ const ShockersHome = ({ params: { locale } }) => {
 
         if (isLastSlide && deltaY < 0) {
           swiperInstance.allowTouchMove = false;
-          window.scrollTo(0, 600); // تمرير الصفحة في الاتجاه المعاكس
+          window.scrollTo(0, 600); 
         } else if (isFirstSlide && deltaY > 0) {
           swiperInstance.allowTouchMove = false;
-          window.scrollTo(0, 0); // تمرير الصفحة في الاتجاه المعاكس
+          window.scrollTo(0, 0); 
         } else {
           swiperInstance.allowTouchMove = true;
         }

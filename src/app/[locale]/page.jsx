@@ -194,7 +194,7 @@ export default function Home({ params: { locale } }) {
                       duration: 0.5,
                       delay: 0,
                     }}
-                    className={`${item.textColor} whitespace-break-spaces pointer-events-none  absolute  font-medium  text-center xl:mb-1 xxl:mb-3  text-sm sm:text-lg md:text-xl xxl:text-2xl    overflow-hidden`}
+                    className={`${item.textColor} whitespace-break-spaces pointer-events-none  absolute  font-medium  text-center xl:mb-1 xxl:mb-3  text-sm sm:text-lg md:text-xl xxl:text-2xl xxxl:text-3xl    overflow-hidden`}
                   >
                     {item.textHover}
                   </motion.div>

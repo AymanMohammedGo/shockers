@@ -302,16 +302,18 @@ const Projects = ({ params: { locale, projects } }) => {
           </div>
         </SwiperSlide>
 
-        {projectsCat?.map((item, index) => (
-          <SwiperSlide key={index} className="relative w-full h-full">
-            <Link href={`/shockersAEC/${projects}/${item.id}`}>
-              <ImageOverlaysCenter
-                title={item?.attributes?.name}
-                imgURl={item?.attributes?.imgURl?.data?.attributes.url}
-              />
-            </Link>
-          </SwiperSlide>
-        ))}
+        {projectsCat
+          ?.sort((a, b) => a.attributes.name.localeCompare(b.attributes.name))
+          .map((item, index) => (
+            <SwiperSlide key={index} className="relative w-full h-full">
+              <Link href={`/shockersAEC/${projects}/${item.id}`}>
+                <ImageOverlaysCenter
+                  title={item?.attributes?.name}
+                  imgURl={item?.attributes?.imgURl?.data?.attributes.url}
+                />
+              </Link>
+            </SwiperSlide>
+          ))}
       </Swiper>
       <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
         {isVisible && (

@@ -111,8 +111,7 @@ const ShockersHome = ({ params: { locale } }) => {
     if (swiper.activeIndex === swiper.slides.length - 1) {
       swiper.mousewheel.disable();
       document.body.style.overflow = "auto";
-    }
-    else if (swiper.activeIndex === 0) {
+    } else if (swiper.activeIndex === 0) {
       swiper.mousewheel.disable();
       document.body.style.overflow = "auto";
       window.scrollTo(0, 1);
@@ -224,13 +223,13 @@ const ShockersHome = ({ params: { locale } }) => {
       const handleTouchMove = (e) => {
         endY = e.touches[0].clientY;
         const deltaY = endY - startY;
-
-        if (isLastSlide && deltaY < 0) {
+        console.log(deltaY);
+        if (isLastSlide && deltaY < -200) {
           swiperInstance.allowTouchMove = false;
-          window.scrollTo(0, 600); 
-        } else if (isFirstSlide && deltaY > 0) {
+          window.scrollTo(0, 600);
+        } else if (isFirstSlide && deltaY > +200) {
           swiperInstance.allowTouchMove = false;
-          window.scrollTo(0, 0); 
+          window.scrollTo(0, 0);
         } else {
           swiperInstance.allowTouchMove = true;
         }

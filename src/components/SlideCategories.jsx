@@ -170,7 +170,7 @@ export default function SlideCategories({ categoriesProjects, link }) {
                       }}
                     >
                       <Image
-                        className="object-cover"
+                        className=""
                         src="/img/COMING_SOON.png"
                         layout="fill"
                         alt={item.id}

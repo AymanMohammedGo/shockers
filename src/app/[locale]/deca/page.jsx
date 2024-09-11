@@ -220,13 +220,13 @@ const DecaHome = ({ params: { locale } }) => {
       const handleTouchMove = (e) => {
         endY = e.touches[0].clientY;
         const deltaY = endY - startY;
-
-        if (isLastSlide && deltaY < 0) {
+        console.log(deltaY);
+        if (isLastSlide && deltaY < -200) {
           swiperInstance.allowTouchMove = false;
-          window.scrollTo(0, 600); // تمرير الصفحة في الاتجاه المعاكس
-        } else if (isFirstSlide && deltaY > 0) {
+          window.scrollTo(0, 600);
+        } else if (isFirstSlide && deltaY > +200) {
           swiperInstance.allowTouchMove = false;
-          window.scrollTo(0, 0); // تمرير الصفحة في الاتجاه المعاكس
+          window.scrollTo(0, 0);
         } else {
           swiperInstance.allowTouchMove = true;
         }

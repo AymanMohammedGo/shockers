@@ -111,7 +111,7 @@ const DecaHome = ({ params: { locale } }) => {
     } else if (swiper.activeIndex === 0) {
       swiper.mousewheel.disable();
       document.body.style.overflow = "auto";
-      window.scrollTo(0, 1);
+      // window.scrollTo(0, 1);
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";

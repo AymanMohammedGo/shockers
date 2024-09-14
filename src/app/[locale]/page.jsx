@@ -65,7 +65,6 @@ export default function Home({ params: { locale } }) {
     {
       name: "YARD",
       link: "/yard",
-      // "/yard"
       imageLogo: "/img/MainPage/yard.svg",
       imageHoverLogo: "/img/MainPage/yard.svg",
       bgColorHover: "hover:bg-yard",
@@ -78,7 +77,6 @@ export default function Home({ params: { locale } }) {
     {
       name: "DECA",
       link: "/deca",
-      // "deca"
       imageLogo: "/img/MainPage/Deca.svg",
       imageHoverLogo: "/img/MainPage/DecaWhite.svg",
       textHover: solgan.Deca,
@@ -90,8 +88,7 @@ export default function Home({ params: { locale } }) {
     },
     {
       name: "YMARKETING",
-      link: "#",
-      // "/ymarketing"
+      link: "/ymarketing",
       imageLogo: "/img/MainPage/yMarketing.svg",
       imageHoverLogo: "/img/MainPage/yMarketingYellow.svg",
       bgColorHover: "hover:bg-yMarketing",

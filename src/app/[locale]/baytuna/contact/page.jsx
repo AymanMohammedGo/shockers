@@ -17,7 +17,9 @@ const Contact = ({ params: { locale } }) => {
     lan = "af";
   }
   const [sectionView, setSectionView] = useState(0);
-
+  useEffect(() => {
+    document.body.style.overflow = "auto";
+  }, []);
   const [ContactNames, setContactNames] = useState([]);
   const [jobOffers, setJobOffers] = useState([]);
   const [formData, setFormData] = useState({

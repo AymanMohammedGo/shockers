@@ -1,14 +1,18 @@
 "use client";
-import React from "react";
-import { useCallback, useState, useEffect } from "react";
-import Draw_Y from "@/components/Lottie/Draw_Y";
-import Y_json from "/public/Motion/Y.json";
+import SlideCategories from "@/components/SlideCategories";
+import Draw_YMar from "@/components/Lottie/Draw_YMar";
+import YMar_json from "/public/Motion/YMar.json";
 import { motion } from "framer-motion";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import SalgonSection from "@/components/SalgonSection";
-import { getHome, getServices, getProjects } from "../../../../utils/YardApi";
+import {
+  getHome,
+  getServices,
+  getProjects,
+} from "../../../../utils/Y_MarketingApi";
 import { getName_Solgan } from "../../../../utils/GlobleApi";
+import { useCallback, useState, useEffect, useRef } from "react";
 import "../globals.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -17,8 +21,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Mousewheel, Keyboard } from "swiper/modules";
 import SlideProjectsOneItems from "@/components/SlideProjectsOneItems";
-import Services8Section from "@/components/Services8Section";
-const Page = ({ params: { locale } }) => {
+
+const Y_MarketingHome = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
@@ -27,11 +31,10 @@ const Page = ({ params: { locale } }) => {
   const [data, setData] = useState([]);
   const [services, setServices] = useState([]);
   const [projects, setProjects] = useState([]);
-
   const getName_Solgan_ = useCallback(() => {
     getName_Solgan(lan).then((res) => {
       const newSolgan = [];
-      res.data.data?.attributes?.YardHome.map((item, index) => {
+      res.data.data?.attributes?.YmarketingHome.map((item, index) => {
         newSolgan.push({
           text: item?.children[0].text,
           delay: 2.5 + (index + 1) / 2,
@@ -225,6 +228,7 @@ const Page = ({ params: { locale } }) => {
           swiperInstance.allowTouchMove = false;
           window.scrollTo(0, 600);
         } else if (isFirstSlide && deltaY > +200) {
+          console.log(isFirstSlide, deltaY);
           swiperInstance.allowTouchMove = false;
           window.scrollTo(0, 0);
         } else {
@@ -258,7 +262,7 @@ const Page = ({ params: { locale } }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1 } }}
     >
-      <Draw_Y animationData={Y_json} delay={500} speed={0.5} />
+      <Draw_YMar animationData={YMar_json} delay={500} speed={0.4} />
       <Swiper
         onSwiper={setSwiperInstance}
         className="w-screen h-screen"
@@ -276,35 +280,32 @@ const Page = ({ params: { locale } }) => {
         onTransitionEnd={handleTransitionEnd}
       >
         <SwiperSlide className="relative w-full h-full">
-          <SalgonSection
-            titleText={solgan}
-            dir={locale === "ar" || locale === "kr" ? "rtl" : "ltr"}
-          />
+          <SalgonSection titleText={solgan} dir={document.dir} />
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
           <AboutSection
-            link="yard"
-            videoMobile="/YardMobile.mp4"
-            videoLoptap="/YardAbout.mp4"
+            link="ymarketing"
+            videoMobile="/y marketing website video mobile.mp4"
+            videoLoptap="/y marketing website video.mp4"
             title={data?.attributes?.TitleAbout}
             description={data?.attributes?.DescriptionAbout}
             textButton={data?.attributes?.TextButton}
-            bg="bg-yard"
-            tc="text-white"
+            bg="bg-white"
+            tc="text-shockersAEC"
           />
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
-          <Services8Section
+          <ServicesSection
             services={services}
             title={data?.attributes?.NameServices}
-            link="yard"
-            bg="bg-Hover-gradient-yard"
+            link="ymarketing"
+            bg="bg-Hover-gradient"
             tc="text-shockersAEC"
-            dir={locale === "ar" || locale === "kr" ? "rtl" : "ltr"}
+            dir={document.dir}
           />
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
-          <SlideProjectsOneItems allProjects={projects} link="yard" />
+          <SlideProjectsOneItems allProjects={projects} link="ymarketing" />
         </SwiperSlide>
       </Swiper>
       <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
@@ -337,4 +338,4 @@ const Page = ({ params: { locale } }) => {
   );
 };
 
-export default Page;
+export default Y_MarketingHome;

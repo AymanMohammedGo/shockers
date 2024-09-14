@@ -31,7 +31,9 @@ const Services = ({ params: { locale } }) => {
       if (item.id == search) return setSelectedService(item);
     });
   }, [data, search]);
-
+  useEffect(() => {
+    document.body.style.overflow = "auto";
+  }, []);
   return (
     <motion.div
       initial={{ opacity: 0 }}

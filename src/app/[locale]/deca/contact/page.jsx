@@ -146,7 +146,9 @@ const Contact = ({ params: { locale } }) => {
       index: 2,
     },
   ];
-
+  useEffect(() => {
+    document.body.style.overflow = "auto";
+  }, []);
   return (
     <motion.div
       initial={{ opacity: 0 }}

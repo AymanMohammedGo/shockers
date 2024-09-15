@@ -31,13 +31,13 @@ const Services8Section = ({ services, title, bg, link, tc, dir }) => {
     <section className="w-screen h-screen ">
       <div className="bg-shockersAEC  w-full h-full flex items-center justify-center relative z-10">
         <div className="flex  w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
-          <div className=" text-white w-full h-full flex-1 p-7  flex flex-col items-center justify-center ">
+          <div className=" text-white w-full h-full flex-1 py-4 sm:py-7 px-7  flex flex-col items-center justify-center ">
             <motion.h1
               ref={ref1}
               initial="hidden"
               animate={controls1}
               variants={var1}
-              className="text-[55px] sm:text-6xl lg:text-8xl font-bold mb-10 lg:mb-16 xl:mb-20  "
+              className="text-[55px] sm:text-6xl lg:text-8xl font-bold mb-5 sm:mb-10 lg:mb-16 xl:mb-20  "
             >
               {title}
             </motion.h1>
@@ -53,16 +53,16 @@ const Services8Section = ({ services, title, bg, link, tc, dir }) => {
                     duration: 1,
                     delay: 0,
                   }}
-                  className="relative "
+                  className="relative hidden sm:block "
                 >
                   <div
-                    className={`absolute left-0 top-0  hidden sm:block
-                      h-[15vh] lg:h-[30vh] w-full border-white border-2 `}
+                    className={`absolute left-0 top-0  
+                   w-full h-[10vh] sm:h-[15vh] lg:h-[30vh]  border-white border-2 `}
                   ></div>
                   <Link href={`/${link}/services?serviceId=${item?.name?.id}`}>
                     <div
-                      className={`bg-gradient group -translate-x-4 translate-y-4 w-[100%] sm:w-full
-                          h-[10vh] sm:h-[15vh] lg:h-[30vh] relative hover:translate-x-0 hover:translate-y-0  ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
+                      className={`bg-gradient group -translate-x-4 translate-y-4 
+                           w-full h-[10vh] sm:h-[15vh] lg:h-[30vh] relative hover:translate-x-0 hover:translate-y-0  ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
                     >
                       <span
                         className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px]
@@ -94,6 +94,37 @@ const Services8Section = ({ services, title, bg, link, tc, dir }) => {
                           <path d="m9 18 6-6-6-6" />
                         </svg>
                       </div>
+                    </div>
+                  </Link>
+                </motion.li>
+              ))}
+              {/* Mobile */}
+              {services.map((item) => (
+                <motion.li
+                  key={item?.name?.id}
+                  initial={{ opacity: 1, y: "100%" }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 1,
+                    delay: 0,
+                  }}
+                  className="relative  sm:hidden "
+                >
+                  {/* <div
+                    className={`absolute left-0 top-0  
+                   w-full h-[10vh]  border-white border-2 `}
+                  ></div> */}
+                  <Link href={`/${link}/services?serviceId=${item?.name?.id}`}>
+                    <div
+                      className={`border-white border-2 text-white group 
+                           w-full h-full relative  ${bg} p-2 text-center  flex items-center justify-center transition-transform duration-300 ease-in-out`}
+                    >
+                      <span
+                        className={`relative font-normal w-full text-2xl  group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px]
+                             after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out `}
+                      >
+                        {item?.name?.attributes?.title}
+                      </span>
                     </div>
                   </Link>
                 </motion.li>

@@ -263,7 +263,7 @@ const About = ({ params: { locale } }) => {
               </div>
 
               <div className="relative max-w-screen-xxl m-auto flex flex-col items-start overflow-hidden">
-                <motion.div className="absolute h-full   top-0 left-[calc(100px + 10px)] w-[5px] bg-shockersAEC z-10" />
+                <motion.div className="absolute h-full hidden sm:flex top-0 left-[calc(100px + 10px)] w-[5px] bg-shockersAEC z-10" />
 
                 <div className="flex flex-col items-center justify-center h-screen overflow-hidden">
                   <div className="relative flex items-center z-10 w-full ">
@@ -277,7 +277,7 @@ const About = ({ params: { locale } }) => {
                       transition={{
                         duration: 1,
                       }}
-                      className="relative flex items-center"
+                      className="relative  items-center hidden sm:flex"
                     >
                       <div className="w-0 md:w-[50px] lg:w-[100px] h-[5px] bg-shockersAEC"></div>
                       <div className="relative">
@@ -300,7 +300,7 @@ const About = ({ params: { locale } }) => {
                       transition={{
                         duration: 1,
                       }}
-                      className="mx-4 text-shockersAEC font-bold text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[50px] lg:!leading-[70px]"
+                      className="sm:mx-4 text-shockersAEC font-bold text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[50px] lg:!leading-[70px]"
                     >
                       {item?.attributes.title}
                     </motion.h2>
@@ -317,8 +317,8 @@ const About = ({ params: { locale } }) => {
                     }}
                     className={`${
                       document.dir === "ltr"
-                        ? "ml-[26px] md:ml-[78px] lg:ml-[130px]"
-                        : "mr-[26px] md:mr-[78px] lg:mr-[130px]"
+                        ? "sm:ml-[26px] md:ml-[78px] lg:ml-[130px]"
+                        : "sm:mr-[26px] md:mr-[78px] lg:mr-[130px]"
                     } text-justify hyphens-auto text-shockersAEC text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10`}
                   >
                     {item?.attributes.description}

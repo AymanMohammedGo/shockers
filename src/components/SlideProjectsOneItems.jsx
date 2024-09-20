@@ -58,7 +58,8 @@ export default function SlideProjectsOneItems({ allProjects, link }) {
           ref={swiperRef}
           freeMode={true}
           navigation={true}
-          modules={[FreeMode, Navigation]}
+          // modules={[FreeMode, Navigation]}
+          modules={[Navigation]}
         >
           {allProjects
             ?.sort((a, b) => a.attributes.name.localeCompare(b.attributes.name))

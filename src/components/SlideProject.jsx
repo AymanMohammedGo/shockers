@@ -42,7 +42,8 @@ export default function SlideProject({ allProjects, link }) {
       isDelay.current = true;
       setTimeout(() => {
         isDelay.current = false;
-      }, 100);
+      }, 1000);
+      // }, 100);
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
@@ -61,7 +62,7 @@ export default function SlideProject({ allProjects, link }) {
               slidesPerView={1.1}
               spaceBetween={10}
               freeMode={true}
-              modules={[FreeMode]}
+              // modules={[FreeMode]}
               breakpoints={{
                 600: {
                   slidesPerView: 1.5,

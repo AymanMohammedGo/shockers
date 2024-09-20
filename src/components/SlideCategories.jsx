@@ -77,7 +77,8 @@ export default function SlideCategories({ categoriesProjects, link }) {
       isDelay.current = true;
       setTimeout(() => {
         isDelay.current = false;
-      }, 100);
+      }, 1000);
+      // }, 100);
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => {
@@ -91,7 +92,7 @@ export default function SlideCategories({ categoriesProjects, link }) {
     (item) => item?.attributes?.shockers_projects?.data?.length === 0
   );
   return (
-    <div className="   bg-primary ">
+    <div className="bg-primary ">
       <div id="projects" className=" w-screen h-screen">
         <div className="flex flex-col w-full h-full">
           <div className="flex-grow my-5 md:my-10 lg:my-20">
@@ -100,32 +101,38 @@ export default function SlideCategories({ categoriesProjects, link }) {
               ref={swiperRef}
               slidesPerView={1.1}
               spaceBetween={10}
-              freeMode={true}
+              // freeMode={true}
               modules={[FreeMode]}
               breakpoints={{
                 600: {
                   slidesPerView: 1.5,
                   spaceBetween: 10,
+                  centeredSlides: true,
                 },
                 768: {
                   slidesPerView: 2.5,
                   spaceBetween: 10,
+                  centeredSlides: false,
                 },
                 1024: {
                   slidesPerView: 3.5,
                   spaceBetween: 10,
+                  centeredSlides: false,
                 },
                 1400: {
                   slidesPerView: 4.5,
                   spaceBetween: 10,
+                  centeredSlides: false,
                 },
                 1705: {
                   slidesPerView: 5.5,
                   spaceBetween: 10,
+                  centeredSlides: false,
                 },
                 2000: {
                   slidesPerView: 6.5,
                   spaceBetween: 10,
+                  centeredSlides: false,
                 },
               }}
             >

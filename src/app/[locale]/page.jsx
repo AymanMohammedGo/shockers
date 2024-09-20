@@ -10,12 +10,16 @@ export default function Home({ params: { locale } }) {
   const [showContent, setShowContent] = useState(false);
   let animation = createRef();
   useEffect(() => {
+    const animationPath =
+      window.innerWidth <= 768
+        ? "/Motion/ShockersMobile.json"
+        : "/Motion/Shockers.json";
     const anim = lottie.loadAnimation({
       container: animation.current,
       renderer: "svg",
       loop: false,
       autoplay: true,
-      path: "/Motion/Shockers.json",
+      path: animationPath,
     });
     anim.addEventListener("complete", () => {
       setIsAnimationCompleted(true); // استدعاء onComplete عند انتهاء الرسوم المتحركة

@@ -225,7 +225,6 @@ const DecaHome = ({ params: { locale } }) => {
       const handleTouchMove = (e) => {
         endY = e.touches[0].clientY;
         const deltaY = endY - startY;
-        console.log(deltaY);
         if (isLastSlide && deltaY < -200) {
           swiperInstance.allowTouchMove = false;
           window.scrollTo(0, 600);

@@ -73,7 +73,7 @@ export default function RootLayout({ children, params: { locale } }) {
           <Transition bg="bg-baytuna" />
           <Header
             logo="/img/LogosHeader/logoBaytuna.svg"
-            width="80"
+            width="70"
             name="baytuna"
             hover="hover:bg-baytuna"
             text="text-shockersAEC"
@@ -84,7 +84,7 @@ export default function RootLayout({ children, params: { locale } }) {
           {/* <ScrollToTopButton /> */}
 
           <Footer
-            width="140"
+            width="120"
             name="baytuna"
             logo="/img/LogosFooter/logoBaytunaWhite.svg"
             data={footerNames}

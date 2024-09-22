@@ -103,11 +103,12 @@ export default function SlideCategories({ categoriesProjects, link }) {
               spaceBetween={10}
               // freeMode={true}
               modules={[FreeMode]}
+              centeredSlides={true}
               breakpoints={{
                 600: {
                   slidesPerView: 1.5,
                   spaceBetween: 10,
-                  centeredSlides: true,
+                  centeredSlides: false,
                 },
                 768: {
                   slidesPerView: 2.5,
@@ -177,7 +178,7 @@ export default function SlideCategories({ categoriesProjects, link }) {
                       }}
                     >
                       <Image
-                        className=""
+                        className="object-cover"
                         src="/img/COMING_SOON.png"
                         layout="fill"
                         alt={item.id}

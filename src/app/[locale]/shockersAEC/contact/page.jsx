@@ -10,6 +10,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import FormField from "@/components/ui/FormField";
+import ScrollToTopButton from "@/components/scrollTop";
 const Contact = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
@@ -145,242 +146,245 @@ const Contact = ({ params: { locale } }) => {
     document.body.style.overflow = "auto";
   }, []);
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { delay: 1 } }}
-    >
-      <Draw_S animationData={S_json} delay={500} speed={0.4} />
+    <>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { delay: 1 } }}
+      >
+        <Draw_S animationData={S_json} delay={500} speed={0.4} />
 
-      <section className="min-h-screen max-w-screen-xl  mx-auto mt-[100px]  z-10 relative flex   flex-col ">
-        <ul className="flex flex-col md:flex-row items-center text-lg  text-center w-full px-4 mb-0 md:mb-10 ">
-          {nav.map((item, index) => (
-            <li
-              key={index}
-              className={`px-4 py-2 mx-3 mb-3 lg:mb-0 flex items-center lg:justify-center rounded-lg cursor-pointer w-full hover:bg-shockersAEC hover:text-white transition-all ${
-                sectionView === item.index && "bg-shockersAEC text-white  "
-              }`}
-              onClick={() => {
-                setSectionView(item.index);
+        <section className="min-h-screen max-w-screen-xl  mx-auto mt-[100px]  z-10 relative flex   flex-col ">
+          <ul className="flex flex-col md:flex-row items-center text-lg  text-center w-full px-4 mb-0 md:mb-10 ">
+            {nav.map((item, index) => (
+              <li
+                key={index}
+                className={`px-4 py-2 mx-3 mb-3 lg:mb-0 flex items-center lg:justify-center rounded-lg cursor-pointer w-full hover:bg-shockersAEC hover:text-white transition-all ${
+                  sectionView === item.index && "bg-shockersAEC text-white  "
+                }`}
+                onClick={() => {
+                  setSectionView(item.index);
+                }}
+              >
+                {item.icon}
+                {item.name}
+              </li>
+            ))}
+          </ul>
+
+          {sectionView === 0 && (
+            <motion.div
+              initial={{
+                y: "100%",
+                opacity: 0,
               }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 1,
+              }}
+              className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden"
             >
-              {item.icon}
-              {item.name}
-            </li>
-          ))}
-        </ul>
-       
-        {sectionView === 0 && (
-          <motion.div
-            initial={{
-              y: "100%",
-              opacity: 0,
-            }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              duration: 1,
-            }}
-            className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden"
-          >
-            <form
-              className="w-full md:w-[60%] xl:w-[50%] p-2 m-auto "
-              onSubmit={(e) => handleSubmit("dataSectionOne", e)}
+              <form
+                className="w-full md:w-[60%] xl:w-[50%] p-2 m-auto "
+                onSubmit={(e) => handleSubmit("dataSectionOne", e)}
+              >
+                <FormField
+                  id="FULL_NAME"
+                  label={ContactNames.FULL_NAME}
+                  type="text"
+                  value={formData.dataSectionOne.FULL_NAME}
+                  onChange={(e) => handleChange("dataSectionOne", e)}
+                  required
+                />
+                <FormField
+                  id="EMAIL_ADDRESS"
+                  label={ContactNames.EMAIL_ADDRESS}
+                  type="email"
+                  value={formData.dataSectionOne.EMAIL_ADDRESS}
+                  onChange={(e) => handleChange("dataSectionOne", e)}
+                  required
+                />
+                <FormField
+                  id="PHONE_NUMBER"
+                  label={ContactNames.PHONE_NUMBER}
+                  type="number"
+                  value={formData.dataSectionOne.PHONE_NUMBER}
+                  onChange={(e) => handleChange("dataSectionOne", e)}
+                  required
+                />
+                <FormField
+                  id="INQUIRY"
+                  label={ContactNames.INQUIRY_Area}
+                  isTextarea={true}
+                  value={formData.dataSectionOne.INQUIRY}
+                  onChange={(e) => handleChange("dataSectionOne", e)}
+                  placeholder={ContactNames.INQUIRY_Placeholder}
+                />
+                <Button className="bg-shockersAECYellow hover:bg-shockersAEC hover:text-white w-full text-lg rounded-lg">
+                  {ContactNames.SUBMIT}
+                </Button>
+              </form>
+            </motion.div>
+          )}
+          {sectionView === 1 && (
+            <motion.div
+              initial={{
+                y: "100%",
+                opacity: 0,
+              }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 1,
+              }}
+              className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden"
             >
-              <FormField
-                id="FULL_NAME"
-                label={ContactNames.FULL_NAME}
-                type="text"
-                value={formData.dataSectionOne.FULL_NAME}
-                onChange={(e) => handleChange("dataSectionOne", e)}
-                required
-              />
-              <FormField
-                id="EMAIL_ADDRESS"
-                label={ContactNames.EMAIL_ADDRESS}
-                type="email"
-                value={formData.dataSectionOne.EMAIL_ADDRESS}
-                onChange={(e) => handleChange("dataSectionOne", e)}
-                required
-              />
-              <FormField
-                id="PHONE_NUMBER"
-                label={ContactNames.PHONE_NUMBER}
-                type="number"
-                value={formData.dataSectionOne.PHONE_NUMBER}
-                onChange={(e) => handleChange("dataSectionOne", e)}
-                required
-              />
-              <FormField
-                id="INQUIRY"
-                label={ContactNames.INQUIRY_Area}
-                isTextarea={true}
-                value={formData.dataSectionOne.INQUIRY}
-                onChange={(e) => handleChange("dataSectionOne", e)}
-                placeholder={ContactNames.INQUIRY_Placeholder}
-              />
-              <Button className="bg-shockersAECYellow hover:bg-shockersAEC hover:text-white w-full text-lg rounded-lg">
-                {ContactNames.SUBMIT}
-              </Button>
-            </form>
-          </motion.div>
-        )}
-        {sectionView === 1 && (
-          <motion.div
-            initial={{
-              y: "100%",
-              opacity: 0,
-            }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              duration: 1,
-            }}
-            className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden"
-          >
-            <form
-              className="w-full md:w-[60%] xl:w-[50%] p-2 m-auto"
-              onSubmit={(e) => handleSubmit("dataSectionTwo", e)}
+              <form
+                className="w-full md:w-[60%] xl:w-[50%] p-2 m-auto"
+                onSubmit={(e) => handleSubmit("dataSectionTwo", e)}
+              >
+                <h1 className="text-shockersAEC text-xl  border-b-[1px] border-shockersAEC/20 mb-5 pb-5 lg:mb-10 lg:pb-10 font-medium ">
+                  {ContactNames.SUBSCRIBTION_TEXT}
+                </h1>
+                <FormField
+                  id="SUBSCRIPTION_FULL_NAME"
+                  label={ContactNames.FULL_NAME}
+                  type="text"
+                  value={formData.dataSectionTwo.FULL_NAME}
+                  onChange={(e) => handleChange("dataSectionTwo", e)}
+                  required
+                />
+                <FormField
+                  id="SUBSCRIPTION_EMAIL_ADDRESS"
+                  label={ContactNames.EMAIL_ADDRESS}
+                  type="email"
+                  value={formData.dataSectionTwo.EMAIL_ADDRESS}
+                  onChange={(e) => handleChange("dataSectionTwo", e)}
+                  required
+                />
+                <FormField
+                  id="SUBSCRIPTION_PHONE_NUMBER"
+                  label={ContactNames.PHONE_NUMBER}
+                  type="number"
+                  value={formData.dataSectionTwo.PHONE_NUMBER}
+                  onChange={(e) => handleChange("dataSectionTwo", e)}
+                  required
+                />
+                <Button className="bg-shockersAECYellow hover:bg-shockersAEC hover:text-white w-full text-lg rounded-lg">
+                  {ContactNames.SUBMIT}
+                </Button>
+              </form>
+            </motion.div>
+          )}
+          {sectionView === 2 && (
+            <motion.div
+              initial={{
+                y: "100%",
+                opacity: 0,
+              }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 1,
+              }}
+              className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden"
             >
-              <h1 className="text-shockersAEC text-xl  border-b-[1px] border-shockersAEC/20 mb-5 pb-5 lg:mb-10 lg:pb-10 font-medium ">
-                {ContactNames.SUBSCRIBTION_TEXT}
-              </h1>
-              <FormField
-                id="SUBSCRIPTION_FULL_NAME"
-                label={ContactNames.FULL_NAME}
-                type="text"
-                value={formData.dataSectionTwo.FULL_NAME}
-                onChange={(e) => handleChange("dataSectionTwo", e)}
-                required
-              />
-              <FormField
-                id="SUBSCRIPTION_EMAIL_ADDRESS"
-                label={ContactNames.EMAIL_ADDRESS}
-                type="email"
-                value={formData.dataSectionTwo.EMAIL_ADDRESS}
-                onChange={(e) => handleChange("dataSectionTwo", e)}
-                required
-              />
-              <FormField
-                id="SUBSCRIPTION_PHONE_NUMBER"
-                label={ContactNames.PHONE_NUMBER}
-                type="number"
-                value={formData.dataSectionTwo.PHONE_NUMBER}
-                onChange={(e) => handleChange("dataSectionTwo", e)}
-                required
-              />
-              <Button className="bg-shockersAECYellow hover:bg-shockersAEC hover:text-white w-full text-lg rounded-lg">
-                {ContactNames.SUBMIT}
-              </Button>
-            </form>
-          </motion.div>
-        )}
-        {sectionView === 2 && (
-          <motion.div
-            initial={{
-              y: "100%",
-              opacity: 0,
-            }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              duration: 1,
-            }}
-            className="flex flex-col justify-between md:flex-row mx-3 overflow-hidden"
-          >
-            <form
-              className="w-full md:w-[60%] xl:w-[50%] p-2 "
-              onSubmit={(e) => handleSubmit("dataSectionThree", e)}
-            >
-              <h1 className="text-shockersAEC text-xl  border-b-[1px] border-shockersAEC/20 mb-5 pb-5 lg:mb-10 lg:pb-10 font-medium ">
-                {ContactNames.JOBAPPLICATION_Text}
-              </h1>
-              <FormField
-                id="Job_FULL_NAME"
-                label={ContactNames.FULL_NAME}
-                type="text"
-                value={formData.dataSectionThree.Job_FULL_NAME}
-                onChange={(e) => handleChange("dataSectionThree", e)}
-                required
-              />
-              <FormField
-                id="Job_EMAIL_ADDRESS"
-                label={ContactNames.EMAIL_ADDRESS}
-                type="email"
-                value={formData.dataSectionThree.Job_EMAIL_ADDRESS}
-                onChange={(e) => handleChange("dataSectionThree", e)}
-                required
-              />
-              <FormField
-                id="Job_PHONE_NUMBER"
-                label={ContactNames.PHONE_NUMBER}
-                type="number"
-                value={formData.dataSectionThree.Job_PHONE_NUMBER}
-                onChange={(e) => handleChange("dataSectionThree", e)}
-                required
-              />
-              <FormField
-                id="Job_ACADEMIC_QUALIFICATION"
-                label={ContactNames.ACADEMIC_QUALIFICATION}
-                type="text"
-                value={formData.dataSectionThree.Job_ACADEMIC_QUALIFICATION}
-                onChange={(e) => handleChange("dataSectionThree", e)}
-                required
-              />
-              <FormField
-                id="Job_CV_PORTFOLIO"
-                label={ContactNames.CV_PORTFOLIO}
-                isFile={true}
-                placeholder={ContactNames.No_file_chosen}
-                onChange={(e) => handleChange("dataSectionThree", e)}
-              />
-              <FormField
-                id="Job_Notes"
-                label={ContactNames.TextNote}
-                isTextarea={true}
-                placeholder={ContactNames.TextNote}
-                onChange={(e) => handleChange("dataSectionThree", e)}
-                rows={3}
-                lable={false}
-              />
+              <form
+                className="w-full md:w-[60%] xl:w-[50%] p-2 "
+                onSubmit={(e) => handleSubmit("dataSectionThree", e)}
+              >
+                <h1 className="text-shockersAEC text-xl  border-b-[1px] border-shockersAEC/20 mb-5 pb-5 lg:mb-10 lg:pb-10 font-medium ">
+                  {ContactNames.JOBAPPLICATION_Text}
+                </h1>
+                <FormField
+                  id="Job_FULL_NAME"
+                  label={ContactNames.FULL_NAME}
+                  type="text"
+                  value={formData.dataSectionThree.Job_FULL_NAME}
+                  onChange={(e) => handleChange("dataSectionThree", e)}
+                  required
+                />
+                <FormField
+                  id="Job_EMAIL_ADDRESS"
+                  label={ContactNames.EMAIL_ADDRESS}
+                  type="email"
+                  value={formData.dataSectionThree.Job_EMAIL_ADDRESS}
+                  onChange={(e) => handleChange("dataSectionThree", e)}
+                  required
+                />
+                <FormField
+                  id="Job_PHONE_NUMBER"
+                  label={ContactNames.PHONE_NUMBER}
+                  type="number"
+                  value={formData.dataSectionThree.Job_PHONE_NUMBER}
+                  onChange={(e) => handleChange("dataSectionThree", e)}
+                  required
+                />
+                <FormField
+                  id="Job_ACADEMIC_QUALIFICATION"
+                  label={ContactNames.ACADEMIC_QUALIFICATION}
+                  type="text"
+                  value={formData.dataSectionThree.Job_ACADEMIC_QUALIFICATION}
+                  onChange={(e) => handleChange("dataSectionThree", e)}
+                  required
+                />
+                <FormField
+                  id="Job_CV_PORTFOLIO"
+                  label={ContactNames.CV_PORTFOLIO}
+                  isFile={true}
+                  placeholder={ContactNames.No_file_chosen}
+                  onChange={(e) => handleChange("dataSectionThree", e)}
+                />
+                <FormField
+                  id="Job_Notes"
+                  label={ContactNames.TextNote}
+                  isTextarea={true}
+                  placeholder={ContactNames.TextNote}
+                  onChange={(e) => handleChange("dataSectionThree", e)}
+                  rows={3}
+                  lable={false}
+                />
 
-              <Button className="bg-shockersAECYellow hover:bg-shockersAEC hover:text-white w-full text-lg rounded-lg">
-                {ContactNames.SUBMIT}
-              </Button>
-            </form>
-            <div className="w-full  md:w-1/3 p-2  ">
-              <h1 className="text-shockersAEC text-xl  text-center font-medium ">
-                {ContactNames.AVAILABLE_JOB_OFFERS}
-              </h1>
-              <div className="mb-8 mt-4 w-full h-[250px] ">
-                <Swiper
-                  pagination={{
-                    dynamicBullets: true,
-                  }}
-                  autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                  }}
-                  modules={[Autoplay, Pagination]}
-                  className="mySwiper w-full h-full"
-                >
-                  {jobOffers.length > 0 ? (
-                    jobOffers.map((item, index) => (
-                      <SwiperSlide
-                        key={index}
-                        className="!flex justify-center items-center bg-shockersAEC text-white text-xl text-center rounded-lg"
-                      >
-                        {item.attributes?.title}
+                <Button className="bg-shockersAECYellow hover:bg-shockersAEC hover:text-white w-full text-lg rounded-lg">
+                  {ContactNames.SUBMIT}
+                </Button>
+              </form>
+              <div className="w-full  md:w-1/3 p-2  ">
+                <h1 className="text-shockersAEC text-xl  text-center font-medium ">
+                  {ContactNames.AVAILABLE_JOB_OFFERS}
+                </h1>
+                <div className="mb-8 mt-4 w-full h-[250px] ">
+                  <Swiper
+                    pagination={{
+                      dynamicBullets: true,
+                    }}
+                    autoplay={{
+                      delay: 2500,
+                      disableOnInteraction: false,
+                    }}
+                    modules={[Autoplay, Pagination]}
+                    className="mySwiper w-full h-full"
+                  >
+                    {jobOffers.length > 0 ? (
+                      jobOffers.map((item, index) => (
+                        <SwiperSlide
+                          key={index}
+                          className="!flex justify-center items-center bg-shockersAEC text-white text-xl text-center rounded-lg"
+                        >
+                          {item.attributes?.title}
+                        </SwiperSlide>
+                      ))
+                    ) : (
+                      <SwiperSlide className="!flex justify-center items-center bg-shockersAEC text-white text-xl text-center rounded-lg">
+                        {ContactNames.No_offers_yet}
                       </SwiperSlide>
-                    ))
-                  ) : (
-                    <SwiperSlide className="!flex justify-center items-center bg-shockersAEC text-white text-xl text-center rounded-lg">
-                      {ContactNames.No_offers_yet}
-                    </SwiperSlide>
-                  )}
-                </Swiper>
+                    )}
+                  </Swiper>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        )}
-      </section>
-    </motion.div>
+            </motion.div>
+          )}
+        </section>
+      </motion.div>
+      <ScrollToTopButton />
+    </>
   );
 };
 

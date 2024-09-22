@@ -86,7 +86,7 @@ export default function RootLayout({ children, params: { locale } }) {
           {/* <ScrollToTopButton /> */}
 
           <Footer
-            width="200"
+            width="180"
             name="deca"
             logo="/img/LogosFooter/logoDecaWhite.svg"
             data={footerNames}

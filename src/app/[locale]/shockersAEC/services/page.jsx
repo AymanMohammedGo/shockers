@@ -150,8 +150,8 @@ const Services = ({ params: { locale } }) => {
                             document.dir === "ltr"
                               ? "border-l-[6px]"
                               : "border-r-[6px]"
-                          } border-baytuna bg-[#eeeeee] text-baytuna`
-                        : "text-[#9b9999] hover:text-baytuna"
+                          } border-shockersAEC bg-[#eeeeee] text-shockersAEC`
+                        : "text-[#9b9999] hover:text-shockersAEC"
                     }`}
                   >
                     {service?.attributes.title}

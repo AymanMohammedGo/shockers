@@ -106,9 +106,9 @@ const SubProject = ({ params: { locale, id } }) => {
       swiper.mousewheel.disable();
       document.body.style.overflow = "auto";
     } else if (swiper.activeIndex === 0) {
-      swiper.mousewheel.disable();
-      document.body.style.overflow = "auto";
-      // window.scrollTo(0, 1);
+      //swiper.mousewheel.disable();
+      //document.body.style.overflow = "auto";
+      window.scrollTo(0, 0);
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
@@ -220,7 +220,7 @@ const SubProject = ({ params: { locale, id } }) => {
         console.log(deltaY);
         if (isLastSlide && deltaY < -200) {
           swiperInstance.allowTouchMove = false;
-          window.scrollTo(0, 600);
+          window.scrollTo(0, 650);
         } else if (isFirstSlide && deltaY > +200) {
           swiperInstance.allowTouchMove = false;
           window.scrollTo(0, 0);

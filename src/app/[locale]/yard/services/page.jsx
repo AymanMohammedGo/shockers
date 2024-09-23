@@ -147,11 +147,11 @@ const Services = ({ params: { locale } }) => {
                     className={`cursor-pointer text-2xl  p-4 py-6  font-bold ${
                       activeServiceIndex === service.id
                         ? `${
-                            document.dir === "ltr"
+                            locale === "en"
                               ? "border-l-[6px]"
                               : "border-r-[6px]"
-                          } border-baytuna bg-[#eeeeee] text-baytuna`
-                        : "text-[#9b9999] hover:text-baytuna"
+                          } border-yard bg-[#eeeeee] text-yard`
+                        : "text-[#9b9999] hover:text-yard"
                     }`}
                   >
                     {service?.attributes.title}

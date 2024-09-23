@@ -64,11 +64,14 @@ export default function SlideProjectsOneItems({ allProjects, link }) {
           {allProjects
             ?.sort((a, b) => a.attributes.name.localeCompare(b.attributes.name))
             .map((item, index) => (
-              <SwiperSlide key={index} className="relative w-full h-full">
+              <SwiperSlide
+                key={index}
+                className="relative w-full h-full overflow-hidden"
+              >
                 <Link href={`/${link}/${item?.id}`}>
                   <div className="relative w-full h-full overflow-hidden ">
                     <motion.div
-                      className="relative w-full h-full"
+                      className="relative w-full h-full overflow-hidden"
                       initial={{ scale: 1.15 }}
                       whileHover={{ scale: 1 }}
                       transition={{

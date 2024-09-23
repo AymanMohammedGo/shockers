@@ -42,9 +42,7 @@ const ServicesSection = ({ services, title, bg, link, tc, dir }) => {
               {title}
             </motion.h1>
             <ul
-              className={`grid grid-cols-1 ${
-                link === "baytuna" ? "lg:grid-cols-2" : "lg:grid-cols-3"
-              }  gap-8 lg:gap-12 xl:gap-20 xlgl:gap-40 max-w-screen-xlgl lg:w-full `}
+              className={`grid grid-cols-1 lg:grid-cols-3  gap-8 lg:gap-12 xl:gap-20 xlgl:gap-40 max-w-screen-xlgl w-full `}
             >
               {services.map((item) => (
                 <motion.li
@@ -60,13 +58,13 @@ const ServicesSection = ({ services, title, bg, link, tc, dir }) => {
                   <div
                     className={`absolute left-0 top-0 ${
                       link === "baytuna" ? "h-[20vh]" : "h-[15vh]"
-                    }  w-[90vw] md:h-[20vh] lg:h-[60vh] lg:w-full border-white border-2 `}
+                    }  w-full md:h-[20vh] lg:h-[60vh] lg:w-full border-white border-2 `}
                   ></div>
                   <Link href={`/${link}/services?serviceId=${item?.name?.id}`}>
                     <div
                       className={`bg-gradient group -translate-x-4 translate-y-4 ${
                         link === "baytuna" ? "h-[20vh]" : "h-[15vh]"
-                      } w-[90vw] lg:w-full md:h-[20vh] lg:h-[60vh] relative hover:translate-x-0 hover:translate-y-0  ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
+                      } w-full lg:w-full md:h-[20vh] lg:h-[60vh] relative hover:translate-x-0 hover:translate-y-0  ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
                     >
                       <span
                         className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] ${

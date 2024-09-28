@@ -43,6 +43,7 @@ const Services = ({ params: { locale } }) => {
   useEffect(() => {
     document.body.style.overflow = "auto";
   }, []);
+  console.log(data);
   return (
     <>
       <motion.div
@@ -69,24 +70,26 @@ const Services = ({ params: { locale } }) => {
             className="w-full md:w-1/3 px-2  pt-4 md:p-4"
           >
             <ul className="space-y-2">
-              {data.map((service, index) => (
-                <li
-                  key={index}
-                  onClick={() => setSelectedService(service)}
-                  className={`cursor-pointer text-2xl lg:text-3xl p-4 py-6 lg:!mb-5 font-bold ${
-                    selectedService?.attributes.title ===
-                    service?.attributes.title
-                      ? `${
-                          document.dir === "ltr"
-                            ? "border-l-[6px]"
-                            : "border-r-[6px]"
-                        } border-baytuna bg-[#eeeeee] text-baytuna`
-                      : "text-[#9b9999] hover:text-baytuna"
-                  }`}
-                >
-                  {service?.attributes.title}
-                </li>
-              ))}
+              {[...data]
+                .sort((a, b) => a?.id - b?.id)
+                .map((service, index) => (
+                  <li
+                    key={index}
+                    onClick={() => setSelectedService(service)}
+                    className={`cursor-pointer text-2xl lg:text-3xl p-4 py-6 lg:!mb-5 font-bold ${
+                      selectedService?.attributes.title ===
+                      service?.attributes.title
+                        ? `${
+                            document.dir === "ltr"
+                              ? "border-l-[6px]"
+                              : "border-r-[6px]"
+                          } border-baytuna bg-[#eeeeee] text-baytuna`
+                        : "text-[#9b9999] hover:text-baytuna"
+                    }`}
+                  >
+                    {service?.attributes.title}
+                  </li>
+                ))}
             </ul>
           </motion.div>
           <motion.div

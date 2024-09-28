@@ -373,7 +373,26 @@ const Contact = ({ params: { locale } }) => {
                       ))
                     ) : (
                       <SwiperSlide className="!flex justify-center items-center bg-shockersAEC text-white text-xl text-center rounded-lg">
-                        {ContactNames.No_offers_yet}
+                        <div className="flex flex-col items-center justify-center">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="50"
+                            height="50"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-frown my-2"
+                          >
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M16 16s-1.5-2-4-2-4 2-4 2" />
+                            <line x1="9" x2="9.01" y1="9" y2="9" />
+                            <line x1="15" x2="15.01" y1="9" y2="9" />
+                          </svg>
+                          {ContactNames.No_offers_yet}
+                        </div>{" "}
                       </SwiperSlide>
                     )}
                   </Swiper>

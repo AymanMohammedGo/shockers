@@ -21,7 +21,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Mousewheel, Keyboard } from "swiper/modules";
-const DecaHome = ({ params: { locale } }) => {
+const BaytunaHome = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
@@ -87,10 +87,14 @@ const DecaHome = ({ params: { locale } }) => {
 
   const handleGoToFirstSlide = () => {
     if (swiperInstance) {
-      swiperInstance.slideTo(0, 1000);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 2000);
+      // document.body.style.overflow = "auto";
+      window.scrollTo(0, 1);
+      swiperInstance.update();
+      // swiperInstance.mousewheel.enable();
+      swiperInstance.slideTo(0, 2000);
+      // setTimeout(() => {
+      //   window.scrollTo(0, 0);
+      // }, 2000);
     }
   };
   const toggleVisibility = () => {
@@ -340,4 +344,4 @@ const DecaHome = ({ params: { locale } }) => {
   );
 };
 
-export default DecaHome;
+export default BaytunaHome;

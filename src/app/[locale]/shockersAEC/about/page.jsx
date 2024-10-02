@@ -41,10 +41,14 @@ const About = ({ params: { locale } }) => {
 
   const handleGoToFirstSlide = () => {
     if (swiperInstance) {
-      swiperInstance.slideTo(0, 1000);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 2000);
+      // document.body.style.overflow = "auto";
+      window.scrollTo(0, 1);
+      swiperInstance.update();
+      // swiperInstance.mousewheel.enable();
+      swiperInstance.slideTo(0, 2000);
+      // setTimeout(() => {
+      //   window.scrollTo(0, 0);
+      // }, 2000);
     }
   };
   const toggleVisibility = () => {

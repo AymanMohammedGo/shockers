@@ -16,6 +16,7 @@ import { useCallback, useState, useEffect } from "react";
 import "../globals.css";
 import SlideProjectsOneItems from "@/components/SlideProjectsOneItems";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useSearchParams, usePathname } from "next/navigation";
 
 // Import Swiper styles
 import "swiper/css";
@@ -26,6 +27,10 @@ const BaytunaHome = ({ params: { locale } }) => {
   if (locale === "kr") {
     lan = "af";
   }
+
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
   const [solgan, setSolgan] = useState([]);
   const [data, setData] = useState([]);
   const [services, setServices] = useState([]);
@@ -82,6 +87,25 @@ const BaytunaHome = ({ params: { locale } }) => {
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
 
+  // when open page project
+  const handleGoToLastSlide = () => {
+    if (swiperInstance) {
+      window.scrollTo(0, 1);
+      swiperInstance.update();
+
+      const lastSlideIndex = swiperInstance.slides.length - 1;
+      swiperInstance.slideTo(lastSlideIndex, 2000);
+    }
+  };
+
+  useEffect(() => {
+    const search = searchParams.get("projects");
+    if (search === "show") {
+      setTimeout(() => {
+        handleGoToLastSlide();
+      }, 0);
+    }
+  }, [searchParams, pathname, swiperInstance]);
   //button scroll top
   const [isVisible, setIsVisible] = useState(false);
 

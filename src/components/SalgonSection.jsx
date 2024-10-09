@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 const SalgonSection = ({ titleText, dir, nameSize = "" }) => {
   const { t } = useTranslation();
-  console.log(nameSize);
+  // console.log(nameSize);
   return (
     <section className="w-screen h-screen">
       <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 sm:px-6 md:px-10 lg:px-14 overflow-hidden">

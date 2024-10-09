@@ -16,7 +16,7 @@ const ServicesSection = ({ services, title, bg, link, tc, dir }) => {
       },
     },
   };
-  console.log(services);
+  // console.log(services);
   const controls1 = useAnimation();
   const [ref1, inView1] = useInView({ triggerOnce: false, threshold: 0.1 });
 

@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "inviting-freedom-08306e638f.media.strapiapp.com",
+        hostname: "deserving-nest-46f1c769b0.media.strapiapp.com",
         port: "", // يمكنك ترك هذا الحقل فارغًا إذا لم يكن هناك منفذ معين
         pathname: "/**", // هذا النمط يسمح بجلب الصور من جميع المسارات ضمن هذا النطاق
       },

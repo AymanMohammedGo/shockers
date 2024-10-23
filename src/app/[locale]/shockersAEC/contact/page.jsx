@@ -290,17 +290,11 @@ const Contact = ({ params: { locale } }) => {
                 className="w-full md:w-[60%] xl:w-[50%] p-2 "
                 onSubmit={(e) => handleSubmit("dataSectionThree", e)}
               >
-                {/* <h1 className="text-shockersAEC text-xl  border-b-[1px] border-shockersAEC/20 mb-5 pb-5 lg:mb-10 lg:pb-10 font-medium ">
-                  {ContactNames.JOBAPPLICATION_Text}
-                </h1> */}
                 <div className="text-shockersAEC text-xl  border-b-[1px] border-shockersAEC/20 mb-5 pb-5 lg:mb-10 lg:pb-10 font-medium ">
                   <p className="bg-shockersAEC text-white px-2 py-1">
-                    We Are Always On The Lookout For Exceptional Talent!
+                    {ContactNames.JOBAPPLICATION_Title}
                   </p>
-                  <p className="px-2">
-                    Submit your CV and portfolio here to be considered for
-                    current or future positions.
-                  </p>
+                  <p className="px-2">{ContactNames.JOBAPPLICATION_Text}</p>
                 </div>
                 <FormField
                   id="Job_FULL_NAME"

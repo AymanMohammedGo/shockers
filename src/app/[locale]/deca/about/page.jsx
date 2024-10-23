@@ -37,7 +37,19 @@ const About = ({ params: { locale } }) => {
   const [scrollingDown, setScrollingDown] = useState(false);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
-
+  const animationVariants = {
+    hidden: (direction) => ({
+      x: direction === "ltr" ? "100%" : "-100%",
+      opacity: 0,
+    }),
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
   //button scroll top
   const [isVisible, setIsVisible] = useState(false);
 
@@ -296,29 +308,21 @@ const About = ({ params: { locale } }) => {
                     </motion.div>
                     {/* العنوان */}
                     <motion.h2
-                      initial={{
-                        x: document.dir === "ltr" ? "100%" : "-100%",
-                        opacity: 0,
-                      }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{
-                        duration: 1,
-                      }}
-                      className="sm:mx-4 text-shockersAEC font-bold text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[50px] lg:!leading-[70px]"
+                     custom={document.dir}
+                     variants={animationVariants}
+                     initial="hidden"
+                     whileInView="visible"
+                      className="sm:mx-4 w-full text-shockersAEC font-bold text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[50px] lg:!leading-[70px]"
                     >
                       {item?.attributes.title}
                     </motion.h2>
                   </div>
                   {/* النص */}
                   <motion.p
-                    initial={{
-                      x: document.dir === "ltr" ? "100%" : "-100%",
-                      opacity: 0,
-                    }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    transition={{
-                      duration: 1,
-                    }}
+                   custom={document.dir}
+                   variants={animationVariants}
+                   initial="hidden"
+                   whileInView="visible"
                     className={`${
                       document.dir === "ltr"
                         ? "sm:ml-[26px] md:ml-[78px] lg:ml-[130px]"

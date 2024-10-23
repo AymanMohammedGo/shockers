@@ -291,9 +291,11 @@ const Contact = ({ params: { locale } }) => {
                 onSubmit={(e) => handleSubmit("dataSectionThree", e)}
               >
                 <div className="text-shockersAEC text-xl  border-b-[1px] border-shockersAEC/20 mb-5 pb-5 lg:mb-10 lg:pb-10 font-medium ">
-                  <p className="bg-shockersAEC text-white px-2 py-1">
-                    {ContactNames.JOBAPPLICATION_Title}
-                  </p>
+                  {ContactNames.JOBAPPLICATION_Title && (
+                    <p className="bg-shockersAEC text-white px-2 py-1">
+                      {ContactNames.JOBAPPLICATION_Title}
+                    </p>
+                  )}
                   <p className="px-2">{ContactNames.JOBAPPLICATION_Text}</p>
                 </div>
                 <FormField

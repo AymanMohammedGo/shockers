@@ -304,6 +304,7 @@ const Page = ({ params: { locale } }) => {
       >
         <SwiperSlide className="relative w-full h-full">
           <SalgonSection
+            nameSize="verySmall"
             titleText={solgan}
             dir={locale === "ar" || locale === "kr" ? "rtl" : "ltr"}
           />

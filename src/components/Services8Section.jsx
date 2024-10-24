@@ -4,6 +4,10 @@ import Link from "next/link";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Autoplay } from "swiper/modules";
 const Services8Section = ({ services, title, bg, link, tc, dir }) => {
   const var1 = {
     hidden: { y: "-100%", opacity: 0 },
@@ -37,7 +41,7 @@ const Services8Section = ({ services, title, bg, link, tc, dir }) => {
               initial="hidden"
               animate={controls1}
               variants={var1}
-              className="text-[55px] sm:text-6xl lg:text-8xl font-bold mb-5 sm:mb-10 lg:mb-16 xl:mb-20  "
+              className="text-[55px] sm:text-6xl lg:text-8xl font-bold mb-8 sm:mb-10 lg:mb-16 xl:mb-20  "
             >
               {title}
             </motion.h1>
@@ -99,36 +103,50 @@ const Services8Section = ({ services, title, bg, link, tc, dir }) => {
                 </motion.li>
               ))}
               {/* Mobile */}
-              {services.map((item) => (
-                <motion.li
-                  key={item?.name?.id}
-                  initial={{ opacity: 1, y: "100%" }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 1,
-                    delay: 0,
-                  }}
-                  className="relative  sm:hidden "
-                >
-                  {/* <div
-                    className={`absolute left-0 top-0  
-                   w-full h-[10vh]  border-white border-2 `}
-                  ></div> */}
-                  <Link href={`/${link}/services?serviceId=${item?.name?.id}`}>
-                    <div
-                      className={`border-white border-2 text-white group 
-                           w-full h-full relative  ${bg} p-2 text-center  flex items-center justify-center transition-transform duration-300 ease-in-out`}
-                    >
-                      <span
-                        className={`relative font-normal w-full text-2xl  group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px]
-                             after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out `}
+              <Swiper
+                className="w-full h-full sm:hidden "
+                slidesPerView={1.1}
+                spaceBetween={10}
+                // freeMode={true}
+                modules={[Autoplay]}
+                centeredSlides={true}
+                autoplay={{
+                  delay: 1000,
+                  disableOnInteraction: false,
+                }}
+              >
+                {services.map((item) => (
+                  <motion.li
+                    key={item?.name?.id}
+                    initial={{ opacity: 1, y: "100%" }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 1,
+                      delay: 0,
+                    }}
+                    className="relative   "
+                  >
+                    <SwiperSlide className="relative">
+                      <Link
+                        href={`/${link}/services?serviceId=${item?.name?.id}`}
                       >
-                        {item?.name?.attributes?.title}
-                      </span>
-                    </div>
-                  </Link>
-                </motion.li>
-              ))}
+                        <div
+                          className={`border-white border-2 text-white group 
+                           w-full h-[20vh] relative  ${bg} p-2 text-center  flex items-center justify-center transition-transform duration-300 ease-in-out`}
+                        >
+                          <span
+                            className={`relative font-normal w-full text-2xl  group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px]
+                             after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out `}
+                          >
+                            {item?.name?.attributes?.title}
+                          </span>
+                        </div>
+                        
+                      </Link>
+                    </SwiperSlide>
+                  </motion.li>
+                ))}
+              </Swiper>
             </ul>
           </div>
         </div>

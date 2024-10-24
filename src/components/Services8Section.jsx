@@ -46,7 +46,7 @@ const Services8Section = ({ services, title, bg, link, tc, dir }) => {
               {title}
             </motion.h1>
             <ul
-              className={`grid grid-cols-1 sm:grid-cols-2   lg:grid-cols-4  gap-4 sm:gap-8 lg:gap-12 xl:gap-20  max-w-screen-xlgl lg:w-full `}
+              className={`grid grid-cols-1 sm:grid-cols-2   xl:grid-cols-4  gap-4 sm:gap-8  xl:gap-16  max-w-screen-xlgl lg:w-full `}
             >
               {services.map((item) => (
                 <motion.li
@@ -61,15 +61,15 @@ const Services8Section = ({ services, title, bg, link, tc, dir }) => {
                 >
                   <div
                     className={`absolute left-0 top-0  
-                   w-full h-[10vh] sm:h-[15vh] lg:h-[30vh]  border-white border-2 `}
+                   w-full h-[10vh] sm:h-[15vh] xl:h-[30vh]  border-white border-2 `}
                   ></div>
                   <Link href={`/${link}/services?serviceId=${item?.name?.id}`}>
                     <div
                       className={`bg-gradient group -translate-x-4 translate-y-4 
-                           w-full h-[10vh] sm:h-[15vh] lg:h-[30vh] relative hover:translate-x-0 hover:translate-y-0  ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
+                           w-full h-[10vh] sm:h-[15vh] xl:h-[30vh] relative hover:translate-x-0 hover:translate-y-0  ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
                     >
                       <span
-                        className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px]
+                        className={`relative font-medium w-full text-2xl  xl:text-4xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px]
                              after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out group-hover:after:w-[40%]`}
                       >
                         {item?.name?.attributes?.title}
@@ -103,50 +103,51 @@ const Services8Section = ({ services, title, bg, link, tc, dir }) => {
                 </motion.li>
               ))}
               {/* Mobile */}
-              <Swiper
-                className="w-full h-full sm:hidden "
-                slidesPerView={1.1}
-                spaceBetween={10}
-                // freeMode={true}
-                modules={[Autoplay]}
-                centeredSlides={true}
-                autoplay={{
-                  delay: 1000,
-                  disableOnInteraction: false,
-                }}
-              >
-                {services.map((item) => (
-                  <motion.li
-                    key={item?.name?.id}
-                    initial={{ opacity: 1, y: "100%" }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 1,
-                      delay: 0,
-                    }}
-                    className="relative   "
-                  >
-                    <SwiperSlide className="relative">
-                      <Link
-                        href={`/${link}/services?serviceId=${item?.name?.id}`}
-                      >
-                        <div
-                          className={`border-white border-2 text-white group 
-                           w-full h-[20vh] relative  ${bg} p-2 text-center  flex items-center justify-center transition-transform duration-300 ease-in-out`}
+              <div className="sm:hidden">
+                <Swiper
+                  className="w-full h-full  "
+                  slidesPerView={1.1}
+                  spaceBetween={10}
+                  // freeMode={true}
+                  modules={[Autoplay]}
+                  centeredSlides={true}
+                  autoplay={{
+                    delay: 1000,
+                    disableOnInteraction: false,
+                  }}
+                >
+                  {services.map((item) => (
+                    <motion.li
+                      key={item?.name?.id}
+                      initial={{ opacity: 1, y: "100%" }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 1,
+                        delay: 0,
+                      }}
+                      className="relative   "
+                    >
+                      <SwiperSlide className="relative">
+                        <Link
+                          href={`/${link}/services?serviceId=${item?.name?.id}`}
                         >
-                          <span
-                            className={`relative font-normal w-full text-2xl  group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px]
-                             after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out `}
+                          <div
+                            className={`border-white border-2 text-white group 
+                           w-full h-[20vh] relative  ${bg} p-2 text-center  flex items-center justify-center transition-transform duration-300 ease-in-out`}
                           >
-                            {item?.name?.attributes?.title}
-                          </span>
-                        </div>
-                        
-                      </Link>
-                    </SwiperSlide>
-                  </motion.li>
-                ))}
-              </Swiper>
+                            <span
+                              className={`relative font-normal w-full text-2xl  group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px]
+                             after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out `}
+                            >
+                              {item?.name?.attributes?.title}
+                            </span>
+                          </div>
+                        </Link>
+                      </SwiperSlide>
+                    </motion.li>
+                  ))}
+                </Swiper>
+              </div>
             </ul>
           </div>
         </div>

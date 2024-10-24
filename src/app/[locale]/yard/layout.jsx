@@ -74,7 +74,7 @@ export default function RootLayout({ children, params: { locale } }) {
           <Transition bg="bg-yard" />
           <Header
             logo="/img/LogosHeader/logoYard.svg"
-            width="80"
+            width="70"
             name="yard"
             hover="hover:bg-yard"
             text="text-shockersAEC"

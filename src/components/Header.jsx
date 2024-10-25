@@ -20,10 +20,14 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
       name: linksNames?.NamePageServices,
       link: `/${name}/services`,
     },
-    {
-      name: linksNames?.NamePageProjects,
-      link: `/${name}/?projects=show`,
-    },
+    ...(name !== "ymarketing"
+      ? [
+          {
+            name: linksNames?.NamePageProjects,
+            link: `/${name}/?projects=show`,
+          },
+        ]
+      : []),
     {
       name: linksNames?.NamePageContact,
       link: `/${name}/contact`,

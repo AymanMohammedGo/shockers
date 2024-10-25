@@ -3,14 +3,19 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-const SalgonSection = ({ titleText, dir, nameSize = "" }) => {
+const SalgonSection = ({
+  titleText,
+  dir,
+  nameSize = "",
+  colorText = "text-shockersAEC",
+}) => {
   const { t } = useTranslation();
   // console.log(nameSize);
   return (
     <section className="w-screen h-screen">
       <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 sm:px-6 md:px-10 lg:px-14 overflow-hidden">
         <div
-          className={`absolute bottom-2 ${nameSize}  leading-none  text-[67px]  sm:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12 text-shockersAEC`}
+          className={`absolute bottom-2 ${nameSize} ${colorText}  leading-none  text-[67px]  sm:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12  `}
         >
           {titleText.map((item, index) => (
             <motion.div

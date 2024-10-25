@@ -13,7 +13,7 @@ export const getContact = (locale) =>
   axiosClient.get(`/y-marketing-contact?locale=${locale}`);
 export const getJobOffers = (locale) =>
   axiosClient.get(`/y-marketing-jobs-offers?locale=${locale}`);
-export const getProjects = (locale) =>
-  axiosClient.get(`/y-marketing-projects?populate=*&locale=${locale}`);
-export const getProject = (locale, id) =>
-  axiosClient.get(`/y-marketing-projects/${id}?populate=*&locale=${locale}`);
+// export const getProjects = (locale) =>
+//   axiosClient.get(`/y-marketing-projects?populate=*&locale=${locale}`);
+// export const getProject = (locale, id) =>
+//   axiosClient.get(`/y-marketing-projects/${id}?populate=*&locale=${locale}`);

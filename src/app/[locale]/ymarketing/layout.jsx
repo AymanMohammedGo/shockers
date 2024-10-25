@@ -76,7 +76,7 @@ export default function RootLayout({ children, params: { locale } }) {
           <Header
             logo="/img/LogosHeader/logoY_Marketing.svg"
             width="80"
-            name="yMarketing"
+            name="ymarketing"
             hover="hover:bg-yMarketing"
             text="text-shockersAEC"
             linksNames={linksNames}

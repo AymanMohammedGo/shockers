@@ -86,7 +86,7 @@ export default function RootLayout({ children, params: { locale } }) {
 
           <Footer
             width="120"
-            name="yaed"
+            name="yard"
             logo="/img/LogosFooter/logoYardWhite.svg"
             data={footerNames}
             socialMedia={socialMedias}

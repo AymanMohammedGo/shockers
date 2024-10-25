@@ -6,11 +6,7 @@ import { motion } from "framer-motion";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import SalgonSection from "@/components/SalgonSection";
-import {
-  getHome,
-  getServices,
-  getProjects,
-} from "../../../../utils/Y_MarketingApi";
+import { getHome, getServices } from "../../../../utils/Y_MarketingApi";
 import { getName_Solgan } from "../../../../utils/GlobleApi";
 import { useCallback, useState, useEffect, useRef } from "react";
 import "../globals.css";
@@ -21,6 +17,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Mousewheel, Keyboard } from "swiper/modules";
 import SlideProjectsOneItems from "@/components/SlideProjectsOneItems";
+import SlideServicesSection from "@/components/SlideServicesSection";
 
 const Y_MarketingHome = ({ params: { locale } }) => {
   let lan = locale;
@@ -67,17 +64,16 @@ const Y_MarketingHome = ({ params: { locale } }) => {
       setServices(newServices);
     });
   }, [lan]);
-  const getProjects_ = useCallback(() => {
-    getProjects(lan).then((res) => {
-      setProjects(res.data.data);
-    });
-  }, [lan]);
+  // const getProjects_ = useCallback(() => {
+  //   getProjects(lan).then((res) => {
+  //     setProjects(res.data.data);
+  //   });
+  // }, [lan]);
   useEffect(() => {
     getHome_();
     getServices_();
-    getProjects_();
     getName_Solgan_();
-  }, [getHome_, getServices_, getProjects_, getName_Solgan_]);
+  }, [getHome_, getServices_, getName_Solgan_]);
   const [scrollingDown, setScrollingDown] = useState(false);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -284,7 +280,11 @@ const Y_MarketingHome = ({ params: { locale } }) => {
         onTransitionEnd={handleTransitionEnd}
       >
         <SwiperSlide className="relative w-full h-full">
-          <SalgonSection titleText={solgan} dir={document.dir} />
+          <SalgonSection
+            titleText={solgan}
+            colorText="text-yMarketing"
+            dir={document.dir}
+          />
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
           <AboutSection
@@ -299,7 +299,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           />
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
-          <ServicesSection
+          <SlideServicesSection
             services={services}
             title={data?.attributes?.NameServices}
             link="ymarketing"
@@ -308,9 +308,9 @@ const Y_MarketingHome = ({ params: { locale } }) => {
             dir={document.dir}
           />
         </SwiperSlide>
-        <SwiperSlide className="relative w-full h-full">
+        {/* <SwiperSlide className="relative w-full h-full">
           <SlideProjectsOneItems allProjects={projects} link="ymarketing" />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
       <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
         {isVisible && (

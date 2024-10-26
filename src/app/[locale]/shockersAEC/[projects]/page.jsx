@@ -93,7 +93,7 @@ const Projects = ({ params: { locale, projects } }) => {
   const handleGoToFirstSlide = () => {
     if (swiperInstance) {
       // document.body.style.overflow = "auto";
-      window.scrollTo(0, 1);
+      window.scrollTo(0, 2);
       swiperInstance.update();
       // swiperInstance.mousewheel.enable();
       swiperInstance.slideTo(0, 2000);
@@ -122,7 +122,7 @@ const Projects = ({ params: { locale, projects } }) => {
     if (swiper.activeIndex === swiper.slides.length - 1) {
       swiper.mousewheel.disable();
       document.body.style.overflow = "auto";
-      window.scrollTo(0, 1);
+      window.scrollTo(0, 2);
     } else if (swiper.activeIndex === 0) {
       //swiper.mousewheel.disable();
       //document.body.style.overflow = "auto";
@@ -130,17 +130,17 @@ const Projects = ({ params: { locale, projects } }) => {
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
-      window.scrollTo(0, 1);
+      window.scrollTo(0, 2);
     }
   }, []);
   const handleWheel = useCallback((event) => {
     const delta = event.deltaY;
     if (delta > 0) {
       setScrollingDown(true);
-      window.scrollTo(0, 1);
+      window.scrollTo(0, 2);
     } else {
       setScrollingDown(false);
-      window.scrollTo(0, 1);
+      window.scrollTo(0, 2);
     }
   }, []);
 

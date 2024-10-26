@@ -3,7 +3,12 @@ import { useState, useEffect } from "react";
 import LanguageChanger from "./LanguageChanger";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValueEvent,
+} from "framer-motion";
 
 const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,11 +42,25 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
   const [hide, setHide] = useState(false);
 
   // Update hide state based on scroll position
+  // useMotionValueEvent(scrollY, "change", (latest) => {
+  //   setHide(latest >= 1);
+  // });
+  // console.log(hide);
   useEffect(() => {
-    return scrollY.onChange((latest) => {
-      setHide(latest >= 1);
-    });
-  }, [scrollY]);
+    const handleScroll = () => {
+      setHide(window.scrollY >= 1);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log("hide value:", hide, window.scrollY);
+  }, [hide, window.scrollY]);
   return (
     <>
       <motion.header

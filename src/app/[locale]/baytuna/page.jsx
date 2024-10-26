@@ -90,7 +90,7 @@ const BaytunaHome = ({ params: { locale } }) => {
   // when open page project
   const handleGoToLastSlide = () => {
     if (swiperInstance) {
-      window.scrollTo(0, 1);
+      window.scrollTo(0, 2);
       swiperInstance.update();
 
       const lastSlideIndex = swiperInstance.slides.length - 1;
@@ -112,7 +112,7 @@ const BaytunaHome = ({ params: { locale } }) => {
   const handleGoToFirstSlide = () => {
     if (swiperInstance) {
       // document.body.style.overflow = "auto";
-      window.scrollTo(0, 1);
+      window.scrollTo(0, 2);
       swiperInstance.update();
       // swiperInstance.mousewheel.enable();
       swiperInstance.slideTo(0, 2000);
@@ -147,17 +147,17 @@ const BaytunaHome = ({ params: { locale } }) => {
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
-      window.scrollTo(0, 1);
+      window.scrollTo(0, 2);
     }
   }, []);
   const handleWheel = useCallback((event) => {
     const delta = event.deltaY;
     if (delta > 0) {
       setScrollingDown(true);
-      window.scrollTo(0, 1);
+      window.scrollTo(0, 2);
     } else {
       setScrollingDown(false);
-      window.scrollTo(0, 1);
+      window.scrollTo(0, 2);
     }
   }, []);
 

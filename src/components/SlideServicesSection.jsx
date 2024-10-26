@@ -10,7 +10,7 @@ import { Autoplay } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/scrollbar";
-import "/src/app/[locale]/globals.css"
+import "/src/app/[locale]/globals.css";
 // import required modules
 import { Scrollbar } from "swiper/modules";
 const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
@@ -58,7 +58,7 @@ const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
               }}
               speed={3000}
               loop={true}
-              slidesPerView={1.1}
+              slidesPerView={1}
               spaceBetween={30}
               modules={[Autoplay]}
               breakpoints={{

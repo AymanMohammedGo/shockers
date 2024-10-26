@@ -10,10 +10,10 @@ import { Autoplay } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/scrollbar";
-
+import "/src/app/[locale]/globals.css";
 // import required modules
 import { Scrollbar } from "swiper/modules";
-const ScuccessInNumber = ({ services, title, bg, link, tc, dir }) => {
+const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
   const var1 = {
     hidden: { y: "-100%", opacity: 0 },
     visible: {
@@ -25,7 +25,7 @@ const ScuccessInNumber = ({ services, title, bg, link, tc, dir }) => {
       },
     },
   };
-  // console.log(services);
+  console.log(data.attributes);
   const controls1 = useAnimation();
   const [ref1, inView1] = useInView({ triggerOnce: false, threshold: 0.1 });
 
@@ -38,7 +38,7 @@ const ScuccessInNumber = ({ services, title, bg, link, tc, dir }) => {
   }, [controls1, inView1]);
   return (
     <section className="w-screen h-screen ">
-      <div className="bg-yMarketing  w-full h-full flex items-center justify-center relative z-10">
+      <div className="w-full h-full flex items-center justify-center relative z-10">
         <div className="flex  w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
           <div className=" text-white w-full h-full flex-1 p-7  flex flex-col items-center justify-center ">
             <motion.h1
@@ -46,18 +46,19 @@ const ScuccessInNumber = ({ services, title, bg, link, tc, dir }) => {
               initial="hidden"
               animate={controls1}
               variants={var1}
-              className="text-[55px] sm:text-6xl lg:text-8xl font-bold mb-10 lg:mb-16 xl:mb-20  "
+              className="text-[50px] text-yMarketing text-center sm:text-6xl lg:text-8xl font-bold sm:mb-6 lg:mb-16 xl:mb-20  "
             >
-              {/* {title} */}
-              Success Numbers
+              {data?.attributes?.title}
             </motion.h1>
             <Swiper
-              className="w-full  p-2"
+              className="w-full  p-2 transition-timing-linear"
               autoplay={{
-                delay: 1000,
+                delay: 2000,
                 disableOnInteraction: false,
               }}
-              slidesPerView={1.1}
+              //speed={3000}
+              loop={true}
+              slidesPerView={1}
               spaceBetween={30}
               modules={[Autoplay]}
               breakpoints={{
@@ -70,69 +71,99 @@ const ScuccessInNumber = ({ services, title, bg, link, tc, dir }) => {
                   spaceBetween: 50,
                 },
                 1024: {
-                  slidesPerView: 3.5,
-                  spaceBetween: 50,
-                },
-                1400: {
-                  slidesPerView: 4.5,
+                  slidesPerView: 3,
                   spaceBetween: 50,
                 },
               }}
             >
-              {[...services]
-                .sort((a, b) => a?.name?.id - b?.name?.id)
-                .map((item) => (
-                  <SwiperSlide key={item?.name?.id} className="">
-                    <div
-                      className={`absolute left-0 top-0 h-[50vh] w-full  lg:h-[60vh] lg:w-full border-white border-2 `}
-                    ></div>
-                    <Link
-                      href={`/${link}/services?serviceId=${item?.name?.id}`}
+              <SwiperSlide>
+                <div
+                  className={`group relative bg-transparent text-yMarketing w-full h-[60vh] p-6 hover:text-white flex flex-col items-center justify-center transition-all duration-300 ease-in-out`}
+                >
+                  {/* الخلفية المتحركة */}
+                  <div className="absolute inset-0 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
+
+                  {/* المحتوى */}
+                  <div className="relative z-10 flex w-full">
+                    <span
+                      className={`relative w-fit flex items-end font-extrabold text-8xl lg:text-9xl pb-3`}
                     >
-                      <div
-                        className={`bg-gradient group -translate-x-4 translate-y-4 h-[50vh] w-full lg:w-full  lg:h-[60vh] relative hover:translate-x-0 hover:translate-y-0  ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
-                      >
-                        <span
-                          className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] ${
-                            link === "baytuna"
-                              ? "group-hover:text-white after:bg-white"
-                              : "after:bg-yMarketing"
-                          }  after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out group-hover:after:w-[40%]`}
-                        >
-                          {item?.name?.attributes?.title}
-                        </span>
-                        <div
-                          className={`w-[18px] translate-x-6 translate-y-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 absolute ${
-                            dir === "ltr" ? "right-0" : "left-0"
-                          }  bottom-0 m-6 transition-all duration-300 ease-in-out`}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            className={`lucide  ${
-                              dir === "ltr"
-                                ? "lucide-chevron-right"
-                                : "rotate-180"
-                            }  ${
-                              link === "baytuna"
-                                ? "group-hover:text-white "
-                                : "group-hover:text-shockersAEC"
-                            }`}
-                          >
-                            <path d="m9 18 6-6-6-6" />
-                          </svg>
-                        </div>
-                      </div>
-                    </Link>
-                  </SwiperSlide>
-                ))}
+                      {data?.attributes?.numberOne}
+                    </span>
+                    <span
+                      className={`relative flex items-end font-bold w-full text-2xl lg:text-4xl pb-5 group-hover:text-shockerYellow`}
+                    >
+                      {data?.attributes?.subNumberOne}
+                    </span>
+                  </div>
+                  <span
+                    className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl py-5 pb-3 group-hover:text-shockerYellow`}
+                  >
+                    {data?.attributes?.titleOne}
+                  </span>
+                  <span
+                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 flex-1`}
+                  >
+                    {data?.attributes?.desOne}
+                  </span>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div
+                  className={`group relative bg-transparent text-yMarketing w-full h-[60vh] p-6 hover:text-white flex flex-col items-center justify-center transition-all duration-300 ease-in-out`}
+                >
+                  {/* الخلفية المتحركة */}
+                  <div className="absolute inset-0 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
+
+                  {/* المحتوى */}
+                  <div className="relative z-10 flex w-full">
+                    <span
+                      className={`relative w-fit flex items-end font-extrabold text-7xl lg:text-9xl pb-3`}
+                    >
+                      {data?.attributes?.numberTwo}
+                      <span className="text-shockerYellow">+</span>
+                    </span>
+                  </div>
+                  <span
+                    className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl py-5 pb-3 group-hover:text-shockerYellow`}
+                  >
+                    {data?.attributes?.titleTwo}
+                  </span>
+                  <span
+                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 flex-1`}
+                  >
+                    {data?.attributes?.desTwo}
+                  </span>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div
+                  className={`group relative bg-transparent text-yMarketing w-full h-[60vh] p-6 hover:text-white flex flex-col items-center justify-center transition-all duration-300 ease-in-out`}
+                >
+                  {/* الخلفية المتحركة */}
+                  <div className="absolute inset-0 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
+
+                  {/* المحتوى */}
+                  <div className="relative z-10 flex w-full">
+                    <span
+                      className={`relative w-fit flex items-end font-extrabold text-7xl lg:text-9xl pb-3`}
+                    >
+                      {data?.attributes?.numberThree}
+                      <span className="text-shockerYellow">+</span>
+                    </span>
+                  </div>
+                  <span
+                    className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl py-5 pb-3 group-hover:text-shockerYellow`}
+                  >
+                    {data?.attributes?.titleThree}
+                  </span>
+                  <span
+                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 flex-1`}
+                  >
+                    {data?.attributes?.desThree}
+                  </span>
+                </div>
+              </SwiperSlide>
             </Swiper>
           </div>
         </div>

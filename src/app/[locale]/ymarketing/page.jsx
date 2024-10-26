@@ -6,7 +6,11 @@ import { motion } from "framer-motion";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import SalgonSection from "@/components/SalgonSection";
-import { getHome, getServices } from "../../../../utils/Y_MarketingApi";
+import {
+  getHome,
+  getServices,
+  getSuccess,
+} from "../../../../utils/Y_MarketingApi";
 import { getName_Solgan } from "../../../../utils/GlobleApi";
 import { useCallback, useState, useEffect, useRef } from "react";
 import "../globals.css";
@@ -29,6 +33,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   }
   const [solgan, setSolgan] = useState([]);
   const [data, setData] = useState([]);
+  const [scuccessInNumber, setScuccessInNumber] = useState([]);
   const [services, setServices] = useState([]);
   const [projects, setProjects] = useState([]);
   const getName_Solgan_ = useCallback(() => {
@@ -46,6 +51,11 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   const getHome_ = useCallback(() => {
     getHome(lan).then((res) => {
       setData(res.data.data);
+    });
+  }, [lan]);
+  const getSuccess_ = useCallback(() => {
+    getSuccess(lan).then((res) => {
+      setScuccessInNumber(res.data.data);
     });
   }, [lan]);
   const getServices_ = useCallback(() => {
@@ -76,7 +86,8 @@ const Y_MarketingHome = ({ params: { locale } }) => {
     getHome_();
     getServices_();
     getName_Solgan_();
-  }, [getHome_, getServices_, getName_Solgan_]);
+    getSuccess_();
+  }, [getHome_, getServices_, getName_Solgan_,getSuccess_]);
   const [scrollingDown, setScrollingDown] = useState(false);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -231,7 +242,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           swiperInstance.allowTouchMove = false;
           window.scrollTo(0, 650);
         } else if (isFirstSlide && deltaY > +200) {
-          console.log(isFirstSlide, deltaY);
+          // console.log(isFirstSlide, deltaY);
           swiperInstance.allowTouchMove = false;
           window.scrollTo(0, 0);
         } else {
@@ -311,25 +322,25 @@ const Y_MarketingHome = ({ params: { locale } }) => {
             dir={document.dir}
           />
         </SwiperSlide>
-        {/* <SwiperSlide className="relative w-full h-full">
+        <SwiperSlide className="relative w-full h-full">
           <ScuccessInNumber
-            services={services}
+            data={scuccessInNumber}
             title={data?.attributes?.NameServices}
             link="ymarketing"
             bg="bg-Hover-gradient"
-            tc="text-shockersAEC"
+            tc="text-white"
             dir={document.dir}
           />
-        </SwiperSlide> */}
+        </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
           <div className="flex flex-col justify-center items-center h-full max-w-screen-xl text-center m-auto">
             <div className="bg-yMarketing m-3 px-5 py-20 lg:p-20 rounded-2xl text-white">
               <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-12">
-                Are you interested in growing your business?
+                {data?.attributes?.ARE_YOU_INTERESTED}
               </h1>
               <Link href="/ymarketing/contact">
                 <button className="w-fit text-xl lg:text-2xl xl:text-3xl font-medium bg-shockerYellow text-yMarketing rounded-xl hover:bg-white hover:text-yMarketing  py-3 px-10">
-                  Contact Us
+                  {data?.attributes?.Contact_Us}
                 </button>
               </Link>
             </div>

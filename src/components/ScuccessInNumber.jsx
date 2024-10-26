@@ -48,7 +48,8 @@ const ScuccessInNumber = ({ services, title, bg, link, tc, dir }) => {
               variants={var1}
               className="text-[55px] sm:text-6xl lg:text-8xl font-bold mb-10 lg:mb-16 xl:mb-20  "
             >
-              {title}
+              {/* {title} */}
+              Success Numbers
             </motion.h1>
             <Swiper
               className="w-full  p-2"

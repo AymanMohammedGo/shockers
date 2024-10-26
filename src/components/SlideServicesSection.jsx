@@ -56,7 +56,7 @@ const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
                 delay: 1000,
                 disableOnInteraction: false,
               }}
-              slidesPerView={1.1}
+              slidesPerView={1}
               spaceBetween={30}
               modules={[Autoplay]}
               breakpoints={{

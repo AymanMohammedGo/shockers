@@ -18,6 +18,8 @@ import "swiper/css/pagination";
 import { Mousewheel, Keyboard } from "swiper/modules";
 import SlideProjectsOneItems from "@/components/SlideProjectsOneItems";
 import SlideServicesSection from "@/components/SlideServicesSection";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const Y_MarketingHome = ({ params: { locale } }) => {
   let lan = locale;
@@ -308,9 +310,20 @@ const Y_MarketingHome = ({ params: { locale } }) => {
             dir={document.dir}
           />
         </SwiperSlide>
-        {/* <SwiperSlide className="relative w-full h-full">
-          <SlideProjectsOneItems allProjects={projects} link="ymarketing" />
-        </SwiperSlide> */}
+        <SwiperSlide className="relative w-full h-full">
+          <div className="flex flex-col justify-center items-center h-full max-w-screen-xl text-center m-auto">
+            <div className="bg-yMarketing m-3 px-5 py-20 lg:p-20 rounded-2xl text-white">
+              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-12">
+                Are you interested in growing your business?
+              </h1>
+              <Link href="/ymarketing/contact">
+                <button className="w-fit text-xl lg:text-2xl xl:text-3xl font-medium bg-shockerYellow text-yMarketing rounded-xl hover:bg-white hover:text-yMarketing  py-3 px-10">
+                  Contact Us
+                </button>
+              </Link>
+            </div>
+          </div>
+        </SwiperSlide>
       </Swiper>
       <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
         {isVisible && (

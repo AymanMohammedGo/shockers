@@ -307,7 +307,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
             title={data?.attributes?.NameServices}
             link="ymarketing"
             bg="bg-Hover-gradient"
-            tc="text-yMarketing"
+            tc="text-white"
             dir={document.dir}
           />
         </SwiperSlide>

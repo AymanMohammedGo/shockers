@@ -56,7 +56,7 @@ const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
                 delay: 1000,
                 disableOnInteraction: false,
               }}
-              slidesPerView={1}
+              slidesPerView={1.1}
               spaceBetween={30}
               modules={[Autoplay]}
               breakpoints={{
@@ -89,7 +89,7 @@ const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
                       href={`/${link}/services?serviceId=${item?.name?.id}`}
                     >
                       <div
-                        className={`bg-gradient group -translate-x-4 translate-y-4 h-[50vh] w-full lg:w-full  lg:h-[60vh] relative hover:translate-x-0 hover:translate-y-0  ${bg} p-2 text-center ${tc} flex items-center justify-center transition-transform duration-300 ease-in-out`}
+                        className={`bg-transparent group   h-[50vh] w-full lg:w-full  lg:h-[60vh] relative   ${bg} p-4 text-center ${tc} hover:text-yMarketing flex items-center justify-center transition-transform duration-300 ease-in-out`}
                       >
                         <span
                           className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] ${
@@ -122,7 +122,7 @@ const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
                             }  ${
                               link === "baytuna"
                                 ? "group-hover:text-white "
-                                : "group-hover:text-shockersAEC"
+                                : "group-hover:text-yMarketing"
                             }`}
                           >
                             <path d="m9 18 6-6-6-6" />

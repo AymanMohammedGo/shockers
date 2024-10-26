@@ -95,7 +95,7 @@ const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
                           className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] ${
                             link === "baytuna"
                               ? "group-hover:text-white after:bg-white"
-                              : "after:bg-shockersAEC"
+                              : "after:bg-yMarketing"
                           }  after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out group-hover:after:w-[40%]`}
                         >
                           {item?.name?.attributes?.title}

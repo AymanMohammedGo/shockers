@@ -20,6 +20,7 @@ import SlideProjectsOneItems from "@/components/SlideProjectsOneItems";
 import SlideServicesSection from "@/components/SlideServicesSection";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import ScuccessInNumber from "@/components/ScuccessInNumber";
 
 const Y_MarketingHome = ({ params: { locale } }) => {
   let lan = locale;
@@ -310,8 +311,8 @@ const Y_MarketingHome = ({ params: { locale } }) => {
             dir={document.dir}
           />
         </SwiperSlide>
-        <SwiperSlide className="relative w-full h-full">
-          <SlideServicesSection
+        {/* <SwiperSlide className="relative w-full h-full">
+          <ScuccessInNumber
             services={services}
             title={data?.attributes?.NameServices}
             link="ymarketing"
@@ -319,7 +320,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
             tc="text-shockersAEC"
             dir={document.dir}
           />
-        </SwiperSlide>
+        </SwiperSlide> */}
         <SwiperSlide className="relative w-full h-full">
           <div className="flex flex-col justify-center items-center h-full max-w-screen-xl text-center m-auto">
             <div className="bg-yMarketing m-3 px-5 py-20 lg:p-20 rounded-2xl text-white">

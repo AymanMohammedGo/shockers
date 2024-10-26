@@ -10,7 +10,7 @@ import { Autoplay } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/scrollbar";
-
+import "/src/app/[locale]/globals.css"
 // import required modules
 import { Scrollbar } from "swiper/modules";
 const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
@@ -51,11 +51,13 @@ const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
               {title}
             </motion.h1>
             <Swiper
-              className="w-full  p-2"
+              className="w-full  p-2 transition-timing-linear"
               autoplay={{
-                delay: 1000,
+                delay: 0,
                 disableOnInteraction: false,
               }}
+              speed={3000}
+              loop={true}
               slidesPerView={1.1}
               spaceBetween={30}
               modules={[Autoplay]}

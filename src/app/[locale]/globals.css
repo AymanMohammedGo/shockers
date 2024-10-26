@@ -181,3 +181,7 @@ html {
     line-height: 55px !important;
   }
 }
+
+.transition-timing-linear .swiper-wrapper {
+  transition-timing-function: linear !important;
+}

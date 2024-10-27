@@ -15,7 +15,8 @@ export const getJobOffers = (locale) =>
   axiosClient.get(`/y-marketing-jobs-offers?locale=${locale}`);
 export const getSuccess = (locale) =>
   axiosClient.get(`/y-marketing-success?locale=${locale}`);
-
+export const getHowAdaptive = (locale) =>
+  axiosClient.get(`/y-marketing-how-adaptive?locale=${locale}`);
 // export const getProjects = (locale) =>
 //   axiosClient.get(`/y-marketing-projects?populate=*&locale=${locale}`);
 // export const getProject = (locale, id) =>

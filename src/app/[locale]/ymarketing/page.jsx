@@ -10,6 +10,7 @@ import {
   getHome,
   getServices,
   getSuccess,
+  getHowAdaptive,
 } from "../../../../utils/Y_MarketingApi";
 import { getName_Solgan } from "../../../../utils/GlobleApi";
 import { useCallback, useState, useEffect, useRef } from "react";
@@ -25,6 +26,7 @@ import SlideServicesSection from "@/components/SlideServicesSection";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ScuccessInNumber from "@/components/ScuccessInNumber";
+import ClientsLogo from "@/components/clientsLogo";
 
 const Y_MarketingHome = ({ params: { locale } }) => {
   let lan = locale;
@@ -33,6 +35,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   }
   const [solgan, setSolgan] = useState([]);
   const [data, setData] = useState([]);
+  const [clients, setClients] = useState([]);
   const [scuccessInNumber, setScuccessInNumber] = useState([]);
   const [services, setServices] = useState([]);
   const [projects, setProjects] = useState([]);
@@ -77,6 +80,12 @@ const Y_MarketingHome = ({ params: { locale } }) => {
       setServices(newServices);
     });
   }, [lan]);
+  const getHowAdaptive_ = useCallback(() => {
+    getHowAdaptive(lan).then((res) => {
+      setClients(res.data.data);
+    });
+  }, [lan]);
+
   // const getProjects_ = useCallback(() => {
   //   getProjects(lan).then((res) => {
   //     setProjects(res.data.data);
@@ -87,7 +96,8 @@ const Y_MarketingHome = ({ params: { locale } }) => {
     getServices_();
     getName_Solgan_();
     getSuccess_();
-  }, [getHome_, getServices_, getName_Solgan_,getSuccess_]);
+    getHowAdaptive_();
+  }, [getHome_, getServices_, getName_Solgan_, getSuccess_, getHowAdaptive_]);
   const [scrollingDown, setScrollingDown] = useState(false);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -331,6 +341,9 @@ const Y_MarketingHome = ({ params: { locale } }) => {
             tc="text-white"
             dir={document.dir}
           />
+        </SwiperSlide>
+        <SwiperSlide className="relative w-full h-full">
+          <ClientsLogo data={clients} />
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
           <div className="flex flex-col justify-center items-center h-full max-w-screen-xl text-center m-auto">

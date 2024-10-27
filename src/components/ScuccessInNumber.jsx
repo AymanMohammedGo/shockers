@@ -62,7 +62,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
     <section className="w-screen h-screen ">
       <div className="w-full h-full flex items-center justify-center relative z-10">
         <div className="flex  w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
-          <div className=" text-white w-full h-full flex-1 p-3 sm:p-7  flex flex-col items-center justify-center ">
+          <div className=" text-white w-full h-full  p-3 sm:p-7  flex flex-col items-center justify-center ">
             <motion.h1
               ref={ref1}
               initial="hidden"
@@ -101,7 +101,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               <SwiperSlide>
                 <div
                   ref={ref}
-                  className={`group relative bg-transparent text-yMarketing w-full h-[60vh] p-6 hover:text-white flex flex-col items-center justify-center transition-all duration-300 ease-in-out`}
+                  className={`group relative bg-transparent text-yMarketing w-full h-[60vh] p-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
                   <div className="absolute inset-0 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
@@ -134,7 +134,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                     {data?.attributes?.titleOne}
                   </span>
                   <span
-                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 flex-1`}
+                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 `}
                   >
                     {data?.attributes?.desOne}
                   </span>
@@ -142,7 +142,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               </SwiperSlide>
               <SwiperSlide>
                 <div
-                  className={`group relative bg-transparent text-yMarketing w-full h-[60vh] p-6 hover:text-white flex flex-col items-center justify-center transition-all duration-300 ease-in-out`}
+                  className={`group relative bg-transparent text-yMarketing w-full h-[60vh] p-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
                   <div className="absolute inset-0 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
@@ -171,7 +171,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                     {data?.attributes?.titleTwo}
                   </span>
                   <span
-                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 flex-1`}
+                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 `}
                   >
                     {data?.attributes?.desTwo}
                   </span>
@@ -179,7 +179,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               </SwiperSlide>
               <SwiperSlide>
                 <div
-                  className={`group relative bg-transparent text-yMarketing w-full h-[60vh] p-6 hover:text-white flex flex-col items-center justify-center transition-all duration-300 ease-in-out`}
+                  className={`group relative bg-transparent text-yMarketing w-full h-[60vh]  p-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
                   <div className="absolute inset-0 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
@@ -208,7 +208,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                     {data?.attributes?.titleThree}
                   </span>
                   <span
-                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 flex-1`}
+                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 `}
                   >
                     {data?.attributes?.desThree}
                   </span>

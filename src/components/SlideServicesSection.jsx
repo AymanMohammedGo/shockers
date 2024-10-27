@@ -53,10 +53,10 @@ const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
             <Swiper
               className="w-full  p-2 transition-timing-linear"
               autoplay={{
-                delay: 0,
+                delay: 2000,
                 disableOnInteraction: false,
               }}
-              speed={3000}
+              //speed={3000}
               loop={true}
               slidesPerView={1}
               spaceBetween={30}

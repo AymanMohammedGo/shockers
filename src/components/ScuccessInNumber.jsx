@@ -13,6 +13,7 @@ import "swiper/css/scrollbar";
 import "/src/app/[locale]/globals.css";
 // import required modules
 import { Scrollbar } from "swiper/modules";
+import CountUp from "react-countup";
 const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
   const var1 = {
     hidden: { y: "-100%", opacity: 0 },
@@ -25,7 +26,17 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
       },
     },
   };
-  console.log(data.attributes);
+  const var2 = {
+    hidden: { y: "100%", opacity: 0 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        delay: 0,
+      },
+    },
+  };
   const controls1 = useAnimation();
   const [ref1, inView1] = useInView({ triggerOnce: false, threshold: 0.1 });
 
@@ -36,22 +47,33 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
       controls1.start("hidden");
     }
   }, [controls1, inView1]);
+  ///
+  const controls = useAnimation();
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [controls, inView]);
+
   return (
     <section className="w-screen h-screen ">
       <div className="w-full h-full flex items-center justify-center relative z-10">
         <div className="flex  w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
-          <div className=" text-white w-full h-full flex-1 p-7  flex flex-col items-center justify-center ">
+          <div className=" text-white w-full h-full flex-1 p-3 sm:p-7  flex flex-col items-center justify-center ">
             <motion.h1
               ref={ref1}
               initial="hidden"
               animate={controls1}
               variants={var1}
-              className="text-[50px] text-yMarketing text-center sm:text-6xl lg:text-8xl font-bold sm:mb-6 lg:mb-16 xl:mb-20  "
+              className="text-[50px] text-yMarketing text-center sm:text-6xl lg:text-8xl font-bold mb-5 sm:mb-6 lg:mb-16 xl:mb-20  "
             >
               {data?.attributes?.title}
             </motion.h1>
             <Swiper
-              className="w-full  p-2 transition-timing-linear"
+              className="w-full p-0 sm:p-2 transition-timing-linear"
               autoplay={{
                 delay: 2000,
                 disableOnInteraction: false,
@@ -78,6 +100,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
             >
               <SwiperSlide>
                 <div
+                  ref={ref}
                   className={`group relative bg-transparent text-yMarketing w-full h-[60vh] p-6 hover:text-white flex flex-col items-center justify-center transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
@@ -88,7 +111,16 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                     <span
                       className={`relative w-fit flex items-end font-extrabold text-8xl lg:text-9xl pb-3`}
                     >
-                      {data?.attributes?.numberOne}
+                      {inView ? (
+                        <CountUp
+                          start={0}
+                          end={data?.attributes?.numberOne || 0}
+                          duration={3}
+                          // separator=","
+                        />
+                      ) : (
+                        0
+                      )}
                     </span>
                     <span
                       className={`relative flex items-end font-bold w-full text-2xl lg:text-4xl pb-5 group-hover:text-shockerYellow`}
@@ -120,7 +152,16 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                     <span
                       className={`relative w-fit flex items-end font-extrabold text-7xl lg:text-9xl pb-3`}
                     >
-                      {data?.attributes?.numberTwo}
+                      {inView ? (
+                        <CountUp
+                          start={0}
+                          end={data?.attributes?.numberTwo || 0}
+                          duration={3}
+                          // separator=","
+                        />
+                      ) : (
+                        0
+                      )}
                       <span className="text-shockerYellow">+</span>
                     </span>
                   </div>
@@ -148,7 +189,16 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                     <span
                       className={`relative w-fit flex items-end font-extrabold text-7xl lg:text-9xl pb-3`}
                     >
-                      {data?.attributes?.numberThree}
+                      {inView ? (
+                        <CountUp
+                          start={0}
+                          end={data?.attributes?.numberThree || 0}
+                          duration={3}
+                          // separator=","
+                        />
+                      ) : (
+                        0
+                      )}
                       <span className="text-shockerYellow">+</span>
                     </span>
                   </div>

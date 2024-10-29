@@ -62,9 +62,6 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
     };
   }, []);
 
-  useEffect(() => {
-    console.log("hide value:", hide, window.scrollY);
-  }, [hide, window.scrollY]);
   return (
     <>
       <motion.header
@@ -88,13 +85,13 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
               alt={`${name}Logo`}
             />
           </Link>
-          <div className="flex md:hidden  ">
+          <div className="flex headerSize:hidden  ">
             <button
               onClick={() => {
                 setIsOpen(!isOpen);
               }}
               type="button"
-              className="flex items-center p-2 w-10 h-10 justify-center    md:hidden focus:outline-none "
+              className="flex items-center p-2 w-10 h-10 justify-center    headerSize:hidden focus:outline-none "
             >
               <svg
                 className="w-5 h-5 "
@@ -116,10 +113,10 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
           <div
             className={`${
               isOpen ? "block" : "hidden"
-            } w-full md:block md:w-auto`}
+            } w-full headerSize:block headerSize:w-auto`}
           >
             <ul
-              className={`font-medium flex flex-col pt-4 md:p-0 md:flex-row `}
+              className={`font-medium flex flex-col pt-4 headerSize:p-0 headerSize:flex-row `}
             >
               {Url.map((item, index) => (
                 <li key={index}>
@@ -137,11 +134,11 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
                 </li>
               ))}
             </ul>
-            <div className="flex md:hidden mt-3 ">
+            <div className="flex headerSize:hidden mt-3 ">
               <LanguageChanger hover={hover} />
             </div>
           </div>
-          <div className="hidden md:flex ">
+          <div className="hidden headerSize:flex ">
             <LanguageChanger hover={hover} />
           </div>
         </div>

@@ -133,7 +133,7 @@ const Services8Section = ({ services, title, bg, link, tc, dir }) => {
                         >
                           <div
                             className={`border-white border-2 text-white group 
-                           w-full h-[25vh] relative  ${bg} p-2 text-center  flex items-center justify-center transition-transform duration-300 ease-in-out`}
+                           w-full h-[50vh] relative  ${bg} p-4 text-center  flex items-center justify-center transition-transform duration-300 ease-in-out`}
                           >
                             <span
                               className={`relative font-normal w-full text-2xl  group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px]

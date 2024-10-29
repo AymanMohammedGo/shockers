@@ -75,7 +75,7 @@ export default function RootLayout({ children, params: { locale } }) {
           <Transition bg="bg-yMarketing" />
           <Header
             logo="/img/LogosHeader/logoY_Marketing.svg"
-            width="80"
+            width="60"
             name="ymarketing"
             hover="hover:bg-yMarketing"
             text="text-shockersAEC"
@@ -85,7 +85,7 @@ export default function RootLayout({ children, params: { locale } }) {
           {children}
 
           <Footer
-            width="160"
+            width="140"
             name="yMarketing"
             logo="/img/LogosFooter/logoY_MarketingWhite.svg"
             data={footerNames}

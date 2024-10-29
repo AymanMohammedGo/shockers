@@ -62,7 +62,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
     <section className="w-screen h-screen ">
       <div className="w-full h-full flex items-center justify-center relative z-10">
         <div className="flex  w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
-          <div className=" text-white w-full h-full  p-3 sm:p-7  flex flex-col items-center justify-center ">
+          <div className=" text-white w-full h-full  p-3 sm:p-7  flex flex-col items-center justify-center max-w-screen-xlgl ">
             <motion.h1
               ref={ref1}
               initial="hidden"
@@ -74,25 +74,21 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
             </motion.h1>
             <Swiper
               className="w-full p-0 sm:p-2 transition-timing-linear"
-              autoplay={{
-                delay: 2000,
-                disableOnInteraction: false,
-              }}
+              // autoplay={{
+              //   delay: 2000,
+              //   disableOnInteraction: false,
+              // }}
               //speed={3000}
-              loop={true}
+              //loop={true}
               slidesPerView={1}
               spaceBetween={30}
               modules={[Autoplay]}
               breakpoints={{
-                600: {
-                  slidesPerView: 1.5,
-                  spaceBetween: 50,
-                },
-                768: {
-                  slidesPerView: 2.5,
-                  spaceBetween: 50,
-                },
                 1024: {
+                  slidesPerView: 2,
+                  spaceBetween: 50,
+                },
+                1400: {
                   slidesPerView: 3,
                   spaceBetween: 50,
                 },
@@ -101,10 +97,10 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               <SwiperSlide>
                 <div
                   ref={ref}
-                  className={`group relative bg-transparent text-yMarketing w-full  h-[65vh] p-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
+                  className={`group relative bg-transparent h-auto overflow-hidden text-yMarketing w-full   py-6 px-5 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
-                  <div className="absolute inset-0 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
+                  <div className="absolute inset-1 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
 
                   {/* المحتوى */}
                   <div className="relative z-10 flex w-full">
@@ -134,7 +130,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                     {data?.attributes?.titleOne}
                   </span>
                   <span
-                    className={`relative w-full text-lg lg:text-xl xl:text-2xl  `}
+                    className={`relative w-full text-lg lg:text-xl xl:text-2xl min-h-[236px]`}
                   >
                     {data?.attributes?.desOne}
                   </span>
@@ -142,10 +138,10 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               </SwiperSlide>
               <SwiperSlide>
                 <div
-                  className={`group relative bg-transparent text-yMarketing w-full h-[65vh] p-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
+                  className={`group relative bg-transparent h-auto overflow-hidden text-yMarketing w-full  p-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
-                  <div className="absolute inset-0 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
+                  <div className="absolute inset-1 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
 
                   {/* المحتوى */}
                   <div className="relative z-10 flex w-full">
@@ -171,7 +167,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                     {data?.attributes?.titleTwo}
                   </span>
                   <span
-                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 `}
+                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 min-h-[236px]`}
                   >
                     {data?.attributes?.desTwo}
                   </span>
@@ -179,10 +175,10 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               </SwiperSlide>
               <SwiperSlide>
                 <div
-                  className={`group relative bg-transparent text-yMarketing w-full h-[65vh]  p-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
+                  className={`group relative bg-transparent h-auto overflow-hidden text-yMarketing w-full  p-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
-                  <div className="absolute inset-0 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
+                  <div className="absolute inset-1 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
 
                   {/* المحتوى */}
                   <div className="relative z-10 flex w-full">
@@ -208,7 +204,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                     {data?.attributes?.titleThree}
                   </span>
                   <span
-                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 `}
+                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 min-h-[236px] `}
                   >
                     {data?.attributes?.desThree}
                   </span>

@@ -16,10 +16,10 @@ const clientsLogo = ({ data }) => {
 
   return (
     <section className="w-screen h-screen ">
-      <div className=" text-yMarketing w-full h-full flex-1 p-7  flex flex-col items-center justify-center  ">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-screen-xl mx-auto">
+      <div className=" text-yMarketing w-full h-full flex-1   flex flex-col items-center justify-center  ">
+        <h1 className="px-7 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-screen-xl mx-auto min-h-[160px] xsm:min-h-fit">
           {data?.attributes?.HOW_ADAPTIVE}
-          <span className="text-shockerYellow">
+          <span className="bg-shockerYellow text-yMarketing px-3">
             <Typewriter
               words={[
                 data?.attributes?.titleOne ?? "",
@@ -28,7 +28,7 @@ const clientsLogo = ({ data }) => {
               ]}
               loop={0}
               cursor
-              cursorStyle="|"
+              cursorStyle=""
               typeSpeed={70}
               deleteSpeed={50}
               delaySpeed={1000}
@@ -43,120 +43,190 @@ const clientsLogo = ({ data }) => {
           }}
           speed={3000}
           loop={true}
-          slidesPerView={2}
+          slidesPerView={2.5}
           spaceBetween={30}
           modules={[Autoplay]}
           breakpoints={{
-            768: {
+            450: {
               slidesPerView: 3.5,
               spaceBetween: 30,
             },
-            1024: {
+            700: {
               slidesPerView: 4.5,
               spaceBetween: 30,
             },
-            1400: {
+            1024: {
               slidesPerView: 5.5,
               spaceBetween: 30,
             },
-            1600: {
+            1400: {
               slidesPerView: 6.5,
+              spaceBetween: 30,
+            },
+            1600: {
+              slidesPerView: 8.5,
               spaceBetween: 30,
             },
           }}
         >
-          <SwiperSlide className="">
-            <Image
-              className="object-cover rounded-xl"
-              src="/img/logo.png"
-              width={300}
-              height={100}
-              alt="logo"
-              quality={75}
-            />
-          </SwiperSlide>
-          <SwiperSlide className="">
-            <Image
-              className="object-cover rounded-xl"
-              src="/img/logo.png"
-              width={300}
-              height={100}
-              alt="logo"
-              quality={75}
-            />
-          </SwiperSlide>
-          <SwiperSlide className="">
-            <Image
-              className="object-cover rounded-xl"
-              src="/img/logo.png"
-              width={300}
-              height={100}
-              alt="logo"
-              quality={75}
-            />
-          </SwiperSlide>
-          <SwiperSlide className="">
-            <Image
-              className="object-cover rounded-xl"
-              src="/img/logo.png"
-              width={300}
-              height={100}
-              alt="logo"
-              quality={75}
-            />
-          </SwiperSlide>
-          <SwiperSlide className="">
-            <Image
-              className="object-cover rounded-xl"
-              src="/img/logo.png"
-              width={300}
-              height={100}
-              alt="logo"
-              quality={75}
-            />
-          </SwiperSlide>
-          <SwiperSlide className="">
-            <Image
-              className="object-cover rounded-xl"
-              src="/img/logo.png"
-              width={300}
-              height={100}
-              alt="logo"
-              quality={75}
-            />
-          </SwiperSlide>
-          <SwiperSlide className="">
-            <Image
-              className="object-cover rounded-xl"
-              src="/img/logo.png"
-              width={300}
-              height={100}
-              alt="logo"
-              quality={75}
-            />
-          </SwiperSlide>
-          <SwiperSlide className="">
-            <Image
-              className="object-cover rounded-xl"
-              src="/img/logo.png"
-              width={300}
-              height={100}
-              alt="logo"
-              quality={75}
-            />
-          </SwiperSlide>
-          <SwiperSlide className="">
-            <Image
-              className="object-cover rounded-xl"
-              src="/img/logo.png"
-              width={300}
-              height={100}
-              alt="logo"
-              quality={75}
-            />
-          </SwiperSlide>
+          {data?.attributes?.logos.data?.map((item) => (
+            <SwiperSlide key={item.id} className="">
+              <Image
+                className="object-cover rounded-xl"
+                src={item.attributes.url}
+                width={300}
+                height={100}
+                alt="logo"
+                quality={75}
+              />
+            </SwiperSlide>
+          ))}
+          {data?.attributes?.logos.data?.map((item) => (
+            <SwiperSlide key={item.id} className="">
+              <Image
+                className="object-cover rounded-xl"
+                src={item.attributes.url}
+                width={300}
+                height={100}
+                alt="logo"
+                quality={75}
+              />
+            </SwiperSlide>
+          ))}
+          {data?.attributes?.logos.data?.map((item) => (
+            <SwiperSlide key={item.id} className="">
+              <Image
+                className="object-cover rounded-xl"
+                src={item.attributes.url}
+                width={300}
+                height={100}
+                alt="logo"
+                quality={75}
+              />
+            </SwiperSlide>
+          ))}
+          {data?.attributes?.logos.data?.map((item) => (
+            <SwiperSlide key={item.id} className="">
+              <Image
+                className="object-cover rounded-xl"
+                src={item.attributes.url}
+                width={300}
+                height={100}
+                alt="logo"
+                quality={75}
+              />
+            </SwiperSlide>
+          ))}
+          {data?.attributes?.logos.data?.map((item) => (
+            <SwiperSlide key={item.id} className="">
+              <Image
+                className="object-cover rounded-xl"
+                src={item.attributes.url}
+                width={300}
+                height={100}
+                alt="logo"
+                quality={75}
+              />
+            </SwiperSlide>
+          ))}
+          {data?.attributes?.logos.data?.map((item) => (
+            <SwiperSlide key={item.id} className="">
+              <Image
+                className="object-cover rounded-xl"
+                src={item.attributes.url}
+                width={300}
+                height={100}
+                alt="logo"
+                quality={75}
+              />
+            </SwiperSlide>
+          ))}
+          {data?.attributes?.logos.data?.map((item) => (
+            <SwiperSlide key={item.id} className="">
+              <Image
+                className="object-cover rounded-xl"
+                src={item.attributes.url}
+                width={300}
+                height={100}
+                alt="logo"
+                quality={75}
+              />
+            </SwiperSlide>
+          ))}
+          {data?.attributes?.logos.data?.map((item) => (
+            <SwiperSlide key={item.id} className="">
+              <Image
+                className="object-cover rounded-xl"
+                src={item.attributes.url}
+                width={300}
+                height={100}
+                alt="logo"
+                quality={75}
+              />
+            </SwiperSlide>
+          ))}
+          {data?.attributes?.logos.data?.map((item) => (
+            <SwiperSlide key={item.id} className="">
+              <Image
+                className="object-cover rounded-xl"
+                src={item.attributes.url}
+                width={300}
+                height={100}
+                alt="logo"
+                quality={75}
+              />
+            </SwiperSlide>
+          ))}
+          {data?.attributes?.logos.data?.map((item) => (
+            <SwiperSlide key={item.id} className="">
+              <Image
+                className="object-cover rounded-xl"
+                src={item.attributes.url}
+                width={300}
+                height={100}
+                alt="logo"
+                quality={75}
+              />
+            </SwiperSlide>
+          ))}
+          {data?.attributes?.logos.data?.map((item) => (
+            <SwiperSlide key={item.id} className="">
+              <Image
+                className="object-cover rounded-xl"
+                src={item.attributes.url}
+                width={300}
+                height={100}
+                alt="logo"
+                quality={75}
+              />
+            </SwiperSlide>
+          ))}
+          {data?.attributes?.logos.data?.map((item) => (
+            <SwiperSlide key={item.id} className="">
+              <Image
+                className="object-cover rounded-xl"
+                src={item.attributes.url}
+                width={300}
+                height={100}
+                alt="logo"
+                quality={75}
+              />
+            </SwiperSlide>
+          ))}
+          {data?.attributes?.logos.data?.map((item) => (
+            <SwiperSlide key={item.id} className="">
+              <Image
+                className="object-cover rounded-xl"
+                src={item.attributes.url}
+                width={300}
+                height={100}
+                alt="logo"
+                quality={75}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
-        <motion.h1 className="text-xl  lg:text-2xl xl:text-3xl max-w-screen-xl mx-auto  ">
+        <motion.h1 className="px-7  text-xl  lg:text-2xl xl:text-3xl max-w-screen-xl mx-auto  ">
           {data?.attributes?.des_Adaptive}
         </motion.h1>
       </div>

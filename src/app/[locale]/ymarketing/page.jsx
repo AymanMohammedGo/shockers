@@ -16,6 +16,7 @@ import { getName_Solgan } from "../../../../utils/GlobleApi";
 import { useCallback, useState, useEffect, useRef } from "react";
 import "../globals.css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useSearchParams, usePathname } from "next/navigation";
 
 // Import Swiper styles
 import "swiper/css";
@@ -33,6 +34,10 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   if (locale === "kr") {
     lan = "af";
   }
+
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
   const [solgan, setSolgan] = useState([]);
   const [data, setData] = useState([]);
   const [clients, setClients] = useState([]);
@@ -101,6 +106,33 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   const [scrollingDown, setScrollingDown] = useState(false);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
+
+  // when open page project
+  const handleGoToBeforeLastSlide = (number) => {
+    if (swiperInstance) {
+      window.scrollTo(0, 2);
+      swiperInstance.update();
+
+      const lastSlideIndex = swiperInstance.slides.length - number;
+      swiperInstance.slideTo(lastSlideIndex, 2000);
+    }
+  };
+
+  useEffect(() => {
+    const search = searchParams.get("projects");
+    const searchClient = searchParams.get("clients");
+
+    if (search === "show") {
+      setTimeout(() => {
+        handleGoToBeforeLastSlide(2);
+      }, 0);
+    }
+    if (searchClient === "show") {
+      setTimeout(() => {
+        handleGoToBeforeLastSlide(3);
+      }, 0);
+    }
+  }, [searchParams, pathname, swiperInstance]);
 
   //button scroll top
   const [isVisible, setIsVisible] = useState(false);

@@ -68,7 +68,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               initial="hidden"
               animate={controls1}
               variants={var1}
-              className="text-[50px] text-yMarketing text-center sm:text-6xl lg:text-8xl font-bold mb-5 sm:mb-6 lg:mb-16 xl:mb-20  "
+              className="text-[50px] text-yMarketing text-center sm:text-6xl lg:text-8xl font-bold mb-0 sm:mb-6 lg:mb-16 xl:mb-20  "
             >
               {data?.attributes?.title}
             </motion.h1>
@@ -97,7 +97,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               <SwiperSlide>
                 <div
                   ref={ref}
-                  className={`group relative bg-transparent h-auto overflow-hidden text-yMarketing w-full   py-6 px-5 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
+                  className={`group relative bg-transparent h-auto overflow-hidden text-yMarketing w-full   py-6 px-5 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
                   <div className="absolute inset-1 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
@@ -125,7 +125,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                     </span>
                   </div>
                   <span
-                    className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl py-5 pb-3 group-hover:text-shockerYellow`}
+                    className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl sm:py-5 pt-3 pb-3 group-hover:text-shockerYellow`}
                   >
                     {data?.attributes?.titleOne}
                   </span>
@@ -138,7 +138,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               </SwiperSlide>
               <SwiperSlide>
                 <div
-                  className={`group relative bg-transparent h-auto overflow-hidden text-yMarketing w-full  p-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
+                  className={`group relative bg-transparent h-auto overflow-hidden text-yMarketing w-full  py-6 px-5 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
                   <div className="absolute inset-1 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
@@ -162,7 +162,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                     </span>
                   </div>
                   <span
-                    className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl py-5 pb-3 group-hover:text-shockerYellow`}
+                    className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl sm:py-5 pt-3 pb-3 group-hover:text-shockerYellow`}
                   >
                     {data?.attributes?.titleTwo}
                   </span>
@@ -175,7 +175,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               </SwiperSlide>
               <SwiperSlide>
                 <div
-                  className={`group relative bg-transparent h-auto overflow-hidden text-yMarketing w-full  p-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
+                  className={`group relative bg-transparent h-auto overflow-hidden text-yMarketing w-full py-6 px-5 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
                   <div className="absolute inset-1 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
@@ -199,7 +199,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                     </span>
                   </div>
                   <span
-                    className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl py-5 pb-3 group-hover:text-shockerYellow`}
+                    className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl sm:py-5 pt-3 pb-3 group-hover:text-shockerYellow`}
                   >
                     {data?.attributes?.titleThree}
                   </span>

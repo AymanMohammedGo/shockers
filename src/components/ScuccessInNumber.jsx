@@ -63,12 +63,12 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
             </motion.h1>
             <Swiper
               className="w-full p-0 sm:p-2 transition-timing-linear"
-              // autoplay={{
-              //   delay: 2000,
-              //   disableOnInteraction: false,
-              // }}
+              autoplay={{
+                delay: 2000,
+                disableOnInteraction: false,
+              }}
               //speed={3000}
-              //loop={true}
+              loop={true}
               slidesPerView={1}
               spaceBetween={30}
               modules={[Autoplay]}

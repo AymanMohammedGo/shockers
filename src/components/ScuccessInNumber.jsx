@@ -16,27 +16,16 @@ import { Scrollbar } from "swiper/modules";
 import CountUp from "react-countup";
 const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
   const var1 = {
-    hidden: { y: "-100%", opacity: 0 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
         duration: 1,
         delay: 0,
       },
     },
   };
-  const var2 = {
-    hidden: { y: "100%", opacity: 0 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-        delay: 0,
-      },
-    },
-  };
+
   const controls1 = useAnimation();
   const [ref1, inView1] = useInView({ triggerOnce: false, threshold: 0.1 });
 
@@ -62,13 +51,13 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
     <section className="w-screen h-screen ">
       <div className="w-full h-full flex items-center justify-center relative z-10">
         <div className="flex  w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
-          <div className=" text-white w-full h-full  p-3 sm:p-7  flex flex-col items-center justify-center max-w-screen-xlgl ">
+          <div className=" text-white  w-full h-full  p-3 sm:p-7  flex flex-col items-center justify-center max-w-screen-xlgl ">
             <motion.h1
               ref={ref1}
               initial="hidden"
               animate={controls1}
               variants={var1}
-              className="text-[50px] text-yMarketing text-center sm:text-6xl lg:text-8xl font-bold mb-0 sm:mb-6 lg:mb-16 xl:mb-20  "
+              className="text-[45px]  text-yMarketing text-center sm:text-6xl lg:text-8xl font-bold mb-0 sm:mb-6 lg:mb-16 xl:mb-20  "
             >
               {data?.attributes?.title}
             </motion.h1>

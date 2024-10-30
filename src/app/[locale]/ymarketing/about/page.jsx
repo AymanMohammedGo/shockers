@@ -277,34 +277,8 @@ const About = ({ params: { locale } }) => {
               </div>
 
               <div className="relative max-w-screen-xxl m-auto flex flex-col items-start overflow-hidden">
-                <motion.div className="absolute h-full hidden sm:flex top-0 left-[calc(100px + 10px)] w-[5px] bg-shockersAEC z-10" />
-
                 <div className="flex flex-col items-center justify-center h-screen overflow-hidden">
                   <div className="relative flex items-center z-10 w-full ">
-                    {/* الخط الأفقي والدائرة */}
-                    <motion.div
-                      initial={{
-                        x: document.dir === "ltr" ? "-100%" : "100%",
-                        opacity: 0,
-                      }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{
-                        duration: 1,
-                      }}
-                      className="relative  items-center hidden sm:flex"
-                    >
-                      <div className="w-0 md:w-[50px] lg:w-[100px] h-[5px] bg-shockersAEC"></div>
-                      <div className="relative">
-                        <div
-                          className={`w-[20px] h-[20px] rounded-full bg-shockersAEC ${
-                            document.dir === "ltr"
-                              ? " -ml-[10px]"
-                              : " -mr-[10px]"
-                          }`}
-                        ></div>
-                      </div>
-                    </motion.div>
-                    {/* العنوان */}
                     <motion.h2
                       custom={document.dir}
                       variants={animationVariants}
@@ -321,11 +295,7 @@ const About = ({ params: { locale } }) => {
                     variants={animationVariants}
                     initial="hidden"
                     whileInView="visible"
-                    className={`${
-                      document.dir === "ltr"
-                        ? "sm:ml-[26px] md:ml-[78px] lg:ml-[130px]"
-                        : "sm:mr-[26px] md:mr-[78px] lg:mr-[130px]"
-                    } text-justify hyphens-auto text-shockersAEC text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10`}
+                    className={`text-justify hyphens-auto text-shockersAEC text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10`}
                   >
                     {item?.attributes.description}
                   </motion.p>

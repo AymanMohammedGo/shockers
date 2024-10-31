@@ -275,30 +275,24 @@ const About = ({ params: { locale } }) => {
                   postion={"absolute right-0"}
                 />
               </div>
-
               <div className="relative max-w-screen-xxl m-auto flex flex-col items-start overflow-hidden">
                 <div className="flex flex-col items-center justify-center h-screen overflow-hidden">
-                  <div className="relative flex items-center z-10 w-full ">
-                    <motion.h2
-                      custom={document.dir}
-                      variants={animationVariants}
-                      initial="hidden"
-                      whileInView="visible"
-                      className="sm:mx-4 w-full text-shockersAEC font-bold text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[50px] lg:!leading-[70px]"
-                    >
-                      {item?.attributes.title}
-                    </motion.h2>
-                  </div>
-                  {/* النص */}
-                  <motion.p
+                  <motion.div
                     custom={document.dir}
                     variants={animationVariants}
                     initial="hidden"
                     whileInView="visible"
-                    className={`text-justify hyphens-auto text-shockersAEC text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10`}
+                    className="relative flex flex-col  z-10 w-full "
                   >
-                    {item?.attributes.description}
-                  </motion.p>
+                    <h2 className=" w-full text-shockersAEC font-bold text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[50px] lg:!leading-[70px]">
+                      {item?.attributes.title}
+                    </h2>
+                    <p
+                      className={`text-justify hyphens-auto text-shockersAEC text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10`}
+                    >
+                      {item?.attributes.description}
+                    </p>
+                  </motion.div>
                 </div>
               </div>
             </div>

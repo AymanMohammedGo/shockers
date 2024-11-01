@@ -30,7 +30,7 @@ module.exports = {
           DEFAULT: "#242424",
         },
         shockersAECYellow: {
-          DEFAULT: "#fdcf00",
+          DEFAULT: "#ffcf01",
         },
         baytuna: {
           DEFAULT: "#c01f4a",

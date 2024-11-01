@@ -8,7 +8,7 @@ import { getServices } from "../../../../../utils/Y_MarketingApi";
 import { useSearchParams } from "next/navigation";
 import ScrollToTopButton from "@/components/scrollTop";
 import { useTranslation } from "react-i18next";
-
+import { getHome } from "../../../../../utils/Y_MarketingApi";
 const Services = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
@@ -19,21 +19,29 @@ const Services = ({ params: { locale } }) => {
   const searchParams = useSearchParams();
   const search = searchParams.get("serviceId");
   const [data, setData] = useState([]);
+  const [dataHome, setDataHome] = useState([]);
   const [selectedService, setSelectedService] = useState(data[0]);
   const [activeServiceIndex, setActiveServiceIndex] = useState(null);
 
-  const handleServiceClick = (index) => {
-    setActiveServiceIndex(index === activeServiceIndex ? null : index);
-  };
   const getServices_ = useCallback(() => {
     getServices(lan).then((res) => {
       setData(res.data.data);
     });
   }, [lan]);
 
+  const getHome_ = useCallback(() => {
+    getHome(lan).then((res) => {
+      setDataHome(res.data.data);
+    });
+  }, [lan]);
+
   useEffect(() => {
+    getHome_();
     getServices_();
-  }, [getServices_]);
+  }, [getServices_, getHome_]);
+
+  console.log(dataHome);
+
   useEffect(() => {
     setSelectedService(data[0]);
     data.find((item) => {
@@ -43,9 +51,11 @@ const Services = ({ params: { locale } }) => {
       if (item.id == search) return setActiveServiceIndex(item.id);
     });
   }, [data, search]);
+
   useEffect(() => {
     document.body.style.overflow = "auto";
   }, []);
+
   return (
     <>
       <motion.div
@@ -56,8 +66,12 @@ const Services = ({ params: { locale } }) => {
 
         <ImageOverlaysTop dir={document.dir} title={t("SERVICES")} />
         <div className=" flex flex-col  justify-center md:flex-row min-h-screen lg:py-5 lg:my-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
-          <div className="w-full md:w-2/5 px-4  pt-4 md:px-7">
-            <motion.h1
+          <div
+            className={`w-full md:w-2/5 px-4  pt-3 ${
+              document.dir === "ltr" ? "md:pr-8" : "md:pl-8"
+            } `}
+          >
+            <motion.div
               initial={{
                 x: document.dir === "ltr" ? "-100%" : "+100%",
                 opacity: 0,
@@ -66,13 +80,15 @@ const Services = ({ params: { locale } }) => {
               transition={{
                 duration: 1,
               }}
-              className={` text-3xl lg:text-5xl text-yMarketing !leading-[60px] font-extrabold py-2 sm:py-10 text-center md:text-start`}
+              className={`md:text-start text-center w-full  py-2 sm:py-10`}
             >
-              WHAT WE OFFER TO YOUR
-              <span className="bg-yMarketing text-shockersAECYellow px-2">
-                BUSINESS
+              <span className="text-3xl lg:text-5xl text-yMarketing !leading-[60px] font-extrabold  ">
+                {dataHome?.attributes?.title_service_page}
               </span>
-            </motion.h1>
+              <span className="text-3xl lg:text-5xl text-shockerYellow !leading-[60px] font-extrabold px-2">
+                {dataHome?.attributes?.sub_service_page}
+              </span>
+            </motion.div>
           </div>
           <motion.div className="md:w-3/5 p-4 md:p-4">
             <ul className="space-y-2">

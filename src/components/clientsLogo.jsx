@@ -19,7 +19,7 @@ const clientsLogo = ({ data }) => {
       <div className=" text-yMarketing w-full h-full flex-1   flex flex-col items-center justify-center  ">
         <h1 className="px-7 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-screen-xl mx-auto min-h-[160px] xsm:min-h-fit">
           {data?.attributes?.HOW_ADAPTIVE}
-          <span className="bg-shockerYellow text-yMarketing px-3">
+          <span className=" text-shockerYellow ">
             <Typewriter
               words={[
                 data?.attributes?.titleOne ?? "",

@@ -89,14 +89,14 @@ const ProjectsSection = () => {
                 diam nonummy nibh euismod tincidunt ut laoreet dolore magna
               </span>
             </div>
-            <div className="grid grid-cols-3 grid-rows-3 gap-4 w-full md:w-7/12 h-full p-0 md:p-4">
+            <div className="grid grid-cols-3 grid-rows-3 gap-3 md:gap-4 w-full md:w-7/12 h-full p-0 md:p-4">
               {projectOrder.map((order, i) => (
                 <motion.div
                   key={projects[order].id}
                   className={
                     i === 0
-                      ? "col-span-2 row-span-2 rounded-xl overflow-hidden bg-gray-200 relative"
-                      : "col-span-1 row-span-1 rounded-xl overflow-hidden bg-gray-200 relative"
+                      ? "col-span-2 row-span-2 rounded-lg md:rounded-xl overflow-hidden bg-gray-200 relative"
+                      : "col-span-1 row-span-1 rounded-lg md:rounded-xl overflow-hidden bg-gray-200 relative"
                   }
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

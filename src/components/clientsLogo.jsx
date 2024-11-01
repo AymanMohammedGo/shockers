@@ -12,7 +12,6 @@ import { Typewriter } from "react-simple-typewriter";
 
 import Image from "next/image";
 const clientsLogo = ({ data }) => {
-  console.log(data);
 
   return (
     <section className="w-screen h-screen ">

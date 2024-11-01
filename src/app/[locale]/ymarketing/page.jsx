@@ -11,6 +11,7 @@ import {
   getServices,
   getSuccess,
   getHowAdaptive,
+  getProjects,
 } from "../../../../utils/Y_MarketingApi";
 import { getName_Solgan } from "../../../../utils/GlobleApi";
 import { useCallback, useState, useEffect, useRef } from "react";
@@ -62,6 +63,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
       setData(res.data.data);
     });
   }, [lan]);
+  console.log(data);
   const getSuccess_ = useCallback(() => {
     getSuccess(lan).then((res) => {
       setScuccessInNumber(res.data.data);
@@ -91,19 +93,27 @@ const Y_MarketingHome = ({ params: { locale } }) => {
       setClients(res.data.data);
     });
   }, [lan]);
-
-  // const getProjects_ = useCallback(() => {
-  //   getProjects(lan).then((res) => {
-  //     setProjects(res.data.data);
-  //   });
-  // }, [lan]);
+  console.log(projects);
+  const getProjects_ = useCallback(() => {
+    getProjects(lan).then((res) => {
+      setProjects(res.data.data);
+    });
+  }, [lan]);
   useEffect(() => {
     getHome_();
     getServices_();
     getName_Solgan_();
     getSuccess_();
     getHowAdaptive_();
-  }, [getHome_, getServices_, getName_Solgan_, getSuccess_, getHowAdaptive_]);
+    getProjects_();
+  }, [
+    getHome_,
+    getServices_,
+    getName_Solgan_,
+    getSuccess_,
+    getHowAdaptive_,
+    getProjects_,
+  ]);
   const [scrollingDown, setScrollingDown] = useState(false);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -379,7 +389,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           <ClientsLogo data={clients} />
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
-          <ProjectsSection />
+          <ProjectsSection data={projects?.attributes} />
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
           <div className="flex flex-col justify-center items-center h-full max-w-screen-xl text-center m-auto">

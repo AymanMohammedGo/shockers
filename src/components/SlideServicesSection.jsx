@@ -37,7 +37,7 @@ const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
     }
   }, [controls1, inView1]);
   return (
-    <section className="w-screen h-screen ">
+    <section className="w-screen h-screen">
       <div className="bg-yMarketing  w-full h-full flex items-center justify-center relative z-10">
         <div className="flex  w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
           <div className=" text-white w-full h-full flex-1 p-7  flex flex-col items-center justify-center ">

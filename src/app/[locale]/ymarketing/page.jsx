@@ -28,6 +28,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ScuccessInNumber from "@/components/ScuccessInNumber";
 import ClientsLogo from "@/components/clientsLogo";
+import ProjectsSection from "@/components/ProjectsSection";
 
 const Y_MarketingHome = ({ params: { locale } }) => {
   let lan = locale;
@@ -376,6 +377,9 @@ const Y_MarketingHome = ({ params: { locale } }) => {
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
           <ClientsLogo data={clients} />
+        </SwiperSlide>
+        <SwiperSlide className="relative w-full h-full">
+          <ProjectsSection />
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
           <div className="flex flex-col justify-center items-center h-full max-w-screen-xl text-center m-auto">

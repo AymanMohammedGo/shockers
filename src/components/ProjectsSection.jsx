@@ -54,7 +54,7 @@ const ProjectsSection = ({ data }) => {
     return () => intervals.forEach((interval) => clearInterval(interval));
   }, [data]);
 
-  // تغيير ترتيب المستطيلات كل 10 ثوانٍ
+  // تغيير ترتيب المستطيلات كل 30 ثانية
   useEffect(() => {
     const reorderInterval = setInterval(() => {
       setProjectOrder((prevOrder) => [...prevOrder.slice(1), prevOrder[0]]);
@@ -65,18 +65,14 @@ const ProjectsSection = ({ data }) => {
 
   return (
     <section className="w-screen h-screen">
-      <div className="bg-yMarketing  w-full h-full flex items-center justify-center relative z-10">
-        <div className="flex  w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
-          <div className=" text-white w-full h-full flex  flex-1 p-3 md:p-7 flex-col  md:flex-row lg:max-h-[800px] ">
-            <div
-              className={
-                "w-full h-[400px] md:w-5/12 rounded-xl overflow-hidden  relative text-white"
-              }
-            >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold  mx-auto lg:my-10 my-5 ">
+      <div className="bg-yMarketing w-full h-full flex items-center justify-center relative z-10">
+        <div className="flex w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
+          <div className="text-white w-full h-full flex flex-1 p-3 md:p-7 flex-col md:flex-row lg:max-h-[800px]">
+            <div className="w-full h-[400px] md:w-5/12 rounded-xl overflow-hidden relative text-white">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mx-auto lg:my-10 my-5 ">
                 {data?.title}
               </h1>
-              <span className="text-lg  lg:text-xl xl:text-2xl">
+              <span className="text-lg lg:text-xl xl:text-2xl">
                 {data?.des}
               </span>
             </div>
@@ -89,10 +85,10 @@ const ProjectsSection = ({ data }) => {
                       ? "col-span-2 row-span-2 rounded-lg md:rounded-xl overflow-hidden bg-gray-200 relative"
                       : "col-span-1 row-span-1 rounded-lg md:rounded-xl overflow-hidden bg-gray-200 relative"
                   }
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  whileHover={{ scale: 1.01 }}
+                  initial={{ opacity: 0, scale: 0.95 }} // تأثير البداية
+                  animate={{ opacity: 1, scale: 1 }} // التأثير أثناء الظهور
+                  exit={{ opacity: 0, scale: 0.95 }} // التأثير أثناء الاختفاء
+                  transition={{ duration: 0.5 }} // مدة الانتقال
                 >
                   <motion.div
                     key={currentImages[order]}

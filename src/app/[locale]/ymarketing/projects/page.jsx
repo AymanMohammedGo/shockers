@@ -116,7 +116,7 @@ const Projects = ({ params: { locale } }) => {
       <div className="bg-yMarketing w-full h-full flex items-center justify-center relative z-10">
         <div className="flex w-full h-full flex-col  justify-center items-center lg:px-2 overflow-hidden">
           <div className="text-white w-full h-full flex flex-1 p-3 md:p-7 flex-col md:flex-row lg:max-h-[800px]">
-            <div className="grid grid-cols-6 grid-rows-3 gap-3 md:gap-4 w-full  h-full p-0 md:p-4">
+            <div className="grid grid-cols-3 md:grid-cols-6 md:grid-rows-3 gap-3 md:gap-4 w-full  h-full p-0 md:p-4">
               {projectOrder.map((order, i) => (
                 <motion.div
                   key={projects[order].id}

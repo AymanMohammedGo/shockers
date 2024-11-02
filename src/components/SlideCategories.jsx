@@ -152,9 +152,10 @@ export default function SlideCategories({ categoriesProjects, link }) {
                         <Image
                           className="object-cover"
                           src={item?.attributes?.imgURL?.data?.attributes?.url}
-                          layout="fill"
+                          fill={true}
                           alt={item.id}
                           quality={75}
+                          priority
                         />
                         <div className="bg-black bg-opacity-20 w-full h-full absolute top-0" />
                         <div className="absolute  inset-0 image-gradient" />
@@ -180,9 +181,10 @@ export default function SlideCategories({ categoriesProjects, link }) {
                       <Image
                         className="object-cover"
                         src="/img/COMING_SOON.png"
-                        layout="fill"
+                        fill={true}
                         alt={item.id}
                         quality={75}
+                        priority
                       />
                       <div className="bg-black bg-opacity-20 w-full h-full absolute top-0" />
                       <div className="absolute  inset-0 image-gradient" />

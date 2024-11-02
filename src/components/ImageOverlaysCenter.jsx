@@ -9,8 +9,7 @@ const ImageOverlaysCenter = ({ title, imgURl }) => {
         fill={true}
         alt="imageOverlays"
         quality={75}
-        placeholder="blur"
-        blurDataURL="/img/imageOverlays.jpg"
+        priority
       />
       <div className="bg-black bg-opacity-40 w-full h-full absolute top-0" />
       <div className="absolute flex items-center justify-center  inset-0 m-auto   ">

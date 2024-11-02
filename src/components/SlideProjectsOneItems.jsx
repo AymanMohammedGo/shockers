@@ -83,7 +83,7 @@ export default function SlideProjectsOneItems({ allProjects, link }) {
                         src={
                           item?.attributes?.imgURLHome?.data?.attributes?.url
                         }
-                        layout="fill"
+                        fill={true}
                         alt={item.id}
                         quality={75}
                       />

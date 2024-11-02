@@ -4,14 +4,18 @@ import { motion } from "framer-motion";
 const ImageOverlaysTop = ({ title, imgURL, dir, bgColor }) => {
   return (
     <div className="relative w-screen h-screen z-10">
+      {/* {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-200 z-10">
+          <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
+        </div>
+      )} */}
       <Image
         className=" object-cover"
         src={imgURL}
         fill={true}
         alt="imageOverlays"
         quality={75}
-        placeholder="blur"
-        blurDataURL="/img/imageOverlays.jpg"
+        priority
       />
       {bgColor && (
         <div className={`${bgColor}  w-full h-full absolute top-0`} />

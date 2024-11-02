@@ -107,9 +107,10 @@ export default function SlideProject({ allProjects, link }) {
                           src={
                             item?.attributes?.imgURLHome?.data?.attributes?.url
                           }
-                          layout="fill"
+                          fill={true}
                           alt={item.id}
                           quality={75}
+                          priority
                         />
                         <div className="absolute  inset-0 image-gradient" />
                       </motion.div>

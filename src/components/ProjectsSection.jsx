@@ -112,11 +112,12 @@ const ProjectsSection = ({ data }) => {
                     <Image
                       src={currentImages[order]}
                       alt={isLoading ? "" : `Project ${order + 1}`}
-                      layout="fill"
+                      fill={true}
                       objectFit="cover"
                       className={`transition-transform duration-500 hover:scale-110 ${
                         isLoading ? "opacity-0" : "opacity-100"
                       }`}
+                      priority
                       onLoadingComplete={() => setIsLoading(false)}
                     />
                   </motion.div>

@@ -2,7 +2,9 @@
 import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Draw_YMar from "@/components/Lottie/Draw_YMar";
+import Draw_YAbout from "@/components/Lottie/Draw_YAbout";
 import YMar_json from "/public/Motion/YMar.json";
+import ABO_json from "/public/Motion/vision.json";
 import { getAboutUS } from "../../../../../utils/Y_MarketingApi";
 import { useRef } from "react";
 import AboutTopSection from "@/components/AboutTopVideo";
@@ -276,22 +278,38 @@ const About = ({ params: { locale } }) => {
                 />
               </div>
               <div className="relative max-w-screen-xxl m-auto flex flex-col items-start overflow-hidden">
-                <div className="flex flex-col items-center justify-center h-screen overflow-hidden">
+                <div
+                  className={`flex flex-col ${
+                    index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
+                  }   items-center justify-center md:justify-between h-screen overflow-hidden`}
+                >
                   <motion.div
                     custom={document.dir}
                     variants={animationVariants}
                     initial="hidden"
                     whileInView="visible"
-                    className="relative flex flex-col  z-10 w-full "
+                    className="relative w-full md:w-3/5 flex flex-col  z-10 "
                   >
-                    <h2 className=" w-full text-shockersAEC font-bold text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[50px] lg:!leading-[70px]">
-                      {item?.attributes.title}
+                    <h2 className="relative border-b-8 w-fit text-shockersAEC font-bold text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[50px] lg:!leading-[70px]">
+                      <span className="relative z-10 ">
+                        {item?.attributes.title}
+                      </span>
+                      <span className="absolute left-0 bottom-2 h-5 bg-shockerYellow w-full -z-10"></span>
                     </h2>
+
                     <p
                       className={`text-justify hyphens-auto text-shockersAEC text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10`}
                     >
                       {item?.attributes.description}
                     </p>
+                  </motion.div>
+                  <motion.div
+                    custom={document.dir}
+                    variants={animationVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                  >
+                    <Draw_YAbout animationData={ABO_json} />
                   </motion.div>
                 </div>
               </div>

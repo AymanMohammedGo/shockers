@@ -29,7 +29,7 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
       name: linksNames?.NamePageProjects,
       link: `/${name}/?projects=show`,
     },
-    ...(name !== "ymarketing"
+    ...(name !== "ymarketing" && name !== "shocky"
       ? []
       : [
           {

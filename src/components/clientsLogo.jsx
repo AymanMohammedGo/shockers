@@ -11,14 +11,19 @@ import "/src/app/[locale]/globals.css";
 import { Typewriter } from "react-simple-typewriter";
 
 import Image from "next/image";
-const clientsLogo = ({ data }) => {
-
+const clientsLogo = ({
+  data,
+  text_color = "text-yMarketing",
+  text_active = "text-shockerYellow",
+}) => {
   return (
     <section className="w-screen h-screen ">
-      <div className=" text-yMarketing w-full h-full flex-1   flex flex-col items-center justify-center  ">
+      <div
+        className={`${text_color} w-full h-full flex-1   flex flex-col items-center justify-center `}
+      >
         <h1 className="px-7 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-screen-xl mx-auto min-h-[160px] xsm:min-h-fit">
           {data?.attributes?.HOW_ADAPTIVE}
-          <span className=" text-shockerYellow ">
+          <span className={`${text_active}`}>
             <Typewriter
               words={[
                 data?.attributes?.titleOne ?? "",

@@ -47,6 +47,9 @@ module.exports = {
         shocky: {
           DEFAULT: "#25325C",
         },
+        shockyRed: {
+          DEFAULT: "#BF2627",
+        },
         primary: {
           DEFAULT: "#e4e4e4",
         },

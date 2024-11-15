@@ -104,8 +104,7 @@ export default function Home({ params: { locale } }) {
     },
     {
       name: "SHOCKY",
-      link: "#",
-      // "/shocky"
+      link: "/shocky",
       imageLogo: "/img/MainPage/shocky.svg",
       imageHoverLogo: "/img/MainPage/shockyWhite.svg",
       bgColorHover: "hover:bg-shocky",

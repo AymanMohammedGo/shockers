@@ -136,6 +136,9 @@ html {
 .bg-Hover-gradient:hover {
   background: #fdcf00;
 }
+.bg-Hover-gradient-shocky:hover {
+  background: #BF2627;
+}
 .bg-Hover-gradient-Deca:hover {
   background: #17b9b5;
 }

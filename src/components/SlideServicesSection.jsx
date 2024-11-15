@@ -13,7 +13,16 @@ import "swiper/css/scrollbar";
 import "/src/app/[locale]/globals.css";
 // import required modules
 import { Scrollbar } from "swiper/modules";
-const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
+const SlideServicesSection = ({
+  services,
+  title,
+  bg,
+  link,
+  tc,
+  dir,
+  background = "bg-yMarketing",
+  textHoverColor = "hover:text-yMarketing",
+}) => {
   const var1 = {
     hidden: { y: "-100%", opacity: 0 },
     visible: {
@@ -38,7 +47,9 @@ const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
   }, [controls1, inView1]);
   return (
     <section className="w-screen h-screen">
-      <div className="bg-yMarketing  w-full h-full flex items-center justify-center relative z-10">
+      <div
+        className={`${background}  w-full h-full flex items-center justify-center relative z-10`}
+      >
         <div className="flex  w-full h-full flex-col xl:flex-row justify-center items-center lg:px-2 overflow-hidden">
           <div className=" text-white w-full h-full flex-1 p-7  flex flex-col items-center justify-center ">
             <motion.h1
@@ -91,11 +102,11 @@ const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
                       href={`/${link}/services?serviceId=${item?.name?.id}`}
                     >
                       <div
-                        className={`bg-transparent group   h-[50vh] w-full lg:w-full  lg:h-[60vh] relative   ${bg} p-4 text-center ${tc} hover:text-yMarketing flex items-center justify-center transition-transform duration-300 ease-in-out`}
+                        className={`bg-transparent group   h-[50vh] w-full lg:w-full  lg:h-[60vh] relative   ${bg} p-4 text-center ${tc} ${textHoverColor}  flex items-center justify-center transition-transform duration-300 ease-in-out`}
                       >
                         <span
                           className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] ${
-                            link === "baytuna"
+                            link === "baytuna" || link === "shocky"
                               ? "group-hover:text-white after:bg-white"
                               : "after:bg-yMarketing"
                           }  after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out group-hover:after:w-[40%]`}
@@ -122,7 +133,7 @@ const SlideServicesSection = ({ services, title, bg, link, tc, dir }) => {
                                 ? "lucide-chevron-right"
                                 : "rotate-180"
                             }  ${
-                              link === "baytuna"
+                              link === "baytuna" || link === "shocky"
                                 ? "group-hover:text-white "
                                 : "group-hover:text-yMarketing"
                             }`}

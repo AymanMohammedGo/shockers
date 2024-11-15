@@ -254,8 +254,8 @@ const About = ({ params: { locale } }) => {
         <SwiperSlide className="relative w-full h-full">
           <AboutTopSection
             link="ymarketing"
-            videoMobile="/y marketing website video mobile.mp4"
-            videoLoptap="/y marketing website video.mp4"
+            videoMobile="/shocky events website video (mobile version) with Overlay.mp4"
+            videoLoptap="/shocky events website video with Overlay.mp4"
             dir={document.dir}
           />
         </SwiperSlide>

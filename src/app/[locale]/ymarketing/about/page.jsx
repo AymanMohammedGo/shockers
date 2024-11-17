@@ -300,7 +300,7 @@ const About = ({ params: { locale } }) => {
                       <span className="relative z-10 ">
                         {item?.attributes.title}
                       </span>
-                      <span className="absolute left-0 bottom-2 h-5 bg-shockerYellow w-full -z-10"></span>
+                      {/* <span className="absolute left-0 bottom-2 h-5 bg-shockerYellow w-full -z-10"></span>*/}
                     </h2>
 
                     <p

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Draw_YMar from "@/components/Lottie/Draw_YMar";
 import Draw_YAbout from "@/components/Lottie/Draw_YAbout";
 import YMar_json from "/public/Motion/y Bg.json";
-import ABO_json from "/public/Motion/vision.json";
 import { getAboutUS } from "../../../../../utils/ShockyApi";
 import { useRef } from "react";
 import AboutTopSection from "@/components/AboutTopVideo";

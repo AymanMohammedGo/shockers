@@ -17,7 +17,7 @@ export default function RootLayout({ children, params: { locale } }) {
       renderer: "svg",
       loop: false,
       autoplay: true,
-      path: "/Motion/shocky events logo motion.json",
+      path: "/Motion/shocky.json",
     });
     anim.setSpeed(2);
 

@@ -15,7 +15,6 @@ import vision1_json from "/public/Motion/vision1.json";
 import value_json from "/public/Motion/value.json";
 import staff_json from "/public/Motion/staff.json";
 import yearsExperience_json from "/public/Motion/years of experience.json";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import { Mousewheel, Keyboard } from "swiper/modules";

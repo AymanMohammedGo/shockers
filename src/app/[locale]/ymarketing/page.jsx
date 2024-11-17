@@ -1,7 +1,7 @@
 "use client";
 import SlideCategories from "@/components/SlideCategories";
 import Draw_YMar from "@/components/Lottie/Draw_YMar";
-import YMar_json from "/public/Motion/YMar.json";
+import YMar_json from "/public/Motion/y Bg.json";
 import { motion } from "framer-motion";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
@@ -356,8 +356,8 @@ const Y_MarketingHome = ({ params: { locale } }) => {
         <SwiperSlide className="relative w-full h-full">
           <AboutSection
             link="ymarketing"
-            videoMobile="/y marketing website video mobile.mp4"
-            videoLoptap="/y marketing website video.mp4"
+            videoMobile="/Y website mobile version1.mp4"
+            videoLoptap="/Y website PC version1.mp4"
             title={data?.attributes?.TitleAbout}
             description={data?.attributes?.DescriptionAbout}
             textButton={data?.attributes?.TextButton}

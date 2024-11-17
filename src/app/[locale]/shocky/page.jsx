@@ -1,7 +1,7 @@
 "use client";
 import SlideCategories from "@/components/SlideCategories";
 import Draw_YMar from "@/components/Lottie/Draw_YMar";
-import YMar_json from "/public/Motion/YMar.json";
+import YMar_json from "/public/Motion/shocky events website bg outline.json";
 import { motion } from "framer-motion";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";

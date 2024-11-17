@@ -3,8 +3,14 @@ import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Draw_YMar from "@/components/Lottie/Draw_YMar";
 import Draw_YAbout from "@/components/Lottie/Draw_YAbout";
-import YMar_json from "/public/Motion/YMar.json";
-import ABO_json from "/public/Motion/vision.json";
+import YMar_json from "/public/Motion/y Bg.json";
+import about_us_json from "/public/Motion/about us.json";
+import mission_json from "/public/Motion/mission.json";
+import vision1_json from "/public/Motion/vision1.json";
+import value_json from "/public/Motion/value.json";
+import staff_json from "/public/Motion/staff.json";
+import yearsExperience_json from "/public/Motion/years of experience.json";
+
 import { getAboutUS } from "../../../../../utils/Y_MarketingApi";
 import { useRef } from "react";
 import AboutTopSection from "@/components/AboutTopVideo";
@@ -254,8 +260,8 @@ const About = ({ params: { locale } }) => {
         <SwiperSlide className="relative w-full h-full">
           <AboutTopSection
             link="ymarketing"
-            videoMobile="/y marketing website video mobile.mp4"
-            videoLoptap="/y marketing website video.mp4"
+            videoMobile="/Y website mobile version1.mp4"
+            videoLoptap="/Y website PC version1.mp4"
             dir={document.dir}
           />
         </SwiperSlide>
@@ -309,7 +315,21 @@ const About = ({ params: { locale } }) => {
                     initial="hidden"
                     whileInView="visible"
                   >
-                    <Draw_YAbout animationData={ABO_json} />
+                    <Draw_YAbout
+                      animationData={
+                        index === 0
+                          ? about_us_json
+                          : index === 1
+                          ? yearsExperience_json
+                          : index === 2
+                          ? mission_json
+                          : index === 3
+                          ? vision1_json
+                          : index === 4
+                          ? value_json
+                          : staff_json
+                      }
+                    />
                   </motion.div>
                 </div>
               </div>

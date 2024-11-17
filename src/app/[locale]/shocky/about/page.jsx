@@ -3,14 +3,19 @@ import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Draw_YMar from "@/components/Lottie/Draw_YMar";
 import Draw_YAbout from "@/components/Lottie/Draw_YAbout";
-import YMar_json from "/public/Motion/YMar.json";
+import YMar_json from "/public/Motion/y Bg.json";
 import ABO_json from "/public/Motion/vision.json";
 import { getAboutUS } from "../../../../../utils/ShockyApi";
 import { useRef } from "react";
 import AboutTopSection from "@/components/AboutTopVideo";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import about_us_json from "/public/Motion/about us.json";
+import mission_json from "/public/Motion/mission.json";
+import vision1_json from "/public/Motion/vision1.json";
+import value_json from "/public/Motion/value.json";
+import staff_json from "/public/Motion/staff.json";
+import yearsExperience_json from "/public/Motion/years of experience.json";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -309,7 +314,21 @@ const About = ({ params: { locale } }) => {
                     initial="hidden"
                     whileInView="visible"
                   >
-                    <Draw_YAbout animationData={ABO_json} />
+                    <Draw_YAbout
+                      animationData={
+                        index === 0
+                          ? about_us_json
+                          : index === 1
+                          ? yearsExperience_json
+                          : index === 2
+                          ? mission_json
+                          : index === 3
+                          ? vision1_json
+                          : index === 4
+                          ? value_json
+                          : staff_json
+                      }
+                    />
                   </motion.div>
                 </div>
               </div>

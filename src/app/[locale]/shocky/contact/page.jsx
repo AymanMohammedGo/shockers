@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import Draw_YMar from "@/components/Lottie/Draw_YMar";
-import YMar_json from "/public/Motion/y Bg.json";
+import Draw_YMar from "@/components/Lottie/Draw_Shocky";
+import YMar_json from "/public/Motion/shockyOutline.json";
 import { useEffect, useState, useCallback } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";

@@ -1,9 +1,9 @@
 "use client";
 import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Draw_YMar from "@/components/Lottie/Draw_YMar";
+import Draw_YMar from "@/components/Lottie/Draw_Shocky";
+import YMar_json from "/public/Motion/shockyOutline.json";
 import Draw_YAbout from "@/components/Lottie/Draw_YAbout";
-import YMar_json from "/public/Motion/y Bg.json";
 import { getAboutUS } from "../../../../../utils/ShockyApi";
 import { useRef } from "react";
 import AboutTopSection from "@/components/AboutTopVideo";

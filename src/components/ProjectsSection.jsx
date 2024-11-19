@@ -15,6 +15,11 @@ const ProjectsSection = ({
   const numberOfProjects = 6; // عدد الكائنات
   const imagesPerProject = Math.ceil(totalImages.length / numberOfProjects); // عدد الصور لكل كائن
 
+  const repeatedImages = Array.from(
+    { length: numberOfProjects * 2 },
+    (_, i) => totalImages[i % totalImages.length]
+  );
+
   // خلط جميع الصور
   const shuffledImages = totalImages.sort(() => Math.random() - 0.5);
 
@@ -22,11 +27,17 @@ const ProjectsSection = ({
   const projects = Array.from({ length: numberOfProjects }, (_, index) => {
     return {
       id: index + 1,
-      images: shuffledImages.slice(
-        index * imagesPerProject,
-        (index + 1) * imagesPerProject
-      ),
-      interval: 3000 + index * 100, // يمكن تعديل الفاصل الزمني حسب الحاجة
+      images:
+        totalImages.length < 12
+          ? repeatedImages.slice(
+              index * imagesPerProject,
+              (index + 1) * imagesPerProject
+            )
+          : shuffledImages.slice(
+              index * imagesPerProject,
+              (index + 1) * imagesPerProject
+            ),
+      interval: 3000 + index * 100,
     };
   });
 

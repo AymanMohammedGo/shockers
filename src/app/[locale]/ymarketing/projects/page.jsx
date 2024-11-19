@@ -25,18 +25,26 @@ const Projects = ({ params: { locale } }) => {
     data?.images?.data.map((item) => item?.attributes.url) || []; // الحصول على جميع الصور
   const numberOfProjects = 12; // عدد الكائنات
   const imagesPerProject = Math.ceil(totalImages.length / numberOfProjects); // عدد الصور لكل كائن
-
-  // خلط جميع الصور
+  const repeatedImages = Array.from(
+    { length: numberOfProjects * 2 },
+    (_, i) => totalImages[i % totalImages.length]
+  ); // خلط جميع الصور
   const shuffledImages = totalImages.sort(() => Math.random() - 0.5);
 
   // إنشاء الكائنات مع تقسيم الصور بشكل ديناميكي
   const projects = Array.from({ length: numberOfProjects }, (_, index) => {
     return {
       id: index + 1,
-      images: shuffledImages.slice(
-        index * imagesPerProject,
-        (index + 1) * imagesPerProject
-      ),
+      images:
+        totalImages.length < 24
+          ? repeatedImages.slice(
+              index * imagesPerProject,
+              (index + 1) * imagesPerProject
+            )
+          : shuffledImages.slice(
+              index * imagesPerProject,
+              (index + 1) * imagesPerProject
+            ),
       interval: 3000 + index * 100, // يمكن تعديل الفاصل الزمني حسب الحاجة
     };
   });

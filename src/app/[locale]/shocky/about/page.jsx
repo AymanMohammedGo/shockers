@@ -9,12 +9,6 @@ import { useRef } from "react";
 import AboutTopSection from "@/components/AboutTopVideo";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
-import about_us_json from "/public/Motion/about us.json";
-import mission_json from "/public/Motion/mission.json";
-import vision1_json from "/public/Motion/vision1.json";
-import value_json from "/public/Motion/value.json";
-import staff_json from "/public/Motion/staff.json";
-import yearsExperience_json from "/public/Motion/years of experience.json";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Mousewheel, Keyboard } from "swiper/modules";
@@ -282,16 +276,14 @@ const About = ({ params: { locale } }) => {
               </div>
               <div className="relative max-w-screen-xxl m-auto flex flex-col items-start overflow-hidden">
                 <div
-                  className={`flex flex-col ${
-                    index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
-                  }   items-center justify-center md:justify-between h-screen overflow-hidden`}
+                  className={`flex flex-col md:flex-row items-center justify-center md:justify-between h-screen overflow-hidden`}
                 >
                   <motion.div
                     custom={document.dir}
                     variants={animationVariants}
                     initial="hidden"
                     whileInView="visible"
-                    className="relative w-full md:w-3/5 flex flex-col  z-10 "
+                    className="relative w-full flex flex-col  z-10 "
                   >
                     <h2 className="relative border-b-8 w-fit text-shockersAEC font-bold text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[50px] lg:!leading-[70px]">
                       <span className="relative z-10 ">
@@ -305,28 +297,6 @@ const About = ({ params: { locale } }) => {
                     >
                       {item?.attributes.description}
                     </p>
-                  </motion.div>
-                  <motion.div
-                    custom={document.dir}
-                    variants={animationVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                  >
-                    <Draw_YAbout
-                      animationData={
-                        index === 0
-                          ? about_us_json
-                          : index === 1
-                          ? yearsExperience_json
-                          : index === 2
-                          ? mission_json
-                          : index === 3
-                          ? vision1_json
-                          : index === 4
-                          ? value_json
-                          : staff_json
-                      }
-                    />
                   </motion.div>
                 </div>
               </div>

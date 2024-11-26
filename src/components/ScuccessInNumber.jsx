@@ -83,10 +83,10 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                 },
               }}
             >
-              <SwiperSlide className="h-full flex">
+              <SwiperSlide>
                 <div
                   ref={ref}
-                  className={`group relative bg-transparent h-auto overflow-hidden text-yMarketing w-full   pt-6 pb-3 lg:pb-6 px-4 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
+                  className={`group h-full  relative bg-transparent  overflow-hidden text-yMarketing w-full   pt-6 pb-3 lg:pb-6 px-4 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
                   <div className="absolute inset-1 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
@@ -125,9 +125,9 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                   </span>
                 </div>
               </SwiperSlide>
-              <SwiperSlide className="h-full flex">
+              <SwiperSlide >
                 <div
-                  className={`group relative bg-transparent h-auto overflow-hidden text-yMarketing w-full  pt-6 pb-3 lg:pb-6 px-4 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
+                  className={`group relative bg-transparent h-full overflow-hidden text-yMarketing w-full  pt-6 pb-3 lg:pb-6 px-4 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
                   <div className="absolute inset-1 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
@@ -162,9 +162,9 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                   </span>
                 </div>
               </SwiperSlide>
-              <SwiperSlide className="h-full flex">
+              <SwiperSlide >
                 <div
-                  className={`group relative bg-transparent h-auto overflow-hidden text-yMarketing w-full pt-6 pb-3 lg:pb-6 px-4 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
+                  className={`group relative bg-transparent h-full overflow-hidden text-yMarketing w-full pt-6 pb-3 lg:pb-6 px-4 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
                   <div className="absolute inset-1 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>

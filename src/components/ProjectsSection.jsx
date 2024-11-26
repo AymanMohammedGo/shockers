@@ -88,7 +88,7 @@ const ProjectsSection = ({
       >
         <div className="flex w-full h-full flex-col  justify-center items-center lg:px-2 overflow-hidden">
           <div className="text-white w-full h-full flex flex-1 p-3 md:p-7 flex-col md:flex-row lg:max-h-[800px]">
-            <div className="w-full h-[400px] md:w-5/12 rounded-xl overflow-hidden relative text-white">
+            <div className="w-full h-full sm:h-[400px] md:w-5/12 rounded-xl overflow-hidden relative text-white">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mx-auto lg:my-10 my-5 ">
                 {data?.title}
               </h1>

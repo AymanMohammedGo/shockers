@@ -83,7 +83,6 @@ export default function RootLayout({ children, params: { locale } }) {
             Dir={document.dir}
           />
           {children}
-
           <Footer
             width="140"
             name="yMarketing"

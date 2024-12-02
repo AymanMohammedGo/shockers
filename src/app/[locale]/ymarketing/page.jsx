@@ -151,7 +151,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   const handleGoToFirstSlide = () => {
     if (swiperInstance) {
       // document.body.style.overflow = "auto";
-      window.scrollTo(0, 10);
+      window.scrollTo(0, 2);
       swiperInstance.update();
       // swiperInstance.mousewheel.enable();
       swiperInstance.slideTo(0, 2000);

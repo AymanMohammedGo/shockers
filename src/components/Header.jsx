@@ -52,7 +52,7 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
   // console.log(hide);
   useEffect(() => {
     const handleScroll = () => {
-      setHide(window.scrollY >= 1);
+      setHide(window.scrollY >= 2);
     };
 
     window.addEventListener("scroll", handleScroll);

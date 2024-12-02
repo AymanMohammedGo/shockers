@@ -126,51 +126,56 @@ const ProjectsSection = ({
             </div>
             <Link
               href={``}
-              className="grid grid-cols-3 grid-rows-3 gap-3 md:gap-4 w-full md:w-7/12 h-full p-0 md:p-4"
+              className="grid grid-cols-3 grid-rows-3 gap-3 md:gap-4 w-full md:w-7/12 h-full min-h-[70%] p-0 md:p-4"
             >
               {isLoading &&
                 projects?.map((item, i) => (
-                  <Swiper
-                    initialSlide={0}
-                    key={i}
-                    effect={"cube"}
-                    grabCursor={true}
-                    cubeEffect={{
-                      shadow: true,
-                      slideShadows: false,
-                      shadowOffset: 20,
-                      shadowScale: 0.94,
-                    }}
-                    direction={i % 2 === 0 ? "vertical" : "horizontal"}
-                    reverseDirection={i > 3 ? true : false}
-                    autoplay={{
-                      delay: 3000,
-                      disableOnInteraction: false,
-                    }}
-                    //pagination={true}
-                    // pagination={{ clickable: true }}
-                    modules={[EffectCube, Autoplay]}
+                  <motion.div
+                    key={""}
                     className={
-                      i === 0
-                        ? "col-span-2 row-span-2  overflow-hidden  relative mySwiper h-full w-full"
-                        : "col-span-1 row-span-1  overflow-hidden  relative mySwiper h-full w-full"
+                      i === 0 || i == 6
+                        ? "col-span-2 row-span-2 rounded-lg md:rounded-xl overflow-hidden bg-gray-200 relative"
+                        : "col-span-1 row-span-1 rounded-lg md:rounded-xl overflow-hidden bg-gray-200 relative"
                     }
-                    loop={true}
-                    speed={2000}
                   >
-                    {item?.images?.map((img, index) => (
-                      <SwiperSlide key={index} className="h-full w-full">
-                        <Image
-                          src={img}
-                          alt={``}
-                          fill={true}
-                          objectFit="cover"
-                          className={`transition-transform duration-500 h-full w-full object-cover rounded-lg md:rounded-xl`}
-                          priority
-                        />
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
+                    <Swiper
+                      initialSlide={0}
+                      key={i}
+                      effect={"cube"}
+                      grabCursor={true}
+                      cubeEffect={{
+                        shadow: true,
+                        slideShadows: false,
+                        shadowOffset: 20,
+                        shadowScale: 0.94,
+                      }}
+                      direction={i > 2 ? "vertical" : "horizontal"}
+                      autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                      }}
+                      //pagination={true}
+                      // pagination={{ clickable: true }}
+
+                      modules={[EffectCube, Autoplay]}
+                      className={" mySwiper h-full w-full"}
+                      loop={true}
+                      speed={2000}
+                    >
+                      {item?.images?.map((img, index) => (
+                        <SwiperSlide key={index} className="h-full w-full">
+                          <Image
+                            src={img}
+                            alt={``}
+                            fill={true}
+                            objectFit="cover"
+                            className={`transition-transform duration-500 h-full w-full object-cover rounded-lg md:rounded-xl`}
+                            priority
+                          />
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </motion.div>
                 ))}
             </Link>
           </div>

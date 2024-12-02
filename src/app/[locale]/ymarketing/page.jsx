@@ -160,12 +160,21 @@ const Y_MarketingHome = ({ params: { locale } }) => {
       // }, 2000);
     }
   };
+  // const toggleVisibility = () => {
+  //   if (window.pageYOffset >= 1) {
+  //     setIsVisible(true);
+  //   } else {
+  //     setIsVisible(false);
+  //   }
+  // };
   const toggleVisibility = () => {
-    if (window.pageYOffset >= 1) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
+    requestAnimationFrame(() => {
+      if (window.pageYOffset >= 1) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    });
   };
 
   useEffect(() => {

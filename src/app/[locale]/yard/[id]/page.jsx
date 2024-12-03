@@ -25,7 +25,6 @@ const SubProject = ({ params: { locale, id } }) => {
   if (locale === "kr") {
     lan = "af";
   }
-  const [projects, setProjects] = useState([]);
   const [project, setProject] = useState();
   const [getDetailProject, setGetDetailProject] = useState();
   const assignLocalizationIDs = (locale, id, localizations) => {
@@ -49,11 +48,6 @@ const SubProject = ({ params: { locale, id } }) => {
       router.push(`/yard/${lanID.af}`);
     }
   };
-  const getProjects_ = useCallback(() => {
-    getProjects(lan).then((res) => {
-      setProjects(res.data.data);
-    });
-  }, [lan]);
 
   const getProject_ = useCallback(() => {
     getProject(lan, id)
@@ -76,10 +70,9 @@ const SubProject = ({ params: { locale, id } }) => {
     });
   }, [lan]);
   useEffect(() => {
-    getProjects_();
     getProject_();
     getDetail_project_();
-  }, [getProjects_, getProject_, getDetail_project_]);
+  }, [getProject_, getDetail_project_]);
   const [scrollingDown, setScrollingDown] = useState(false);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -290,13 +283,13 @@ const SubProject = ({ params: { locale, id } }) => {
             description={project?.attributes?.description}
             location={project?.attributes?.location}
             StartingEndingYear={project?.attributes?.StartingEndingYear}
-            imgURL={project?.attributes?.imgURl?.data?.attributes?.url}
+            imgURL={project?.attributes?.imgURL?.data?.attributes?.url}
           />
         </SwiperSlide>
         {project?.attributes?.imgesGroup?.data?.map((item, index) => (
           <div key={index}>
             <SwiperSlide className="relative w-full h-full">
-              <div className="relative h-screen w-screen my-40">
+              <div className="relative h-screen w-screen ">
                 <Image
                   className="object-cover"
                   src={item?.attributes?.url}

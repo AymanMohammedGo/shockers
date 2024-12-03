@@ -29,86 +29,16 @@ const ProjectsSection = ({
         index * imagesPerProject,
         (index + 1) * imagesPerProject
       ),
-      interval: 3000 + index * 100,
+      interval: 3000 + Math.random() * 2000,
     };
   });
 
-  const [currentImages, setCurrentImages] = useState(
-    projects.map((p) => (Array.isArray(p?.images) ? p.images[0] : null))
-  );
-
-  const [projectOrder, setProjectOrder] = useState([0, 1, 2, 3, 4, 5]);
-
-  // const directions = ["left", "right", "up", "down"];
-
-  // Assign a random direction to each project
-  // const getRandomDirection = () =>
-  //   directions[Math.floor(Math.random() * directions.length)];
-  // const randomDirections = projectOrder.map(() => getRandomDirection());
-
-  // const getMotionProps = (direction) => {
-  //   const transition = { duration: 1, ease: "easeOut" };
-
-  //   switch (direction) {
-  //     case "left":
-  //       return {
-  //         initial: { x: "-100%" },
-  //         animate: { x: 0 },
-  //         transition: transition,
-  //       };
-  //     case "right":
-  //       return {
-  //         initial: { x: "100%" },
-  //         animate: { x: 0 },
-  //         transition: transition,
-  //       };
-  //     case "up":
-  //       return {
-  //         initial: { y: "-100%" },
-  //         animate: { y: 0 },
-  //         transition: transition,
-  //       };
-  //     case "down":
-  //       return {
-  //         initial: { y: "100%" },
-  //         animate: { y: 0 },
-  //         transition: transition,
-  //       };
-  //     default:
-  //       return {
-  //         initial: { x: "100%" },
-  //         animate: { x: 0 },
-  //         transition: transition,
-  //       };
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   const intervals = projects.map((project, index) =>
-  //     setInterval(() => {
-  //       setCurrentImages((prevImages) =>
-  //         prevImages.map((currentImage, i) => {
-  //           if (i === index) {
-  //             const projectImages = project.images;
-  //             const nextIndex =
-  //               (projectImages?.indexOf(currentImage) + 1) %
-  //               projectImages?.length;
-  //             return projectImages[nextIndex];
-  //           }
-  //           return currentImage;
-  //         })
-  //       );
-  //     }, project.interval)
-  //   );
-
-  //   // return () => intervals.forEach((interval) => clearInterval(interval));
-  // }, [data]);
   useEffect(() => {
-    // إذا كانت البيانات قد تم تحميلها بالفعل
     if (totalImages.length > 0) {
       setIsLoading(true);
     }
   }, [totalImages]);
+
   return (
     <section className="w-screen h-screen">
       <div
@@ -125,7 +55,7 @@ const ProjectsSection = ({
               </span>
             </div>
             <Link
-              href={``}
+              href={`${link}/projects`}
               className="grid grid-cols-3 grid-rows-3 gap-3 md:gap-4 w-full md:w-7/12 h-full min-h-[70%] p-0 md:p-4"
             >
               {isLoading &&
@@ -144,19 +74,21 @@ const ProjectsSection = ({
                       effect={"cube"}
                       grabCursor={true}
                       cubeEffect={{
-                        shadow: true,
+                        shadow: false,
                         slideShadows: false,
                         shadowOffset: 20,
                         shadowScale: 0.94,
                       }}
-                      direction={i > 2 ? "vertical" : "horizontal"}
+                      direction={
+                        Math.random() > 0.5 ? "vertical" : "horizontal"
+                      }
+                      //direction={directions[i]}
                       autoplay={{
-                        delay: 3000,
+                        delay: projects[i].interval,
                         disableOnInteraction: false,
                       }}
                       //pagination={true}
                       // pagination={{ clickable: true }}
-
                       modules={[EffectCube, Autoplay]}
                       className={" mySwiper h-full w-full"}
                       loop={true}

@@ -8,6 +8,7 @@ import { useRef } from "react";
 import AboutTopSection from "@/components/AboutTopVideo";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import { Mousewheel, Keyboard } from "swiper/modules";
@@ -273,10 +274,11 @@ const About = ({ params: { locale } }) => {
                   postion={"absolute right-0"}
                 />
               </div>
+
               <div className="relative max-w-screen-xxl m-auto flex flex-col items-start overflow-hidden">
-                <div
-                  className={`flex flex-col md:flex-row items-center justify-center md:justify-between h-screen overflow-hidden`}
-                >
+                <motion.div className="absolute h-full hidden sm:flex top-0 left-[calc(100px + 10px)] w-[5px] bg-shockersAEC z-10" />
+
+                {/* <div className="flex flex-col items-center justify-center h-screen overflow-hidden">
                   <motion.div
                     custom={document.dir}
                     variants={animationVariants}
@@ -288,7 +290,6 @@ const About = ({ params: { locale } }) => {
                       <span className="relative z-10 ">
                         {item?.attributes.title}
                       </span>
-                      {/* <span className="absolute left-0 bottom-2 h-5 bg-shockerYellow w-full -z-10"></span> */}
                     </h2>
 
                     <p
@@ -297,6 +298,57 @@ const About = ({ params: { locale } }) => {
                       {item?.attributes.description}
                     </p>
                   </motion.div>
+                </div> */}
+                <div className="flex flex-col items-center justify-center h-screen overflow-hidden">
+                  <div className="relative flex items-center z-10 w-full  ">
+                    {/* الخط الأفقي والدائرة */}
+                    <motion.div
+                      initial={{
+                        x: document.dir === "ltr" ? "-100%" : "100%",
+                        opacity: 0,
+                      }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      transition={{
+                        duration: 1,
+                      }}
+                      className="relative  items-center hidden sm:flex"
+                    >
+                      <div className="w-0 md:w-[50px] lg:w-[100px] h-[5px] bg-shockersAEC"></div>
+                      <div className="relative">
+                        <div
+                          className={`w-[20px] h-[20px] rounded-full bg-shockersAEC ${
+                            document.dir === "ltr"
+                              ? " -ml-[10px]"
+                              : " -mr-[10px]"
+                          }`}
+                        ></div>
+                      </div>
+                    </motion.div>
+                    {/* العنوان */}
+                    <motion.h2
+                      custom={document.dir}
+                      variants={animationVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      className="sm:mx-4 w-full text-shockersAEC font-bold text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[50px] lg:!leading-[70px]"
+                    >
+                      {item?.attributes.title}
+                    </motion.h2>
+                  </div>
+                  {/* النص */}
+                  <motion.p
+                    custom={document.dir}
+                    variants={animationVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    className={`${
+                      document.dir === "ltr"
+                        ? "sm:ml-[26px] md:ml-[78px] lg:ml-[130px]"
+                        : "sm:mr-[26px] md:mr-[78px] lg:mr-[130px]"
+                    } text-justify hyphens-auto text-shockersAEC text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10`}
+                  >
+                    {item?.attributes.description}
+                  </motion.p>
                 </div>
               </div>
             </div>

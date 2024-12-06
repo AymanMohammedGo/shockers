@@ -42,7 +42,6 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
       link: `/${name}/contact`,
     },
   ];
-  const { scrollY } = useScroll();
   const [hide, setHide] = useState(false);
 
   // useEffect(() => {
@@ -82,17 +81,20 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
+
   return (
     <>
-      <motion.header
-        initial={{ y: "-100%" }}
-        animate={{ y: hide ? "-100%" : 0 }}
-        transition={{
-          duration: 1,
-          delay: 0,
-        }}
-        className="absolute w-full z-20 bg-primary   "
+      <header
+        className={`absolute w-full z-20 bg-primary transition-transform duration-1000 ${
+          hide ? "-translate-y-full" : "translate-y-0"
+        }`}
+        // initial={{ y: "-100%" }}
+        // animate={{ y: hide ? "-100%" : 0 }}
+        // transition={{
+        //   duration: 1,
+        //   delay: 0,
+        // }}
+        // className="absolute w-full z-20 bg-primary   "
       >
         <div className=" max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
@@ -163,7 +165,7 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
             <LanguageChanger hover={hover} />
           </div>
         </div>
-      </motion.header>
+      </header>
     </>
   );
 };

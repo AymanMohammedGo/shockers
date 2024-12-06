@@ -155,10 +155,11 @@ const Y_MarketingHome = ({ params: { locale } }) => {
         top: 0,
         behavior: "smooth",
       });
+      // swiperInstance.update();
+      // swiperInstance.slideTo(0, 2000);
+
       // window.scrollTo(0, 2);
-      swiperInstance.update();
       // swiperInstance.mousewheel.enable();
-      swiperInstance.slideTo(0, 2000);
       // setTimeout(() => {
       //   window.scrollTo(0, 0);
       // }, 2000);

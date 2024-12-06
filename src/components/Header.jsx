@@ -45,17 +45,36 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
   const { scrollY } = useScroll();
   const [hide, setHide] = useState(false);
 
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollTop =
+  //       window.scrollY ||
+  //       document.documentElement.scrollTop ||
+  //       document.body.scrollTop;
+  //     setHide(scrollTop >= 2);
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const scrollTop =
-        window.scrollY ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop;
-      setHide(scrollTop >= 2);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollTop =
+            window.scrollY || document.documentElement.scrollTop;
+          setHide(scrollTop >= 2);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    // const handleScroll = () => {
-    //   setHide(window.scrollY >= 2);
-    // };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
 
@@ -63,7 +82,7 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+  
   return (
     <>
       <motion.header

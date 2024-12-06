@@ -146,7 +146,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   }, [searchParams, pathname, swiperInstance]);
 
   //button scroll top
-  const [isVisible, setIsVisible] = useState(false);
+  // const [isVisible, setIsVisible] = useState(false);
 
   const handleGoToFirstSlide = () => {
     if (swiperInstance) {
@@ -160,16 +160,42 @@ const Y_MarketingHome = ({ params: { locale } }) => {
       // }, 2000);
     }
   };
+  // // const toggleVisibility = () => {
+  // //   if (window.pageYOffset >= 1) {
+  // //     setIsVisible(true);
+  // //   } else {
+  // //     setIsVisible(false);
+  // //   }
+  // // };
   // const toggleVisibility = () => {
-  //   if (window.pageYOffset >= 1) {
-  //     setIsVisible(true);
-  //   } else {
-  //     setIsVisible(false);
-  //   }
+  //   requestAnimationFrame(() => {
+  //     if (window.pageYOffset >= 1) {
+  //       setIsVisible(true);
+  //     } else {
+  //       setIsVisible(false);
+  //     }
+  //   });
   // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", toggleVisibility);
+  //   return () => window.removeEventListener("scroll", toggleVisibility);
+  // }, []);
+  const [isVisible, setIsVisible] = useState(false);
+
   const toggleVisibility = () => {
-    requestAnimationFrame(() => {
-      if (window.pageYOffset >= 1) {
+    if (!window.requestAnimationFrame) {
+      // إذا كان `requestAnimationFrame` غير مدعوم
+      if (window.pageYOffset > 1) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      if (window.pageYOffset > 1) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -178,7 +204,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
@@ -419,7 +445,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
         {isVisible && (
           <button
             onClick={handleGoToFirstSlide}
-            className="p-3 rounded-full   text-white  bg-shockersAEC/20  shadow-2xl   transition-transform transform hover:scale-110 focus:outline-none "
+            className="p-3 rounded-full text-white  bg-shockersAEC/20  shadow-2xl   transition-transform transform hover:scale-110 focus:outline-none "
             style={{ transition: "transform 0.2s ease-in-out" }}
           >
             <svg

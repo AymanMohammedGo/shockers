@@ -21,7 +21,6 @@ const ProjectsSection = ({
 
     const imagesPerProject = Math.ceil(totalImages.length / numberOfProjects);
     const shuffledImages = totalImages.sort(() => Math.random() - 0.5);
-
     return Array.from({ length: numberOfProjects }, (_, index) => ({
       id: index + 1,
       images: shuffledImages.slice(
@@ -62,6 +61,9 @@ const ProjectsSection = ({
                   }
                 >
                   <Swiper
+                    lazy={true} // تحميل الصور عند الطلب
+                    preloadImages={false}
+                    key={item.id}
                     effect={"cube"}
                     grabCursor={true}
                     cubeEffect={{
@@ -70,6 +72,7 @@ const ProjectsSection = ({
                     }}
                     direction={Math.random() > 0.5 ? "vertical" : "horizontal"}
                     autoplay={{
+                      pauseOnMouseEnter: true, // وقفة أثناء مرور المؤشر
                       delay: item.interval,
                       disableOnInteraction: false,
                     }}

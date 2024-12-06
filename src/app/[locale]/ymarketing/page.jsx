@@ -149,15 +149,14 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   // const [isVisible, setIsVisible] = useState(false);
 
   const handleGoToFirstSlide = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     if (swiperInstance) {
       // document.body.style.overflow = "auto";
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
       // swiperInstance.update();
       // swiperInstance.slideTo(0, 2000);
-
       // window.scrollTo(0, 2);
       // swiperInstance.mousewheel.enable();
       // setTimeout(() => {

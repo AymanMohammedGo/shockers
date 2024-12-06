@@ -364,87 +364,89 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   }, [isLastSlide, isFirstSlide, swiperInstance]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { delay: 1 } }}
-    >
-      <Draw_YMar animationData={YMar_json} delay={500} speed={0.4} />
-      <Swiper
-        onSwiper={setSwiperInstance}
-        className="w-screen h-screen"
-        direction={"vertical"}
-        speed={1000}
-        grabCursor={true}
-        modules={[Mousewheel, Keyboard]}
-        mousewheel={{
-          releaseOnEdges: true,
-        }}
-        keyboard={{
-          releaseOnEdges: true,
-        }}
-        onWheel={handleWheel}
-        onTransitionEnd={handleTransitionEnd}
+    <>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { delay: 1 } }}
       >
-        <SwiperSlide className="relative w-full h-full">
-          <SalgonSection
-            titleText={solgan}
-            colorText="text-yMarketing"
-            dir={document.dir}
-          />
-        </SwiperSlide>
-        <SwiperSlide className="relative w-full h-full">
-          <AboutSection
-            link="ymarketing"
-            videoMobile="/Y website mobile version1.mp4"
-            videoLoptap="/Y website PC version1.mp4"
-            title={data?.attributes?.TitleAbout}
-            description={data?.attributes?.DescriptionAbout}
-            textButton={data?.attributes?.TextButton}
-            bg="bg-white"
-            tc="text-shockersAEC"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="relative w-full h-full">
-          <SlideServicesSection
-            services={services}
-            title={data?.attributes?.NameServices}
-            link="ymarketing"
-            bg="bg-Hover-gradient"
-            tc="text-white"
-            dir={document.dir}
-          />
-        </SwiperSlide>
-        <SwiperSlide className="relative w-full h-full">
-          <ScuccessInNumber
-            data={scuccessInNumber}
-            title={data?.attributes?.NameServices}
-            link="ymarketing"
-            bg="bg-Hover-gradient"
-            tc="text-white"
-            dir={document.dir}
-          />
-        </SwiperSlide>
-        <SwiperSlide className="relative w-full h-full">
-          <ClientsLogo data={clients} />
-        </SwiperSlide>
-        <SwiperSlide className="relative w-full h-full">
-          <ProjectsSection data={projects?.attributes} />
-        </SwiperSlide>
-        <SwiperSlide className="relative w-full h-full">
-          <div className="flex flex-col justify-center items-center h-full max-w-screen-xl text-center m-auto">
-            <div className="bg-yMarketing m-3 px-5 py-20 lg:p-20 rounded-2xl text-white">
-              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-12">
-                {data?.attributes?.ARE_YOU_INTERESTED}
-              </h1>
-              <Link href="/ymarketing/contact">
-                <button className="w-fit text-xl lg:text-2xl xl:text-3xl font-medium bg-shockerYellow text-yMarketing rounded-xl hover:bg-white hover:text-yMarketing  py-3 px-10">
-                  {data?.attributes?.Contact_Us}
-                </button>
-              </Link>
+        <Draw_YMar animationData={YMar_json} delay={500} speed={0.4} />
+        <Swiper
+          onSwiper={setSwiperInstance}
+          className="w-screen h-screen"
+          direction={"vertical"}
+          speed={1000}
+          grabCursor={true}
+          modules={[Mousewheel, Keyboard]}
+          mousewheel={{
+            releaseOnEdges: true,
+          }}
+          keyboard={{
+            releaseOnEdges: true,
+          }}
+          onWheel={handleWheel}
+          onTransitionEnd={handleTransitionEnd}
+        >
+          <SwiperSlide className="relative w-full h-full">
+            <SalgonSection
+              titleText={solgan}
+              colorText="text-yMarketing"
+              dir={document.dir}
+            />
+          </SwiperSlide>
+          <SwiperSlide className="relative w-full h-full">
+            <AboutSection
+              link="ymarketing"
+              videoMobile="/Y website mobile version1.mp4"
+              videoLoptap="/Y website PC version1.mp4"
+              title={data?.attributes?.TitleAbout}
+              description={data?.attributes?.DescriptionAbout}
+              textButton={data?.attributes?.TextButton}
+              bg="bg-white"
+              tc="text-shockersAEC"
+            />
+          </SwiperSlide>
+          <SwiperSlide className="relative w-full h-full">
+            <SlideServicesSection
+              services={services}
+              title={data?.attributes?.NameServices}
+              link="ymarketing"
+              bg="bg-Hover-gradient"
+              tc="text-white"
+              dir={document.dir}
+            />
+          </SwiperSlide>
+          <SwiperSlide className="relative w-full h-full">
+            <ScuccessInNumber
+              data={scuccessInNumber}
+              title={data?.attributes?.NameServices}
+              link="ymarketing"
+              bg="bg-Hover-gradient"
+              tc="text-white"
+              dir={document.dir}
+            />
+          </SwiperSlide>
+          <SwiperSlide className="relative w-full h-full">
+            <ClientsLogo data={clients} />
+          </SwiperSlide>
+          <SwiperSlide className="relative w-full h-full">
+            <ProjectsSection data={projects?.attributes} />
+          </SwiperSlide>
+          <SwiperSlide className="relative w-full h-full">
+            <div className="flex flex-col justify-center items-center h-full max-w-screen-xl text-center m-auto">
+              <div className="bg-yMarketing m-3 px-5 py-20 lg:p-20 rounded-2xl text-white">
+                <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-12">
+                  {data?.attributes?.ARE_YOU_INTERESTED}
+                </h1>
+                <Link href="/ymarketing/contact">
+                  <button className="w-fit text-xl lg:text-2xl xl:text-3xl font-medium bg-shockerYellow text-yMarketing rounded-xl hover:bg-white hover:text-yMarketing  py-3 px-10">
+                    {data?.attributes?.Contact_Us}
+                  </button>
+                </Link>
+              </div>
             </div>
-          </div>
-        </SwiperSlide>
-      </Swiper>
+          </SwiperSlide>
+        </Swiper>
+      </motion.div>
       <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
         {isVisible && (
           <button
@@ -471,7 +473,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           </button>
         )}
       </div>
-    </motion.div>
+    </>
   );
 };
 

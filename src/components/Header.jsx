@@ -45,17 +45,19 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
   const { scrollY } = useScroll();
   const [hide, setHide] = useState(false);
 
-  // Update hide state based on scroll position
-  // useMotionValueEvent(scrollY, "change", (latest) => {
-  //   setHide(latest >= 1);
-  // });
-  // console.log(hide);
   useEffect(() => {
     const handleScroll = () => {
-      setHide(window.scrollY >= 2);
+      const scrollTop =
+        window.scrollY ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+      setHide(scrollTop >= 2);
     };
+    // const handleScroll = () => {
+    //   setHide(window.scrollY >= 2);
+    // };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);

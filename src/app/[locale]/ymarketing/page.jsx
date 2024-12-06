@@ -149,20 +149,22 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   // const [isVisible, setIsVisible] = useState(false);
 
   const handleGoToFirstSlide = () => {
+    // if (swiperInstance) {
+    //   // document.body.style.overflow = "auto";
+
+    //   swiperInstance.update();
+    //   swiperInstance.slideTo(0, 2000);
+
+    //   // window.scrollTo(0, 2);
+    //   // swiperInstance.mousewheel.enable();
+    //   // setTimeout(() => {
+    //   //   window.scrollTo(0, 0);
+    //   // }, 2000);
+    // }
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-    if (swiperInstance) {
-      // document.body.style.overflow = "auto";
-      // swiperInstance.update();
-      // swiperInstance.slideTo(0, 2000);
-      // window.scrollTo(0, 2);
-      // swiperInstance.mousewheel.enable();
-      // setTimeout(() => {
-      //   window.scrollTo(0, 0);
-      // }, 2000);
-    }
   };
   // // const toggleVisibility = () => {
   // //   if (window.pageYOffset >= 1) {
@@ -188,23 +190,11 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
-    if (!window.requestAnimationFrame) {
-      // إذا كان `requestAnimationFrame` غير مدعوم
-      if (window.pageYOffset > 1) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-      return;
+    if (window.pageYOffset > 1) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
     }
-
-    window.requestAnimationFrame(() => {
-      if (window.pageYOffset > 1) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    });
   };
 
   useEffect(() => {

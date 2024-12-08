@@ -330,85 +330,61 @@ const Y_MarketingHome = ({ params: { locale } }) => {
 
   //Mobile
 
-  const [isFirstSlide, setIsFirstSlide] = useState(false);
+  // const [isFirstSlide, setIsFirstSlide] = useState(false);
 
-  useEffect(() => {
-    if (swiperInstance) {
-      swiperInstance.on("slideChange", () => {
-        setIsLastSlide(swiperInstance.isEnd);
-        setIsFirstSlide(swiperInstance.isBeginning);
-      });
-    }
-  }, [swiperInstance]);
+  // useEffect(() => {
+  //   if (swiperInstance) {
+  //     swiperInstance.on("slideChange", () => {
+  //       setIsLastSlide(swiperInstance.isEnd);
+  //       setIsFirstSlide(swiperInstance.isBeginning);
+  //     });
+  //   }
+  // }, [swiperInstance]);
 
-  useEffect(() => {
-    if (swiperInstance) {
-      let startY = 0;
-      let endY = 0;
+  // useEffect(() => {
+  //   if (swiperInstance) {
+  //     let startY = 0;
+  //     let endY = 0;
 
-      const handleTouchStart = (e) => {
-        startY = e.touches[0].clientY;
-      };
+  //     const handleTouchStart = (e) => {
+  //       startY = e.touches[0].clientY;
+  //     };
 
-      // const handleTouchMove = (e) => {
-      //   endY = e.touches[0].clientY;
-      //   const deltaY = endY - startY;
-      //   if (isLastSlide && deltaY < -200) {
-      //     swiperInstance.allowTouchMove = false;
-      //     window.scrollTo(0, 650);
-      //   } else if (isFirstSlide && deltaY > +200) {
-      //     // console.log(isFirstSlide, deltaY);
-      //     swiperInstance.allowTouchMove = false;
-      //     window.scrollTo(0, 0);
-      //   } else {
-      //     swiperInstance.allowTouchMove = true;
-      //   }
-      // };
+  //     const handleTouchMove = (e) => {
+  //       endY = e.touches[0].clientY;
+  //       const deltaY = endY - startY;
+  //       if (isLastSlide && deltaY < -200) {
+  //         swiperInstance.allowTouchMove = false;
+  //         window.scrollTo(0, 650);
+  //       } else if (isFirstSlide && deltaY > +200) {
+  //         // console.log(isFirstSlide, deltaY);
+  //         swiperInstance.allowTouchMove = false;
+  //         window.scrollTo(0, 0);
+  //       } else {
+  //         swiperInstance.allowTouchMove = true;
+  //       }
+  //     };
 
-      const handleTouchMove = (e) => {
-        endY = e.touches[0].clientY;
-        const deltaY = endY - startY;
-        // console.log("deltaY:", deltaY);
-        if (isLastSlide && deltaY < -200) {
-          swiperInstance.allowTouchMove = false;
-          window.scrollTo({ top: 650, behavior: "smooth" });
-        } else if (isFirstSlide && deltaY > 200) {
-          swiperInstance.allowTouchMove = false;
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          swiperInstance.allowTouchMove = true;
-        }
-      };
+  //     const handleTouchEnd = () => {
+  //       swiperInstance.allowTouchMove = true;
+  //     };
 
-      const handleTouchEnd = () => {
-        swiperInstance.allowTouchMove = true;
-      };
+  //     swiperInstance?.el?.addEventListener("touchstart", handleTouchStart);
+  //     swiperInstance?.el?.addEventListener("touchmove", handleTouchMove);
+  //     swiperInstance?.el?.addEventListener("touchend", handleTouchEnd);
 
-      swiperInstance?.el?.addEventListener("touchstart", handleTouchStart, {
-        passive: false,
-      });
-      swiperInstance?.el?.addEventListener("touchmove", handleTouchMove, {
-        passive: false,
-      });
-      swiperInstance?.el?.addEventListener("touchend", handleTouchEnd, {
-        passive: false,
-      });
-      // swiperInstance?.el?.addEventListener("touchstart", handleTouchStart);
-      // swiperInstance?.el?.addEventListener("touchmove", handleTouchMove);
-      // swiperInstance?.el?.addEventListener("touchend", handleTouchEnd);
-
-      return () => {
-        if (swiperInstance) {
-          swiperInstance?.el?.removeEventListener(
-            "touchstart",
-            handleTouchStart
-          );
-          swiperInstance?.el?.removeEventListener("touchmove", handleTouchMove);
-          swiperInstance?.el?.removeEventListener("touchend", handleTouchEnd);
-        }
-      };
-    }
-  }, [isLastSlide, isFirstSlide, swiperInstance]);
+  //     return () => {
+  //       if (swiperInstance) {
+  //         swiperInstance?.el?.removeEventListener(
+  //           "touchstart",
+  //           handleTouchStart
+  //         );
+  //         swiperInstance?.el?.removeEventListener("touchmove", handleTouchMove);
+  //         swiperInstance?.el?.removeEventListener("touchend", handleTouchEnd);
+  //       }
+  //     };
+  //   }
+  // }, [isLastSlide, isFirstSlide, swiperInstance]);
 
   return (
     <>

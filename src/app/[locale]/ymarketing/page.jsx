@@ -360,7 +360,9 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           // console.log(isFirstSlide, deltaY);
           window.alert(window.scrollY, document.documentElement.scrollTop);
           swiperInstance.allowTouchMove = false;
-          window.scrollTo(0, 0);
+          window.setTimeout(() => {
+            window.scrollTo(0, 0);
+          }, 0);
         } else {
           swiperInstance.allowTouchMove = true;
         }

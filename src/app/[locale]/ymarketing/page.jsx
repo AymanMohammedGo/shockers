@@ -249,8 +249,6 @@ const Y_MarketingHome = ({ params: { locale } }) => {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
       window.scrollTo(0, 2);
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
     }
   }, []);
   const handleWheel = useCallback((event) => {
@@ -366,6 +364,8 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           window.setTimeout(() => {
             window.scrollTo(0, 0);
           }, 50);
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
           swiperInstance.allowTouchMove = false;
         } else {
           swiperInstance.allowTouchMove = true;

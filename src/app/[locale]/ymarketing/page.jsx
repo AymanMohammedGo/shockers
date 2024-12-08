@@ -161,10 +161,12 @@ const Y_MarketingHome = ({ params: { locale } }) => {
     //   //   window.scrollTo(0, 0);
     //   // }, 2000);
     // }
+    document.body.style.overflow = "auto";
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+    document.body.style.overflow = "hidden";
   };
   // // const toggleVisibility = () => {
   // //   if (window.pageYOffset >= 1) {

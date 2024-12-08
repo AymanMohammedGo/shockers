@@ -361,6 +361,8 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           // console.log(isFirstSlide, deltaY);
           swiperInstance.allowTouchMove = false;
           window.scrollTo(0, 0);
+        } else if (isFirstSlide) {
+          window.scrollTo(0, 0);
         } else {
           swiperInstance.allowTouchMove = true;
         }

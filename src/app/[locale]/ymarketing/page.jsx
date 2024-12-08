@@ -128,10 +128,13 @@ const Y_MarketingHome = ({ params: { locale } }) => {
       swiperInstance.slideTo(lastSlideIndex, 2000);
     }
   };
-
+  const [urlParams, setUrlParams] = useState(
+    new URLSearchParams(window.location.search)
+  );
   useEffect(() => {
     const search = searchParams.get("projects");
     const searchClient = searchParams.get("clients");
+    const scroll = searchParams.get("scroll");
 
     if (search === "show") {
       setTimeout(() => {
@@ -143,30 +146,59 @@ const Y_MarketingHome = ({ params: { locale } }) => {
         handleGoToBeforeLastSlide(3);
       }, 0);
     }
-  }, [searchParams, pathname, swiperInstance]);
+    if (scroll === "show") {
+      setTimeout(() => {
+        handleGoToBeforeLastSlide(7);
+      }, 0);
+    }
+  }, [urlParams, searchParams, pathname, swiperInstance]);
 
-  //button scroll top
+  // button scroll top
   // const [isVisible, setIsVisible] = useState(false);
 
   const handleGoToFirstSlide = () => {
-    // if (swiperInstance) {
-    //   // document.body.style.overflow = "auto";
+    const url = new URL(window.location);
+    const scroll = new URLSearchParams(url.search);
+    scroll.delete("scroll");
+    scroll.delete("projects");
+    scroll.delete("clients");
 
-    //   swiperInstance.update();
-    //   swiperInstance.slideTo(0, 2000);
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: "smooth",
+    // });
 
-    //   // window.scrollTo(0, 2);
-    //   // swiperInstance.mousewheel.enable();
-    //   // setTimeout(() => {
-    //   //   window.scrollTo(0, 0);
-    //   // }, 2000);
-    // }
-    document.body.style.overflow = "hidden";
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    // إعادة تعيين المعاملة إلى قيمة مؤقتة
+    scroll.set("scroll", "temp");
+    url.search = scroll.toString();
+    window.history.pushState({}, "", url);
+    setUrlParams(new URLSearchParams(url.search));
+
+    // تحديث المعاملة إلى القيمة النهائية
+    scroll.set("scroll", "show");
+    url.search = scroll.toString();
+    window.history.pushState({}, "", url);
+    setUrlParams(new URLSearchParams(url.search));
   };
+  // const handleGoToFirstSlide = () => {
+  //   // if (swiperInstance) {
+  //   //   // document.body.style.overflow = "auto";
+
+  //   //   swiperInstance.update();
+  //   //   swiperInstance.slideTo(0, 2000);
+
+  //   //   // window.scrollTo(0, 2);
+  //   //   // swiperInstance.mousewheel.enable();
+  //   //   // setTimeout(() => {
+  //   //   //   window.scrollTo(0, 0);
+  //   //   // }, 2000);
+  //   // }
+  //   document.body.style.overflow = "hidden";
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
   // // const toggleVisibility = () => {
   // //   if (window.pageYOffset >= 1) {
   // //     setIsVisible(true);

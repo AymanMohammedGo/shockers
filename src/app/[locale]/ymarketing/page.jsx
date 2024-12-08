@@ -149,6 +149,10 @@ const Y_MarketingHome = ({ params: { locale } }) => {
     if (scroll === "show") {
       setTimeout(() => {
         handleGoToBeforeLastSlide(7);
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       }, 0);
     }
   }, [urlParams, searchParams, pathname, swiperInstance]);

@@ -359,8 +359,9 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           window.scrollTo(0, 650);
         } else if (isFirstSlide && deltaY > +200) {
           // console.log(isFirstSlide, deltaY);
-          window.alert(window.scrollY, deltaY);
-          swiperInstance.allowTouchMove = false;
+          window.alert(window.scrollY);
+          window.alert(deltaY);
+          //swiperInstance.allowTouchMove = false;
           window.setTimeout(() => {
             window.scrollTo(0, 0);
           }, 0);

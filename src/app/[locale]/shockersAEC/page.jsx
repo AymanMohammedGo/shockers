@@ -21,6 +21,7 @@ import { useSearchParams, usePathname } from "next/navigation";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Mousewheel, Keyboard } from "swiper/modules";
+import ScrollToTopButton from "@/components/scrollTop";
 
 const ShockersHome = ({ params: { locale } }) => {
   let lan = locale;
@@ -339,7 +340,7 @@ const ShockersHome = ({ params: { locale } }) => {
           />
         </SwiperSlide>
       </Swiper>
-      <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
+      {/*<div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
         {isVisible && (
           <button
             onClick={handleGoToFirstSlide}
@@ -364,7 +365,8 @@ const ShockersHome = ({ params: { locale } }) => {
             </svg>
           </button>
         )}
-      </div>
+      </div>*/}
+      <ScrollToTopButton />
     </motion.div>
   );
 };

@@ -68,7 +68,6 @@ const Header = ({ logo, name, width, hover, text, linksNames, Dir }) => {
         window.requestAnimationFrame(() => {
           const scrollTop =
             window.scrollY || document.documentElement.scrollTop;
-          window.alert(scrollTop);
           setHide(scrollTop >= 2);
           ticking = false;
         });

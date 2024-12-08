@@ -335,6 +335,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   useEffect(() => {
     if (swiperInstance) {
       swiperInstance.on("slideChange", () => {
+        window.alert(scrollTop);
         setIsLastSlide(swiperInstance.isEnd);
         setIsFirstSlide(swiperInstance.isBeginning);
       });

@@ -243,8 +243,8 @@ const Y_MarketingHome = ({ params: { locale } }) => {
       document.body.style.overflow = "auto";
     } else if (swiper.activeIndex === 0) {
       //swiper.mousewheel.disable();
-      document.body.style.overflow = "auto";
-      //window.scrollTo(0, 0);
+      //document.body.style.overflow = "auto";
+      window.scrollTo(0, 0);
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
@@ -361,10 +361,10 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           // console.log(isFirstSlide, deltaY);
           window.alert(window.scrollY);
           window.alert(deltaY);
-          swiperInstance.allowTouchMove = false;
           window.setTimeout(() => {
             window.scrollTo(0, 0);
           }, 50);
+          swiperInstance.allowTouchMove = false;
         } else {
           swiperInstance.allowTouchMove = true;
         }

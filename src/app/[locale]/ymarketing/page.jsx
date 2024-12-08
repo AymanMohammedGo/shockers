@@ -161,6 +161,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
     //   //   window.scrollTo(0, 0);
     //   // }, 2000);
     // }
+    window.alert("sad");
     document.body.style.overflow = "auto";
     window.scrollTo({
       top: 0,

@@ -351,6 +351,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
       };
 
       const handleTouchMove = (e) => {
+        e.preventDefault();
         endY = e.touches[0].clientY;
         const deltaY = endY - startY;
         if (isLastSlide && deltaY < -200) {
@@ -358,7 +359,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           window.scrollTo(0, 650);
         } else if (isFirstSlide && deltaY > +200) {
           // console.log(isFirstSlide, deltaY);
-          window.alert(window.scrollY, document.documentElement.scrollTop);
+          window.alert(window.scrollY, deltaY);
           swiperInstance.allowTouchMove = false;
           window.setTimeout(() => {
             window.scrollTo(0, 0);

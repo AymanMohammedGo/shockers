@@ -364,7 +364,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           //swiperInstance.allowTouchMove = false;
           window.setTimeout(() => {
             window.scrollTo(0, 0);
-          }, 0);
+          }, 50);
         } else {
           swiperInstance.allowTouchMove = true;
         }

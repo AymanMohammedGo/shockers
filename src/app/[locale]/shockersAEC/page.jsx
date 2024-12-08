@@ -111,12 +111,16 @@ const ShockersHome = ({ params: { locale } }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleGoToFirstSlide = () => {
+    document.body.style.overflow = "auto";
+    window.scrollTo(0, 2);
+    document.body.style.overflow = "hidden";
+
     if (swiperInstance) {
       // document.body.style.overflow = "auto";
-      window.scrollTo(0, 2);
-      swiperInstance.update();
+      // window.scrollTo(0, 2);
+      // swiperInstance.update();
       // swiperInstance.mousewheel.enable();
-      swiperInstance.slideTo(0, 2000);
+      //swiperInstance.slideTo(0, 2000);
       // setTimeout(() => {
       //   window.scrollTo(0, 0);
       // }, 2000);
@@ -341,7 +345,8 @@ const ShockersHome = ({ params: { locale } }) => {
             />
           </SwiperSlide>
         </Swiper>
-        {/*<div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
+      </motion.div>
+      <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
         {isVisible && (
           <button
             onClick={handleGoToFirstSlide}
@@ -366,9 +371,7 @@ const ShockersHome = ({ params: { locale } }) => {
             </svg>
           </button>
         )}
-      </div>*/}
-      </motion.div>
-      <ScrollToTopButton />
+      </div>
     </>
   );
 };

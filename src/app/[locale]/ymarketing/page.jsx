@@ -251,7 +251,8 @@ const Y_MarketingHome = ({ params: { locale } }) => {
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
-      window.scrollTo(0, 50);
+      window.scrollTo(0, 2);
+      // window.scrollTo(0, 55);
     }
   }, []);
   const handleWheel = useCallback((event) => {

@@ -155,7 +155,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           // إذا لم يكن iPhone
           window.scrollTo(0, 0);
         }
-        handleGoToBeforeLastSlide(7);
+        swiperInstance?.slideTo(0, 2000);
       }, 0);
     }
   }, [urlParams, searchParams, pathname, swiperInstance]);

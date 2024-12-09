@@ -88,6 +88,15 @@ const BaytunaHome = ({ params: { locale } }) => {
   const [isLastSlide, setIsLastSlide] = useState(false);
 
   // when open page project
+  const handleGoToBeforeLastSlide = (number) => {
+    if (swiperInstance) {
+      window.scrollTo(0, 2);
+      swiperInstance.update();
+
+      const lastSlideIndex = swiperInstance.slides.length - number;
+      swiperInstance.slideTo(lastSlideIndex, 2000);
+    }
+  };
   const handleGoToLastSlide = () => {
     if (swiperInstance) {
       window.scrollTo(0, 2);
@@ -97,32 +106,107 @@ const BaytunaHome = ({ params: { locale } }) => {
       swiperInstance.slideTo(lastSlideIndex, 2000);
     }
   };
-
+  const [urlParams, setUrlParams] = useState(
+    new URLSearchParams(window.location.search)
+  );
   useEffect(() => {
     const search = searchParams.get("projects");
+    const scroll = searchParams.get("scroll");
+
     if (search === "show") {
       setTimeout(() => {
         handleGoToLastSlide();
       }, 0);
     }
-  }, [searchParams, pathname, swiperInstance]);
-  //button scroll top
-  const [isVisible, setIsVisible] = useState(false);
+    if (scroll === "show") {
+      setTimeout(() => {
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+          // إذا كان الجهاز iPhone
+          window.scrollTo(0, -60);
+        } else {
+          // إذا لم يكن iPhone
+          window.scrollTo(0, 0);
+        }
+        // swiperInstance?.slideTo(0, 2000);
+      }, 0);
+    }
+  }, [urlParams, searchParams, pathname, swiperInstance]);
+
+  // button scroll top
+  // const [isVisible, setIsVisible] = useState(false);
 
   const handleGoToFirstSlide = () => {
+    const url = new URL(window.location);
+    const scroll = new URLSearchParams(url.search);
+    scroll.delete("scroll");
+    scroll.delete("projects");
+    scroll.delete("clients");
+
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: "smooth",
+    // });
+
+    // إعادة تعيين المعاملة إلى قيمة مؤقتة
+    scroll.set("scroll", "temp");
+    url.search = scroll.toString();
+    window.history.pushState({}, "", url);
+    setUrlParams(new URLSearchParams(url.search));
+
+    // تحديث المعاملة إلى القيمة النهائية
+    scroll.set("scroll", "show");
+    url.search = scroll.toString();
+    window.history.pushState({}, "", url);
     if (swiperInstance) {
-      // document.body.style.overflow = "auto";
-      window.scrollTo(0, 2);
       swiperInstance.update();
-      // swiperInstance.mousewheel.enable();
       swiperInstance.slideTo(0, 2000);
-      // setTimeout(() => {
-      //   window.scrollTo(0, 0);
-      // }, 2000);
     }
+    setUrlParams(new URLSearchParams(url.search));
   };
+  // const handleGoToFirstSlide = () => {
+  //   // if (swiperInstance) {
+  //   //   // document.body.style.overflow = "auto";
+
+  //   //   swiperInstance.update();
+  //   //   swiperInstance.slideTo(0, 2000);
+
+  //   //   // window.scrollTo(0, 2);
+  //   //   // swiperInstance.mousewheel.enable();
+  //   //   // setTimeout(() => {
+  //   //   //   window.scrollTo(0, 0);
+  //   //   // }, 2000);
+  //   // }
+  //   document.body.style.overflow = "hidden";
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
+  // // const toggleVisibility = () => {
+  // //   if (window.pageYOffset >= 1) {
+  // //     setIsVisible(true);
+  // //   } else {
+  // //     setIsVisible(false);
+  // //   }
+  // // };
+  // const toggleVisibility = () => {
+  //   requestAnimationFrame(() => {
+  //     if (window.pageYOffset >= 1) {
+  //       setIsVisible(true);
+  //     } else {
+  //       setIsVisible(false);
+  //     }
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", toggleVisibility);
+  //   return () => window.removeEventListener("scroll", toggleVisibility);
+  // }, []);
+  const [isVisible, setIsVisible] = useState(false);
+
   const toggleVisibility = () => {
-    if (window.pageYOffset >= 1) {
+    if (window.pageYOffset > 1) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -130,24 +214,36 @@ const BaytunaHome = ({ params: { locale } }) => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   //Moving mouse
 
   const handleTransitionEnd = useCallback((swiper) => {
+    // window.alert(swiper.activeIndex);
     if (swiper.activeIndex === swiper.slides.length - 1) {
       swiper.mousewheel.disable();
       document.body.style.overflow = "auto";
     } else if (swiper.activeIndex === 0) {
       //swiper.mousewheel.disable();
       //document.body.style.overflow = "auto";
-      window.scrollTo(0, 0);
+      swiper.mousewheel.enable();
+      document.body.style.overflow = "hidden";
+      if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+        // إذا كان الجهاز iPhone
+        window.scrollTo(0, -60);
+      } else {
+        // إذا لم يكن iPhone
+        window.scrollTo(0, 0);
+      }
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
+
       window.scrollTo(0, 2);
+
+      // window.scrollTo(0, 55);
     }
   }, []);
   const handleWheel = useCallback((event) => {
@@ -250,18 +346,27 @@ const BaytunaHome = ({ params: { locale } }) => {
       };
 
       const handleTouchMove = (e) => {
+        e.preventDefault();
         endY = e.touches[0].clientY;
         const deltaY = endY - startY;
         if (isLastSlide && deltaY < -200) {
           swiperInstance.allowTouchMove = false;
           window.scrollTo(0, 650);
         } else if (isFirstSlide && deltaY > +200) {
+          // console.log(isFirstSlide, deltaY);
+          // window.alert(window.scrollY);
+          // window.alert(deltaY);
+          window.setTimeout(() => {
+            window.scrollTo(0, 0);
+          }, 50); ////////////////////////////////////////////////////
+          // document.documentElement.scrollTop = 0;
+          // document.body.scrollTop = 0;
           swiperInstance.allowTouchMove = false;
-          window.scrollTo(0, 0);
         } else {
           swiperInstance.allowTouchMove = true;
         }
       };
+
       const handleTouchEnd = () => {
         swiperInstance.allowTouchMove = true;
       };

@@ -245,8 +245,8 @@ const Y_MarketingHome = ({ params: { locale } }) => {
     } else if (swiper.activeIndex === 0) {
       //swiper.mousewheel.disable();
       //document.body.style.overflow = "auto";
-      // swiper.mousewheel.enable();
-      // document.body.style.overflow = "hidden";
+      swiper.mousewheel.enable();
+      document.body.style.overflow = "hidden";
       window.scrollTo(0, 0);
     } else {
       swiper.mousewheel.enable();

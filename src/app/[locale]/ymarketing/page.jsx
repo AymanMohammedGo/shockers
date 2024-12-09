@@ -238,7 +238,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   //Moving mouse
 
   const handleTransitionEnd = useCallback((swiper) => {
-    window.alert(swiper.activeIndex);
+    // window.alert(swiper.activeIndex);
     if (swiper.activeIndex === swiper.slides.length - 1) {
       swiper.mousewheel.disable();
       document.body.style.overflow = "auto";
@@ -251,7 +251,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
-      window.scrollTo(0, 50);
+      window.scrollTo(0, 80);
     }
   }, []);
   const handleWheel = useCallback((event) => {
@@ -362,8 +362,8 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           window.scrollTo(0, 650);
         } else if (isFirstSlide && deltaY > +200) {
           // console.log(isFirstSlide, deltaY);
-          window.alert(window.scrollY);
-          window.alert(deltaY);
+          // window.alert(window.scrollY);
+          // window.alert(deltaY);
           window.setTimeout(() => {
             window.scrollTo(0, 0);
           }, 50); ////////////////////////////////////////////////////

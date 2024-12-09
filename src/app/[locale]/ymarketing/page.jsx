@@ -247,9 +247,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
       //document.body.style.overflow = "auto";
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 50);
+      window.scrollTo(0, 0);
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";

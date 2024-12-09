@@ -99,7 +99,6 @@ const About = ({ params: { locale } }) => {
           // إذا لم يكن iPhone
           window.scrollTo(0, 0);
         }
-        swiperInstance?.slideTo(0, 2000);
       }, 0);
     }
   }, [urlParams, searchParams, pathname, swiperInstance]);
@@ -129,6 +128,10 @@ const About = ({ params: { locale } }) => {
     scroll.set("scroll", "show");
     url.search = scroll.toString();
     window.history.pushState({}, "", url);
+    if (swiperInstance) {
+      swiperInstance.update();
+      swiperInstance.slideTo(0, 2000);
+    }
     setUrlParams(new URLSearchParams(url.search));
   };
   // const handleGoToFirstSlide = () => {

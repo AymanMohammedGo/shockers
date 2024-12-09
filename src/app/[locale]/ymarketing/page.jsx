@@ -238,17 +238,20 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   //Moving mouse
 
   const handleTransitionEnd = useCallback((swiper) => {
+    window.alert(swiper.activeIndex);
     if (swiper.activeIndex === swiper.slides.length - 1) {
       swiper.mousewheel.disable();
       document.body.style.overflow = "auto";
     } else if (swiper.activeIndex === 0) {
       //swiper.mousewheel.disable();
       //document.body.style.overflow = "auto";
+      swiper.mousewheel.enable();
+      document.body.style.overflow = "hidden";
       window.scrollTo(0, 0);
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
-      //window.scrollTo(0, 2);
+      window.scrollTo(0, 200);
     }
   }, []);
   const handleWheel = useCallback((event) => {
@@ -363,7 +366,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           window.alert(deltaY);
           window.setTimeout(() => {
             window.scrollTo(0, 0);
-          }, 50);////////////////////////////////////////////////////
+          }, 50); ////////////////////////////////////////////////////
           // document.documentElement.scrollTop = 0;
           // document.body.scrollTop = 0;
           swiperInstance.allowTouchMove = false;

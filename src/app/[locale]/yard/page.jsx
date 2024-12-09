@@ -83,7 +83,17 @@ const Page = ({ params: { locale } }) => {
   const [scrollingDown, setScrollingDown] = useState(false);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
+
   // when open page project
+  const handleGoToBeforeLastSlide = (number) => {
+    if (swiperInstance) {
+      window.scrollTo(0, 2);
+      swiperInstance.update();
+
+      const lastSlideIndex = swiperInstance.slides.length - number;
+      swiperInstance.slideTo(lastSlideIndex, 2000);
+    }
+  };
   const handleGoToLastSlide = () => {
     if (swiperInstance) {
       window.scrollTo(0, 2);
@@ -93,32 +103,107 @@ const Page = ({ params: { locale } }) => {
       swiperInstance.slideTo(lastSlideIndex, 2000);
     }
   };
-
+  const [urlParams, setUrlParams] = useState(
+    new URLSearchParams(window.location.search)
+  );
   useEffect(() => {
     const search = searchParams.get("projects");
+    const scroll = searchParams.get("scroll");
+
     if (search === "show") {
       setTimeout(() => {
         handleGoToLastSlide();
       }, 0);
     }
-  }, [searchParams, pathname, swiperInstance]);
-  //button scroll top
-  const [isVisible, setIsVisible] = useState(false);
+    if (scroll === "show") {
+      setTimeout(() => {
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+          // إذا كان الجهاز iPhone
+          window.scrollTo(0, -60);
+        } else {
+          // إذا لم يكن iPhone
+          window.scrollTo(0, 0);
+        }
+        // swiperInstance?.slideTo(0, 2000);
+      }, 0);
+    }
+  }, [urlParams, searchParams, pathname, swiperInstance]);
+
+  // button scroll top
+  // const [isVisible, setIsVisible] = useState(false);
 
   const handleGoToFirstSlide = () => {
+    const url = new URL(window.location);
+    const scroll = new URLSearchParams(url.search);
+    scroll.delete("scroll");
+    scroll.delete("projects");
+    scroll.delete("clients");
+
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: "smooth",
+    // });
+
+    // إعادة تعيين المعاملة إلى قيمة مؤقتة
+    scroll.set("scroll", "temp");
+    url.search = scroll.toString();
+    window.history.pushState({}, "", url);
+    setUrlParams(new URLSearchParams(url.search));
+
+    // تحديث المعاملة إلى القيمة النهائية
+    scroll.set("scroll", "show");
+    url.search = scroll.toString();
+    window.history.pushState({}, "", url);
     if (swiperInstance) {
-      // document.body.style.overflow = "auto";
-      window.scrollTo(0, 2);
       swiperInstance.update();
-      // swiperInstance.mousewheel.enable();
       swiperInstance.slideTo(0, 2000);
-      // setTimeout(() => {
-      //   window.scrollTo(0, 0);
-      // }, 2000);
     }
+    setUrlParams(new URLSearchParams(url.search));
   };
+  // const handleGoToFirstSlide = () => {
+  //   // if (swiperInstance) {
+  //   //   // document.body.style.overflow = "auto";
+
+  //   //   swiperInstance.update();
+  //   //   swiperInstance.slideTo(0, 2000);
+
+  //   //   // window.scrollTo(0, 2);
+  //   //   // swiperInstance.mousewheel.enable();
+  //   //   // setTimeout(() => {
+  //   //   //   window.scrollTo(0, 0);
+  //   //   // }, 2000);
+  //   // }
+  //   document.body.style.overflow = "hidden";
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
+  // // const toggleVisibility = () => {
+  // //   if (window.pageYOffset >= 1) {
+  // //     setIsVisible(true);
+  // //   } else {
+  // //     setIsVisible(false);
+  // //   }
+  // // };
+  // const toggleVisibility = () => {
+  //   requestAnimationFrame(() => {
+  //     if (window.pageYOffset >= 1) {
+  //       setIsVisible(true);
+  //     } else {
+  //       setIsVisible(false);
+  //     }
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", toggleVisibility);
+  //   return () => window.removeEventListener("scroll", toggleVisibility);
+  // }, []);
+  const [isVisible, setIsVisible] = useState(false);
+
   const toggleVisibility = () => {
-    if (window.pageYOffset >= 1) {
+    if (window.pageYOffset > 1) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -126,24 +211,36 @@ const Page = ({ params: { locale } }) => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   //Moving mouse
 
   const handleTransitionEnd = useCallback((swiper) => {
+    // window.alert(swiper.activeIndex);
     if (swiper.activeIndex === swiper.slides.length - 1) {
       swiper.mousewheel.disable();
       document.body.style.overflow = "auto";
     } else if (swiper.activeIndex === 0) {
       //swiper.mousewheel.disable();
       //document.body.style.overflow = "auto";
-      window.scrollTo(0, 0);
+      swiper.mousewheel.enable();
+      document.body.style.overflow = "hidden";
+      if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+        // إذا كان الجهاز iPhone
+        window.scrollTo(0, -60);
+      } else {
+        // إذا لم يكن iPhone
+        window.scrollTo(0, 0);
+      }
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
+
       window.scrollTo(0, 2);
+
+      // window.scrollTo(0, 55);
     }
   }, []);
   const handleWheel = useCallback((event) => {
@@ -246,14 +343,22 @@ const Page = ({ params: { locale } }) => {
       };
 
       const handleTouchMove = (e) => {
+        e.preventDefault();
         endY = e.touches[0].clientY;
         const deltaY = endY - startY;
         if (isLastSlide && deltaY < -200) {
           swiperInstance.allowTouchMove = false;
           window.scrollTo(0, 650);
         } else if (isFirstSlide && deltaY > +200) {
+          // console.log(isFirstSlide, deltaY);
+          // window.alert(window.scrollY);
+          // window.alert(deltaY);
+          window.setTimeout(() => {
+            window.scrollTo(0, 0);
+          }, 50); ////////////////////////////////////////////////////
+          // document.documentElement.scrollTop = 0;
+          // document.body.scrollTop = 0;
           swiperInstance.allowTouchMove = false;
-          window.scrollTo(0, 0);
         } else {
           swiperInstance.allowTouchMove = true;
         }
@@ -281,65 +386,67 @@ const Page = ({ params: { locale } }) => {
   }, [isLastSlide, isFirstSlide, swiperInstance]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { delay: 1 } }}
-    >
-      <Draw_Y animationData={Y_json} delay={500} speed={0.5} />
-      <Swiper
-        onSwiper={setSwiperInstance}
-        className="w-screen h-screen"
-        direction={"vertical"}
-        speed={1000}
-        grabCursor={true}
-        modules={[Mousewheel, Keyboard]}
-        mousewheel={{
-          releaseOnEdges: true,
-        }}
-        keyboard={{
-          releaseOnEdges: true,
-        }}
-        onWheel={handleWheel}
-        onTransitionEnd={handleTransitionEnd}
+    <>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { delay: 1 } }}
       >
-        <SwiperSlide className="relative w-full h-full">
-          <SalgonSection
-            nameSize="verySmall"
-            titleText={solgan}
-            dir={locale === "ar" || locale === "kr" ? "rtl" : "ltr"}
-          />
-        </SwiperSlide>
-        <SwiperSlide className="relative w-full h-full">
-          <AboutSection
-            link="yard"
-            videoMobile="/YardMobile.mp4"
-            videoLoptap="/YardAbout.mp4"
-            title={data?.attributes?.TitleAbout}
-            description={data?.attributes?.DescriptionAbout}
-            textButton={data?.attributes?.TextButton}
-            bg="bg-yard"
-            tc="text-white"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="relative w-full h-full">
-          <Services8Section
-            services={services}
-            title={data?.attributes?.NameServices}
-            link="yard"
-            bg="bg-Hover-gradient-yard"
-            tc="text-shockersAEC"
-            dir={locale === "ar" || locale === "kr" ? "rtl" : "ltr"}
-          />
-        </SwiperSlide>
-        <SwiperSlide className="relative w-full h-full">
-          <SlideProjectsOneItems allProjects={projects} link="yard" />
-        </SwiperSlide>
-      </Swiper>
+        <Draw_Y animationData={Y_json} delay={500} speed={0.5} />
+        <Swiper
+          onSwiper={setSwiperInstance}
+          className="w-screen h-screen"
+          direction={"vertical"}
+          speed={1000}
+          grabCursor={true}
+          modules={[Mousewheel, Keyboard]}
+          mousewheel={{
+            releaseOnEdges: true,
+          }}
+          keyboard={{
+            releaseOnEdges: true,
+          }}
+          onWheel={handleWheel}
+          onTransitionEnd={handleTransitionEnd}
+        >
+          <SwiperSlide className="relative w-full h-full">
+            <SalgonSection
+              nameSize="verySmall"
+              titleText={solgan}
+              dir={locale === "ar" || locale === "kr" ? "rtl" : "ltr"}
+            />
+          </SwiperSlide>
+          <SwiperSlide className="relative w-full h-full">
+            <AboutSection
+              link="yard"
+              videoMobile="/YardMobile.mp4"
+              videoLoptap="/YardAbout.mp4"
+              title={data?.attributes?.TitleAbout}
+              description={data?.attributes?.DescriptionAbout}
+              textButton={data?.attributes?.TextButton}
+              bg="bg-yard"
+              tc="text-white"
+            />
+          </SwiperSlide>
+          <SwiperSlide className="relative w-full h-full">
+            <Services8Section
+              services={services}
+              title={data?.attributes?.NameServices}
+              link="yard"
+              bg="bg-Hover-gradient-yard"
+              tc="text-shockersAEC"
+              dir={locale === "ar" || locale === "kr" ? "rtl" : "ltr"}
+            />
+          </SwiperSlide>
+          <SwiperSlide className="relative w-full h-full">
+            <SlideProjectsOneItems allProjects={projects} link="yard" />
+          </SwiperSlide>
+        </Swiper>
+      </motion.div>
       <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
         {isVisible && (
           <button
             onClick={handleGoToFirstSlide}
-            className="p-3 rounded-full   text-white  bg-shockersAEC/20  shadow-2xl   transition-transform transform hover:scale-110 focus:outline-none "
+            className="p-3 rounded-full text-white  bg-shockersAEC/20  shadow-2xl   transition-transform transform hover:scale-110 focus:outline-none "
             style={{ transition: "transform 0.2s ease-in-out" }}
           >
             <svg
@@ -361,7 +468,7 @@ const Page = ({ params: { locale } }) => {
           </button>
         )}
       </div>
-    </motion.div>
+    </>
   );
 };
 

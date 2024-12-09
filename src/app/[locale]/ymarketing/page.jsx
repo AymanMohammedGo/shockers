@@ -148,6 +148,13 @@ const Y_MarketingHome = ({ params: { locale } }) => {
     }
     if (scroll === "show") {
       setTimeout(() => {
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+          // إذا كان الجهاز iPhone
+          window.scrollTo(0, -60);
+        } else {
+          // إذا لم يكن iPhone
+          window.scrollTo(0, 0);
+        }
         handleGoToBeforeLastSlide(7);
       }, 0);
     }

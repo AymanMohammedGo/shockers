@@ -93,7 +93,10 @@ const SubProject = ({ params: { locale, id } }) => {
   // when open page project
   const handleGoToBeforeLastSlide = (number) => {
     if (swiperInstance) {
-      window.scrollTo(0, 2);
+      window.scrollTo({
+        top: (0.5 / 100) * window.innerHeight,
+        behavior: "smooth", // التمرير السلس
+      });
       swiperInstance.update();
 
       const lastSlideIndex = swiperInstance.slides.length - number;
@@ -169,7 +172,7 @@ const SubProject = ({ params: { locale, id } }) => {
   //   //   swiperInstance.update();
   //   //   swiperInstance.slideTo(0, 2000);
 
-  //   //   // window.scrollTo(0, 2);
+
   //   //   // swiperInstance.mousewheel.enable();
   //   //   // setTimeout(() => {
   //   //   //   window.scrollTo(0, 0);
@@ -240,7 +243,10 @@ const SubProject = ({ params: { locale, id } }) => {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
 
-      window.scrollTo(0, 2);
+      window.scrollTo({
+        top: (0.5 / 100) * window.innerHeight,
+        behavior: "smooth", // التمرير السلس
+      });
 
       // window.scrollTo(0, 55);
     }
@@ -249,10 +255,16 @@ const SubProject = ({ params: { locale, id } }) => {
     const delta = event.deltaY;
     if (delta > 0) {
       setScrollingDown(true);
-      window.scrollTo(0, 2);
+      window.scrollTo({
+        top: (0.5 / 100) * window.innerHeight,
+        behavior: "smooth", // التمرير السلس
+      });
     } else {
       setScrollingDown(false);
-      window.scrollTo(0, 2);
+      window.scrollTo({
+        top: (0.5 / 100) * window.innerHeight,
+        behavior: "smooth", // التمرير السلس
+      });
     }
   }, []);
 

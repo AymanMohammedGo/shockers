@@ -54,7 +54,10 @@ const About = ({ params: { locale } }) => {
   // when open page project
   const handleGoToBeforeLastSlide = (number) => {
     if (swiperInstance) {
-      window.scrollTo(0, 2);
+      window.scrollTo({
+        top: (0.5 / 100) * window.innerHeight,
+        behavior: "smooth", // التمرير السلس
+      });
       swiperInstance.update();
 
       const lastSlideIndex = swiperInstance.slides.length - number;
@@ -130,7 +133,6 @@ const About = ({ params: { locale } }) => {
   //   //   swiperInstance.update();
   //   //   swiperInstance.slideTo(0, 2000);
 
-  //   //   // window.scrollTo(0, 2);
   //   //   // swiperInstance.mousewheel.enable();
   //   //   // setTimeout(() => {
   //   //   //   window.scrollTo(0, 0);
@@ -201,7 +203,10 @@ const About = ({ params: { locale } }) => {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
 
-      window.scrollTo(0, 2);
+      window.scrollTo({
+        top: (0.5 / 100) * window.innerHeight,
+        behavior: "smooth", // التمرير السلس
+      });
 
       // window.scrollTo(0, 55);
     }
@@ -210,10 +215,16 @@ const About = ({ params: { locale } }) => {
     const delta = event.deltaY;
     if (delta > 0) {
       setScrollingDown(true);
-      window.scrollTo(0, 2);
+      window.scrollTo({
+        top: (0.5 / 100) * window.innerHeight,
+        behavior: "smooth", // التمرير السلس
+      });
     } else {
       setScrollingDown(false);
-      window.scrollTo(0, 2);
+      window.scrollTo({
+        top: (0.5 / 100) * window.innerHeight,
+        behavior: "smooth", // التمرير السلس
+      });
     }
   }, []);
 

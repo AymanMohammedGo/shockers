@@ -9,7 +9,7 @@ import mission_json from "/public/Motion/mission.json";
 import vision1_json from "/public/Motion/vision1.json";
 import value_json from "/public/Motion/value.json";
 import staff_json from "/public/Motion/staff.json";
-import yearsExperience_json from "/public/Motion/years.json";
+import yearsExperience_json from "/public/Motion/years of experience2.json";
 import { useSearchParams, usePathname } from "next/navigation";
 
 import { getAboutUS } from "../../../../../utils/Y_MarketingApi";

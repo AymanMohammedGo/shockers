@@ -56,8 +56,8 @@ const ProjectsSection = ({
               </Link>
             </div>
 
-            <Link
-              href={`${link}/projects`}
+            <div
+              // href={`${link}/projects`}
               className="grid grid-cols-3 grid-rows-3 gap-3 md:gap-4 w-full md:w-7/12 h-full min-h-[50%] p-0 md:p-4"
             >
               {projects.map((item, i) => (
@@ -103,7 +103,7 @@ const ProjectsSection = ({
                   </Swiper>
                 </motion.div>
               ))}
-            </Link>
+            </div>
           </div>
         </div>
       </div>

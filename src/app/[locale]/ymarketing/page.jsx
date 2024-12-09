@@ -247,11 +247,13 @@ const Y_MarketingHome = ({ params: { locale } }) => {
       //document.body.style.overflow = "auto";
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
-      window.scrollTo(0, 0);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 50);
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
-      window.scrollTo(0, 200);
+      window.scrollTo(0, 2);
     }
   }, []);
   const handleWheel = useCallback((event) => {

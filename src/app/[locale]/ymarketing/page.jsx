@@ -246,8 +246,13 @@ const Y_MarketingHome = ({ params: { locale } }) => {
       //swiper.mousewheel.disable();
       //document.body.style.overflow = "auto";
       swiper.mousewheel.enable();
+      // document.body.style.overflow = "hidden";
+      // window.scrollTo(0, 0);
       document.body.style.overflow = "hidden";
-      window.scrollTo(0, 0);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        document.body.style.overflow = "auto";
+      }, 10);
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";

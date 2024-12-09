@@ -248,7 +248,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
-      window.scrollTo(0, 2);
+      //window.scrollTo(0, 2);
     }
   }, []);
   const handleWheel = useCallback((event) => {
@@ -363,9 +363,9 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           window.alert(deltaY);
           window.setTimeout(() => {
             window.scrollTo(0, 0);
-          }, 50);
-          document.documentElement.scrollTop = 0;
-          document.body.scrollTop = 0;
+          }, 50);////////////////////////////////////////////////////
+          // document.documentElement.scrollTop = 0;
+          // document.body.scrollTop = 0;
           swiperInstance.allowTouchMove = false;
         } else {
           swiperInstance.allowTouchMove = true;

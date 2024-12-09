@@ -251,7 +251,13 @@ const Y_MarketingHome = ({ params: { locale } }) => {
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
-      window.scrollTo(0, 2);
+      if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+        // إذا كان الجهاز iPhone
+        window.scrollTo(0, 60);
+      } else {
+        // إذا لم يكن iPhone
+        window.scrollTo(0, 2);
+      }
       // window.scrollTo(0, 55);
     }
   }, []);

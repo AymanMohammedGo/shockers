@@ -118,7 +118,6 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
 
-
   // when open page project
   const handleGoToBeforeLastSlide = (number) => {
     if (swiperInstance) {
@@ -490,6 +489,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           <ProjectsSection
             bg_color={"bg-shocky"}
             link={"shocky"}
+            textButton={data?.attributes?.TextButton}
             data={projects?.attributes}
           />
         </SwiperSlide>

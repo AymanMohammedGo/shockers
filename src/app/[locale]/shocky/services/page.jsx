@@ -82,15 +82,15 @@ const Services = ({ params: { locale } }) => {
               }}
               className={`md:text-start text-center w-full  py-2 sm:py-10`}
             >
-              <span className="text-3xl lg:text-5xl text-shocky !leading-[60px] font-extrabold  ">
-                {dataHome?.attributes?.title_service_page}
-              </span>
-              <span className="text-3xl lg:text-5xl text-shockyRed !leading-[60px] font-extrabold px-2">
-                {dataHome?.attributes?.sub_service_page}
-              </span>
+              <h1 className="text-3xl lg:text-5xl text-shocky !leading-[60px] font-extrabold  ">
+                {dataHome?.attributes?.title_service_page}{" "}
+                <span className="text-shockyRed">
+                  {dataHome?.attributes?.sub_service_page}
+                </span>
+              </h1>
             </motion.div>
           </div>
-          <motion.div className="md:w-3/5 p-4 md:p-4 h-full  overflow-y-scroll">
+          <motion.div className="md:w-3/5 p-4 md:p-4 h-full overflow-x-hidden  overflow-y-auto showScrollShocky">
             <ul className="space-y-2">
               {data.map((service, index) => (
                 <motion.div

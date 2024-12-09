@@ -87,6 +87,20 @@ html {
   width: 10px;
   display: none;
 }
+.showScrollShocky::-webkit-scrollbar {
+  display: block;
+}
+.showScrollYMarketing::-webkit-scrollbar {
+  display: block;
+}
+.showScrollShocky::-webkit-scrollbar-thumb {
+  background: #25325c;
+  border-radius: 0px;
+}
+.showScrollYMarketing::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #fbce12;
   border-radius: 15px;
@@ -137,7 +151,7 @@ html {
   background: #fdcf00;
 }
 .bg-Hover-gradient-shocky:hover {
-  background: #BF2627;
+  background: #bf2627;
 }
 .bg-Hover-gradient-Deca:hover {
   background: #17b9b5;

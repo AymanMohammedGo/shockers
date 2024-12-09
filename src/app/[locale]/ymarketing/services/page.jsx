@@ -65,7 +65,7 @@ const Services = ({ params: { locale } }) => {
         <Draw_YMar animationData={YMar_json} delay={500} speed={0.4} />
 
         <ImageOverlaysTop dir={document.dir} title={t("SERVICES")} />
-        <div className=" flex flex-col  justify-center md:flex-row min-h-screen lg:py-5 lg:my-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
+        <div className=" flex flex-col  justify-center md:flex-row sm:h-screen  lg:py-5 lg:my-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
           <div
             className={`w-full md:w-2/5 px-4  pt-3 ${
               document.dir === "ltr" ? "md:pr-8" : "md:pl-8"
@@ -80,17 +80,17 @@ const Services = ({ params: { locale } }) => {
               transition={{
                 duration: 1,
               }}
-              className={`md:text-start text-center w-full  py-2 sm:py-10`}
+              className={`md:text-start  text-center w-full  py-2 sm:py-10`}
             >
-              <span className="text-3xl lg:text-5xl text-yMarketing !leading-[60px] font-extrabold  ">
-                {dataHome?.attributes?.title_service_page}
-              </span>
-              <span className="text-3xl lg:text-5xl text-shockerYellow !leading-[60px] font-extrabold px-2">
-                {dataHome?.attributes?.sub_service_page}
-              </span>
+              <h1 className="text-3xl lg:text-5xl text-yMarketing !leading-[60px] font-extrabold  ">
+                {dataHome?.attributes?.title_service_page}{" "}
+                <span className="text-shockerYellow">
+                  {dataHome?.attributes?.sub_service_page}
+                </span>
+              </h1>
             </motion.div>
           </div>
-          <motion.div className="md:w-3/5 p-4 md:p-4">
+          <motion.div className="md:w-3/5 p-4 md:p-4 h-full overflow-x-hidden  overflow-y-auto showScrollYMarketing">
             <ul className="space-y-2">
               {data.map((service, index) => (
                 <motion.div

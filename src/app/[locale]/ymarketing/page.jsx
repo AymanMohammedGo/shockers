@@ -482,7 +482,10 @@ const Y_MarketingHome = ({ params: { locale } }) => {
             <ClientsLogo data={clients} />
           </SwiperSlide>
           <SwiperSlide className="relative w-full h-full">
-            <ProjectsSection data={projects?.attributes} />
+            <ProjectsSection
+              textButton={data?.attributes?.TextButton}
+              data={projects?.attributes}
+            />
           </SwiperSlide>
           <SwiperSlide className="relative w-full h-full">
             <div className="flex flex-col justify-center items-center h-full max-w-screen-xl text-center m-auto">

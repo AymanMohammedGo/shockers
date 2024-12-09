@@ -21,7 +21,7 @@ const clientsLogo = ({
       <div
         className={`${text_color} w-full h-full flex-1   flex flex-col items-center justify-center `}
       >
-        <h1 className="px-7 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-screen-xl mx-auto min-h-[160px] xsm:min-h-fit">
+        <h1 className="px-7 w-full text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-screen-xl mx-auto min-h-[160px] xsm:min-h-fit">
           {data?.attributes?.HOW_ADAPTIVE}
           <span className={`${text_active}`}>
             <Typewriter
@@ -230,7 +230,7 @@ const clientsLogo = ({
             </SwiperSlide>
           ))}
         </Swiper>
-        <motion.h1 className="px-7  text-xl  lg:text-2xl xl:text-3xl max-w-screen-xl mx-auto  ">
+        <motion.h1 className="px-7  text-xl w-full  lg:text-2xl xl:text-3xl max-w-screen-xl mx-auto  ">
           {data?.attributes?.des_Adaptive}
         </motion.h1>
       </div>

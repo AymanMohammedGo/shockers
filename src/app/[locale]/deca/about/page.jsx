@@ -8,6 +8,7 @@ import { useRef } from "react";
 import AboutTopSection from "@/components/AboutTopVideo";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useSearchParams, usePathname } from "next/navigation";
 
 // Import Swiper styles
 import "swiper/css";
@@ -18,6 +19,8 @@ const About = ({ params: { locale } }) => {
   if (locale === "kr") {
     lan = "af";
   }
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
   const [data, setData] = useState([]);
   const getAboutUS_ = useCallback(() => {
     getAboutUS(lan).then((res) => {
@@ -50,23 +53,122 @@ const About = ({ params: { locale } }) => {
       },
     },
   };
-  //button scroll top
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleGoToFirstSlide = () => {
+  // when open page project
+  const handleGoToBeforeLastSlide = (number) => {
     if (swiperInstance) {
-      // document.body.style.overflow = "auto";
       window.scrollTo(0, 2);
       swiperInstance.update();
-      // swiperInstance.mousewheel.enable();
-      swiperInstance.slideTo(0, 2000);
-      // setTimeout(() => {
-      //   window.scrollTo(0, 0);
-      // }, 2000);
+
+      const lastSlideIndex = swiperInstance.slides.length - number;
+      swiperInstance.slideTo(lastSlideIndex, 2000);
     }
   };
+  const [urlParams, setUrlParams] = useState(
+    new URLSearchParams(window.location.search)
+  );
+  useEffect(() => {
+    const search = searchParams.get("projects");
+    const searchClient = searchParams.get("clients");
+    const scroll = searchParams.get("scroll");
+
+    if (search === "show") {
+      setTimeout(() => {
+        handleGoToBeforeLastSlide(2);
+      }, 0);
+    }
+    if (searchClient === "show") {
+      setTimeout(() => {
+        handleGoToBeforeLastSlide(3);
+      }, 0);
+    }
+    if (scroll === "show") {
+      setTimeout(() => {
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+          // إذا كان الجهاز iPhone
+          window.scrollTo(0, -60);
+        } else {
+          // إذا لم يكن iPhone
+          window.scrollTo(0, 0);
+        }
+      }, 0);
+    }
+  }, [urlParams, searchParams, pathname, swiperInstance]);
+
+  // button scroll top
+  // const [isVisible, setIsVisible] = useState(false);
+
+  const handleGoToFirstSlide = () => {
+    const url = new URL(window.location);
+    const scroll = new URLSearchParams(url.search);
+    scroll.delete("scroll");
+    scroll.delete("projects");
+    scroll.delete("clients");
+
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: "smooth",
+    // });
+
+    // إعادة تعيين المعاملة إلى قيمة مؤقتة
+    scroll.set("scroll", "temp");
+    url.search = scroll.toString();
+    window.history.pushState({}, "", url);
+    setUrlParams(new URLSearchParams(url.search));
+
+    // تحديث المعاملة إلى القيمة النهائية
+    scroll.set("scroll", "show");
+    url.search = scroll.toString();
+    window.history.pushState({}, "", url);
+    if (swiperInstance) {
+      swiperInstance.update();
+      swiperInstance.slideTo(0, 2000);
+    }
+    setUrlParams(new URLSearchParams(url.search));
+  };
+  // const handleGoToFirstSlide = () => {
+  //   // if (swiperInstance) {
+  //   //   // document.body.style.overflow = "auto";
+
+  //   //   swiperInstance.update();
+  //   //   swiperInstance.slideTo(0, 2000);
+
+  //   //   // window.scrollTo(0, 2);
+  //   //   // swiperInstance.mousewheel.enable();
+  //   //   // setTimeout(() => {
+  //   //   //   window.scrollTo(0, 0);
+  //   //   // }, 2000);
+  //   // }
+  //   document.body.style.overflow = "hidden";
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
+  // // const toggleVisibility = () => {
+  // //   if (window.pageYOffset >= 1) {
+  // //     setIsVisible(true);
+  // //   } else {
+  // //     setIsVisible(false);
+  // //   }
+  // // };
+  // const toggleVisibility = () => {
+  //   requestAnimationFrame(() => {
+  //     if (window.pageYOffset >= 1) {
+  //       setIsVisible(true);
+  //     } else {
+  //       setIsVisible(false);
+  //     }
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", toggleVisibility);
+  //   return () => window.removeEventListener("scroll", toggleVisibility);
+  // }, []);
+  const [isVisible, setIsVisible] = useState(false);
+
   const toggleVisibility = () => {
-    if (window.pageYOffset >= 1) {
+    if (window.pageYOffset > 1) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -74,24 +176,36 @@ const About = ({ params: { locale } }) => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   //Moving mouse
 
   const handleTransitionEnd = useCallback((swiper) => {
+    // window.alert(swiper.activeIndex);
     if (swiper.activeIndex === swiper.slides.length - 1) {
       swiper.mousewheel.disable();
       document.body.style.overflow = "auto";
     } else if (swiper.activeIndex === 0) {
       //swiper.mousewheel.disable();
       //document.body.style.overflow = "auto";
-      window.scrollTo(0, 0);
+      swiper.mousewheel.enable();
+      document.body.style.overflow = "hidden";
+      if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+        // إذا كان الجهاز iPhone
+        window.scrollTo(0, -60);
+      } else {
+        // إذا لم يكن iPhone
+        window.scrollTo(0, 0);
+      }
     } else {
       swiper.mousewheel.enable();
       document.body.style.overflow = "hidden";
+
       window.scrollTo(0, 2);
+
+      // window.scrollTo(0, 55);
     }
   }, []);
   const handleWheel = useCallback((event) => {
@@ -194,15 +308,22 @@ const About = ({ params: { locale } }) => {
       };
 
       const handleTouchMove = (e) => {
+        e.preventDefault();
         endY = e.touches[0].clientY;
         const deltaY = endY - startY;
-        console.log(deltaY);
         if (isLastSlide && deltaY < -200) {
           swiperInstance.allowTouchMove = false;
           window.scrollTo(0, 650);
         } else if (isFirstSlide && deltaY > +200) {
+          // console.log(isFirstSlide, deltaY);
+          // window.alert(window.scrollY);
+          // window.alert(deltaY);
+          window.setTimeout(() => {
+            window.scrollTo(0, 0);
+          }, 50); ////////////////////////////////////////////////////
+          // document.documentElement.scrollTop = 0;
+          // document.body.scrollTop = 0;
           swiperInstance.allowTouchMove = false;
-          window.scrollTo(0, 0);
         } else {
           swiperInstance.allowTouchMove = true;
         }

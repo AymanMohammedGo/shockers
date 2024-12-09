@@ -31,7 +31,7 @@ const ProjectsSection = ({
       ),
       interval: 3000 + Math.random() * 1000,
     }));
-  }, [data?.images?.data]);
+  }, [data]);
   return (
     <section className="w-screen h-screen">
       <div
@@ -58,20 +58,20 @@ const ProjectsSection = ({
 
             <Link
               href={`${link}/projects`}
-              className="grid grid-cols-3 grid-rows-3 gap-3 md:gap-4 w-full md:w-7/12 h-full min-h-[60%] p-0 md:p-4"
+              className="grid grid-cols-3 grid-rows-3 gap-3 md:gap-4 w-full md:w-7/12 h-full min-h-[50%] p-0 md:p-4"
             >
               {projects.map((item, i) => (
                 <motion.div
                   key={item.id}
                   className={
                     i === 0 || i === 6
-                      ? "col-span-2 row-span-2 rounded-lg md:rounded-xl overflow-hidden bg-gray-200 relative"
-                      : "col-span-1 row-span-1 rounded-lg md:rounded-xl overflow-hidden bg-gray-200 relative"
+                      ? "col-span-2 row-span-2  overflow-hidden relative"
+                      : "col-span-1 row-span-1 overflow-hidden relative"
                   }
                 >
                   <Swiper
-                    lazy={true} // تحميل الصور عند الطلب
-                    preloadImages={false}
+                    observer={true}
+                    observeParents={true}
                     key={item.id}
                     effect={"cube"}
                     grabCursor={true}
@@ -81,7 +81,6 @@ const ProjectsSection = ({
                     }}
                     direction={Math.random() > 0.5 ? "vertical" : "horizontal"}
                     autoplay={{
-                      pauseOnMouseEnter: true, // وقفة أثناء مرور المؤشر
                       delay: item.interval,
                       disableOnInteraction: false,
                     }}

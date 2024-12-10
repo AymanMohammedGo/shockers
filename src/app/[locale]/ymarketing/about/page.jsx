@@ -144,7 +144,6 @@ const About = ({ params: { locale } }) => {
   //   //   swiperInstance.update();
   //   //   swiperInstance.slideTo(0, 2000);
 
- 
   //   //   // swiperInstance.mousewheel.enable();
   //   //   // setTimeout(() => {
   //   //   //   window.scrollTo(0, 0);
@@ -431,7 +430,7 @@ const About = ({ params: { locale } }) => {
                     whileInView="visible"
                     className="relative w-full md:w-3/5 flex flex-col  z-10 "
                   >
-                    <h2 className="relative border-b-8 w-fit text-shockersAEC font-bold text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[50px] lg:!leading-[70px]">
+                    <h2 className="relative  w-fit text-shockersAEC font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[40px] md:!leading-[50px] lg:!leading-[70px]">
                       <span className="relative z-10 ">
                         {item?.attributes.title}
                       </span>
@@ -439,7 +438,7 @@ const About = ({ params: { locale } }) => {
                     </h2>
 
                     <p
-                      className={`text-justify hyphens-auto text-shockersAEC text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10`}
+                      className={`text-justify hyphens-auto text-shockersAEC text-lg sm:text-xl md:text-[22px] lg:text-2xl mb-3 lg:mb-0  lg:!leading-10`}
                     >
                       {item?.attributes.description}
                     </p>

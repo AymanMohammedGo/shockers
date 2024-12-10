@@ -57,7 +57,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               initial="hidden"
               animate={controls1}
               variants={var1}
-              className="text-[45px]  text-yMarketing text-center sm:text-6xl lg:text-8xl font-bold mb-0 sm:mb-6 lg:mb-16 xl:mb-20  "
+              className="text-[45px]  text-yMarketing text-center sm:text-6xl lg:text-[65px] FHD125:text-7xl FHD110:text-8xl font-bold mb-0 sm:mb-6 md:mb-8 lg:mb-12 FHD125:mb-16 FHD110:mb-20  "
             >
               {data?.attributes?.title}
             </motion.h1>
@@ -94,7 +94,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                   {/* المحتوى */}
                   <div className="relative z-10 flex w-full">
                     <span
-                      className={`relative w-fit flex items-end font-extrabold text-7xl lg:text-9xl pb-3`}
+                      className={`relative w-fit flex items-end font-extrabold text-6xl lg:text-7xl FHD125:text-8xl FHD110:text-9xl  pb-3`}
                     >
                       {inView ? (
                         <CountUp
@@ -108,24 +108,24 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                       )}
                     </span>
                     <span
-                      className={`relative flex items-end font-bold w-full text-2xl lg:text-4xl pb-5 group-hover:text-shockerYellow`}
+                      className={`relative flex items-end font-bold w-full text-2xl lg:text-[28px] FHD125:text-3xl FHD110:text-4xl pb-5 group-hover:text-shockerYellow`}
                     >
                       {data?.attributes?.subNumberOne}
                     </span>
                   </div>
                   <span
-                    className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl sm:py-5 pt-3 pb-3 group-hover:text-shockerYellow`}
+                    className={`relative font-medium w-full text-xl lg:text-2xl FHD125:text-3xl FHD110:text-4xl  sm:py-5 pt-3 pb-3 group-hover:text-shockerYellow`}
                   >
                     {data?.attributes?.titleOne}
                   </span>
                   <span
-                    className={`relative w-full text-lg lg:text-xl xl:text-2xl min-h-[236px]`}
+                    className={`relative w-full text-base lg:text-lg FHD125:text-xl FHD110:text-2xl min-h-[236px]`}
                   >
                     {data?.attributes?.desOne}
                   </span>
                 </div>
               </SwiperSlide>
-              <SwiperSlide >
+              <SwiperSlide>
                 <div
                   className={`group relative bg-transparent h-full overflow-hidden text-yMarketing w-full  pt-6 pb-3 lg:pb-6 px-4 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
@@ -135,7 +135,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                   {/* المحتوى */}
                   <div className="relative z-10 flex w-full">
                     <span
-                      className={`relative w-fit flex items-end font-extrabold text-7xl lg:text-9xl pb-3`}
+                      className={`relative w-fit flex items-end font-extrabold text-6xl lg:text-7xl FHD125:text-8xl FHD110:text-9xl pb-3`}
                     >
                       {inView ? (
                         <CountUp
@@ -151,18 +151,18 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                     </span>
                   </div>
                   <span
-                    className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl sm:py-5 pt-3 pb-3 group-hover:text-shockerYellow`}
+                    className={`relative font-medium w-full text-xl lg:text-2xl FHD125:text-3xl FHD110:text-4xl sm:py-5 pt-3 pb-3 group-hover:text-shockerYellow`}
                   >
                     {data?.attributes?.titleTwo}
                   </span>
                   <span
-                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 min-h-[236px]`}
+                    className={`relative w-full text-base lg:text-lg FHD125:text-xl FHD110:text-2xl pb-3 min-h-[236px]`}
                   >
                     {data?.attributes?.desTwo}
                   </span>
                 </div>
               </SwiperSlide>
-              <SwiperSlide >
+              <SwiperSlide>
                 <div
                   className={`group relative bg-transparent h-full overflow-hidden text-yMarketing w-full pt-6 pb-3 lg:pb-6 px-4 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
@@ -172,7 +172,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                   {/* المحتوى */}
                   <div className="relative z-10 flex w-full">
                     <span
-                      className={`relative w-fit flex items-end font-extrabold text-7xl lg:text-9xl pb-3`}
+                      className={`relative w-fit flex items-end font-extrabold text-6xl lg:text-7xl FHD125:text-8xl FHD110:text-9xl pb-3`}
                     >
                       {inView ? (
                         <CountUp
@@ -188,12 +188,12 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                     </span>
                   </div>
                   <span
-                    className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl sm:py-5 pt-3 pb-3 group-hover:text-shockerYellow`}
+                    className={`relative font-medium w-full text-xl lg:text-2xl FHD125:text-3xl FHD110:text-4xl sm:py-5 pt-3 pb-3 group-hover:text-shockerYellow`}
                   >
                     {data?.attributes?.titleThree}
                   </span>
                   <span
-                    className={`relative w-full text-lg lg:text-xl xl:text-2xl pb-3 min-h-[236px] `}
+                    className={`relative w-full text-base lg:text-lg FHD125:text-xl FHD110:text-2xl pb-3 min-h-[236px] `}
                   >
                     {data?.attributes?.desThree}
                   </span>

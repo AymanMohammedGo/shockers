@@ -15,15 +15,17 @@ module.exports = {
       xsm: "400px",
       sm: "640px",
       md: "768px",
-      headerSize:"850px",
+      headerSize: "850px",
       lg: "960px",
       xl: "1200px",
       xxl: "1400px",
       xxxl: "1600px",
       xlgl: "2000px",
       xlxl: "2500px",
+      FHD125: "1500px", // 1920*1080 125% => 1536px
+      FHD110: "1700px", // 1920*1080 110% => 1745px
+      FHD100: "1900px", // 1920*1080 100% => 1920px
     },
-
     extend: {
       colors: {
         shockersAEC: {

@@ -40,19 +40,19 @@ const ProjectsSection = ({
         <div className="flex w-full h-full flex-col justify-center items-center lg:px-2">
           <div className="text-white w-full h-full flex flex-1 p-3 md:p-7 flex-col md:flex-row lg:max-h-[800px]">
             <div className="w-full h-full md:w-5/12 rounded-xl relative text-white flex-1 mb-3">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mx-auto lg:my-10 my-3">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl  FHD125:text-[65px] FHD110:text-7xl font-bold mx-auto lg:my-10 my-3">
                 {data?.title}
               </h1>
-              <span className="text-lg lg:text-xl xl:text-2xl">
+              <span className="text-base lg:text-lg FHD125:text-xl FHD110:text-2xl">
                 {data?.des}
               </span>
 
               <Link href={`${link}/projects`}>
-                <Button
-                  className={`w-fit block hover:bg-shockersAEC text-shockersAEC bg-white hover:text-white text-sm sm:text-base my-1 lg:my-5`}
+                <button
+                  className={`py-2 px-3 rounded-lg font-medium w-fit block hover:bg-shockersAEC text-shockersAEC bg-white hover:text-white text-xs sm:text-sm lg:text-base my-1 lg:my-5`}
                 >
                   {textButton}
-                </Button>
+                </button>
               </Link>
             </div>
 

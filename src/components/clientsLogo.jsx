@@ -19,9 +19,9 @@ const clientsLogo = ({
   return (
     <section className="w-screen h-screen ">
       <div
-        className={`${text_color} w-full h-full flex-1   flex flex-col items-center justify-center `}
+        className={`${text_color} w-full h-full flex-1  flex flex-col items-center justify-center `}
       >
-        <h1 className="px-7 w-full text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-screen-xl mx-auto min-h-[160px] xsm:min-h-fit">
+        <h1 className="w-full px-7  text-4xl sm:text-[40px] lg:text-5xl FHD125:text-6xl FHD110:text-7xl font-bold max-w-screen-xl mx-auto min-h-[160px] FHD125:min-h-[120px] xsm:min-h-fit">
           {data?.attributes?.HOW_ADAPTIVE}
           <span className={`${text_active}`}>
             <Typewriter
@@ -40,7 +40,7 @@ const clientsLogo = ({
           </span>
         </h1>
         <Swiper
-          className="w-full  p-2 transition-timing-linear my-10 lg:my-20 xl:my-32"
+          className="w-full p-2 transition-timing-linear my-10 lg:my-20 FHD125:my-24 FHD110:my-32"
           autoplay={{
             delay: 0,
             disableOnInteraction: false,
@@ -63,12 +63,24 @@ const clientsLogo = ({
               slidesPerView: 5.5,
               spaceBetween: 30,
             },
-            1400: {
+            1024: {
+              slidesPerView: 6,
+              spaceBetween: 30,
+            },
+            1200: {
               slidesPerView: 6.5,
               spaceBetween: 30,
             },
-            1600: {
+            1500: {
+              slidesPerView: 7.5,
+              spaceBetween: 30,
+            },
+            1700: {
               slidesPerView: 8.5,
+              spaceBetween: 30,
+            },
+            1900: {
+              slidesPerView: 9.5,
               spaceBetween: 30,
             },
           }}
@@ -230,7 +242,7 @@ const clientsLogo = ({
             </SwiperSlide>
           ))}
         </Swiper>
-        <motion.h1 className="px-7  text-xl w-full  lg:text-2xl xl:text-3xl max-w-screen-xl mx-auto  ">
+        <motion.h1 className="px-7  text-xl w-full  lg:text-2xl xl:text-3xl  max-w-screen-xl mx-auto  ">
           {data?.attributes?.des_Adaptive}
         </motion.h1>
       </div>

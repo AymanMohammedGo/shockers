@@ -510,7 +510,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
               <h1 className="text-3xl lg:text-[34px]  FHD125:text-4xl FHD110:text-5xl font-bold mb-12">
                 {data?.attributes?.ARE_YOU_INTERESTED}
               </h1>
-              <Link href="/ymarketing/contact">
+              <Link href="/shocky/contact">
                 <button className="w-fit text-xl lg:text-2xl  FHD125:text-[24px] FHD110:text-3xl font-medium bg-shockyRed text-white rounded-xl hover:bg-white hover:text-shockyRed  py-3 px-10">
                   {data?.attributes?.Contact_Us}
                 </button>

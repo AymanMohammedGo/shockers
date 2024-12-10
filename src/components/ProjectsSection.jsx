@@ -79,7 +79,7 @@ const ProjectsSection = ({
                       shadow: false,
                       slideShadows: false,
                     }}
-                    direction={Math.random() > 0.5 ? "vertical" : "horizontal"}
+                    direction={i % 2 === 0 ? "vertical" : "horizontal"}
                     autoplay={{
                       delay: item.interval,
                       disableOnInteraction: false,

@@ -360,78 +360,59 @@ const Projects = ({ params: { locale } }) => {
   }, [isLastSlide, isFirstSlide, swiperInstance]);
   return (
     <>
-      <Swiper
-        onSwiper={setSwiperInstance}
-        className="w-screen h-screen"
-        direction={"vertical"}
-        speed={1000}
-        grabCursor={true}
-        modules={[Mousewheel, Keyboard]}
-        mousewheel={{
-          releaseOnEdges: true,
-        }}
-        keyboard={{
-          releaseOnEdges: true,
-        }}
-        onWheel={handleWheel}
-        onTransitionEnd={handleTransitionEnd}
-      >
-        <SwiperSlide className="relative w-full h-full">
-          <div className="bg-shocky w-full h-full flex items-center justify-center relative z-10">
-            <div className="flex w-full h-full flex-col  justify-center items-center lg:px-2 overflow-hidden">
-              <div className="text-white w-full h-full flex flex-1 p-3 md:p-7 flex-col md:flex-row lg:max-h-[800px]">
-                <div className="grid grid-cols-3 md:grid-cols-6 md:grid-rows-3 gap-3 md:gap-4 w-full  h-full p-0 md:p-4">
-                  {projects.map((item, i) => (
-                    <motion.div
+      <div className="w-screen h-screen">
+        <div className="bg-shocky w-full h-full flex items-center justify-center relative z-10">
+          <div className="flex w-full h-full flex-col  justify-center items-center lg:px-2 overflow-hidden">
+            <div className="text-white w-full h-full flex flex-1 p-3 md:p-7 flex-col md:flex-row xl:max-h-[800px]">
+              <div className="grid grid-cols-3 md:grid-cols-6 grid-rows-6  md:grid-rows-3 gap-3 md:gap-4 w-full  h-full p-0 md:p-4">
+                {projects.map((item, i) => (
+                  <motion.div
+                    key={item.id}
+                    className={
+                      i === 0 || i == 6
+                        ? "col-span-2 row-span-2 rounded-lg md:rounded-xl overflow-hidden bg-gray-200 relative"
+                        : "col-span-1 row-span-1 rounded-lg md:rounded-xl overflow-hidden bg-gray-200 relative"
+                    }
+                  >
+                    <Swiper
+                      observer={true}
+                      observeParents={true}
                       key={item.id}
-                      className={
-                        i === 0 || i == 6
-                          ? "col-span-2 row-span-2 rounded-lg md:rounded-xl overflow-hidden bg-gray-200 relative"
-                          : "col-span-1 row-span-1 rounded-lg md:rounded-xl overflow-hidden bg-gray-200 relative"
-                      }
+                      effect={"cube"}
+                      grabCursor={true}
+                      cubeEffect={{
+                        shadow: false,
+                        slideShadows: false,
+                      }}
+                      direction={i % 2 === 0 ? "vertical" : "horizontal"}
+                      autoplay={{
+                        delay: item.interval,
+                        disableOnInteraction: false,
+                      }}
+                      modules={[EffectCube, Autoplay]}
+                      className="mySwiper h-full w-full"
+                      loop={true}
+                      speed={2000}
                     >
-                      <Swiper
-                        observer={true}
-                        observeParents={true}
-                        key={item.id}
-                        effect={"cube"}
-                        grabCursor={true}
-                        cubeEffect={{
-                          shadow: false,
-                          slideShadows: false,
-                        }}
-                        direction={
-                          Math.random() > 0.5 ? "vertical" : "horizontal"
-                        }
-                        autoplay={{
-                          delay: item.interval,
-                          disableOnInteraction: false,
-                        }}
-                        modules={[EffectCube, Autoplay]}
-                        className="mySwiper h-full w-full"
-                        loop={true}
-                        speed={2000}
-                      >
-                        {item.images.map((img, index) => (
-                          <SwiperSlide key={index} className="h-full w-full">
-                            <Image
-                              src={img}
-                              alt=""
-                              fill={true}
-                              className="transition-transform duration-500 h-full w-full object-cover rounded-lg md:rounded-xl"
-                              priority
-                            />
-                          </SwiperSlide>
-                        ))}
-                      </Swiper>
-                    </motion.div>
-                  ))}
-                </div>
+                      {item.images.map((img, index) => (
+                        <SwiperSlide key={index} className="h-full w-full">
+                          <Image
+                            src={img}
+                            alt=""
+                            fill={true}
+                            className="transition-transform duration-500 h-full w-full object-cover rounded-lg md:rounded-xl"
+                            priority
+                          />
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>
-        </SwiperSlide>
-      </Swiper>
+        </div>
+      </div>
 
       <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
         {isVisible && (

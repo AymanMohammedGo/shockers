@@ -21,7 +21,7 @@ const clientsLogo = ({
       <div
         className={`${text_color} w-full h-full flex-1  flex flex-col items-center justify-center `}
       >
-        <h1 className="w-full px-7  text-4xl sm:text-[40px] lg:text-5xl FHD125:text-6xl FHD110:text-7xl font-bold max-w-screen-xl mx-auto min-h-[160px] FHD125:min-h-[120px] xsm:min-h-fit">
+        <h1 className="w-full px-7    text-4xl sm:text-[40px] lg:text-5xl FHD125:text-6xl FHD110:text-7xl font-bold max-w-screen-xl mx-auto min-h-[160px] ">
           {data?.attributes?.HOW_ADAPTIVE}
           <span className={`${text_active}`}>
             <Typewriter

@@ -163,7 +163,7 @@ const Contact = ({ params: { locale } }) => {
           postion={"absolute right-0"}
         />
         <section className="min-h-screen max-w-screen-xl  mx-auto mt-[100px]  z-10 relative flex   flex-col ">
-          <ul className="flex flex-col md:flex-row items-center text-lg  text-center w-full px-4 mb-0 md:mb-10 ">
+          <ul className="flex flex-col md:flex-row items-center text-base  text-center w-full px-4 mb-0 md:mb-10 ">
             {nav.map((item, index) => (
               <li
                 key={index}
@@ -227,7 +227,7 @@ const Contact = ({ params: { locale } }) => {
                   onChange={(e) => handleChange("dataSectionOne", e)}
                   placeholder={ContactNames.INQUIRY_Placeholder}
                 />
-                <Button className="bg-yMarketing hover:bg-shockersAECYellow text-white w-full text-lg rounded-lg">
+                <Button className="bg-yMarketing hover:bg-shockersAECYellow text-white w-full text-base rounded-lg">
                   {ContactNames.SUBMIT}
                 </Button>
               </form>
@@ -249,7 +249,7 @@ const Contact = ({ params: { locale } }) => {
                 className="w-full md:w-[60%] xl:w-[50%] p-2 m-auto"
                 onSubmit={(e) => handleSubmit("dataSectionTwo", e)}
               >
-                <h1 className="text-shockersAEC text-xl  border-b-[1px] border-shockersAEC/20 mb-5 pb-5 lg:mb-10 lg:pb-10 font-medium ">
+                <h1 className="text-shockersAEC text-lg  border-b-[1px] border-shockersAEC/20 mb-3 pb-3 lg:mb-5 lg:pb-5 font-medium ">
                   {ContactNames.SUBSCRIBTION_TEXT}
                 </h1>
                 <FormField
@@ -276,7 +276,7 @@ const Contact = ({ params: { locale } }) => {
                   onChange={(e) => handleChange("dataSectionTwo", e)}
                   required
                 />
-                <Button className="bg-yMarketing hover:bg-shockersAECYellow text-white w-full text-lg rounded-lg">
+                <Button className="bg-yMarketing hover:bg-shockersAECYellow text-white w-full text-base rounded-lg">
                   {ContactNames.SUBMIT}
                 </Button>
               </form>
@@ -298,7 +298,7 @@ const Contact = ({ params: { locale } }) => {
                 className="w-full md:w-[60%] xl:w-[50%] p-2 "
                 onSubmit={(e) => handleSubmit("dataSectionThree", e)}
               >
-                <div className="text-shockersAEC text-xl  border-b-[1px] border-shockersAEC/20 mb-5 pb-5 lg:mb-10 lg:pb-10 font-medium ">
+                <div className="text-shockersAEC text-lg  border-b-[1px] border-shockersAEC/20 mb-3 pb-3 lg:mb-5 lg:pb-5 font-medium ">
                   {ContactNames.JOBAPPLICATION_Title && (
                     <p className="bg-yMarketing text-white px-2 py-1">
                       {ContactNames.JOBAPPLICATION_Title}
@@ -355,12 +355,12 @@ const Contact = ({ params: { locale } }) => {
                   lable={false}
                 />
 
-                <Button className="bg-yMarketing hover:bg-shockersAECYellow text-white w-full text-lg rounded-lg">
+                <Button className="bg-yMarketing hover:bg-shockersAECYellow text-white w-full text-base rounded-lg">
                   {ContactNames.SUBMIT}
                 </Button>
               </form>
               <div className="w-full  md:w-1/3 p-2  ">
-                <h1 className="text-shockersAEC text-xl  text-center font-medium ">
+                <h1 className="text-shockersAEC text-lg  text-center font-medium ">
                   {ContactNames.AVAILABLE_JOB_OFFERS}
                 </h1>
                 <div className="mb-8 mt-4 w-full h-[250px] ">
@@ -379,13 +379,13 @@ const Contact = ({ params: { locale } }) => {
                       jobOffers.map((item, index) => (
                         <SwiperSlide
                           key={index}
-                          className="!flex justify-center items-center bg-yMarketing text-white text-xl text-center rounded-lg"
+                          className="!flex justify-center items-center bg-yMarketing text-white text-lg text-center rounded-lg"
                         >
                           {item.attributes?.title}
                         </SwiperSlide>
                       ))
                     ) : (
-                      <SwiperSlide className="!flex justify-center items-center bg-yMarketing text-white text-xl text-center rounded-lg">
+                      <SwiperSlide className="!flex justify-center items-center bg-yMarketing text-white text-lg text-center rounded-lg">
                         <div className="flex flex-col items-center justify-center">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"

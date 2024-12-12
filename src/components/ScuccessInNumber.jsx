@@ -14,7 +14,16 @@ import "/src/app/[locale]/globals.css";
 // import required modules
 import { Scrollbar } from "swiper/modules";
 import CountUp from "react-countup";
-const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
+const ScuccessInNumber = ({
+  data,
+  title,
+  bg,
+  link,
+  tc,
+  dir,
+  groupHover,
+  tc2,
+}) => {
   const var1 = {
     hidden: { opacity: 0 },
     visible: {
@@ -57,7 +66,7 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               initial="hidden"
               animate={controls1}
               variants={var1}
-              className="text-[45px]  text-yMarketing text-center sm:text-6xl lg:text-[65px] FHD125:text-7xl FHD110:text-8xl font-bold mb-0 sm:mb-6 md:mb-8 lg:mb-12 FHD125:mb-16 FHD110:mb-20  "
+              className={`text-[45px]  ${tc} text-center sm:text-6xl lg:text-[65px] FHD125:text-7xl FHD110:text-8xl font-bold mb-0 sm:mb-6 md:mb-8 lg:mb-12 FHD125:mb-16 FHD110:mb-20`}
             >
               {data?.attributes?.title}
             </motion.h1>
@@ -86,10 +95,12 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               <SwiperSlide>
                 <div
                   ref={ref}
-                  className={`group h-full  relative bg-transparent  overflow-hidden text-yMarketing w-full   pt-6 pb-3 lg:pb-6 px-4 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
+                  className={`group h-full  relative bg-transparent  overflow-hidden ${tc} w-full   pt-6 pb-3 lg:pb-6 px-4 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
-                  <div className="absolute inset-1 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
+                  <div
+                    className={`absolute inset-1 ${bg}  transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0`}
+                  ></div>
 
                   {/* المحتوى */}
                   <div className="relative z-10 flex w-full">
@@ -108,13 +119,13 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                       )}
                     </span>
                     <span
-                      className={`relative flex items-end font-bold w-full text-2xl lg:text-[28px] FHD125:text-3xl FHD110:text-4xl pb-5 group-hover:text-shockerYellow`}
+                      className={`relative flex items-end font-bold w-full text-2xl lg:text-[28px] FHD125:text-3xl FHD110:text-4xl pb-5 ${groupHover}`}
                     >
                       {data?.attributes?.subNumberOne}
                     </span>
                   </div>
                   <span
-                    className={`relative font-medium w-full text-xl lg:text-2xl FHD125:text-3xl FHD110:text-4xl  sm:py-5 pt-3 pb-3 group-hover:text-shockerYellow`}
+                    className={`relative font-medium w-full text-xl lg:text-2xl FHD125:text-3xl FHD110:text-4xl  sm:py-5 pt-3 pb-3 ${groupHover}`}
                   >
                     {data?.attributes?.titleOne}
                   </span>
@@ -127,10 +138,12 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               </SwiperSlide>
               <SwiperSlide>
                 <div
-                  className={`group relative bg-transparent h-full overflow-hidden text-yMarketing w-full  pt-6 pb-3 lg:pb-6 px-4 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
+                  className={`group relative bg-transparent h-full overflow-hidden ${tc} w-full  pt-6 pb-3 lg:pb-6 px-4 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
-                  <div className="absolute inset-1 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
+                  <div
+                    className={`absolute inset-1 ${bg} transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0`}
+                  ></div>
 
                   {/* المحتوى */}
                   <div className="relative z-10 flex w-full">
@@ -147,11 +160,11 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                       ) : (
                         0
                       )}
-                      <span className="text-shockerYellow">+</span>
+                      <span className={`${tc2}`}>+</span>
                     </span>
                   </div>
                   <span
-                    className={`relative font-medium w-full text-xl lg:text-2xl FHD125:text-3xl FHD110:text-4xl sm:py-5 pt-3 pb-3 group-hover:text-shockerYellow`}
+                    className={`relative font-medium w-full text-xl lg:text-2xl FHD125:text-3xl FHD110:text-4xl sm:py-5 pt-3 pb-3 ${groupHover}`}
                   >
                     {data?.attributes?.titleTwo}
                   </span>
@@ -164,10 +177,12 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
               </SwiperSlide>
               <SwiperSlide>
                 <div
-                  className={`group relative bg-transparent h-full overflow-hidden text-yMarketing w-full pt-6 pb-3 lg:pb-6 px-4 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
+                  className={`group relative bg-transparent h-full overflow-hidden ${tc} w-full pt-6 pb-3 lg:pb-6 px-4 sm:px-6 hover:text-white flex flex-col items-center  transition-all duration-300 ease-in-out`}
                 >
                   {/* الخلفية المتحركة */}
-                  <div className="absolute inset-1 bg-yMarketing transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0"></div>
+                  <div
+                    className={`absolute inset-1 ${bg} transition-transform duration-300 ease-in-out transform translate-y-full group-hover:translate-y-0`}
+                  ></div>
 
                   {/* المحتوى */}
                   <div className="relative z-10 flex w-full">
@@ -184,11 +199,11 @@ const ScuccessInNumber = ({ data, title, bg, link, tc, dir }) => {
                       ) : (
                         0
                       )}
-                      <span className="text-shockerYellow">+</span>
+                      <span className={`${tc2}`}>+</span>
                     </span>
                   </div>
                   <span
-                    className={`relative font-medium w-full text-xl lg:text-2xl FHD125:text-3xl FHD110:text-4xl sm:py-5 pt-3 pb-3 group-hover:text-shockerYellow`}
+                    className={`relative font-medium w-full text-xl lg:text-2xl FHD125:text-3xl FHD110:text-4xl sm:py-5 pt-3 pb-3 ${groupHover}`}
                   >
                     {data?.attributes?.titleThree}
                   </span>

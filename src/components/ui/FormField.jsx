@@ -17,7 +17,7 @@ const FormField = ({
   return (
     <div className="mb-4">
       {lable && (
-        <Label htmlFor={id} className="mb-3 text-lg text-shockersAEC">
+        <Label htmlFor={id} className="mb-3 text-base text-shockersAEC">
           {label}
         </Label>
       )}

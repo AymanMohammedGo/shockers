@@ -201,7 +201,6 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   //   //   swiperInstance.update();
   //   //   swiperInstance.slideTo(0, 2000);
 
-  
   //   //   // swiperInstance.mousewheel.enable();
   //   //   // setTimeout(() => {
   //   //   //   window.scrollTo(0, 0);
@@ -485,8 +484,10 @@ const Y_MarketingHome = ({ params: { locale } }) => {
               data={scuccessInNumber}
               title={data?.attributes?.NameServices}
               link="ymarketing"
-              bg="bg-Hover-gradient"
-              tc="text-white"
+              bg="bg-yMarketing"
+              tc="text-yMarketing"
+              tc2="text-shockerYellow"
+              groupHover="group-hover:text-shockerYellow"
               dir={document.dir}
             />
           </SwiperSlide>

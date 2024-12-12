@@ -484,8 +484,18 @@ const Y_MarketingHome = ({ params: { locale } }) => {
             data={scuccessInNumber}
             title={data?.attributes?.NameServices}
             link="shocky"
-            bg="bg-Hover-gradient"
-            tc="text-white"
+            bg="bg-shocky"
+            tc="text-shocky"
+            tc2="text-shockyRed"
+            groupHover="group-hover:text-shockyRed"
+            // bg="bg-shockyRed"
+            // tc="text-shockyRed"
+            // tc2="text-shocky"
+            // groupHover="group-hover:text-shocky"
+            // bg="bg-shocky"
+            // tc="text-shocky"
+            // tc2="text-shockyRed"
+            // groupHover="group-hover:text-white"
             dir={document.dir}
           />
         </SwiperSlide>

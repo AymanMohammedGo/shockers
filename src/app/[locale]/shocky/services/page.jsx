@@ -8,7 +8,7 @@ import { getServices } from "../../../../../utils/ShockyApi";
 import { useSearchParams } from "next/navigation";
 import ScrollToTopButton from "@/components/scrollTop";
 import { useTranslation } from "react-i18next";
-import { getHome } from "../../../../../utils/Y_MarketingApi";
+import { getHome } from "../../../../../utils/ShockyApi";
 const Services = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
@@ -63,8 +63,12 @@ const Services = ({ params: { locale } }) => {
         animate={{ opacity: 1, transition: { delay: 1 } }}
       >
         <Draw_YMar animationData={YMar_json} delay={500} speed={0.4} />
-
-        <ImageOverlaysTop dir={document.dir} title={t("SERVICES")} />
+        {/* data.attributes.url */}
+        <ImageOverlaysTop
+          imgURL={dataHome?.attributes?.services_image?.data.attributes.url}
+          dir={document.dir}
+          title={t("SERVICES")}
+        />
         <div className=" flex flex-col  justify-center md:flex-row sm:h-screen lg:py-5 lg:my-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
           <div
             className={`w-full md:w-2/5 px-4  pt-3 ${

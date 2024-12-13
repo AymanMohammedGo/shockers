@@ -503,11 +503,11 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           <SwiperSlide className="relative w-full h-full">
             <div className="flex flex-col justify-center items-center h-full max-w-screen-xl text-center m-auto">
               <div className="bg-yMarketing m-3 px-5 py-20 lg:p-20 rounded-2xl text-white">
-                <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-12">
+                <h1 className="text-3xl lg:text-[34px]  FHD125:text-4xl FHD110:text-5xl  font-bold mb-12">
                   {data?.attributes?.ARE_YOU_INTERESTED}
                 </h1>
                 <Link href="/ymarketing/contact">
-                  <button className="w-fit text-xl lg:text-2xl xl:text-3xl font-medium bg-shockerYellow text-yMarketing rounded-xl hover:bg-white hover:text-yMarketing  py-3 px-10">
+                  <button className="w-fit text-xl lg:text-2xl  FHD125:text-[24px] FHD110:text-3xl font-medium bg-shockerYellow text-yMarketing rounded-xl hover:bg-white hover:text-yMarketing  py-3 px-10">
                     {data?.attributes?.Contact_Us}
                   </button>
                 </Link>

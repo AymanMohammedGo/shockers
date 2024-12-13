@@ -64,7 +64,11 @@ const Services = ({ params: { locale } }) => {
       >
         <Draw_YMar animationData={YMar_json} delay={500} speed={0.4} />
 
-        <ImageOverlaysTop dir={document.dir} title={t("SERVICES")} />
+        <ImageOverlaysTop
+          imgURL={dataHome?.attributes?.services_image?.data.attributes.url}
+          dir={document.dir}
+          title={t("SERVICES")}
+        />
         <div className=" flex flex-col  justify-center md:flex-row sm:h-screen  lg:py-5 lg:my-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
           <div
             className={`w-full md:w-2/5 px-4  pt-3 ${

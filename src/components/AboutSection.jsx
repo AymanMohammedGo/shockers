@@ -83,13 +83,13 @@ const AboutSection = ({
         {/* <div className="absolute left-0 top-0 w-screen h-screen bg-black bg-opacity-50"></div> */}
         <div className="absolute inset-0 flex items-center justify-center ">
           <div className="max-w-screen-xxl w-full h-full relative overflow-hidden">
-            <div className="flex w-full flex-col items-center lg:items-start justify-center absolute bottom-10 p-2 lg:px-14 ">
+            <div className="flex w-full flex-col items-center sm:items-start justify-center absolute bottom-10 p-2 sm:px-14 ">
               <motion.h1
                 ref={ref}
                 initial="hidden"
                 animate={controls}
                 variants={variant1}
-                className="font-bold text-6xl lg:text-8xl mb-5 lg:mb-6 text-white overflow-hidden"
+                className="font-bold text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 md:mb-5 lg:mb-6 text-white overflow-hidden"
               >
                 {title}{" "}
               </motion.h1>
@@ -98,7 +98,7 @@ const AboutSection = ({
                 initial="hidden"
                 animate={controls}
                 variants={variant2}
-                className="text-white text-xl lg:text-2xl  text-center"
+                className="text-white text-lg  md:text-xl xl:text-2xl  text-center sm:text-start"
               >
                 {description}
               </motion.span>
@@ -110,7 +110,7 @@ const AboutSection = ({
                 variants={variant3}
               >
                 <Button
-                  className={`${bg} w-fit ${tc} hover:bg-shockersAEC hover:text-white text-base my-8`}
+                  className={`${bg} w-fit ${tc} hover:bg-shockersAEC text-sm hover:text-white lg:text-base my-4 lg:my-8`}
                 >
                   {textButton}
                 </Button>

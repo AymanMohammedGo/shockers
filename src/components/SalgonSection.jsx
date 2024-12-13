@@ -15,7 +15,7 @@ const SalgonSection = ({
     <section className="w-screen h-screen">
       <div className="max-w-screen-xxl w-full h-full m-auto relative p-2 sm:px-6 md:px-10 lg:px-14 overflow-hidden">
         <div
-          className={`absolute bottom-2 ${nameSize} ${colorText}  leading-none  text-[67px]  sm:text-8xl lg:text-9xl font-extrabold mb-3 m-auto lg:mb-12  `}
+          className={`absolute bottom-2 ${nameSize} ${colorText}  leading-none  text-[67px]  sm:text-8xl lg:text-[110px] xl:text-9xl font-extrabold mb-3 m-auto lg:mb-12  `}
         >
           {titleText.map((item, index) => (
             <motion.div
@@ -44,7 +44,7 @@ const SalgonSection = ({
           }}
           className={`absolute ${
             dir === "rtl" ? "left-10" : "right-10"
-          }  bottom-10 hidden md:flex lg:mb-12 text-shockersAEC text-base lg:text-xl font-bold  items-center justify-center`}
+          }  bottom-10 hidden md:flex lg:mb-12 ${colorText} text-base lg:text-xl font-bold  items-center justify-center`}
         >
           {t("SCROLL_DOWN")}
 

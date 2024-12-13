@@ -57,7 +57,7 @@ const SlideServicesSection = ({
               initial="hidden"
               animate={controls1}
               variants={var1}
-              className="text-[55px] sm:text-6xl lg:text-8xl font-bold mb-10 lg:mb-16 xl:mb-20  "
+              className="text-[52px] sm:text-6xl lg:text-8xl font-bold mb-10 lg:mb-16 xl:mb-20  "
             >
               {title}
             </motion.h1>

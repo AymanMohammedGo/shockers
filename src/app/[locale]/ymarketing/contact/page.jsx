@@ -160,7 +160,6 @@ const Contact = ({ params: { locale } }) => {
           animationData={YMar_json}
           delay={500}
           speed={0.4}
-          postion={"absolute right-0"}
         />
         <section className="min-h-screen max-w-screen-xl  mx-auto mt-[100px]  z-10 relative flex   flex-col ">
           <ul className="flex flex-col md:flex-row items-center text-base  text-center w-full px-4 mb-0 md:mb-10 ">

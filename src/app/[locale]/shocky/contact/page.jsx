@@ -156,12 +156,7 @@ const Contact = ({ params: { locale } }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { delay: 1 } }}
       >
-        <Draw_YMar
-          animationData={YMar_json}
-          delay={500}
-          speed={0.4}
-          postion={"absolute right-0"}
-        />
+        <Draw_YMar animationData={YMar_json} delay={500} speed={0.4} />
         <section className="min-h-screen max-w-screen-xl  mx-auto mt-[100px]  z-10 relative flex   flex-col ">
           <ul className="flex flex-col md:flex-row items-center text-base  text-center w-full px-4 mb-0 md:mb-10 ">
             {nav.map((item, index) => (

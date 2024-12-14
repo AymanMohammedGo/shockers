@@ -11,6 +11,7 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import { Navigation } from "swiper/modules";
 import { FreeMode } from "swiper/modules";
+import ImageOverlaysCenter from "./ImageOverlaysCenter";
 
 export default function SlideProjectsOneItems({ allProjects, link }) {
   const swiperRef = useRef(null);
@@ -69,7 +70,11 @@ export default function SlideProjectsOneItems({ allProjects, link }) {
                 className="relative w-full h-full overflow-hidden"
               >
                 <Link href={`/${link}/${item?.id}`}>
-                  <div className="relative w-full h-full overflow-hidden ">
+                <ImageOverlaysCenter
+                  title={item?.attributes?.name}
+                  imgURl={item?.attributes?.imgURLHome?.data?.attributes?.url}
+                />
+                  {/* <div className="relative w-full h-full overflow-hidden ">
                     <motion.div
                       className="relative w-full h-full overflow-hidden"
                       initial={{ scale: 1.15 }}
@@ -94,7 +99,7 @@ export default function SlideProjectsOneItems({ allProjects, link }) {
                   </div>
                   <span className="absolute text-center w-full  bottom-5 p-4 text-white text-2xl lg:text-3xl xl:text-4xl">
                     {item?.attributes?.name}
-                  </span>
+                  </span> */}
                 </Link>
               </SwiperSlide>
             ))}

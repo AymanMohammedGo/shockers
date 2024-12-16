@@ -19,7 +19,7 @@ export default function RootLayout({ children, params: { locale } }) {
       renderer: "svg",
       loop: false,
       autoplay: true,
-      path: "/Motion/Yard.json",
+      path: "/Motion/yard logo motion new.json",
     });
     anim.addEventListener("complete", () => {
       setIsAnimationCompleted(true);

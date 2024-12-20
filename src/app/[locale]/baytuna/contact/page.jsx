@@ -63,6 +63,34 @@ const Contact = ({ params: { locale } }) => {
       },
     }));
   };
+  const formatMessage = (data, section) => {
+    let message = "";
+    if (section === "dataSectionOne") {
+      message = `
+      My Name: ${data.FULL_NAME}
+      My Email: ${data.EMAIL_ADDRESS}
+      My Phone: ${data.PHONE_NUMBER}
+      My Inquity: ${data.INQUIRY}
+      `;
+    } else if (section === "dataSectionTwo") {
+      message = `
+      My Name: ${data.SUBSCRIPTION_FULL_NAME}
+      My Email: ${data.SUBSCRIPTION_EMAIL_ADDRESS}
+      My Phone: ${data.SUBSCRIPTION_PHONE_NUMBER}
+      `;
+    } else if (section === "dataSectionThree") {
+      message = `
+      My Name: ${data.Job_FULL_NAME}
+      My Email: ${data.Job_EMAIL_ADDRESS}
+      My Phone: ${data.Job_PHONE_NUMBER}
+      My Academic Qualification: ${data.Job_ACADEMIC_QUALIFICATION}
+      My CV Portfolio: ${data.Job_CV_PORTFOLIO}
+      My Notes: ${data.Job_Notes}
+      `;
+    }
+
+    return message;
+  };
   const handleSubmit = (section, e) => {
     e.preventDefault();
     console.log(formData[section]);
@@ -78,7 +106,10 @@ const Contact = ({ params: { locale } }) => {
       .send(
         "service_0lwq4pf",
         "template_3pz9jsc",
-        formData[section],
+        {
+          Title: formData[section].Title,
+          message: formatMessage(formData[section], section),
+        },
         "3VDT7N1sfotFdWbgp"
       )
       .then(
@@ -316,7 +347,7 @@ const Contact = ({ params: { locale } }) => {
                   id="SUBSCRIPTION_FULL_NAME"
                   label={ContactNames.FULL_NAME}
                   type="text"
-                  value={formData.dataSectionTwo.FULL_NAME}
+                  value={formData.dataSectionTwo.SUBSCRIPTION_FULL_NAME}
                   onChange={(e) => handleChange("dataSectionTwo", e)}
                   required
                 />
@@ -324,7 +355,7 @@ const Contact = ({ params: { locale } }) => {
                   id="SUBSCRIPTION_EMAIL_ADDRESS"
                   label={ContactNames.EMAIL_ADDRESS}
                   type="email"
-                  value={formData.dataSectionTwo.EMAIL_ADDRESS}
+                  value={formData.dataSectionTwo.SUBSCRIPTION_EMAIL_ADDRESS}
                   onChange={(e) => handleChange("dataSectionTwo", e)}
                   required
                 />
@@ -332,7 +363,7 @@ const Contact = ({ params: { locale } }) => {
                   id="SUBSCRIPTION_PHONE_NUMBER"
                   label={ContactNames.PHONE_NUMBER}
                   type="number"
-                  value={formData.dataSectionTwo.PHONE_NUMBER}
+                  value={formData.dataSectionTwo.SUBSCRIPTION_PHONE_NUMBER}
                   onChange={(e) => handleChange("dataSectionTwo", e)}
                   required
                 />
@@ -412,8 +443,9 @@ const Contact = ({ params: { locale } }) => {
                 <FormField
                   id="Job_CV_PORTFOLIO"
                   label={ContactNames.CV_PORTFOLIO}
-                  isFile={true}
-                  placeholder={ContactNames.No_file_chosen}
+                  type="text"
+                  placeholder={"link"}
+                  value={formData.dataSectionThree.Job_CV_PORTFOLIO}
                   onChange={(e) => handleChange("dataSectionThree", e)}
                 />
                 <FormField
@@ -421,6 +453,7 @@ const Contact = ({ params: { locale } }) => {
                   label={ContactNames.TextNote}
                   isTextarea={true}
                   placeholder={ContactNames.TextNote}
+                  value={formData.dataSectionThree.Job_Notes}
                   onChange={(e) => handleChange("dataSectionThree", e)}
                   rows={3}
                   lable={false}

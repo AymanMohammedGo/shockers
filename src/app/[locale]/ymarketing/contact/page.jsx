@@ -14,6 +14,8 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import FormField from "@/components/ui/FormField";
 import ScrollToTopButton from "@/components/scrollTop";
+import emailjs from "@emailjs/browser";
+import { useTranslation } from "react-i18next";
 
 const Contact = ({ params: { locale } }) => {
   let lan = locale;
@@ -26,17 +28,20 @@ const Contact = ({ params: { locale } }) => {
   const [jobOffers, setJobOffers] = useState([]);
   const [formData, setFormData] = useState({
     dataSectionOne: {
+      Title: "INQUIRY_YMARKETING",
       FULL_NAME: "",
       EMAIL_ADDRESS: "",
       PHONE_NUMBER: "",
       INQUIRY: "",
     },
     dataSectionTwo: {
+      Title: "SUBSCRIPTION_YMARKETING",
       SUBSCRIPTION_FULL_NAME: "",
       SUBSCRIPTION_EMAIL_ADDRESS: "",
       SUBSCRIPTION_PHONE_NUMBER: "",
     },
     dataSectionThree: {
+      Title: "JOB_APPLICATION_YMARKETING",
       Job_FULL_NAME: "",
       Job_EMAIL_ADDRESS: "",
       Job_PHONE_NUMBER: "",
@@ -45,6 +50,9 @@ const Contact = ({ params: { locale } }) => {
       Job_Notes: "",
     },
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
+
   const handleChange = (section, e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -63,6 +71,52 @@ const Contact = ({ params: { locale } }) => {
         Object.keys(prevState[section]).map((key) => [key, ""])
       ),
     }));
+    setIsSubmitting(true);
+
+    emailjs
+      .send(
+        "service_0lwq4pf",
+        "template_3pz9jsc",
+        formData[section],
+        "3VDT7N1sfotFdWbgp"
+      )
+      .then(
+        (result) => {
+          setResponseMessage("Message sent successfully");
+          setFormData({
+            dataSectionOne: {
+              Title: "INQUIRY_YMARKETING",
+              FULL_NAME: "",
+              EMAIL_ADDRESS: "",
+              PHONE_NUMBER: "",
+              INQUIRY: "",
+            },
+            dataSectionTwo: {
+              Title: "SUBSCRIPTION_YMARKETING",
+              SUBSCRIPTION_FULL_NAME: "",
+              SUBSCRIPTION_EMAIL_ADDRESS: "",
+              SUBSCRIPTION_PHONE_NUMBER: "",
+            },
+            dataSectionThree: {
+              Title: "JOB_APPLICATION_YMARKETING",
+              Job_FULL_NAME: "",
+              Job_EMAIL_ADDRESS: "",
+              Job_PHONE_NUMBER: "",
+              Job_ACADEMIC_QUALIFICATION: "",
+              Job_CV_PORTFOLIO: "",
+              Job_Notes: "",
+            },
+          });
+          setTimeout(() => {
+            setResponseMessage("");
+          }, 3000);
+        },
+        (error) => {
+          setResponseMessage("Failed to send message");
+        }
+      );
+
+    setIsSubmitting(false);
   };
   const getContact_ = useCallback(() => {
     getContact(lan).then((res) => {
@@ -156,11 +210,7 @@ const Contact = ({ params: { locale } }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { delay: 1 } }}
       >
-        <Draw_YMar
-          animationData={YMar_json}
-          delay={500}
-          speed={0.4}
-        />
+        <Draw_YMar animationData={YMar_json} delay={500} speed={0.4} />
         <section className="min-h-screen max-w-screen-xl  mx-auto mt-[100px]  z-10 relative flex   flex-col ">
           <ul className="flex flex-col md:flex-row items-center text-base  text-center w-full px-4 mb-0 md:mb-10 ">
             {nav.map((item, index) => (
@@ -227,8 +277,19 @@ const Contact = ({ params: { locale } }) => {
                   placeholder={ContactNames.INQUIRY_Placeholder}
                 />
                 <Button className="bg-yMarketing hover:bg-shockersAECYellow text-white w-full text-base rounded-lg">
-                  {ContactNames.SUBMIT}
+                  {isSubmitting ? t("Sending...") : ContactNames.SUBMIT}
                 </Button>
+                {responseMessage && (
+                  <p
+                    className={`${
+                      responseMessage === "Message sent successfully"
+                        ? "text-green-500"
+                        : "text-red-500"
+                    } mt-4 text-lg text-center`}
+                  >
+                    {t(`${responseMessage}`)}
+                  </p>
+                )}
               </form>
             </motion.div>
           )}
@@ -276,8 +337,19 @@ const Contact = ({ params: { locale } }) => {
                   required
                 />
                 <Button className="bg-yMarketing hover:bg-shockersAECYellow text-white w-full text-base rounded-lg">
-                  {ContactNames.SUBMIT}
+                  {isSubmitting ? t("Sending...") : ContactNames.SUBMIT}
                 </Button>
+                {responseMessage && (
+                  <p
+                    className={`${
+                      responseMessage === "Message sent successfully"
+                        ? "text-green-500"
+                        : "text-red-500"
+                    } mt-4 text-lg text-center`}
+                  >
+                    {t(`${responseMessage}`)}
+                  </p>
+                )}
               </form>
             </motion.div>
           )}
@@ -355,8 +427,19 @@ const Contact = ({ params: { locale } }) => {
                 />
 
                 <Button className="bg-yMarketing hover:bg-shockersAECYellow text-white w-full text-base rounded-lg">
-                  {ContactNames.SUBMIT}
+                  {isSubmitting ? t("Sending...") : ContactNames.SUBMIT}
                 </Button>
+                {responseMessage && (
+                  <p
+                    className={`${
+                      responseMessage === "Message sent successfully"
+                        ? "text-green-500"
+                        : "text-red-500"
+                    } mt-4 text-lg text-center`}
+                  >
+                    {t(`${responseMessage}`)}
+                  </p>
+                )}
               </form>
               <div className="w-full  md:w-1/3 p-2  ">
                 <h1 className="text-shockersAEC text-lg  text-center font-medium ">

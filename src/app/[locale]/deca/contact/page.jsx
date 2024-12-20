@@ -14,29 +14,36 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 import FormField from "@/components/ui/FormField";
 import ScrollToTopButton from "@/components/scrollTop";
+import emailjs from "@emailjs/browser";
+import { useTranslation } from "react-i18next";
 
 const Contact = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
     lan = "af";
   }
+  const { t } = useTranslation();
+
   const [sectionView, setSectionView] = useState(0);
 
   const [ContactNames, setContactNames] = useState([]);
   const [jobOffers, setJobOffers] = useState([]);
   const [formData, setFormData] = useState({
     dataSectionOne: {
+      Title: "INQUIRY_DECA",
       FULL_NAME: "",
       EMAIL_ADDRESS: "",
       PHONE_NUMBER: "",
       INQUIRY: "",
     },
     dataSectionTwo: {
+      Title: "SUBSCRIPTION_DECA",
       SUBSCRIPTION_FULL_NAME: "",
       SUBSCRIPTION_EMAIL_ADDRESS: "",
       SUBSCRIPTION_PHONE_NUMBER: "",
     },
     dataSectionThree: {
+      Title: "JOB_APPLICATION_DECA",
       Job_FULL_NAME: "",
       Job_EMAIL_ADDRESS: "",
       Job_PHONE_NUMBER: "",
@@ -45,6 +52,9 @@ const Contact = ({ params: { locale } }) => {
       Job_Notes: "",
     },
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
+
   const handleChange = (section, e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -63,6 +73,52 @@ const Contact = ({ params: { locale } }) => {
         Object.keys(prevState[section]).map((key) => [key, ""])
       ),
     }));
+    setIsSubmitting(true);
+
+    emailjs
+      .send(
+        "service_0lwq4pf",
+        "template_3pz9jsc",
+        formData[section],
+        "3VDT7N1sfotFdWbgp"
+      )
+      .then(
+        (result) => {
+          setResponseMessage("Message sent successfully");
+          setFormData({
+            dataSectionOne: {
+              Title: "INQUIRY_DECA",
+              FULL_NAME: "",
+              EMAIL_ADDRESS: "",
+              PHONE_NUMBER: "",
+              INQUIRY: "",
+            },
+            dataSectionTwo: {
+              Title: "SUBSCRIPTION_DECA",
+              SUBSCRIPTION_FULL_NAME: "",
+              SUBSCRIPTION_EMAIL_ADDRESS: "",
+              SUBSCRIPTION_PHONE_NUMBER: "",
+            },
+            dataSectionThree: {
+              Title: "JOB_APPLICATION_DECA",
+              Job_FULL_NAME: "",
+              Job_EMAIL_ADDRESS: "",
+              Job_PHONE_NUMBER: "",
+              Job_ACADEMIC_QUALIFICATION: "",
+              Job_CV_PORTFOLIO: "",
+              Job_Notes: "",
+            },
+          });
+          setTimeout(() => {
+            setResponseMessage("");
+          }, 3000);
+        },
+        (error) => {
+          setResponseMessage("Failed to send message");
+        }
+      );
+
+    setIsSubmitting(false);
   };
   const getContact_ = useCallback(() => {
     getContact(lan).then((res) => {
@@ -224,8 +280,19 @@ const Contact = ({ params: { locale } }) => {
                   placeholder={ContactNames.INQUIRY_Placeholder}
                 />
                 <Button className="bg-deca hover:bg-shockersAEC text-white w-full text-base rounded-lg">
-                  {ContactNames.SUBMIT}
+                  {isSubmitting ? t("Sending...") : ContactNames.SUBMIT}
                 </Button>
+                {responseMessage && (
+                  <p
+                    className={`${
+                      responseMessage === "Message sent successfully"
+                        ? "text-green-500"
+                        : "text-red-500"
+                    } mt-4 text-lg text-center`}
+                  >
+                    {t(`${responseMessage}`)}
+                  </p>
+                )}
               </form>
             </motion.div>
           )}
@@ -273,8 +340,19 @@ const Contact = ({ params: { locale } }) => {
                   required
                 />
                 <Button className="bg-deca hover:bg-shockersAEC text-white w-full text-base rounded-lg">
-                  {ContactNames.SUBMIT}
+                  {isSubmitting ? t("Sending...") : ContactNames.SUBMIT}
                 </Button>
+                {responseMessage && (
+                  <p
+                    className={`${
+                      responseMessage === "Message sent successfully"
+                        ? "text-green-500"
+                        : "text-red-500"
+                    } mt-4 text-lg text-center`}
+                  >
+                    {t(`${responseMessage}`)}
+                  </p>
+                )}
               </form>
             </motion.div>
           )}
@@ -352,8 +430,19 @@ const Contact = ({ params: { locale } }) => {
                 />
 
                 <Button className="bg-deca hover:bg-shockersAEC text-white w-full text-base rounded-lg">
-                  {ContactNames.SUBMIT}
+                  {isSubmitting ? t("Sending...") : ContactNames.SUBMIT}
                 </Button>
+                {responseMessage && (
+                  <p
+                    className={`${
+                      responseMessage === "Message sent successfully"
+                        ? "text-green-500"
+                        : "text-red-500"
+                    } mt-4 text-lg text-center`}
+                  >
+                    {t(`${responseMessage}`)}
+                  </p>
+                )}
               </form>
               <div className="w-full  md:w-1/3 p-2  ">
                 <h1 className="text-shockersAEC text-lg  text-center font-medium ">

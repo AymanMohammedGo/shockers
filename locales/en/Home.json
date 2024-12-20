@@ -9,5 +9,8 @@
   "BAYTUNA": "BAYTUNA",
   "SERVICES": "SERVICES",
   "YMARKETING": "Y MARKETING",
-  "SHOCKY": "SHOCKY"
+  "SHOCKY": "SHOCKY",
+  "Sending...": "Sending...",
+  "Failed to send message": "Failed to send message",
+  "Message sent successfully": "Message sent successfully"
 }

@@ -1,6 +1,6 @@
 "use client";
 import Draw_B from "@/components/Lottie/Draw_B";
-import B_json from "/public/Motion/B.json";
+import B_json from "/public/Motion/BAYTUNA V3.json";
 import { motion } from "framer-motion";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";

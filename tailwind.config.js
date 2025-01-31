@@ -35,7 +35,7 @@ module.exports = {
           DEFAULT: "#ffcf01",
         },
         baytuna: {
-          DEFAULT: "#c01f4a",
+          DEFAULT: "#93c5ac",
         },
         yard: {
           DEFAULT: "#B9D988",

@@ -2,7 +2,7 @@
 import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Draw_B from "@/components/Lottie/Draw_B";
-import B_json from "/public/Motion/B.json";
+import B_json from "/public/Motion/BAYTUNA V3.json";
 import { getAboutUS, getTopAbout } from "../../../../../utils/BaytunaApi";
 import { useRef } from "react";
 import AboutTopSection from "@/components/AboutTopVideo";
@@ -134,7 +134,6 @@ const About = ({ params: { locale } }) => {
   //   //   swiperInstance.update();
   //   //   swiperInstance.slideTo(0, 2000);
 
- 
   //   //   // swiperInstance.mousewheel.enable();
   //   //   // setTimeout(() => {
   //   //   //   window.scrollTo(0, 0);

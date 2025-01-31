@@ -18,7 +18,7 @@ export default function RootLayout({ children, params: { locale } }) {
       renderer: "svg",
       loop: false,
       autoplay: true,
-      path: "/Motion/LogoBaytuna.json",
+      path: "/Motion/baytuna website logomotion new version.json",
     });
     anim.addEventListener("complete", () => {
       setIsAnimationCompleted(true);

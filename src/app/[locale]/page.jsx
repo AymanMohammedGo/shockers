@@ -112,7 +112,7 @@ export default function Home({ params: { locale } }) {
       duration: 2,
       delay: 3,
       hoverIndex: 6,
-      textColor: "text-white",
+      textColor: "text-shockyRed",
     },
   ];
   useEffect(() => {

@@ -3,7 +3,7 @@ import ImageOverlaysTop from "@/components/ImageOverlaysTop";
 import { motion } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import Draw_YMar from "@/components/Lottie/Draw_Shocky";
-import YMar_json from "/public/Motion/shockyOutline.json";
+import YMar_json from "/public/Motion/shocky ooutline2.json";
 import { getServices } from "../../../../../utils/ShockyApi";
 import { useSearchParams } from "next/navigation";
 import ScrollToTopButton from "@/components/scrollTop";

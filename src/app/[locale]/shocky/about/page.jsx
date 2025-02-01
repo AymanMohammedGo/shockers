@@ -2,7 +2,7 @@
 import { useCallback, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Draw_YMar from "@/components/Lottie/Draw_Shocky";
-import YMar_json from "/public/Motion/shockyOutline.json";
+import YMar_json from "/public/Motion/shocky ooutline2.json";
 import { getAboutUS } from "../../../../../utils/ShockyApi";
 import { useRef } from "react";
 import AboutTopSection from "@/components/AboutTopVideo";
@@ -133,7 +133,6 @@ const About = ({ params: { locale } }) => {
 
   //   //   swiperInstance.update();
   //   //   swiperInstance.slideTo(0, 2000);
-
 
   //   //   // swiperInstance.mousewheel.enable();
   //   //   // setTimeout(() => {

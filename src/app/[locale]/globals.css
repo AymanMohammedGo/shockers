@@ -94,7 +94,7 @@ html {
   display: block;
 }
 .showScrollShocky::-webkit-scrollbar-thumb {
-  background: #25325c;
+  background: #d3dd25;
   border-radius: 0px;
 }
 .showScrollYMarketing::-webkit-scrollbar-thumb {
@@ -118,7 +118,7 @@ html {
 .baytuna .swiper-rtl .swiper-button-next:after,
 .baytuna .swiper-button-next:after,
 .baytuna .swiper-rtl .swiper-button-prev:after {
-  color: #c01f4a;
+  color: #93c5ac;
   font-weight: 900;
   padding: 12px;
 }

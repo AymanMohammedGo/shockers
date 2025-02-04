@@ -94,7 +94,7 @@ html {
   display: block;
 }
 .showScrollShocky::-webkit-scrollbar-thumb {
-  background: #d3dd25;
+  background: #d4de25;
   border-radius: 0px;
 }
 .showScrollYMarketing::-webkit-scrollbar-thumb {
@@ -151,7 +151,7 @@ html {
   background: #fdcf00;
 }
 .bg-Hover-gradient-shocky:hover {
-  background: #d3dd25;
+  background: #d4de25;
 }
 .bg-Hover-gradient-Deca:hover {
   background: #17b9b5;

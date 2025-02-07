@@ -107,12 +107,12 @@ export default function Home({ params: { locale } }) {
       link: "/shocky",
       imageLogo: "/img/MainPage/shocky.svg",
       imageHoverLogo: "/img/MainPage/shockyWhite.svg",
-      bgColorHover: "hover:bg-shocky",
+      bgColorHover: "hover:bg-shockyRed",
       textHover: solgan.Shocky,
       duration: 2,
       delay: 3,
       hoverIndex: 6,
-      textColor: "text-shockyRed",
+      textColor: "text-shocky",
     },
   ];
   useEffect(() => {

@@ -22,6 +22,7 @@ import { useSearchParams, usePathname } from "next/navigation";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Mousewheel, Keyboard } from "swiper/modules";
+import SlideServicesSection from "@/components/SlideServicesSection";
 const BaytunaHome = ({ params: { locale } }) => {
   let lan = locale;
   if (locale === "kr") {
@@ -176,7 +177,6 @@ const BaytunaHome = ({ params: { locale } }) => {
   //   //   swiperInstance.update();
   //   //   swiperInstance.slideTo(0, 2000);
 
-      
   //   //   // swiperInstance.mousewheel.enable();
   //   //   // setTimeout(() => {
   //   //   //   window.scrollTo(0, 0);
@@ -445,12 +445,21 @@ const BaytunaHome = ({ params: { locale } }) => {
           />
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
-          <ServicesSection
+          {/* <ServicesSection
             services={services}
             title={data?.attributes?.NameServices}
             link="baytuna"
             bg="bg-Hover-gradient-Baytuna"
             tc="text-shockersAEC"
+            dir={document.dir}
+          /> */}
+          <SlideServicesSection
+            services={services}
+            title={data?.attributes?.NameServices}
+            link="baytuna"
+            background="bg-baytuna"
+            bg="bg-Hover-gradient"
+            tc="text-white"
             dir={document.dir}
           />
         </SwiperSlide>

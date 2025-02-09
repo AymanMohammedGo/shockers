@@ -420,7 +420,7 @@ const DecaHome = ({ params: { locale } }) => {
         onTransitionEnd={handleTransitionEnd}
       >
         <SwiperSlide className="relative w-full h-full">
-          <SalgonSection titleText={solgan} dir={document.dir} />
+          <SalgonSection  titleText={solgan} dir={document.dir} />
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
           <AboutSection

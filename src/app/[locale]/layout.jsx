@@ -10,6 +10,9 @@ const i18nNamespaces = ["Home"];
 export const metadata = {
   title: "Shockers Group",
   description: "Architectural, Engineering, & Construction",
+  keywords:
+    "architecture, engineering, construction, marketing, branding, graphic design, interior design, digital marketing, advertising, web development, social media marketing, UI/UX design, corporate identity, Shockers Group",
+  authors: [{ name: "Shockers Group", url: "https://shockersgroup.com" }],
 };
 export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));

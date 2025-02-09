@@ -88,6 +88,7 @@ export default function RootLayout({ children, params: { locale } }) {
           <Footer
             width="160"
             name="deca"
+            background="bg-deca"
             logo="/img/LogosFooter/logoDecaWhite.svg"
             data={footerNames}
             socialMedia={socialMedias}

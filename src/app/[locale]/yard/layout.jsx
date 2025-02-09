@@ -87,6 +87,7 @@ export default function RootLayout({ children, params: { locale } }) {
           <Footer
             width="120"
             name="yard"
+            background="bg-yard"
             logo="/img/LogosFooter/logoYardWhite.svg"
             data={footerNames}
             socialMedia={socialMedias}

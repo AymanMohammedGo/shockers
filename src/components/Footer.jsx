@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Footer = ({ width, name, logo, socialMedia, data }) => {
+const Footer = ({ width, background, name, logo, socialMedia, data }) => {
   const currentYear = new Date().getFullYear();
   const facebookIcons = (
     <svg
@@ -44,7 +44,7 @@ const Footer = ({ width, name, logo, socialMedia, data }) => {
   return (
     <footer
       id="footer"
-      className="bg-shockersAEC z-10 !min-h-screen  sm:!min-h-full"
+      className={`${background} z-10 !min-h-screen  sm:!min-h-full`}
     >
       <div className="relative mx-auto max-w-screen-xxl px-4 py-8 sm:px-6 lg:p-8  ">
         <div className="mt-16 lg:flex lg:items-center lg:justify-between">

@@ -83,10 +83,10 @@ export default function RootLayout({ children, params: { locale } }) {
             Dir={document.dir}
           />
           {children}
-
           <Footer
             width="180"
-            name="yMarketing"
+            name="shocky"
+            background="bg-shocky"
             logo="/img/LogosFooter/logoShockyWhite.svg"
             data={footerNames}
             socialMedia={socialMedias}

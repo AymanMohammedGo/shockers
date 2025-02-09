@@ -428,6 +428,7 @@ const BaytunaHome = ({ params: { locale } }) => {
         <SwiperSlide className="relative w-full h-full">
           <SalgonSection
             nameSize="verySmall"
+            colorText="text-baytuna"
             titleText={solgan}
             dir={document.dir}
           />

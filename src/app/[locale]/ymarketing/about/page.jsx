@@ -400,7 +400,7 @@ const About = ({ params: { locale } }) => {
           />
         </SwiperSlide>
 
-        {data.map((item, index) => (
+        {data.sort((a, b) => a.id - b.id).map((item, index) => (
           <SwiperSlide key={index} className="relative w-full h-full">
             <div
               ref={(el) => (sectionRefs.current[index] = el)}

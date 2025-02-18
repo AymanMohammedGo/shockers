@@ -388,82 +388,84 @@ const About = ({ params: { locale } }) => {
           />
         </SwiperSlide>
 
-        {data.map((item, index) => (
-          <SwiperSlide key={index} className="relative w-full h-full">
-            <div
-              ref={(el) => (sectionRefs.current[index] = el)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: index === currentIndex ? 1 : 0 }}
-              transition={{ duration: 0.5 }}
-              className="px-4 h-screen text-shockersAEC flex flex-col items-start"
-            >
-              <div className="absolute h-screen w-full">
-                <Draw_S
-                  animationData={S_json}
-                  delay={500}
-                  speed={0.4}
-                  postion={"absolute"}
-                />
-              </div>
+        {data
+          .sort((a, b) => a.id - b.id)
+          .map((item, index) => (
+            <SwiperSlide key={index} className="relative w-full h-full">
+              <div
+                ref={(el) => (sectionRefs.current[index] = el)}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: index === currentIndex ? 1 : 0 }}
+                transition={{ duration: 0.5 }}
+                className="px-4 h-screen text-shockersAEC flex flex-col items-start"
+              >
+                <div className="absolute h-screen w-full">
+                  <Draw_S
+                    animationData={S_json}
+                    delay={500}
+                    speed={0.4}
+                    postion={"absolute"}
+                  />
+                </div>
 
-              <div className="relative max-w-screen-xxl m-auto flex flex-col items-start overflow-hidden">
-                <motion.div className="absolute h-full hidden sm:flex top-0 left-[calc(100px + 10px)] w-[5px] bg-shockersAEC z-10" />
+                <div className="relative max-w-screen-xxl m-auto flex flex-col items-start overflow-hidden">
+                  <motion.div className="absolute h-full hidden sm:flex top-0 left-[calc(100px + 10px)] w-[5px] bg-shockersAEC z-10" />
 
-                <div className="flex flex-col items-center justify-center h-screen overflow-hidden">
-                  <div className="relative flex items-center z-10 w-full  ">
-                    {/* الخط الأفقي والدائرة */}
-                    <motion.div
-                      initial={{
-                        x: document.dir === "ltr" ? "-100%" : "100%",
-                        opacity: 0,
-                      }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{
-                        duration: 1,
-                      }}
-                      className="relative  items-center hidden sm:flex"
-                    >
-                      <div className="w-0 md:w-[50px] lg:w-[100px] h-[5px] bg-shockersAEC"></div>
-                      <div className="relative">
-                        <div
-                          className={`w-[20px] h-[20px] rounded-full bg-shockersAEC ${
-                            document.dir === "ltr"
-                              ? " -ml-[10px]"
-                              : " -mr-[10px]"
-                          }`}
-                        ></div>
-                      </div>
-                    </motion.div>
-                    {/* العنوان */}
-                    <motion.h2
+                  <div className="flex flex-col items-center justify-center h-screen overflow-hidden">
+                    <div className="relative flex items-center z-10 w-full  ">
+                      {/* الخط الأفقي والدائرة */}
+                      <motion.div
+                        initial={{
+                          x: document.dir === "ltr" ? "-100%" : "100%",
+                          opacity: 0,
+                        }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        transition={{
+                          duration: 1,
+                        }}
+                        className="relative  items-center hidden sm:flex"
+                      >
+                        <div className="w-0 md:w-[50px] lg:w-[100px] h-[5px] bg-shockersAEC"></div>
+                        <div className="relative">
+                          <div
+                            className={`w-[20px] h-[20px] rounded-full bg-shockersAEC ${
+                              document.dir === "ltr"
+                                ? " -ml-[10px]"
+                                : " -mr-[10px]"
+                            }`}
+                          ></div>
+                        </div>
+                      </motion.div>
+                      {/* العنوان */}
+                      <motion.h2
+                        custom={document.dir}
+                        variants={animationVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        className="sm:mx-4 w-full text-shockersAEC font-bold text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[50px] lg:!leading-[70px]"
+                      >
+                        {item?.attributes.title}
+                      </motion.h2>
+                    </div>
+                    {/* النص */}
+                    <motion.p
                       custom={document.dir}
                       variants={animationVariants}
                       initial="hidden"
                       whileInView="visible"
-                      className="sm:mx-4 w-full text-shockersAEC font-bold text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[50px] lg:!leading-[70px]"
+                      className={`${
+                        document.dir === "ltr"
+                          ? "sm:ml-[26px] md:ml-[78px] lg:ml-[130px]"
+                          : "sm:mr-[26px] md:mr-[78px] lg:mr-[130px]"
+                      } text-justify hyphens-auto text-shockersAEC text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10`}
                     >
-                      {item?.attributes.title}
-                    </motion.h2>
+                      {item?.attributes.description}
+                    </motion.p>
                   </div>
-                  {/* النص */}
-                  <motion.p
-                    custom={document.dir}
-                    variants={animationVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    className={`${
-                      document.dir === "ltr"
-                        ? "sm:ml-[26px] md:ml-[78px] lg:ml-[130px]"
-                        : "sm:mr-[26px] md:mr-[78px] lg:mr-[130px]"
-                    } text-justify hyphens-auto text-shockersAEC text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10`}
-                  >
-                    {item?.attributes.description}
-                  </motion.p>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          ))}
       </Swiper>
       <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
         {isVisible && (

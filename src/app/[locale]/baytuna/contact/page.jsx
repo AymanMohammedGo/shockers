@@ -152,7 +152,7 @@ const Contact = ({ params: { locale } }) => {
   };
   const getContact_ = useCallback(() => {
     getContact(lan).then((res) => {
-      setContactNames(res.data.data.attributes);
+      setContactNames(res.data.data);
     });
   }, [lan]);
   const getJobOffers_ = useCallback(() => {
@@ -497,7 +497,7 @@ const Contact = ({ params: { locale } }) => {
                           key={index}
                           className="!flex justify-center items-center bg-baytuna text-white text-lg text-center rounded-lg"
                         >
-                          {item.attributes?.title}
+                          {item.title}
                         </SwiperSlide>
                       ))
                     ) : (

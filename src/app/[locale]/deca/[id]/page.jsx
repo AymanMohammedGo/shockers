@@ -3,7 +3,7 @@ import ImageTitleProject from "@/components/ImageTitleProject";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { getDetail_project } from "../../../../../utils/GlobleApi";
-import { getProject } from "../../../../../utils/DecaApi";
+import { getProject, getProjects } from "../../../../../utils/DecaApi";
 import { useCallback, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -28,46 +28,49 @@ const SubProject = ({ params: { locale, id } }) => {
   const pathname = usePathname();
   const [project, setProject] = useState();
   const [getDetailProject, setGetDetailProject] = useState();
-  const assignLocalizationIDs = (locale, id, localizations) => {
-    lanID[locale] = id;
-    localizations.forEach((localization) => {
-      const loc = localization?.attributes?.locale;
-      if (loc === "af") {
-        lanID.af = localization.id;
-      } else if (loc === "ar") {
-        lanID.ar = localization.id;
-      } else if (loc === "en") {
-        lanID.en = localization.id;
-      }
-      console.log(lanID);
-    });
-    if (lan === "ar") {
-      router.push(`/deca/${lanID.ar}`);
-    } else if (lan === "en") {
-      router.push(`/deca/${lanID.en}`);
-    } else {
-      router.push(`/deca/${lanID.af}`);
-    }
-  };
+  const assignLocalizationIDs = useCallback(
+    (currentLocale, id, localizations) => {
+      lanID[currentLocale] = id;
 
+      localizations.forEach((localization) => {
+        const loc = localization?.locale;
+        if (loc === "af") lanID.af = localization.id;
+        else if (loc === "ar") lanID.ar = localization.id;
+        else if (loc === "en") lanID.en = localization.id;
+      });
+
+      if (lan === "ar") {
+        router.push(`/deca/${lanID.ar}`);
+      } else if (lan === "en") {
+        router.push(`/deca/${lanID.en}`);
+      } else {
+        router.push(`/deca/${lanID.af}`);
+      }
+    },
+    [lan, router]
+  );
   const getProject_ = useCallback(() => {
-    getProject(lan, id)
+    console.log(lan);
+    getProjects(lan)
       .then((res) => {
-        if (!res.data) {
-          router.push("/en/deca");
+        console.log(lan);
+
+        if (res?.data?.data.filter((item) => item.id).length === 0) {
+          router.push(`/deca`);
         } else {
-          setProject(res.data.data);
-          const { locale, localizations } = res.data.data.attributes;
-          assignLocalizationIDs(locale, res.data.data.id, localizations.data);
+          const proj = res?.data?.data?.find((item) => item.id == id);
+          setProject(proj);
+          const { locale, localizations } = proj;
+          assignLocalizationIDs(locale, proj.id, localizations);
         }
       })
       .catch(() => {
-        router.push("/en/deca");
+        router.push(`/deca`);
       });
-  }, [lan, id, router]);
+  }, [lan, id, router, assignLocalizationIDs]);
   const getDetail_project_ = useCallback(() => {
     getDetail_project(lan).then((res) => {
-      setGetDetailProject(res.data.data.attributes);
+      setGetDetailProject(res.data.data);
     });
   }, [lan]);
   useEffect(() => {
@@ -160,7 +163,6 @@ const SubProject = ({ params: { locale, id } }) => {
   //   //   swiperInstance.update();
   //   //   swiperInstance.slideTo(0, 2000);
 
- 
   //   //   // swiperInstance.mousewheel.enable();
   //   //   // setTimeout(() => {
   //   //   //   window.scrollTo(0, 0);
@@ -411,20 +413,20 @@ const SubProject = ({ params: { locale, id } }) => {
         <SwiperSlide className="relative w-full h-full">
           <ImageTitleProject
             detail={getDetailProject}
-            name={project?.attributes?.name}
-            description={project?.attributes?.description}
-            location={project?.attributes?.location}
-            StartingEndingYear={project?.attributes?.StartingEndingYear}
-            imgURL={project?.attributes?.imgURl?.data?.attributes?.url}
+            name={project?.name}
+            description={project?.description}
+            location={project?.location}
+            StartingEndingYear={project?.StartingEndingYear}
+            imgURL={project?.imgURl?.url}
           />
         </SwiperSlide>
-        {project?.attributes?.imgesGroup?.data?.map((item, index) => (
+        {project?.imgesGroup?.map((item, index) => (
           <div key={index}>
             <SwiperSlide className="relative w-full h-full">
               <div className="relative h-screen w-screen ">
                 <Image
                   className="object-cover"
-                  src={item?.attributes?.url}
+                  src={`https://strapi.shockersgroup.com${item?.url}`}
                   fill={true}
                   alt=""
                   quality={75}

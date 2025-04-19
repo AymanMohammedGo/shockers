@@ -3,8 +3,8 @@ import ImageTitleProject from "@/components/ImageTitleProject";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { getDetail_project } from "../../../../../utils/GlobleApi";
-import { getProject } from "../../../../../utils/BaytunaApi";
-import { useCallback, useState, useEffect } from "react";
+import { getProject, getProjects } from "../../../../../utils/BaytunaApi";
+import { useCallback, useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSearchParams, usePathname } from "next/navigation";
@@ -20,54 +20,58 @@ const SubProject = ({ params: { locale, id } }) => {
     ar: 0,
     af: 0,
   };
-  let lan = locale;
-  if (locale === "kr") {
-    lan = "af";
-  }
+
+  const lan = useMemo(() => {
+    return locale === "kr" ? "af" : locale;
+  }, [locale]);
+
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const [project, setProject] = useState();
   const [getDetailProject, setGetDetailProject] = useState();
-  const assignLocalizationIDs = (locale, id, localizations) => {
-    lanID[locale] = id;
-    localizations.forEach((localization) => {
-      const loc = localization?.attributes?.locale;
-      if (loc === "af") {
-        lanID.af = localization.id;
-      } else if (loc === "ar") {
-        lanID.ar = localization.id;
-      } else if (loc === "en") {
-        lanID.en = localization.id;
-      }
-      console.log(lanID);
-    });
-    if (lan === "ar") {
-      router.push(`/baytuna/${lanID.ar}`);
-    } else if (lan === "en") {
-      router.push(`/baytuna/${lanID.en}`);
-    } else {
-      router.push(`/baytuna/${lanID.af}`);
-    }
-  };
+  const assignLocalizationIDs = useCallback(
+    (currentLocale, id, localizations) => {
+      lanID[currentLocale] = id;
 
+      localizations.forEach((localization) => {
+        const loc = localization?.locale;
+        if (loc === "af") lanID.af = localization.id;
+        else if (loc === "ar") lanID.ar = localization.id;
+        else if (loc === "en") lanID.en = localization.id;
+      });
+
+      if (lan === "ar") {
+        router.push(`/baytuna/${lanID.ar}`);
+      } else if (lan === "en") {
+        router.push(`/baytuna/${lanID.en}`);
+      } else {
+        router.push(`/baytuna/${lanID.af}`);
+      }
+    },
+    [lan, router]
+  );
   const getProject_ = useCallback(() => {
-    getProject(lan, id)
+    console.log(lan);
+    getProjects(lan)
       .then((res) => {
-        if (!res.data) {
-          router.push("/en/baytuna");
+        console.log(lan);
+        if (res?.data?.data.filter((item) => item.id).length === 0) {
+          router.push(`/baytuna`);
         } else {
-          setProject(res.data.data);
-          const { locale, localizations } = res.data.data.attributes;
-          assignLocalizationIDs(locale, res.data.data.id, localizations.data);
+          const proj = res?.data?.data?.find((item) => item.id == id);
+          setProject(proj);
+          const { locale, localizations } = proj;
+          assignLocalizationIDs(locale, proj.id, localizations);
         }
       })
       .catch(() => {
-        router.push("/en/baytuna");
+        router.push(`/baytuna`);
       });
-  }, [lan, id, router]);
+  }, [lan, id, router, assignLocalizationIDs]);
+
   const getDetail_project_ = useCallback(() => {
     getDetail_project(lan).then((res) => {
-      setGetDetailProject(res.data.data.attributes);
+      setGetDetailProject(res.data.data);
     });
   }, [lan]);
   useEffect(() => {
@@ -78,39 +82,148 @@ const SubProject = ({ params: { locale, id } }) => {
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
 
- // when open page project
- const handleGoToBeforeLastSlide = (number) => {
-  if (swiperInstance) {
-    window.scrollTo({
+  // when open page project
+  const handleGoToBeforeLastSlide = (number) => {
+    if (swiperInstance) {
+      window.scrollTo({
         top: (0.5 / 100) * window.innerHeight,
         behavior: "smooth", // التمرير السلس
       });
-    swiperInstance.update();
+      swiperInstance.update();
 
-    const lastSlideIndex = swiperInstance.slides.length - number;
-    swiperInstance.slideTo(lastSlideIndex, 2000);
-  }
-};
-const [urlParams, setUrlParams] = useState(
-  new URLSearchParams(window.location.search)
-);
-useEffect(() => {
-  const search = searchParams.get("projects");
-  const searchClient = searchParams.get("clients");
-  const scroll = searchParams.get("scroll");
+      const lastSlideIndex = swiperInstance.slides.length - number;
+      swiperInstance.slideTo(lastSlideIndex, 2000);
+    }
+  };
+  const [urlParams, setUrlParams] = useState(
+    new URLSearchParams(window.location.search)
+  );
+  useEffect(() => {
+    const search = searchParams.get("projects");
+    const searchClient = searchParams.get("clients");
+    const scroll = searchParams.get("scroll");
 
-  if (search === "show") {
-    setTimeout(() => {
-      handleGoToBeforeLastSlide(2);
-    }, 0);
-  }
-  if (searchClient === "show") {
-    setTimeout(() => {
-      handleGoToBeforeLastSlide(3);
-    }, 0);
-  }
-  if (scroll === "show") {
-    setTimeout(() => {
+    if (search === "show") {
+      setTimeout(() => {
+        handleGoToBeforeLastSlide(2);
+      }, 0);
+    }
+    if (searchClient === "show") {
+      setTimeout(() => {
+        handleGoToBeforeLastSlide(3);
+      }, 0);
+    }
+    if (scroll === "show") {
+      setTimeout(() => {
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+          // إذا كان الجهاز iPhone
+          window.scrollTo(0, -60);
+        } else {
+          // إذا لم يكن iPhone
+          window.scrollTo(0, 0);
+        }
+      }, 0);
+    }
+  }, [urlParams, searchParams, pathname, swiperInstance]);
+
+  // button scroll top
+  // const [isVisible, setIsVisible] = useState(false);
+
+  const handleGoToFirstSlide = () => {
+    const url = new URL(window.location);
+    const scroll = new URLSearchParams(url.search);
+    scroll.delete("scroll");
+    scroll.delete("projects");
+    scroll.delete("clients");
+
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: "smooth",
+    // });
+
+    // إعادة تعيين المعاملة إلى قيمة مؤقتة
+    scroll.set("scroll", "temp");
+    url.search = scroll.toString();
+    window.history.pushState({}, "", url);
+    setUrlParams(new URLSearchParams(url.search));
+
+    // تحديث المعاملة إلى القيمة النهائية
+    scroll.set("scroll", "show");
+    url.search = scroll.toString();
+    window.history.pushState({}, "", url);
+    if (swiperInstance) {
+      swiperInstance.update();
+      swiperInstance.slideTo(0, 2000);
+    }
+    setUrlParams(new URLSearchParams(url.search));
+  };
+  // const handleGoToFirstSlide = () => {
+  //   // if (swiperInstance) {
+  //   //   // document.body.style.overflow = "auto";
+
+  //   //   swiperInstance.update();
+  //   //   swiperInstance.slideTo(0, 2000);
+
+  //
+  //   //   // swiperInstance.mousewheel.enable();
+  //   //   // setTimeout(() => {
+  //   //   //   window.scrollTo(0, 0);
+  //   //   // }, 2000);
+  //   // }
+  //   document.body.style.overflow = "hidden";
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
+  // // const toggleVisibility = () => {
+  // //   if (window.pageYOffset >= 1) {
+  // //     setIsVisible(true);
+  // //   } else {
+  // //     setIsVisible(false);
+  // //   }
+  // // };
+  // const toggleVisibility = () => {
+  //   requestAnimationFrame(() => {
+  //     if (window.pageYOffset >= 1) {
+  //       setIsVisible(true);
+  //     } else {
+  //       setIsVisible(false);
+  //     }
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", toggleVisibility);
+  //   return () => window.removeEventListener("scroll", toggleVisibility);
+  // }, []);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    if (window.pageYOffset > 1) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  //Moving mouse
+
+  const handleTransitionEnd = useCallback((swiper) => {
+    // window.alert(swiper.activeIndex);
+    if (swiper.activeIndex === swiper.slides.length - 1) {
+      swiper.mousewheel.disable();
+      document.body.style.overflow = "auto";
+    } else if (swiper.activeIndex === 0) {
+      //swiper.mousewheel.disable();
+      //document.body.style.overflow = "auto";
+      swiper.mousewheel.enable();
+      document.body.style.overflow = "hidden";
       if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
         // إذا كان الجهاز iPhone
         window.scrollTo(0, -60);
@@ -118,275 +231,165 @@ useEffect(() => {
         // إذا لم يكن iPhone
         window.scrollTo(0, 0);
       }
-    }, 0);
-  }
-}, [urlParams, searchParams, pathname, swiperInstance]);
-
-// button scroll top
-// const [isVisible, setIsVisible] = useState(false);
-
-const handleGoToFirstSlide = () => {
-  const url = new URL(window.location);
-  const scroll = new URLSearchParams(url.search);
-  scroll.delete("scroll");
-  scroll.delete("projects");
-  scroll.delete("clients");
-
-  // window.scrollTo({
-  //   top: 0,
-  //   behavior: "smooth",
-  // });
-
-  // إعادة تعيين المعاملة إلى قيمة مؤقتة
-  scroll.set("scroll", "temp");
-  url.search = scroll.toString();
-  window.history.pushState({}, "", url);
-  setUrlParams(new URLSearchParams(url.search));
-
-  // تحديث المعاملة إلى القيمة النهائية
-  scroll.set("scroll", "show");
-  url.search = scroll.toString();
-  window.history.pushState({}, "", url);
-  if (swiperInstance) {
-    swiperInstance.update();
-    swiperInstance.slideTo(0, 2000);
-  }
-  setUrlParams(new URLSearchParams(url.search));
-};
-// const handleGoToFirstSlide = () => {
-//   // if (swiperInstance) {
-//   //   // document.body.style.overflow = "auto";
-
-//   //   swiperInstance.update();
-//   //   swiperInstance.slideTo(0, 2000);
-
-//  
-//   //   // swiperInstance.mousewheel.enable();
-//   //   // setTimeout(() => {
-//   //   //   window.scrollTo(0, 0);
-//   //   // }, 2000);
-//   // }
-//   document.body.style.overflow = "hidden";
-//   window.scrollTo({
-//     top: 0,
-//     behavior: "smooth",
-//   });
-// };
-// // const toggleVisibility = () => {
-// //   if (window.pageYOffset >= 1) {
-// //     setIsVisible(true);
-// //   } else {
-// //     setIsVisible(false);
-// //   }
-// // };
-// const toggleVisibility = () => {
-//   requestAnimationFrame(() => {
-//     if (window.pageYOffset >= 1) {
-//       setIsVisible(true);
-//     } else {
-//       setIsVisible(false);
-//     }
-//   });
-// };
-
-// useEffect(() => {
-//   window.addEventListener("scroll", toggleVisibility);
-//   return () => window.removeEventListener("scroll", toggleVisibility);
-// }, []);
-const [isVisible, setIsVisible] = useState(false);
-
-const toggleVisibility = () => {
-  if (window.pageYOffset > 1) {
-    setIsVisible(true);
-  } else {
-    setIsVisible(false);
-  }
-};
-
-useEffect(() => {
-  window.addEventListener("scroll", toggleVisibility, { passive: true });
-  return () => window.removeEventListener("scroll", toggleVisibility);
-}, []);
-
-//Moving mouse
-
-const handleTransitionEnd = useCallback((swiper) => {
-  // window.alert(swiper.activeIndex);
-  if (swiper.activeIndex === swiper.slides.length - 1) {
-    swiper.mousewheel.disable();
-    document.body.style.overflow = "auto";
-  } else if (swiper.activeIndex === 0) {
-    //swiper.mousewheel.disable();
-    //document.body.style.overflow = "auto";
-    swiper.mousewheel.enable();
-    document.body.style.overflow = "hidden";
-    if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
-      // إذا كان الجهاز iPhone
-      window.scrollTo(0, -60);
     } else {
-      // إذا لم يكن iPhone
-      window.scrollTo(0, 0);
+      swiper.mousewheel.enable();
+      document.body.style.overflow = "hidden";
+
+      window.scrollTo({
+        top: (0.5 / 100) * window.innerHeight,
+        behavior: "smooth", // التمرير السلس
+      });
+
+      // window.scrollTo(0, 55);
     }
-  } else {
-    swiper.mousewheel.enable();
-    document.body.style.overflow = "hidden";
-
-    window.scrollTo({
+  }, []);
+  const handleWheel = useCallback((event) => {
+    const delta = event.deltaY;
+    if (delta > 0) {
+      setScrollingDown(true);
+      window.scrollTo({
         top: (0.5 / 100) * window.innerHeight,
         behavior: "smooth", // التمرير السلس
       });
-
-    // window.scrollTo(0, 55);
-  }
-}, []);
-const handleWheel = useCallback((event) => {
-  const delta = event.deltaY;
-  if (delta > 0) {
-    setScrollingDown(true);
-    window.scrollTo({
+    } else {
+      setScrollingDown(false);
+      window.scrollTo({
         top: (0.5 / 100) * window.innerHeight,
         behavior: "smooth", // التمرير السلس
       });
-  } else {
-    setScrollingDown(false);
-    window.scrollTo({
-        top: (0.5 / 100) * window.innerHeight,
-        behavior: "smooth", // التمرير السلس
+    }
+  }, []);
+
+  const handleScroll = useCallback(() => {
+    const scrollTop = window.pageYOffset;
+    if (scrollTop === 0) {
+      swiperInstance.mousewheel.enable();
+    }
+  }, [swiperInstance]);
+  useEffect(() => {
+    if (swiperInstance) {
+      window.addEventListener("scroll", handleScroll);
+    }
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [swiperInstance, handleScroll]);
+
+  //buttons
+
+  useEffect(() => {
+    if (swiperInstance) {
+      swiperInstance.on("slideChange", () => {
+        setIsLastSlide(swiperInstance.isEnd);
       });
-  }
-}, []);
+    }
+  }, [swiperInstance]);
 
-const handleScroll = useCallback(() => {
-  const scrollTop = window.pageYOffset;
-  if (scrollTop === 0) {
-    swiperInstance.mousewheel.enable();
-  }
-}, [swiperInstance]);
-useEffect(() => {
-  if (swiperInstance) {
-    window.addEventListener("scroll", handleScroll);
-  }
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  };
-}, [swiperInstance, handleScroll]);
+  useEffect(() => {
+    if (isLastSlide) {
+      const handleWheel = (e) => {
+        if (e.deltaY > 0) {
+          swiperInstance.allowTouchMove = false;
+          swiperInstance.allowSlidePrev = false;
+          swiperInstance.allowSlideNext = false;
+        }
+        if (e.deltaY < 0) {
+          swiperInstance.allowTouchMove = true;
+          swiperInstance.allowSlidePrev = true;
+          swiperInstance.allowSlideNext = true;
+        }
+      };
 
-//buttons
+      const handleKeyDown = (e) => {
+        if (e.key === "ArrowDown") {
+          swiperInstance.allowTouchMove = false;
+          swiperInstance.allowSlidePrev = false;
+          swiperInstance.allowSlideNext = false;
+        }
+        if (e.key === "ArrowUp") {
+          swiperInstance.allowTouchMove = true;
+          swiperInstance.allowSlidePrev = true;
+          swiperInstance.allowSlideNext = true;
+        }
+      };
 
-useEffect(() => {
-  if (swiperInstance) {
-    swiperInstance.on("slideChange", () => {
-      setIsLastSlide(swiperInstance.isEnd);
-    });
-  }
-}, [swiperInstance]);
+      window.addEventListener("wheel", handleWheel);
+      window.addEventListener("keydown", handleKeyDown);
 
-useEffect(() => {
-  if (isLastSlide) {
-    const handleWheel = (e) => {
-      if (e.deltaY > 0) {
-        swiperInstance.allowTouchMove = false;
-        swiperInstance.allowSlidePrev = false;
-        swiperInstance.allowSlideNext = false;
-      }
-      if (e.deltaY < 0) {
+      return () => {
+        window.removeEventListener("wheel", handleWheel);
+        window.removeEventListener("keydown", handleKeyDown);
         swiperInstance.allowTouchMove = true;
         swiperInstance.allowSlidePrev = true;
         swiperInstance.allowSlideNext = true;
-      }
-    };
+      };
+    }
+  }, [isLastSlide, swiperInstance]);
 
-    const handleKeyDown = (e) => {
-      if (e.key === "ArrowDown") {
-        swiperInstance.allowTouchMove = false;
-        swiperInstance.allowSlidePrev = false;
-        swiperInstance.allowSlideNext = false;
-      }
-      if (e.key === "ArrowUp") {
+  //Mobile
+
+  const [isFirstSlide, setIsFirstSlide] = useState(false);
+
+  useEffect(() => {
+    if (swiperInstance) {
+      swiperInstance.on("slideChange", () => {
+        setIsLastSlide(swiperInstance.isEnd);
+        setIsFirstSlide(swiperInstance.isBeginning);
+      });
+    }
+  }, [swiperInstance]);
+
+  useEffect(() => {
+    if (swiperInstance) {
+      let startY = 0;
+      let endY = 0;
+
+      const handleTouchStart = (e) => {
+        startY = e.touches[0].clientY;
+      };
+
+      const handleTouchMove = (e) => {
+        e.preventDefault();
+        endY = e.touches[0].clientY;
+        const deltaY = endY - startY;
+        if (isLastSlide && deltaY < -200) {
+          swiperInstance.allowTouchMove = false;
+          window.scrollTo(0, 650);
+        } else if (isFirstSlide && deltaY > +200) {
+          // console.log(isFirstSlide, deltaY);
+          // window.alert(window.scrollY);
+          // window.alert(deltaY);
+          window.setTimeout(() => {
+            window.scrollTo(0, 0);
+          }, 50); ////////////////////////////////////////////////////
+          // document.documentElement.scrollTop = 0;
+          // document.body.scrollTop = 0;
+          swiperInstance.allowTouchMove = false;
+        } else {
+          swiperInstance.allowTouchMove = true;
+        }
+      };
+
+      const handleTouchEnd = () => {
         swiperInstance.allowTouchMove = true;
-        swiperInstance.allowSlidePrev = true;
-        swiperInstance.allowSlideNext = true;
-      }
-    };
+      };
 
-    window.addEventListener("wheel", handleWheel);
-    window.addEventListener("keydown", handleKeyDown);
+      swiperInstance?.el?.addEventListener("touchstart", handleTouchStart);
+      swiperInstance?.el?.addEventListener("touchmove", handleTouchMove);
+      swiperInstance?.el?.addEventListener("touchend", handleTouchEnd);
 
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("keydown", handleKeyDown);
-      swiperInstance.allowTouchMove = true;
-      swiperInstance.allowSlidePrev = true;
-      swiperInstance.allowSlideNext = true;
-    };
-  }
-}, [isLastSlide, swiperInstance]);
-
-//Mobile
-
-const [isFirstSlide, setIsFirstSlide] = useState(false);
-
-useEffect(() => {
-  if (swiperInstance) {
-    swiperInstance.on("slideChange", () => {
-      setIsLastSlide(swiperInstance.isEnd);
-      setIsFirstSlide(swiperInstance.isBeginning);
-    });
-  }
-}, [swiperInstance]);
-
-useEffect(() => {
-  if (swiperInstance) {
-    let startY = 0;
-    let endY = 0;
-
-    const handleTouchStart = (e) => {
-      startY = e.touches[0].clientY;
-    };
-
-    const handleTouchMove = (e) => {
-      e.preventDefault();
-      endY = e.touches[0].clientY;
-      const deltaY = endY - startY;
-      if (isLastSlide && deltaY < -200) {
-        swiperInstance.allowTouchMove = false;
-        window.scrollTo(0, 650);
-      } else if (isFirstSlide && deltaY > +200) {
-        // console.log(isFirstSlide, deltaY);
-        // window.alert(window.scrollY);
-        // window.alert(deltaY);
-        window.setTimeout(() => {
-          window.scrollTo(0, 0);
-        }, 50); ////////////////////////////////////////////////////
-        // document.documentElement.scrollTop = 0;
-        // document.body.scrollTop = 0;
-        swiperInstance.allowTouchMove = false;
-      } else {
-        swiperInstance.allowTouchMove = true;
-      }
-    };
-
-    const handleTouchEnd = () => {
-      swiperInstance.allowTouchMove = true;
-    };
-
-    swiperInstance?.el?.addEventListener("touchstart", handleTouchStart);
-    swiperInstance?.el?.addEventListener("touchmove", handleTouchMove);
-    swiperInstance?.el?.addEventListener("touchend", handleTouchEnd);
-
-    return () => {
-      if (swiperInstance) {
-        swiperInstance?.el?.removeEventListener(
-          "touchstart",
-          handleTouchStart
-        );
-        swiperInstance?.el?.removeEventListener("touchmove", handleTouchMove);
-        swiperInstance?.el?.removeEventListener("touchend", handleTouchEnd);
-      }
-    };
-  }
-}, [isLastSlide, isFirstSlide, swiperInstance]);
-
+      return () => {
+        if (swiperInstance) {
+          swiperInstance?.el?.removeEventListener(
+            "touchstart",
+            handleTouchStart
+          );
+          swiperInstance?.el?.removeEventListener("touchmove", handleTouchMove);
+          swiperInstance?.el?.removeEventListener("touchend", handleTouchEnd);
+        }
+      };
+    }
+  }, [isLastSlide, isFirstSlide, swiperInstance]);
 
   return (
     <motion.div
@@ -412,20 +415,20 @@ useEffect(() => {
         <SwiperSlide className="relative w-full h-full">
           <ImageTitleProject
             detail={getDetailProject}
-            name={project?.attributes?.name}
-            description={project?.attributes?.description}
-            location={project?.attributes?.location}
-            StartingEndingYear={project?.attributes?.StartingEndingYear}
-            imgURL={project?.attributes?.imgURl?.data?.attributes?.url}
+            name={project?.name}
+            description={project?.description}
+            location={project?.location}
+            StartingEndingYear={project?.StartingEndingYear}
+            imgURL={project?.imgURl?.url}
           />
         </SwiperSlide>
-        {project?.attributes?.imgesGroup?.data?.map((item, index) => (
+        {project?.imgesGroup?.map((item, index) => (
           <div key={index}>
             <SwiperSlide className="relative w-full h-full">
               <div className="relative h-screen w-screen ">
                 <Image
                   className="object-cover"
-                  src={item?.attributes?.url}
+                  src={`https://strapi.shockersgroup.com${item?.url}`}
                   fill={true}
                   alt="imageOverlays"
                   quality={75}

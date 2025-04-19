@@ -9,14 +9,17 @@ const ImageOverlaysTop = ({ title, imgURL, dir, bgColor }) => {
           <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
         </div>
       )} */}
-      <Image
-        className=" object-cover"
-        src={imgURL}
-        fill={true}
-        alt="imageOverlays"
-        quality={75}
-        priority
-      />
+      {imgURL && (
+        <Image
+          className="object-cover"
+          src={`https://strapi.shockersgroup.com${imgURL}`}
+          fill={true}
+          alt="imageOverlays"
+          quality={75}
+          priority
+        />
+      )}
+      {console.log(imgURL)}
       {bgColor && (
         <div className={`${bgColor}  w-full h-full absolute top-0`} />
       )}

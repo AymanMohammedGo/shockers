@@ -144,8 +144,8 @@ const FooterContact = ({ footerNames, socialMedias }) => {
                   ></path>
                 </svg>
               )}
-              <Link href={item?.attributes?.LinkURL || "#"}>
-                <span className="text-base px-2">{item?.attributes?.Name}</span>
+              <Link href={item?.LinkURL || "#"}>
+                <span className="text-base px-2">{item?.Name}</span>
               </Link>
             </li>
           ))}

@@ -49,7 +49,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   const getName_Solgan_ = useCallback(() => {
     getName_Solgan(lan).then((res) => {
       const newSolgan = [];
-      res.data.data?.attributes?.ShockyHome.map((item, index) => {
+      res.data.data?.ShockyHome.map((item, index) => {
         newSolgan.push({
           text: item?.children[0].text,
           delay: 2.5 + (index + 1) / 2,
@@ -460,9 +460,9 @@ const Y_MarketingHome = ({ params: { locale } }) => {
             link="shocky"
             videoMobile="/shocky events website video (mobile version) with Overlay.mp4"
             videoLoptap="/shocky events website video with Overlay.mp4"
-            title={data?.attributes?.TitleAbout}
-            description={data?.attributes?.DescriptionAbout}
-            textButton={data?.attributes?.TextButton}
+            title={data?.TitleAbout}
+            description={data?.DescriptionAbout}
+            textButton={data?.TextButton}
             bg="bg-white"
             tc="text-shockersAEC"
           />
@@ -470,7 +470,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
         <SwiperSlide className="relative w-full h-full">
           <SlideServicesSection
             services={services}
-            title={data?.attributes?.NameServices}
+            title={data?.NameServices}
             link="shocky"
             bg="bg-Hover-gradient-shocky"
             tc="text-white"
@@ -482,7 +482,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
         <SwiperSlide className="relative w-full h-full">
           <ScuccessInNumber
             data={scuccessInNumber}
-            title={data?.attributes?.NameServices}
+            title={data?.NameServices}
             link="shocky"
             bg="bg-shocky"
             tc="text-shocky"
@@ -510,19 +510,19 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           <ProjectsSection
             bg_color={"bg-shocky"}
             link={"shocky"}
-            textButton={data?.attributes?.TextButton}
-            data={projects?.attributes}
+            textButton={data?.TextButton}
+            data={projects}
           />
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
           <div className="flex flex-col justify-center items-center h-full max-w-screen-xl text-center m-auto">
             <div className="bg-shocky m-3 px-5 py-20 lg:p-20 rounded-2xl text-white">
               <h1 className="text-3xl lg:text-[34px]  FHD125:text-4xl FHD110:text-5xl font-bold mb-12">
-                {data?.attributes?.ARE_YOU_INTERESTED}
+                {data?.ARE_YOU_INTERESTED}
               </h1>
               <Link href="/shocky/contact">
                 <button className="w-fit text-xl lg:text-2xl  FHD125:text-[24px] FHD110:text-3xl font-medium bg-shockyRed text-white rounded-xl hover:bg-white hover:text-shockyRed  py-3 px-10">
-                  {data?.attributes?.Contact_Us}
+                  {data?.Contact_Us}
                 </button>
               </Link>
             </div>

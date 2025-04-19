@@ -34,7 +34,7 @@ const DecaHome = ({ params: { locale } }) => {
   const getName_Solgan_ = useCallback(() => {
     getName_Solgan(lan).then((res) => {
       const newSolgan = [];
-      res.data.data?.attributes?.DecaHome.map((item, index) => {
+      res.data.data?.DecaHome.map((item, index) => {
         newSolgan.push({
           text: item?.children[0].text,
           delay: 2.5 + (index + 1) / 2,
@@ -170,7 +170,6 @@ const DecaHome = ({ params: { locale } }) => {
 
   //   //   swiperInstance.update();
   //   //   swiperInstance.slideTo(0, 2000);
-
 
   //   //   // swiperInstance.mousewheel.enable();
   //   //   // setTimeout(() => {
@@ -420,16 +419,16 @@ const DecaHome = ({ params: { locale } }) => {
         onTransitionEnd={handleTransitionEnd}
       >
         <SwiperSlide className="relative w-full h-full">
-          <SalgonSection  titleText={solgan} dir={document.dir} />
+          <SalgonSection titleText={solgan} dir={document.dir} />
         </SwiperSlide>
         <SwiperSlide className="relative w-full h-full">
           <AboutSection
             link="deca"
             videoMobile="/DecaMobile.mp4"
             videoLoptap="/DecaAboutUs.mp4"
-            title={data?.attributes?.TitleAbout}
-            description={data?.attributes?.DescriptionAbout}
-            textButton={data?.attributes?.TextButton}
+            title={data?.TitleAbout}
+            description={data?.DescriptionAbout}
+            textButton={data?.TextButton}
             bg="bg-deca"
             tc="text-white"
           />
@@ -437,7 +436,7 @@ const DecaHome = ({ params: { locale } }) => {
         <SwiperSlide className="relative w-full h-full">
           <ServicesOver3Section
             services={services}
-            title={data?.attributes?.NameServices}
+            title={data?.NameServices}
             link="deca"
             bg="bg-Hover-gradient-Deca"
             tc="text-shockersAEC"

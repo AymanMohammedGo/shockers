@@ -52,8 +52,8 @@ const Services = ({ params: { locale } }) => {
         <Draw_D animationData={D_json} delay={500} speed={0.4} />
         <ImageOverlaysTop
           dir={document.dir}
-          title={selectedService?.attributes?.title}
-          imgURL={selectedService?.attributes?.imgURL.data?.attributes.url}
+          title={selectedService?.title}
+          imgURL={selectedService?.imgURL.url}
         />
 
         <div className="hidden sm:flex flex-col   justify-center md:flex-row min-h-screen lg:py-5 lg:my-5 max-w-screen-xxl m-auto relative z-10 overflow-hidden">
@@ -74,8 +74,7 @@ const Services = ({ params: { locale } }) => {
                   key={index}
                   onClick={() => setSelectedService(service)}
                   className={`cursor-pointer text-2xl lg:text-3xl p-4 py-6 lg:!mb-5 font-bold ${
-                    selectedService?.attributes.title ===
-                    service?.attributes.title
+                    selectedService?.title === service?.title
                       ? `${
                           document.dir === "ltr"
                             ? "border-l-[6px]"
@@ -84,7 +83,7 @@ const Services = ({ params: { locale } }) => {
                       : "text-[#9b9999] hover:text-deca"
                   }`}
                 >
-                  {service?.attributes.title}
+                  {service?.title}
                 </li>
               ))}
             </ul>
@@ -101,7 +100,7 @@ const Services = ({ params: { locale } }) => {
             className="md:w-2/3 p-2 md:p-4"
           >
             <div className="mb-6 text-xl lg:text-2xl !leading-[40px]  lg:!leading-[50px] py-0 lg:py-4 px-4 lg:px-10 whitespace-pre-line text-justify hyphens-auto">
-              {selectedService?.attributes?.description
+              {selectedService?.description
                 .split("\n")
                 .map((service, index) => {
                   const trimmedService = service.trim();
@@ -155,11 +154,11 @@ const Services = ({ params: { locale } }) => {
                         : "text-[#9b9999] hover:text-deca"
                     }`}
                   >
-                    {service?.attributes.title}
+                    {service?.title}
                   </h2>
                   {activeServiceIndex === service.id && (
                     <div className="text-xl my-3 !leading-[40px] text-justify whitespace-pre-line  hyphens-auto">
-                      {service?.attributes.description
+                      {service?.description
                         .split("\n")
                         .map((line, lineIndex) => {
                           const trimmedLine = line.trim();

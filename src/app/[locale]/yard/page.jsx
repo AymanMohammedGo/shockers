@@ -36,7 +36,7 @@ const Page = ({ params: { locale } }) => {
   const getName_Solgan_ = useCallback(() => {
     getName_Solgan(lan).then((res) => {
       const newSolgan = [];
-      res.data.data?.attributes?.YardHome.map((item, index) => {
+      res.data.data?.YardHome.map((item, index) => {
         newSolgan.push({
           text: item?.children[0].text,
           delay: 2.5 + (index + 1) / 2,
@@ -173,7 +173,6 @@ const Page = ({ params: { locale } }) => {
   //   //   swiperInstance.update();
   //   //   swiperInstance.slideTo(0, 2000);
 
- 
   //   //   // swiperInstance.mousewheel.enable();
   //   //   // setTimeout(() => {
   //   //   //   window.scrollTo(0, 0);
@@ -435,9 +434,9 @@ const Page = ({ params: { locale } }) => {
               link="yard"
               videoMobile="/YardMobile.mp4"
               videoLoptap="/YardAbout.mp4"
-              title={data?.attributes?.TitleAbout}
-              description={data?.attributes?.DescriptionAbout}
-              textButton={data?.attributes?.TextButton}
+              title={data?.TitleAbout}
+              description={data?.DescriptionAbout}
+              textButton={data?.TextButton}
               bg="bg-yard"
               tc="text-white"
             />
@@ -445,7 +444,7 @@ const Page = ({ params: { locale } }) => {
           <SwiperSlide className="relative w-full h-full">
             <Services8Section
               services={services}
-              title={data?.attributes?.NameServices}
+              title={data?.NameServices}
               link="yard"
               bg="bg-Hover-gradient-yard"
               tc="text-shockersAEC"

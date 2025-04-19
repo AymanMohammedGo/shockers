@@ -79,7 +79,7 @@ const ServicesSection = ({ services, title, bg, link, tc, dir }) => {
                               : "after:bg-shockersAEC"
                           }  after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out group-hover:after:w-[40%]`}
                         >
-                          {item?.name?.attributes?.title}
+                          {item?.name?.title}
                         </span>
                         <div
                           className={`w-[18px] translate-x-6 translate-y-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 absolute ${

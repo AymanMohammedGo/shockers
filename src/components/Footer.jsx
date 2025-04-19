@@ -210,22 +210,22 @@ const Footer = ({ width, background, name, logo, socialMedia, data }) => {
                   className="my-2 flex items-center justify-center lg:justify-start"
                   key={index}
                 >
-                  {item?.attributes?.LinkURL.split("/")
+                  {item?.LinkURL.split("/")
                     .slice(0, 3)
                     .join("/") === "https://www.facebook.com"
                     ? facebookIcons
-                    : item?.attributes?.LinkURL.split("/")
+                    : item?.LinkURL.split("/")
                         .slice(0, 3)
                         .join("/") === "https://www.instagram.com"
                     ? instagramIcons
-                    : item?.attributes?.LinkURL.split("/")
+                    : item?.LinkURL.split("/")
                         .slice(0, 3)
                         .join("/") === "https://www.linkedin.com" &&
                       likedinIcons}
 
-                  <Link href={item?.attributes?.LinkURL || "#"}>
+                  <Link href={item?.LinkURL || "#"}>
                     <span className="text-base px-2">
-                      {item?.attributes?.Name}
+                      {item?.Name}
                     </span>
                   </Link>
                 </li>

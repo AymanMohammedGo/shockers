@@ -38,7 +38,7 @@ const SubProject = ({ params: { locale, id } }) => {
   const assignLocalizationIDs = (locale, id, localizations) => {
     lanID[locale] = id;
     localizations.forEach((localization) => {
-      const loc = localization?.attributes?.locale;
+      const loc = localization?.locale;
       if (loc === "af") {
         lanID.af = localization.id;
       } else if (loc === "ar") {
@@ -56,36 +56,50 @@ const SubProject = ({ params: { locale, id } }) => {
       router.push(`/shockersAEC/${params.projects}/${lanID.af}`);
     }
   };
-  const getCategoriesProjects_ = useCallback(() => {
-    getCategoriesProjects(lan).then((res) => {
-      setCategoriesProjects(res.data.data);
-    });
-  }, [lan]);
+  // const getCategoriesProjects_ = useCallback(() => {
+  //   getCategoriesProjects(lan).then((res) => {
+  //     setCategoriesProjects(res.data.data);
+  //   });
+  // }, [lan]);
+  // const getProject_ = useCallback(() => {
+  //   getProject(lan, id)
+  //     .then((res) => {
+  //       if (!res.data) {
+  //         router.push(`/en/shockersAEC`);
+  //       } else {
+  //         setProject(res.data.data);
+  //         console.log(res.data.data);
+  //         const { locale, localizations } = res.data.data;
+  //         assignLocalizationIDs(locale, res.data.data.id, localizations.data);
+  //       }
+  //     })
+  //     .catch(() => {
+  //       router.push(`/en/shockersAEC`);
+  //     });
+  // }, [lan, id, router]);
   const getProject_ = useCallback(() => {
-    getProject(lan, id)
-      .then((res) => {
-        if (!res.data) {
-          router.push(`/en/shockersAEC`);
-        } else {
-          setProject(res.data.data);
-          const { locale, localizations } = res.data.data.attributes;
-          assignLocalizationIDs(locale, res.data.data.id, localizations.data);
-        }
-      })
-      .catch(() => {
-        router.push(`/en/shockersAEC`);
-      });
+    getProject(lan).then((res) => {
+      if (res?.data?.data.filter((item) => item.id).length === 0) {
+        // router.push(`/en/shockersAEC`);
+      } else {
+        const proj = res?.data?.data?.find((item) => item.id == id);
+        //console.log(projs);
+        setProject(proj);
+        // const { locale, localizations } = proj;
+        // assignLocalizationIDs(locale, res.data.data.id, localizations);
+      }
+    });
   }, [lan, id, router]);
   const getDetail_project_ = useCallback(() => {
     getDetail_project(lan).then((res) => {
-      setGetDetailProject(res.data.data.attributes);
+      setGetDetailProject(res.data.data);
     });
   }, [lan]);
   useEffect(() => {
-    getCategoriesProjects_();
+    // getCategoriesProjects_();
     getProject_();
     getDetail_project_();
-  }, [getCategoriesProjects_, getProject_, getDetail_project_]);
+  }, [getProject_, getDetail_project_]);
   const [scrollingDown, setScrollingDown] = useState(false);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -171,7 +185,6 @@ const SubProject = ({ params: { locale, id } }) => {
 
   //   //   swiperInstance.update();
   //   //   swiperInstance.slideTo(0, 2000);
-
 
   //   //   // swiperInstance.mousewheel.enable();
   //   //   // setTimeout(() => {
@@ -369,7 +382,7 @@ const SubProject = ({ params: { locale, id } }) => {
           // window.alert(deltaY);
           window.setTimeout(() => {
             window.scrollTo(0, 0);
-          }, 50); ////////////////////////////////////////////////////
+          }, 50);
           // document.documentElement.scrollTop = 0;
           // document.body.scrollTop = 0;
           swiperInstance.allowTouchMove = false;
@@ -422,21 +435,21 @@ const SubProject = ({ params: { locale, id } }) => {
         <SwiperSlide className="relative w-full h-full">
           <ImageTitleProject
             detail={getDetailProject}
-            name={project?.attributes?.name}
-            description={project?.attributes?.description}
-            location={project?.attributes?.location}
-            StartingEndingYear={project?.attributes?.StartingEndingYear}
-            imgURL={project?.attributes?.imgURl?.data?.attributes?.url}
+            name={project?.name}
+            description={project?.description}
+            location={project?.location}
+            StartingEndingYear={project?.StartingEndingYear}
+            imgURL={project?.imgURl?.url}
           />
         </SwiperSlide>
 
-        {project?.attributes?.imgesGroup?.data?.map((item, index) => (
+        {project?.imgesGroup?.map((item, index) => (
           <div key={index}>
             <SwiperSlide className="relative w-full h-full">
               <div className="relative h-screen w-screen ">
                 <Image
                   className="object-cover"
-                  src={item?.attributes?.url}
+                  src={`https://strapi.shockersgroup.com${item?.url}`}
                   fill={true}
                   alt="imageOverlays"
                   quality={75}

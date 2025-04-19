@@ -49,7 +49,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
   const getName_Solgan_ = useCallback(() => {
     getName_Solgan(lan).then((res) => {
       const newSolgan = [];
-      res.data.data?.attributes?.YmarketingHome.map((item, index) => {
+      res.data.data?.YmarketingHome.map((item, index) => {
         newSolgan.push({
           text: item?.children[0].text,
           delay: 2.5 + (index + 1) / 2,
@@ -462,9 +462,9 @@ const Y_MarketingHome = ({ params: { locale } }) => {
               link="ymarketing"
               videoMobile="/Y website mobile version1.mp4"
               videoLoptap="/Y website PC version1.mp4"
-              title={data?.attributes?.TitleAbout}
-              description={data?.attributes?.DescriptionAbout}
-              textButton={data?.attributes?.TextButton}
+              title={data?.TitleAbout}
+              description={data?.DescriptionAbout}
+              textButton={data?.TextButton}
               bg="bg-white"
               tc="text-shockersAEC"
             />
@@ -472,7 +472,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           <SwiperSlide className="relative w-full h-full">
             <SlideServicesSection
               services={services}
-              title={data?.attributes?.NameServices}
+              title={data?.NameServices}
               link="ymarketing"
               bg="bg-Hover-gradient"
               tc="text-white"
@@ -482,7 +482,7 @@ const Y_MarketingHome = ({ params: { locale } }) => {
           <SwiperSlide className="relative w-full h-full">
             <ScuccessInNumber
               data={scuccessInNumber}
-              title={data?.attributes?.NameServices}
+              title={data?.NameServices}
               link="ymarketing"
               bg="bg-yMarketing"
               tc="text-yMarketing"
@@ -495,20 +495,17 @@ const Y_MarketingHome = ({ params: { locale } }) => {
             <ClientsLogo data={clients} />
           </SwiperSlide>
           <SwiperSlide className="relative w-full h-full">
-            <ProjectsSection
-              textButton={data?.attributes?.TextButton}
-              data={projects?.attributes}
-            />
+            <ProjectsSection textButton={data?.TextButton} data={projects} />
           </SwiperSlide>
           <SwiperSlide className="relative w-full h-full">
             <div className="flex flex-col justify-center items-center h-full max-w-screen-xl text-center m-auto">
               <div className="bg-yMarketing m-3 px-5 py-20 lg:p-20 rounded-2xl text-white">
                 <h1 className="text-3xl lg:text-[34px]  FHD125:text-4xl FHD110:text-5xl  font-bold mb-12">
-                  {data?.attributes?.ARE_YOU_INTERESTED}
+                  {data?.ARE_YOU_INTERESTED}
                 </h1>
                 <Link href="/ymarketing/contact">
                   <button className="w-fit text-xl lg:text-2xl  FHD125:text-[24px] FHD110:text-3xl font-medium bg-shockerYellow text-yMarketing rounded-xl hover:bg-white hover:text-yMarketing  py-3 px-10">
-                    {data?.attributes?.Contact_Us}
+                    {data?.Contact_Us}
                   </button>
                 </Link>
               </div>

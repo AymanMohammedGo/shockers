@@ -400,76 +400,77 @@ const About = ({ params: { locale } }) => {
           />
         </SwiperSlide>
 
-        {data.sort((a, b) => a.id - b.id).map((item, index) => (
-          <SwiperSlide key={index} className="relative w-full h-full">
-            <div
-              ref={(el) => (sectionRefs.current[index] = el)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: index === currentIndex ? 1 : 0 }}
-              transition={{ duration: 0.5 }}
-              className="px-4 h-screen text-shockersAEC flex flex-col items-start"
-            >
-              <div className="absolute h-screen w-full">
-                <Draw_YMar
-                  animationData={YMar_json}
-                  delay={500}
-                  speed={0.4}
-                  postion={"absolute right-0"}
-                />
-              </div>
-              <div className="relative max-w-screen-xxl m-auto flex flex-col items-start overflow-hidden">
-                <div
-                  className={`flex flex-col ${
-                    index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
-                  }   items-center justify-center md:justify-between h-screen overflow-hidden`}
-                >
-                  <motion.div
-                    custom={document.dir}
-                    variants={animationVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    className="relative w-full md:w-3/5 flex flex-col  z-10 "
-                  >
-                    <h2 className="relative  w-fit text-shockersAEC font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[40px] md:!leading-[50px] lg:!leading-[70px]">
-                      <span className="relative z-10 ">
-                        {item?.attributes.title}
-                      </span>
-                      {/* <span className="absolute left-0 bottom-2 h-5 bg-shockerYellow w-full -z-10"></span>*/}
-                    </h2>
+        {data
+          .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
 
-                    <p
-                      className={`text-justify hyphens-auto text-shockersAEC text-lg sm:text-xl md:text-[22px] lg:text-2xl mb-3 lg:mb-0  lg:!leading-10`}
-                    >
-                      {item?.attributes.description}
-                    </p>
-                  </motion.div>
-                  <motion.div
-                    custom={document.dir}
-                    variants={animationVariants}
-                    initial="hidden"
-                    whileInView="visible"
+          .map((item, index) => (
+            <SwiperSlide key={index} className="relative w-full h-full">
+              <div
+                ref={(el) => (sectionRefs.current[index] = el)}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: index === currentIndex ? 1 : 0 }}
+                transition={{ duration: 0.5 }}
+                className="px-4 h-screen text-shockersAEC flex flex-col items-start"
+              >
+                <div className="absolute h-screen w-full">
+                  <Draw_YMar
+                    animationData={YMar_json}
+                    delay={500}
+                    speed={0.4}
+                    postion={"absolute right-0"}
+                  />
+                </div>
+                <div className="relative max-w-screen-xxl m-auto flex flex-col items-start overflow-hidden">
+                  <div
+                    className={`flex flex-col ${
+                      index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
+                    }   items-center justify-center md:justify-between h-screen overflow-hidden`}
                   >
-                    <Draw_YAbout
-                      animationData={
-                        index === 0
-                          ? about_us_json
-                          : index === 1
-                          ? yearsExperience_json
-                          : index === 2
-                          ? mission_json
-                          : index === 3
-                          ? vision1_json
-                          : index === 4
-                          ? value_json
-                          : staff_json
-                      }
-                    />
-                  </motion.div>
+                    <motion.div
+                      custom={document.dir}
+                      variants={animationVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      className="relative w-full md:w-3/5 flex flex-col  z-10 "
+                    >
+                      <h2 className="relative  w-fit text-shockersAEC font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[40px] md:!leading-[50px] lg:!leading-[70px]">
+                        <span className="relative z-10 ">{item?.title}</span>
+                        {/* <span className="absolute left-0 bottom-2 h-5 bg-shockerYellow w-full -z-10"></span>*/}
+                      </h2>
+
+                      <p
+                        className={`text-justify hyphens-auto text-shockersAEC text-lg sm:text-xl md:text-[22px] lg:text-2xl mb-3 lg:mb-0  lg:!leading-10`}
+                      >
+                        {item?.description}
+                      </p>
+                    </motion.div>
+                    <motion.div
+                      custom={document.dir}
+                      variants={animationVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                    >
+                      <Draw_YAbout
+                        animationData={
+                          index === 0
+                            ? about_us_json
+                            : index === 1
+                            ? yearsExperience_json
+                            : index === 2
+                            ? mission_json
+                            : index === 3
+                            ? vision1_json
+                            : index === 4
+                            ? value_json
+                            : staff_json
+                        }
+                      />
+                    </motion.div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          ))}
       </Swiper>
       <div className="fixed  bottom-2 right-2 lg:bottom-8 lg:right-8 z-30">
         {isVisible && (

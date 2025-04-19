@@ -21,5 +21,5 @@ export const getProjects = (locale, id) =>
   axiosClient.get(
     `/shockers-categories/${id}?populate[shockers_projects][populate]=*&populate=*&locale=${locale}`
   );
-export const getProject = (locale, id) =>
-  axiosClient.get(`/shockers-projects/${id}?populate=*&locale=${locale}`);
+export const getProject = (locale) =>
+  axiosClient.get(`/shockers-projects?populate=*&locale=${locale}`);

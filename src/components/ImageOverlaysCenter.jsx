@@ -5,7 +5,7 @@ const ImageOverlaysCenter = ({ title, imgURl }) => {
     <div className="relative w-screen h-screen ">
       <Image
         className="object-cover"
-        src={imgURl}
+        src={`https://strapi.shockersgroup.com${imgURl}`}
         fill={true}
         alt="imageOverlays"
         quality={75}

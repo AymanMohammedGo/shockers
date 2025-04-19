@@ -17,8 +17,7 @@ const ProjectsSection = ({
 }) => {
   const numberOfProjects = 6;
   const projects = useMemo(() => {
-    const totalImages =
-      data?.images?.data?.map((item) => item?.attributes.url) || [];
+    const totalImages = data?.images?.map((item) => item?.url) || [];
     if (totalImages.length === 0) return [];
 
     const imagesPerProject = Math.ceil(totalImages.length / numberOfProjects);
@@ -92,7 +91,7 @@ const ProjectsSection = ({
                     {item.images.map((img, index) => (
                       <SwiperSlide key={index} className="h-full w-full">
                         <Image
-                          src={img}
+                          src={`https://strapi.shockersgroup.com${img}`}
                           alt=""
                           fill={true}
                           className="transition-transform duration-500 h-full w-full object-cover rounded-lg md:rounded-xl"

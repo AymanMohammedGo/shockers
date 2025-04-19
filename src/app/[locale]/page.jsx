@@ -33,7 +33,8 @@ export default function Home({ params: { locale } }) {
   const [solgan, setSolgan] = useState([]);
   const getName_Solgan_ = useCallback(() => {
     getName_Solgan(lan).then((res) => {
-      setSolgan(res.data.data.attributes);
+      console.log(res);
+      setSolgan(res.data.data);
     });
   }, [lan]);
   useEffect(() => {
@@ -48,7 +49,7 @@ export default function Home({ params: { locale } }) {
       imageLogo: "/img/MainPage/shockers.svg",
       imageHoverLogo: "/img/MainPage/shockers.svg",
       bgColorHover: "hover:bg-shockersAECYellow",
-      textHover: solgan.Shockers,
+      textHover: solgan?.Shockers,
       duration: 1,
       delay: 0.5,
       hoverIndex: 1,
@@ -60,7 +61,7 @@ export default function Home({ params: { locale } }) {
       imageLogo: "/img/MainPage/Baytuna.svg",
       imageHoverLogo: "/img/MainPage/BaytunaWhite.svg",
       bgColorHover: "hover:bg-baytuna",
-      textHover: solgan.Baytuna,
+      textHover: solgan?.Baytuna,
       duration: 2,
       delay: 1,
       hoverIndex: 2,
@@ -72,7 +73,7 @@ export default function Home({ params: { locale } }) {
       imageLogo: "/img/MainPage/yard.svg",
       imageHoverLogo: "/img/MainPage/yard.svg",
       bgColorHover: "hover:bg-yard",
-      textHover: solgan.Yard,
+      textHover: solgan?.Yard,
       duration: 2,
       delay: 1.5,
       hoverIndex: 3,
@@ -83,7 +84,7 @@ export default function Home({ params: { locale } }) {
       link: "/deca",
       imageLogo: "/img/MainPage/Deca.svg",
       imageHoverLogo: "/img/MainPage/DecaWhite.svg",
-      textHover: solgan.Deca,
+      textHover: solgan?.Deca,
       bgColorHover: "hover:bg-deca",
       duration: 2,
       delay: 2,
@@ -96,7 +97,7 @@ export default function Home({ params: { locale } }) {
       imageLogo: "/img/MainPage/yMarketing.svg",
       imageHoverLogo: "/img/MainPage/yMarketingYellow.svg",
       bgColorHover: "hover:bg-yMarketing",
-      textHover: solgan.Ymarketing,
+      textHover: solgan?.Ymarketing,
       duration: 2,
       delay: 2.5,
       hoverIndex: 5,
@@ -108,7 +109,7 @@ export default function Home({ params: { locale } }) {
       imageLogo: "/img/MainPage/shocky.svg",
       imageHoverLogo: "/img/MainPage/shockyWhite.svg",
       bgColorHover: "hover:bg-shockyRed",
-      textHover: solgan.Shocky,
+      textHover: solgan?.Shocky,
       duration: 2,
       delay: 3,
       hoverIndex: 6,

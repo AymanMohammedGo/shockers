@@ -387,9 +387,9 @@ const About = ({ params: { locale } }) => {
             dir={document.dir}
           />
         </SwiperSlide>
-
+        {console.log(data)}
         {data
-          .sort((a, b) => a.id - b.id)
+          .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
           .map((item, index) => (
             <SwiperSlide key={index} className="relative w-full h-full">
               <div
@@ -444,7 +444,7 @@ const About = ({ params: { locale } }) => {
                         whileInView="visible"
                         className="sm:mx-4 w-full text-shockersAEC font-bold text-4xl md:text-5xl lg:text-6xl my-3 lg:mb-6 !leading-[50px] lg:!leading-[70px]"
                       >
-                        {item?.attributes.title}
+                        {item?.title}
                       </motion.h2>
                     </div>
                     {/* النص */}
@@ -459,7 +459,7 @@ const About = ({ params: { locale } }) => {
                           : "sm:mr-[26px] md:mr-[78px] lg:mr-[130px]"
                       } text-justify hyphens-auto text-shockersAEC text-xl lg:text-2xl mb-3 lg:mb-0 !leading-8 lg:!leading-10`}
                     >
-                      {item?.attributes.description}
+                      {item?.description}
                     </motion.p>
                   </div>
                 </div>

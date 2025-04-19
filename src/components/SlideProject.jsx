@@ -104,9 +104,7 @@ export default function SlideProject({ allProjects, link }) {
                       >
                         <Image
                           className="object-cover"
-                          src={
-                            item?.attributes?.imgURLHome?.data?.attributes?.url
-                          }
+                          src={`https://strapi.shockersgroup.com${item?.imgURLHome?.url}`}
                           fill={true}
                           alt={item.id}
                           quality={75}
@@ -116,7 +114,7 @@ export default function SlideProject({ allProjects, link }) {
                       </motion.div>
                     </div>
                     <span className="absolute text-center w-full  bottom-0 p-4 text-white text-2xl">
-                      {item?.attributes?.name}
+                      {item?.name}
                     </span>
                   </Link>
                 </SwiperSlide>

@@ -66,7 +66,7 @@ const ServicesOver3Section = ({ services, title, bg, link, tc, dir }) => {
                       <span
                         className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] group-hover:text-white after:bg-white after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out group-hover:after:w-[40%]`}
                       >
-                        {item?.name?.attributes?.title}
+                        {item?.name?.title}
                       </span>
                       <div
                         className={`w-[18px] translate-x-6 translate-y-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 absolute ${
@@ -123,7 +123,7 @@ const ServicesOver3Section = ({ services, title, bg, link, tc, dir }) => {
                         <span
                           className={`relative font-medium w-full text-2xl lg:text-3xl xl:text-4xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] group-hover:text-white after:bg-white after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out group-hover:after:w-[40%]`}
                         >
-                          {item?.name?.attributes?.title}
+                          {item?.name?.title}
                         </span>
                         <div
                           className={`w-[18px] translate-x-6 translate-y-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 absolute ${
@@ -179,7 +179,7 @@ const ServicesOver3Section = ({ services, title, bg, link, tc, dir }) => {
                       <span
                         className={`relative font-medium w-full text-2xl pb-3 group after:content-[''] after:block after:absolute after:left-1/2 after:bottom-0 after:-translate-x-1/2 after:w-0 after:h-[2px] group-hover:text-white after:bg-white after:transition-[width,left] after:duration-300 after:delay-100 after:ease-in-out group-hover:after:w-[40%]`}
                       >
-                        {item?.name?.attributes?.title}
+                        {item?.name?.title}
                       </span>
                       <div
                         className={`w-[18px] translate-x-3 translate-y-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 absolute ${

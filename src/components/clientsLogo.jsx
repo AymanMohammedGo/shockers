@@ -22,13 +22,13 @@ const clientsLogo = ({
         className={`${text_color} w-full h-full flex-1  flex flex-col items-center justify-center `}
       >
         <h1 className="w-full px-7    text-4xl sm:text-[40px] lg:text-5xl FHD125:text-6xl FHD110:text-7xl font-bold max-w-screen-xl mx-auto min-h-[160px] sm:min-h-[120px] xl:min-h-[160px]">
-          {data?.attributes?.HOW_ADAPTIVE}
+          {data?.HOW_ADAPTIVE}
           <span className={`${text_active}`}>
             <Typewriter
               words={[
-                data?.attributes?.titleOne ?? "",
-                data?.attributes?.titleTwo ?? "",
-                data?.attributes?.titleThree ?? "",
+                data?.titleOne ?? "",
+                data?.titleTwo ?? "",
+                data?.titleThree ?? "",
               ]}
               loop={0}
               cursor
@@ -85,11 +85,11 @@ const clientsLogo = ({
             },
           }}
         >
-          {data?.attributes?.logos.data?.map((item) => (
+          {data?.logos?.map((item) => (
             <SwiperSlide key={item.id} className="">
               <Image
                 className="object-cover rounded-xl"
-                src={item.attributes.url}
+                src={`https://strapi.shockersgroup.com${item?.url}`}
                 width={300}
                 height={100}
                 alt="logo"
@@ -97,11 +97,11 @@ const clientsLogo = ({
               />
             </SwiperSlide>
           ))}
-          {data?.attributes?.logos.data?.map((item) => (
+          {data?.logos?.map((item) => (
             <SwiperSlide key={item.id} className="">
               <Image
                 className="object-cover rounded-xl"
-                src={item.attributes.url}
+                src={`https://strapi.shockersgroup.com${item?.url}`}
                 width={300}
                 height={100}
                 alt="logo"
@@ -109,11 +109,11 @@ const clientsLogo = ({
               />
             </SwiperSlide>
           ))}
-          {data?.attributes?.logos.data?.map((item) => (
+          {data?.logos?.map((item) => (
             <SwiperSlide key={item.id} className="">
               <Image
                 className="object-cover rounded-xl"
-                src={item.attributes.url}
+                src={`https://strapi.shockersgroup.com${item?.url}`}
                 width={300}
                 height={100}
                 alt="logo"
@@ -121,11 +121,11 @@ const clientsLogo = ({
               />
             </SwiperSlide>
           ))}
-          {data?.attributes?.logos.data?.map((item) => (
+          {data?.logos?.map((item) => (
             <SwiperSlide key={item.id} className="">
               <Image
                 className="object-cover rounded-xl"
-                src={item.attributes.url}
+                src={`https://strapi.shockersgroup.com${item?.url}`}
                 width={300}
                 height={100}
                 alt="logo"
@@ -133,11 +133,11 @@ const clientsLogo = ({
               />
             </SwiperSlide>
           ))}
-          {data?.attributes?.logos.data?.map((item) => (
+          {data?.logos?.map((item) => (
             <SwiperSlide key={item.id} className="">
               <Image
                 className="object-cover rounded-xl"
-                src={item.attributes.url}
+                src={`https://strapi.shockersgroup.com${item?.url}`}
                 width={300}
                 height={100}
                 alt="logo"
@@ -145,11 +145,11 @@ const clientsLogo = ({
               />
             </SwiperSlide>
           ))}
-          {data?.attributes?.logos.data?.map((item) => (
+          {data?.logos?.map((item) => (
             <SwiperSlide key={item.id} className="">
               <Image
                 className="object-cover rounded-xl"
-                src={item.attributes.url}
+                src={`https://strapi.shockersgroup.com${item?.url}`}
                 width={300}
                 height={100}
                 alt="logo"
@@ -157,11 +157,11 @@ const clientsLogo = ({
               />
             </SwiperSlide>
           ))}
-          {data?.attributes?.logos.data?.map((item) => (
+          {data?.logos?.map((item) => (
             <SwiperSlide key={item.id} className="">
               <Image
                 className="object-cover rounded-xl"
-                src={item.attributes.url}
+                src={`https://strapi.shockersgroup.com${item?.url}`}
                 width={300}
                 height={100}
                 alt="logo"
@@ -169,11 +169,11 @@ const clientsLogo = ({
               />
             </SwiperSlide>
           ))}
-          {data?.attributes?.logos.data?.map((item) => (
+          {data?.logos?.map((item) => (
             <SwiperSlide key={item.id} className="">
               <Image
                 className="object-cover rounded-xl"
-                src={item.attributes.url}
+                src={`https://strapi.shockersgroup.com${item?.url}`}
                 width={300}
                 height={100}
                 alt="logo"
@@ -181,11 +181,11 @@ const clientsLogo = ({
               />
             </SwiperSlide>
           ))}
-          {data?.attributes?.logos.data?.map((item) => (
+          {data?.logos?.map((item) => (
             <SwiperSlide key={item.id} className="">
               <Image
                 className="object-cover rounded-xl"
-                src={item.attributes.url}
+                src={`https://strapi.shockersgroup.com${item?.url}`}
                 width={300}
                 height={100}
                 alt="logo"
@@ -193,11 +193,11 @@ const clientsLogo = ({
               />
             </SwiperSlide>
           ))}
-          {data?.attributes?.logos.data?.map((item) => (
+          {data?.logos?.map((item) => (
             <SwiperSlide key={item.id} className="">
               <Image
                 className="object-cover rounded-xl"
-                src={item.attributes.url}
+                src={`https://strapi.shockersgroup.com${item?.url}`}
                 width={300}
                 height={100}
                 alt="logo"
@@ -205,11 +205,11 @@ const clientsLogo = ({
               />
             </SwiperSlide>
           ))}
-          {data?.attributes?.logos.data?.map((item) => (
+          {data?.logos?.map((item) => (
             <SwiperSlide key={item.id} className="">
               <Image
                 className="object-cover rounded-xl"
-                src={item.attributes.url}
+                src={`https://strapi.shockersgroup.com${item?.url}`}
                 width={300}
                 height={100}
                 alt="logo"
@@ -217,11 +217,11 @@ const clientsLogo = ({
               />
             </SwiperSlide>
           ))}
-          {data?.attributes?.logos.data?.map((item) => (
+          {data?.logos?.map((item) => (
             <SwiperSlide key={item.id} className="">
               <Image
                 className="object-cover rounded-xl"
-                src={item.attributes.url}
+                src={`https://strapi.shockersgroup.com${item?.url}`}
                 width={300}
                 height={100}
                 alt="logo"
@@ -229,11 +229,11 @@ const clientsLogo = ({
               />
             </SwiperSlide>
           ))}
-          {data?.attributes?.logos.data?.map((item) => (
+          {data?.logos?.map((item) => (
             <SwiperSlide key={item.id} className="">
               <Image
                 className="object-cover rounded-xl"
-                src={item.attributes.url}
+                src={`https://strapi.shockersgroup.com${item?.url}`}
                 width={300}
                 height={100}
                 alt="logo"
@@ -243,7 +243,7 @@ const clientsLogo = ({
           ))}
         </Swiper>
         <motion.h1 className="px-7  text-xl w-full  lg:text-2xl xl:text-3xl  max-w-screen-xl mx-auto  ">
-          {data?.attributes?.des_Adaptive}
+          {data?.des_Adaptive}
         </motion.h1>
       </div>
     </section>

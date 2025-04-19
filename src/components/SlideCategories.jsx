@@ -49,7 +49,7 @@ const VideoItem = ({ src, title }) => {
 export default function SlideCategories({ categoriesProjects, link }) {
   const swiperRef = useRef(null);
   const isDelay = useRef(false);
-
+  console.log(categoriesProjects);
   useEffect(() => {
     const handleMouseMove = (event) => {
       const isRTL = document.dir === "rtl";
@@ -86,10 +86,10 @@ export default function SlideCategories({ categoriesProjects, link }) {
     };
   }, []);
   const validProjects = categoriesProjects?.filter(
-    (item) => item?.attributes?.shockers_projects?.data?.length > 0
+    (item) => item?.shockers_projects?.length > 0
   );
   const invalidProjects = categoriesProjects?.filter(
-    (item) => item?.attributes?.shockers_projects?.data?.length === 0
+    (item) => item?.shockers_projects?.length === 0
   );
   return (
     <div className="bg-primary ">
@@ -151,7 +151,7 @@ export default function SlideCategories({ categoriesProjects, link }) {
                       >
                         <Image
                           className="object-cover"
-                          src={item?.attributes?.imgURL?.data?.attributes?.url}
+                          src={`https://strapi.shockersgroup.com${item?.imgURL?.url}`}
                           fill={true}
                           alt={item.id}
                           quality={75}
@@ -162,7 +162,7 @@ export default function SlideCategories({ categoriesProjects, link }) {
                       </motion.div>
                     </div>
                     <span className="absolute text-center w-full  bottom-0 p-4 text-white text-2xl">
-                      {item?.attributes?.title}
+                      {item?.title}
                     </span>
                   </Link>
                 </SwiperSlide>
@@ -192,12 +192,12 @@ export default function SlideCategories({ categoriesProjects, link }) {
                   </div>
 
                   <span className="absolute text-center w-full  bottom-0 p-4 text-white text-2xl">
-                    {item?.attributes?.title}
+                    {item?.title}
                   </span>
                   {/* <VideoItem
                     key={index}
                     src="/ComingSoon.mp4"
-                    title={item?.attributes?.title}
+                    title={item?.title}
                   /> */}
                 </SwiperSlide>
               ))}

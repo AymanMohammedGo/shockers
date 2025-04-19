@@ -63,17 +63,17 @@ export default function SlideProjectsOneItems({ allProjects, link }) {
           modules={[Navigation]}
         >
           {allProjects
-            ?.sort((a, b) => a.attributes.name.localeCompare(b.attributes.name))
+            ?.sort((a, b) => a.name.localeCompare(b.name))
             .map((item, index) => (
               <SwiperSlide
                 key={index}
                 className="relative w-full h-full overflow-hidden"
               >
                 <Link href={`/${link}/${item?.id}`}>
-                <ImageOverlaysCenter
-                  title={item?.attributes?.name}
-                  imgURl={item?.attributes?.imgURLHome?.data?.attributes?.url}
-                />
+                  <ImageOverlaysCenter
+                    title={item?.name}
+                    imgURl={item?.imgURLHome?.url}
+                  />
                   {/* <div className="relative w-full h-full overflow-hidden ">
                     <motion.div
                       className="relative w-full h-full overflow-hidden"
@@ -86,7 +86,7 @@ export default function SlideProjectsOneItems({ allProjects, link }) {
                       <Image
                         className="object-cover"
                         src={
-                          item?.attributes?.imgURLHome?.data?.attributes?.url
+                          item?.imgURLHome?.data?.url
                         }
                         fill={true}
                         alt={item.id}
@@ -98,7 +98,7 @@ export default function SlideProjectsOneItems({ allProjects, link }) {
                     </motion.div>
                   </div>
                   <span className="absolute text-center w-full  bottom-5 p-4 text-white text-2xl lg:text-3xl xl:text-4xl">
-                    {item?.attributes?.name}
+                    {item?.name}
                   </span> */}
                 </Link>
               </SwiperSlide>

@@ -68,7 +68,7 @@ const ScuccessInNumber = ({
               variants={var1}
               className={`text-[45px]  ${tc} text-center sm:text-6xl lg:text-[65px] FHD125:text-7xl FHD110:text-8xl font-bold mb-0 sm:mb-6 md:mb-8 lg:mb-12 FHD125:mb-16 FHD110:mb-20`}
             >
-              {data?.attributes?.title}
+              {data?.title}
             </motion.h1>
             <Swiper
               className="w-full p-0 sm:p-2 transition-timing-linear"
@@ -110,7 +110,7 @@ const ScuccessInNumber = ({
                       {inView ? (
                         <CountUp
                           start={0}
-                          end={data?.attributes?.numberOne || 0}
+                          end={data?.numberOne || 0}
                           duration={3}
                           // separator=","
                         />
@@ -121,18 +121,18 @@ const ScuccessInNumber = ({
                     <span
                       className={`relative flex items-end font-bold w-full text-2xl lg:text-[28px] FHD125:text-3xl FHD110:text-4xl pb-5 ${groupHover}`}
                     >
-                      {data?.attributes?.subNumberOne}
+                      {data?.subNumberOne}
                     </span>
                   </div>
                   <span
                     className={`relative font-medium w-full text-xl lg:text-2xl FHD125:text-3xl FHD110:text-4xl  sm:py-5 pt-3 pb-3 ${groupHover}`}
                   >
-                    {data?.attributes?.titleOne}
+                    {data?.titleOne}
                   </span>
                   <span
                     className={`relative w-full text-base lg:text-lg FHD125:text-xl FHD110:text-2xl min-h-[236px]`}
                   >
-                    {data?.attributes?.desOne}
+                    {data?.desOne}
                   </span>
                 </div>
               </SwiperSlide>
@@ -153,7 +153,7 @@ const ScuccessInNumber = ({
                       {inView ? (
                         <CountUp
                           start={0}
-                          end={data?.attributes?.numberTwo || 0}
+                          end={data?.numberTwo || 0}
                           duration={3}
                           // separator=","
                         />
@@ -166,12 +166,12 @@ const ScuccessInNumber = ({
                   <span
                     className={`relative font-medium w-full text-xl lg:text-2xl FHD125:text-3xl FHD110:text-4xl sm:py-5 pt-3 pb-3 ${groupHover}`}
                   >
-                    {data?.attributes?.titleTwo}
+                    {data?.titleTwo}
                   </span>
                   <span
                     className={`relative w-full text-base lg:text-lg FHD125:text-xl FHD110:text-2xl pb-3 min-h-[236px]`}
                   >
-                    {data?.attributes?.desTwo}
+                    {data?.desTwo}
                   </span>
                 </div>
               </SwiperSlide>
@@ -192,7 +192,7 @@ const ScuccessInNumber = ({
                       {inView ? (
                         <CountUp
                           start={0}
-                          end={data?.attributes?.numberThree || 0}
+                          end={data?.numberThree || 0}
                           duration={3}
                           // separator=","
                         />
@@ -205,12 +205,12 @@ const ScuccessInNumber = ({
                   <span
                     className={`relative font-medium w-full text-xl lg:text-2xl FHD125:text-3xl FHD110:text-4xl sm:py-5 pt-3 pb-3 ${groupHover}`}
                   >
-                    {data?.attributes?.titleThree}
+                    {data?.titleThree}
                   </span>
                   <span
                     className={`relative w-full text-base lg:text-lg FHD125:text-xl FHD110:text-2xl pb-3 min-h-[236px] `}
                   >
-                    {data?.attributes?.desThree}
+                    {data?.desThree}
                   </span>
                 </div>
               </SwiperSlide>

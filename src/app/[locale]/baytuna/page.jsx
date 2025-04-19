@@ -40,7 +40,7 @@ const BaytunaHome = ({ params: { locale } }) => {
   const getName_Solgan_ = useCallback(() => {
     getName_Solgan(lan).then((res) => {
       const newSolgan = [];
-      res.data.data?.attributes?.baytunaHome.map((item, index) => {
+      res.data.data?.baytunaHome.map((item, index) => {
         newSolgan.push({
           text: item?.children[0].text,
           delay: 2.5 + (index + 1) / 2,
@@ -438,9 +438,9 @@ const BaytunaHome = ({ params: { locale } }) => {
             link="baytuna"
             videoMobile="/BaytunaMobile.mp4"
             videoLoptap="/BaytunaAbout.mp4"
-            title={data?.attributes?.TitleAbout}
-            description={data?.attributes?.DescriptionAbout}
-            textButton={data?.attributes?.TextButton}
+            title={data?.TitleAbout}
+            description={data?.DescriptionAbout}
+            textButton={data?.TextButton}
             bg="bg-baytuna"
             tc="text-white"
           />
@@ -448,7 +448,7 @@ const BaytunaHome = ({ params: { locale } }) => {
         <SwiperSlide className="relative w-full h-full">
           {/* <ServicesSection
             services={services}
-            title={data?.attributes?.NameServices}
+            title={data?.NameServices}
             link="baytuna"
             bg="bg-Hover-gradient-Baytuna"
             tc="text-shockersAEC"
@@ -456,7 +456,7 @@ const BaytunaHome = ({ params: { locale } }) => {
           /> */}
           <SlideServicesSection
             services={services}
-            title={data?.attributes?.NameServices}
+            title={data?.NameServices}
             link="baytuna"
             background="bg-baytuna"
             bg="bg-Hover-gradient"

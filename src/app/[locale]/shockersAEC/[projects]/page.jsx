@@ -8,6 +8,8 @@ import { useEffect, useState, useCallback } from "react";
 import {
   getProjects,
   getCategoriesProject,
+  getCategoriesProjects,
+  getProject,
 } from "../../../../../utils/ShockersApi";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
@@ -39,7 +41,7 @@ const Projects = ({ params: { locale, projects } }) => {
   const assignLocalizationIDs = (locale, id, localizations) => {
     lanID[locale] = id;
     localizations.forEach((localization) => {
-      const loc = localization.attributes.locale;
+      const loc = localization.locale;
       if (loc === "af") {
         lanID.af = localization.id;
       } else if (loc === "ar") {
@@ -59,32 +61,35 @@ const Projects = ({ params: { locale, projects } }) => {
   };
 
   const getCategoriesProject_ = useCallback(() => {
-    getCategoriesProject(lan, projects).then((res) => {
-      if (res.data) {
-        const { locale, localizations } = res.data.data.attributes;
-        assignLocalizationIDs(locale, res.data.data.id, localizations.data);
+    getCategoriesProjects(lan).then((res) => {
+      if (res?.data?.data.filter((item) => item.id).length === 0) {
+        router.push(`/shockersAEC`);
       }
+      const proj = res?.data?.data?.find((item) => item.id == projects);
+      // console.log(proj);
+      const { locale, localizations } = proj;
+      setNameCat(proj.title);
+      assignLocalizationIDs(locale, proj.id, localizations);
     });
   }, [lan, projects]);
 
   const getProjects_ = useCallback(() => {
-    getProjects(lan, projects)
-      .then((res) => {
-        if (!res.data) {
-          router.push(`/en/shockersAEC`);
-        } else {
-          setNameCat(res.data.data?.attributes?.title);
-          setProjectsCat(res.data.data?.attributes?.shockers_projects?.data);
-        }
-      })
-      .catch(() => {
-        router.push(`/en/shockersAEC`);
-      });
+    getProject(lan).then((res) => {
+      if (res?.data?.data.filter((item) => item.id).length === 0) {
+        // router.push(`/en/shockersAEC`);
+      } else {
+        const projs = res?.data?.data?.filter(
+          (item) => item.shockers_category?.id == projects
+        );
+        //console.log(projs);
+        setProjectsCat(projs);
+      }
+    });
   }, [lan, projects, router]);
   useEffect(() => {
     getProjects_();
     getCategoriesProject_();
-  }, [getProjects_, getCategoriesProject_]);
+  }, [getCategoriesProject_, getProjects_]);
   const [scrollingDown, setScrollingDown] = useState(false);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -170,7 +175,6 @@ const Projects = ({ params: { locale, projects } }) => {
 
   //   //   swiperInstance.update();
   //   //   swiperInstance.slideTo(0, 2000);
-
 
   //   //   // swiperInstance.mousewheel.enable();
   //   //   // setTimeout(() => {
@@ -435,15 +439,14 @@ const Projects = ({ params: { locale, projects } }) => {
             </motion.h1>
           </div>
         </SwiperSlide>
-
         {projectsCat
-          ?.sort((a, b) => a.attributes.name.localeCompare(b.attributes.name))
+          ?.sort((a, b) => a.name.localeCompare(b.name))
           .map((item, index) => (
             <SwiperSlide key={index} className="relative w-full h-full">
               <Link href={`/shockersAEC/${projects}/${item.id}`}>
                 <ImageOverlaysCenter
-                  title={item?.attributes?.name}
-                  imgURl={item?.attributes?.imgURl?.data?.attributes.url}
+                  title={item?.name}
+                  imgURl={item?.imgURl.url}
                 />
               </Link>
             </SwiperSlide>

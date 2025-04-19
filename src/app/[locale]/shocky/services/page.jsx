@@ -63,9 +63,9 @@ const Services = ({ params: { locale } }) => {
         animate={{ opacity: 1, transition: { delay: 1 } }}
       >
         <Draw_YMar animationData={YMar_json} delay={500} speed={0.4} />
-        {/* data.attributes.url */}
+        {/* data.url */}
         <ImageOverlaysTop
-          imgURL={dataHome?.attributes?.services_image?.data.attributes.url}
+          imgURL={dataHome?.services_image?.url}
           dir={document.dir}
           title={t("SERVICES")}
         />
@@ -87,9 +87,9 @@ const Services = ({ params: { locale } }) => {
               className={`md:text-start text-center w-full  py-2 sm:py-10`}
             >
               <h1 className="text-3xl lg:text-5xl text-shocky !leading-[60px] font-extrabold  ">
-                {dataHome?.attributes?.title_service_page}{" "}
+                {dataHome?.title_service_page}{" "}
                 <span className="text-shockyRed">
-                  {dataHome?.attributes?.sub_service_page}
+                  {dataHome?.sub_service_page}
                 </span>
               </h1>
             </motion.div>
@@ -111,10 +111,10 @@ const Services = ({ params: { locale } }) => {
                   <li
                     className={` text-2xl lg:text-3xl text-shocky  font-bold py-5 sm:py-6 lg:py-10`}
                   >
-                    {service?.attributes.title}
+                    {service?.title}
                   </li>
                   <p className="text-xl min-h-[200px] lg:min-h-[150px] lg:text-2xl !leading-[40px] md:!leading-[45px] lg:!leading-[50px]  whitespace-pre-line text-justify hyphens-auto">
-                    {service?.attributes.description}
+                    {service?.description}
                   </p>
                   <div className="w-full h-[2px] bg-shocky"></div>
                 </motion.div>

@@ -37,12 +37,12 @@ export default function RootLayout({ children, params: { locale } }) {
 
   const getName_HeaderLinks_ = useCallback(() => {
     getName_HeaderLinks(lan).then((res) => {
-      setLinksNames(res.data.data.attributes);
+      setLinksNames(res.data.data);
     });
   }, [lan]);
   const getFooter_ = useCallback(() => {
     getFooter(lan).then((res) => {
-      setFooterNames(res.data.data.attributes);
+      setFooterNames(res.data.data);
     });
   }, [lan]);
   const getSocialMedias_ = useCallback(() => {
